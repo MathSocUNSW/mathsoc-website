@@ -5,7 +5,7 @@ export default function about() {
     return (
         <div className='About'>
             <Head>
-                <title>MathSoc - About</title>
+                <title>MathSoc - About Us</title>
                 <meta name='keywords' content='mathsoc' />
             </Head>
             About

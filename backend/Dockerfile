@@ -7,7 +7,7 @@ COPY package.json /app
 RUN yarn install
 
 # Copy source files
-COPY . /app
+# COPY . /app
 
 EXPOSE 8080
 

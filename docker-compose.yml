@@ -9,6 +9,10 @@ services:
             - mathsoc-network
         ports:
             - "3000:3000"
+        volumes:
+            - ./frontend:/app
+            - /app/node_modules
+            - /app/.next
     backend:
         image: backend
         build: ./backend
@@ -19,6 +23,9 @@ services:
             - "8080:8080"
         depends_on:
             - mongo
+        volumes:
+            - ./backend:/app
+            - /app/node_modules
     mongo:
         image: mongo:latest
         restart: always
