@@ -1,24 +1,24 @@
 const navLinks = [
   {
     name: 'About Us',
-    route: '/about',
+    route: '/about'
   },
   {
     name: 'Events',
-    route: '/events',
+    route: '/events'
   },
   {
     name: 'Resources',
-    route: '/resources',
+    route: '/resources'
   },
   {
     name: 'Sponsors',
-    route: '/sponsors',
+    route: '/sponsors'
   },
   {
     name: 'Contact Us',
-    route: '/contact',
+    route: '/contact'
   }
-]
+];
 
 export default navLinks;

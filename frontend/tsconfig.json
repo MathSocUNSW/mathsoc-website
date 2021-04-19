@@ -2,16 +2,12 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": false,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["esnext", "dom", "dom.iterable"],
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "jsx": "react",
     "allowJs": true,
     "baseUrl": "./",
     "esModuleInterop": true,
@@ -19,9 +15,7 @@
     "moduleResolution": "node",
     "downlevelIteration": true,
     "paths": {
-      "components/*": [
-        "src/components/*"
-      ]
+      "components/*": ["src/components/*"]
     },
     "skipLibCheck": true,
     "strict": false,
@@ -29,17 +23,6 @@
     "noEmit": true,
     "isolatedModules": true
   },
-  "include": [
-    "./src",
-    "./webpack.config.ts"
-  ],
-  "scripts": {
-    "start:dev": "webpack-cli serve --mode=development --env development --open --hot",
-    "build": "webpack --mode=production --env production --progress",
-    "lint": "eslint './src/**/*.{ts,tsx}'",
-    "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix"
-  },
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

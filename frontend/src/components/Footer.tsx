@@ -1,8 +1,5 @@
+import React from 'react';
 
 export default function Footer() {
-  return (
-    <div>
-      Feet
-    </div>
-  )
+  return <div>Feet</div>;
 }
