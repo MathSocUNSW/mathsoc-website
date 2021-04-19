@@ -4,10 +4,14 @@
     "noImplicitAny": false,
     "module": "esnext",
     "target": "es5",
-    "lib": ["esnext", "dom", "dom.iterable"],
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "allowJs": true,
     "baseUrl": "./",
     "esModuleInterop": true,
@@ -15,7 +19,9 @@
     "moduleResolution": "node",
     "downlevelIteration": true,
     "paths": {
-      "components/*": ["src/components/*"]
+      "components/*": [
+        "src/components/*"
+      ]
     },
     "skipLibCheck": true,
     "strict": false,
@@ -23,6 +29,10 @@
     "noEmit": true,
     "isolatedModules": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
