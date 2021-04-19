@@ -1,0 +1,29 @@
+.card {
+    background-color: #BCD1FF;
+    height: 318px;
+    width: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
+    img {
+        height: 168px;
+    }
+}
+
+.content {
+    background-color: white;
+    padding: 0px 20px;
+    height: 318px - 168px;
+}
+
+.title {
+    background-color: pink;
+}
+
+.description {
+    background-color: yellow;
+}
+
+.link {
+    color: blue;
+}
