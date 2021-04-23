@@ -4,12 +4,12 @@ import Hero from '../components/Hero';
 
 export default function index() {
   return (
-    <div>
+    <section>
       <Head>
         <title>MathSoc</title>
         <meta name='keywords' content='mathsoc' />
       </Head>
       <Hero />I am home
-    </div>
+    </section>
   );
 }

@@ -4,16 +4,38 @@
 }
 
 body {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
 }
 
 .content {
-  max-width: 960px;
+  // max-width: 960px;
   margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    'sidebar-left   topbar  sidebar-right'
+    'sidebar-left   content sidebar-right'
+    'sidebar-left   footer  sidebar-right';
+  grid-template-columns: 1fr 12fr 1fr;
+  grid-template-rows: auto auto 70px;
+  gap: 25px 0; // horizontal vertical;
+  header {
+    grid-area: topbar;
+  }
+  .grid-left_side {
+    grid-area: sidebar-left;
+  }
+  article {
+    grid-area: content;
+  }
+  .grid-right_side {
+    grid-area: sidebar-right;
+  }
+  footer {
+    grid-area: footer;
+  }
 }
 
 // navbar
-
 
 // hero
 .hero {
@@ -21,4 +43,3 @@ body {
 }
 
 // footer
-
