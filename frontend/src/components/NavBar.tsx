@@ -5,7 +5,13 @@ import navLinks from '../data/NavBar';
 export default function NavBar() {
   return (
     <nav
-      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100%',
+        backgroundColor: 'grey'
+      }}
     >
       <ul
         style={{

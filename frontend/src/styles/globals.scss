@@ -12,13 +12,13 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-areas:
-    'sidebar-left   topbar  sidebar-right'
+    'topbar   topbar  topbar'
     'sidebar-left   content sidebar-right'
-    'sidebar-left   footer  sidebar-right';
+    'footer   footer  footer';
   grid-template-columns: 1fr 6fr 1fr;
   // TODO: change 6 to 12 for smaller screens
-  grid-template-rows: auto auto 70px;
-  gap: 25px 0; // horizontal vertical;
+  grid-template-rows: 70px auto 70px;
+  // gap: 25px 0; // horizontal vertical;
   header {
     grid-area: topbar;
   }
