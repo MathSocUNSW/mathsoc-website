@@ -1,10 +1,5 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import FacebookLogo from '../../../public/images/facebookLogo.svg';
-import LinkedinLogo from '../../../public/images/linkedinLogo.svg';
-import InstagramLogo from '../../../public/images/instagramLogo.svg';
-import YoutubeLogo from '../../../public/images/youtubeLogo.svg';
-import DiscordLogo from '../../../public/images/discordLogo.svg';
 import {
   discordLink,
   facebookLink,
@@ -25,37 +20,52 @@ export default function Footer() {
           <ul className={styles.logoList}>
             <li>
               <a href={facebookLink} target='_blank' rel='noreferrer'>
-                <div aria-label='facebook'>
-                  <FacebookLogo className={styles.logo} />
-                </div>
+                <img
+                  src='/images/facebookLogo.svg'
+                  className={styles.logo}
+                  aria-label='facebook'
+                  alt='facebook'
+                />
               </a>
             </li>
             <li>
               <a href={linkedInLink} target='_blank' rel='noreferrer'>
-                <div aria-label='linkedin'>
-                  <LinkedinLogo className={styles.logo} />
-                </div>
+                <img
+                  src='/images/linkedinLogo.svg'
+                  className={styles.logo}
+                  aria-label='linkedin'
+                  alt='linkedin'
+                />
               </a>
             </li>
             <li>
               <a href={instagramLink} target='_blank' rel='noreferrer'>
-                <div aria-label='instagram'>
-                  <InstagramLogo className={styles.logo} />
-                </div>
+                <img
+                  src='/images/instagramLogo.svg'
+                  className={styles.logo}
+                  aria-label='instagram'
+                  alt='instagram'
+                />
               </a>
             </li>
             <li>
               <a href={youtubeLink} target='_blank' rel='noreferrer'>
-                <div aria-label='youtube'>
-                  <YoutubeLogo className={styles.logo} />
-                </div>
+                <img
+                  src='/images/youtubeLogo.svg'
+                  className={styles.logo}
+                  aria-label='youtube'
+                  alt='youtube'
+                />
               </a>
             </li>
             <li>
               <a href={discordLink} target='_blank' rel='noreferrer'>
-                <div aria-label='youtube'>
-                  <DiscordLogo className={styles.logo} />
-                </div>
+                <img
+                  src='/images/discordLogo.svg'
+                  className={styles.logo}
+                  aria-label='discord'
+                  alt='discord'
+                />
               </a>
             </li>
           </ul>
