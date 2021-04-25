@@ -1,14 +1,22 @@
 import React from 'react';
-import '../css/global.scss';
+import styles from './Footer.module.scss';
 
 export default function Footer() {
   return (
-    <div>
-      <footer>
-        <div className='copyright__container'>
-          <p>© UNSW Mathematics Society 2020</p>
+    <section
+      style={{
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'grey',
+        display: 'grid',
+        placeItems: 'center'
+      }}
+    >
+      <section className={styles.flexContainer}>
+        <div>
+          <p>&#169; UNSW Mathematics Society 2020</p>
         </div>
-        <div className='social__container'>
+        <div>
           <ul>
             <li>
               <a href='https://www.facebook.com/unswmathsoc/'>
@@ -37,7 +45,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-      </footer>
-    </div>
+      </section>
+    </section>
   );
 }
