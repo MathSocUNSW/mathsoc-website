@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import navLinks from '../data/NavBar';
+import navLinks from '../../data/NavBar';
+import styles from 'NavBar.module.scss';
 
 export default function NavBar() {
   return (
