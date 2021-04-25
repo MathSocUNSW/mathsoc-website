@@ -7,6 +7,7 @@
 
 body {
   background-color: #f4f8fb;
+  font-family: 'DM Sans', sans-serif; // TODO need alternatives
 }
 
 .content {
@@ -19,7 +20,7 @@ body {
     'footer   footer  footer';
   grid-template-columns: 1fr 6fr 1fr;
   // TODO: change 6 to 12 for smaller screens
-  grid-template-rows: 70px auto 70px;
+  grid-template-rows: 70px auto 100px;
   // gap: 25px 0; // horizontal vertical;
   header {
     grid-area: topbar;
