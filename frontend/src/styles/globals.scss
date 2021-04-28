@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap';
 
 * {
   margin: 0;
@@ -21,7 +21,7 @@ body {
     'footer   footer  footer';
   grid-template-columns: 1fr 6fr 1fr;
   // TODO: change 6 to 12 for smaller screens
-  grid-template-rows: 70px auto 100px;
+  grid-template-rows: 60px auto 100px;
   // gap: 25px 0; // horizontal vertical;
   header {
     grid-area: topbar;
