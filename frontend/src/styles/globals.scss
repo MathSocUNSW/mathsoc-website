@@ -1,24 +1,48 @@
+@import 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap';
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
+  font-family: 'DM Sans', sans-serif; // TODO need alternatives
 }
 
 .content {
-  max-width: 960px;
+  // max-width: 960px;
+  height: 100vh;
   margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    'topbar   topbar  topbar'
+    'sidebar-left   content sidebar-right'
+    'footer   footer  footer';
+  grid-template-columns: 1fr 6fr 1fr;
+  // TODO: change 6 to 12 for smaller screens
+  grid-template-rows: 70px auto 100px;
+  // gap: 25px 0; // horizontal vertical;
+  header {
+    grid-area: topbar;
+  }
+  .grid-left_side {
+    grid-area: sidebar-left;
+  }
+  article {
+    grid-area: content;
+  }
+  .grid-right_side {
+    grid-area: sidebar-right;
+  }
+  footer {
+    grid-area: footer;
+  }
 }
 
 // navbar
-
 
 // hero
 .hero {
   height: 300px;
 }
-
-// footer
-
