@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   padding-top: 25px;
+  flex-direction: column;
 }
 
 .descText {
@@ -9,4 +10,23 @@
   padding-left: 25%;
   padding-right: 25%;
   font-weight: 500;
+}
+
+.newEventsContainer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
+
+.newEventsTitle {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.events {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
