@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Footer.module.scss';
+import styles from 'src/styles/Footer.module.scss';
 import {
   discordLink,
   facebookLink,
