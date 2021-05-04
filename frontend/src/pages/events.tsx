@@ -10,7 +10,7 @@ export default function events() {
         <meta name='keywords' content='mathsoc' />
       </Head>
       Events
-      <Card />
+      {/* <Card /> */}
     </div>
   );
 }

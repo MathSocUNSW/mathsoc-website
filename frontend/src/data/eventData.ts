@@ -14,14 +14,14 @@ type eventInfoLinks = {
   // name: <a href="url">text</a>
 };
 
-type eventDetails = {
+export type eventDetails = {
   image: string; // local url or base64
   name: string; // title
   mainText: string; // big text
   startDate: string; // when it starts
   endDate: string; // when it finishes
-  detailList?: Array<eventInfo>;
-  linkList?: Array<eventInfoLinks>;
+  detailList: Array<eventInfo>;
+  linkList: Array<eventInfoLinks>;
   externalLink: string; // facebook redirect
 };
 
@@ -209,7 +209,8 @@ const eventData: Array<eventDetails> = [
     detailList: [
       { name: 'When', text: '29th March 2021, 2-4PM' },
       { name: 'Where', text: 'Naked Lady Lawn' }
-    ]
+    ],
+    linkList: []
   },
   {
     image: '/images/events/panelcast_2021.jpg',
@@ -275,7 +276,8 @@ const eventData: Array<eventDetails> = [
     detailList: [
       { name: 'When', text: '5th March 2021, 4-6PM' },
       { name: 'Where', text: 'TBA' }
-    ]
+    ],
+    linkList: []
   },
   {
     image: '/images/events/ice_skating_2021.jpg',
@@ -293,7 +295,8 @@ const eventData: Array<eventDetails> = [
     detailList: [
       { name: 'When', text: '4th March 2021, 6:15PM' },
       { name: 'Where', text: 'Ice Zoo' }
-    ]
+    ],
+    linkList: []
   },
   {
     image: '/images/events/subcom_2021.png',
@@ -336,7 +339,8 @@ const eventData: Array<eventDetails> = [
     detailList: [
       { name: 'When', text: '9th February 2021, 3PM' },
       { name: 'Where', text: 'Keith Burrows Theatre' }
-    ]
+    ],
+    linkList: []
   },
   {
     image: '/images/events/oweek_2021.jpg',
@@ -353,7 +357,8 @@ const eventData: Array<eventDetails> = [
     detailList: [
       { name: 'When', text: '9-11th February 2021' },
       { name: 'Where', text: 'UNSW Kensington Campus' }
-    ]
+    ],
+    linkList: []
   },
   {
     image: '/images/events/peer_mentoring_2021.jpg',

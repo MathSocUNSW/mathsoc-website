@@ -1,39 +1,41 @@
 import React from 'react';
 import style from 'src/styles/Card.module.scss';
-
-type CardProps = {
-  imageLink: string;
-  eventName: string;
-  eventMainText: string;
-  eventDate?: string;
-  eventTime?: string;
-  eventLocation?: string;
-  externalLink: string;
-};
+import { eventDetails as CardProps } from 'src/data/eventData';
 
 export default function Card({
-  imageLink,
-  eventName,
-  eventMainText,
-  eventDate,
-  eventTime,
-  eventLocation,
+  image,
+  name,
+  mainText,
+  startDate,
+  endDate,
+  detailList,
+  linkList,
   externalLink
 }: CardProps): JSX.Element {
   return (
     <section className={style.mainContainer}>
       <section>
-        <img src={imageLink} className={style.topImage} alt='event banner' />
+        <img src={image} className={style.topImage} alt='event banner' />
       </section>
       <section className={style.content}>
         <div>
-          <h1 className={style.title}>{eventName}</h1>
+          <h1 className={style.title}>{name}</h1>
           <section className={style.eventInfo}>
-            <p>{eventMainText}</p>
+            <p>{mainText}</p>
             <ul>
-              <li>Date: {eventDate}</li>
-              <li>Time: {eventTime}</li>
-              <li>Location: {eventLocation}</li>
+              {detailList.map((x, index) => (
+                <li key={index}>
+                  {x.name}: {x.text}
+                </li>
+              ))}
+              {linkList.map((x, index) => (
+                <li key={index}>
+                  {x.name}:{' '}
+                  <a href={x.url} target='_blank' rel='noreferrer'>
+                    {x.text}
+                  </a>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
