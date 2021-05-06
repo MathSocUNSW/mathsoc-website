@@ -1,25 +1,9 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import moment from 'moment';
 
 import styles from 'src/styles/UpcomingEvents.module.scss';
 import Card from 'src/components/Card';
-import eventData, { eventDetails } from 'src/data/eventData';
-
-const sortEndDateDecreasing = (x: eventDetails, y: eventDetails): number => {
-  if (moment(x.endDate, 'DD-MM-YYYY').valueOf() > moment(y.endDate, 'DD-MM-YYYY').valueOf())
-    return -1;
-  if (moment(x.endDate, 'DD-MM-YYYY').valueOf() < moment(y.endDate, 'DD-MM-YYYY').valueOf())
-    return 1;
-  return 0;
-};
-
-const sortStartDateDecreasing = (x: eventDetails, y: eventDetails): number => {
-  if (moment(x.startDate, 'DD-MM-YYYY').valueOf() > moment(y.startDate, 'DD-MM-YYYY').valueOf())
-    return -1;
-  if (moment(x.startDate, 'DD-MM-YYYY').valueOf() < moment(y.startDate, 'DD-MM-YYYY').valueOf())
-    return 1;
-  return 0;
-};
+import eventData from 'src/data/eventData';
+import { sortEndDateDecreasing, sortStartDateDecreasing } from 'src/helpers/eventHelpers';
 
 const checkIndex = (index: number): number => {
   const length = eventData.length;
