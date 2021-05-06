@@ -21,7 +21,9 @@ export default function Card({
         <div>
           <h1 className={style.title}>{name}</h1>
           <section className={style.eventInfo}>
-            <p>{mainText}</p>
+            <div className={style.mainText}>
+              <p>{mainText}</p>
+            </div>
             <ul>
               {detailList.map((x, index) => (
                 <li key={index}>

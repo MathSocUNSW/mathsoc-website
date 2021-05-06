@@ -50,3 +50,22 @@
     }
   }
 }
+
+.mainText {
+  $font-size: 15px;
+  $line-height: 1.4;
+  $lines-to-show: 6;
+
+  // https://stackoverflow.com/questions/53156266/reactjs-multiline-textarea-with-ellipsis
+  width: 100%;
+  display: block; /* Fallback for non-webkit */
+  display: -webkit-box;
+  height: $font-size * $line-height * $lines-to-show; /* Fallback for non-webkit */
+  margin: 0 auto;
+  font-size: $font-size;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
