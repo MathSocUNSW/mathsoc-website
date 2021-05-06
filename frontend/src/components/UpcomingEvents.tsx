@@ -8,7 +8,7 @@ import {
   sortEndDateDecreasing,
   sortStartDateDecreasing
 } from 'src/helpers/eventHelpers';
-import moment from 'moment';
+import useWindowDimensions from 'src/helpers/useWindowDimensions';
 
 const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number => {
   const length = sortedEventData.length;
@@ -22,13 +22,18 @@ const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number
  * @param eventIndex integer
  * @returns array of 3 eventData
  */
-const figureOutWhatEventsToShow = (sortedEventData: Array<eventDetails>, eventIndex: number) => {
+const figureOutWhatEventsToShow = (
+  sortedEventData: Array<eventDetails>,
+  eventIndex: number,
+  width: number
+) => {
   sortedEventData.sort(sortStartDateDecreasing);
   sortedEventData.sort(sortEndDateDecreasing);
+  console.log(width);
 
-  if (sortedEventData.length === 1) {
+  if (sortedEventData.length === 1 || width <= 1050) {
     return [sortedEventData[checkIndex(sortedEventData, eventIndex)]];
-  } else if (sortedEventData.length === 2) {
+  } else if (sortedEventData.length === 2 || width <= 1500) {
     return [
       sortedEventData[checkIndex(sortedEventData, eventIndex)],
       sortedEventData[checkIndex(sortedEventData, eventIndex + 1)]
@@ -50,7 +55,9 @@ export type UpComingEventProps = {
 const UpcomingEvents = ({ eventIndex, setEventIndex }: UpComingEventProps): JSX.Element => {
   // TODO: Undo
   // const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
+  const { height, width } = useWindowDimensions();
   const sortedEventData = eventData;
+
   return (
     <section className={styles.newEventsContainer}>
       <h1 className={styles.newEventsTitle}>Upcoming Events</h1>
@@ -64,7 +71,7 @@ const UpcomingEvents = ({ eventIndex, setEventIndex }: UpComingEventProps): JSX.
             onClick={() => setEventIndex(eventIndex - 1)}
           />
         )}
-        {figureOutWhatEventsToShow(sortedEventData, eventIndex).map((x, index) => (
+        {figureOutWhatEventsToShow(sortedEventData, eventIndex, width).map((x, index) => (
           <Card key={index} {...x} />
         ))}
         {sortedEventData.length > 3 && (
