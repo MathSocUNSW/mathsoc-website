@@ -203,8 +203,8 @@ const eventData: Array<eventDetails> = [
     In celebration of Pi Day, MathSoc is giving away free pies for all MathSoc members! 🥳
     Don’t be like π and go on forever by cramming for midterms non-stop. Take a break and treat yo self to some well deserved and delicious pies 🤤. Your wellbeing matters too! ❤️
     Please have you student ID card with your MathSoc sticker ready in order to collect your free pie 🤩`,
-    startDate: '29-04-2021',
-    endDate: '29-04-2021',
+    startDate: '29-03-2021',
+    endDate: '29-03-2021',
     externalLink: 'https://www.facebook.com/events/1151411998637299/',
     detailList: [
       { name: 'When', text: '29th March 2021, 2-4PM' },

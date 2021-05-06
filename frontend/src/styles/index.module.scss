@@ -28,5 +28,14 @@
 .events {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrows {
+  height: 30px;
+  width: 30px;
+  &:hover {
+    cursor: pointer;
+  }
 }
