@@ -20,10 +20,16 @@ const sponsorsData: Array<sponsor> = [
     logoURL: '/images/logos/brain_and_company_logo.png'
   },
   {
+    name: 'Citadel',
+    type: 'principal',
+    websiteURL: 'https://www.citadel.com/',
+    logoURL: '/images/logos/citadel_logo.png'
+  },
+  {
     name: 'Citadel | Citadel Securities',
     type: 'principal',
     websiteURL: 'https://www.citadelsecurities.com/',
-    logoURL: '/images/logos/citadel_citadel_securities_logo.png'
+    logoURL: '/images/logos/citadel_securities_logo.png'
   },
   {
     name: 'IMC',
