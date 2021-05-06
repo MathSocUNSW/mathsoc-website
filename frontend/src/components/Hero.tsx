@@ -1,18 +1,17 @@
+import { urlObjectKeys } from 'next/dist/next-server/lib/utils';
 import React from 'react';
 
-export default function Hero() {
+import styles from 'src/styles/Hero.module.scss';
+
+interface HeroProps {
+  url: string;
+}
+
+export default function Hero({ url }: HeroProps): JSX.Element {
   return (
-    <div
-      className='hero'
-      style={{
-        width: '100%',
-        height: '300px',
-        backgroundColor: 'orange',
-        display: 'grid',
-        placeItems: 'center'
-      }}
-    >
-      Hero Image Here
-    </div>
+    <section className={styles.mainContainer}>
+      <img src={url} className={styles.image} alt='banner' />
+      <div className={styles.text}>Welcome to UNSW Mathematics Society</div>
+    </section>
   );
 }
