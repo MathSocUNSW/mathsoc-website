@@ -38,6 +38,9 @@ body {
   footer {
     grid-area: footer;
   }
+  @media (max-width: 1050px) {
+    grid-template-rows: 60px auto auto;
+  }
 }
 
 // navbar
