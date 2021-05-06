@@ -29,7 +29,7 @@ const figureOutWhatEventsToShow = (
 ) => {
   sortedEventData.sort(sortStartDateDecreasing);
   sortedEventData.sort(sortEndDateDecreasing);
-  console.log(width);
+  // console.log(width);
 
   if (sortedEventData.length === 1 || width <= 1050) {
     return [sortedEventData[checkIndex(sortedEventData, eventIndex)]];
