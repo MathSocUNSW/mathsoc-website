@@ -41,6 +41,9 @@ body {
   @media (max-width: 1050px) {
     grid-template-rows: 60px auto auto;
   }
+  @media (max-width: 750px) {
+    grid-template-columns: 0fr 6fr 0fr;
+  }
 }
 
 // navbar
