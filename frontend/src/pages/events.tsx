@@ -1,12 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
+import moment from 'moment';
 
 import styles from 'src/styles/events.module.scss';
 import UpcomingEvents from 'components/UpcomingEvents';
 import Hero from 'components/Hero';
 import Card from 'src/components/Card';
-import eventData, { eventDetails } from 'src/data/eventData';
-import moment from 'moment';
+import eventData from 'src/data/eventData';
 import {
   getDateUnix,
   sortEndDateDecreasing,
