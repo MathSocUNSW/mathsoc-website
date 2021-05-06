@@ -15,8 +15,9 @@
 .events {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  min-width: 100%;
 }
 
 .arrows {

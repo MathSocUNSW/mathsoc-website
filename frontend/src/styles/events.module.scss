@@ -1,0 +1,25 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #201b4b;
+}
+
+.pastEvents {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.eventBoxContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

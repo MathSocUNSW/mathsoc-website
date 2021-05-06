@@ -1,16 +1,43 @@
 import React from 'react';
 import Head from 'next/head';
-import Card from '../components/Card';
 
-export default function events() {
+import styles from 'src/styles/events.module.scss';
+import UpcomingEvents from 'components/UpcomingEvents';
+import Hero from 'components/Hero';
+import Card from 'src/components/Card';
+import eventData, { eventDetails } from 'src/data/eventData';
+import moment from 'moment';
+import {
+  getDateUnix,
+  sortEndDateDecreasing,
+  sortStartDateDecreasing
+} from 'src/helpers/eventHelpers';
+
+export default function Events() {
+  const [eventIndex, setEventIndex] = React.useState(0);
+
+  const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() < 0);
+  sortedEventData.sort(sortStartDateDecreasing);
+  sortedEventData.sort(sortEndDateDecreasing);
+
   return (
-    <div>
+    <section>
       <Head>
         <title>MathSoc - Events</title>
         <meta name='keywords' content='mathsoc' />
       </Head>
-      Events
-      {/* <Card /> */}
-    </div>
+      <Hero />
+      <section className={styles.mainContainer}>
+        <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
+        <h1 className={styles.title}>Past Events</h1>
+        <section className={styles.pastEvents}>
+          {sortedEventData.map((x, index) => (
+            <div key={index} className={styles.eventBoxContainer}>
+              <Card {...x} />
+            </div>
+          ))}
+        </section>
+      </section>
+    </section>
   );
 }
