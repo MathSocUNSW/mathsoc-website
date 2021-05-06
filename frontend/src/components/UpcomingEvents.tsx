@@ -48,8 +48,9 @@ export type UpComingEventProps = {
 };
 
 const UpcomingEvents = ({ eventIndex, setEventIndex }: UpComingEventProps): JSX.Element => {
-  const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
-
+  // TODO: Undo
+  // const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
+  const sortedEventData = eventData;
   return (
     <section className={styles.newEventsContainer}>
       <h1 className={styles.newEventsTitle}>Upcoming Events</h1>
