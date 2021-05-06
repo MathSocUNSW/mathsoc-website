@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Hero from '../components/Hero';
 import styles from 'src/styles/index.module.scss';
 import UpcomingEvents from 'components/UpcomingEvents';
+import Sponsors from 'components/Sponsors';
 
 export default function Index() {
   const [eventIndex, setEventIndex] = React.useState(0);
@@ -23,8 +24,9 @@ export default function Index() {
           resources for students. With over 3000 members, we are one of the largest societies at
           UNSW.
         </p>
+        <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
+        <Sponsors />
       </section>
-      <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
     </section>
   );
 }

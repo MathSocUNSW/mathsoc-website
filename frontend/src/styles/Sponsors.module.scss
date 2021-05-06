@@ -1,0 +1,28 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sponsorsTitle {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #201b4b;
+}
+
+.sponsorsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
