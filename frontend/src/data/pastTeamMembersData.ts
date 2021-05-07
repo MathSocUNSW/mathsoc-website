@@ -53,7 +53,7 @@ type yearTeamData = {
   subcommittee: Array<subcommitteeData> | null;
 };
 
-export const pastTeamData: Array<yearTeamData> = [
+const pastTeamData: Array<yearTeamData> = [
   {
     year: 2020,
     execList: [
@@ -380,3 +380,5 @@ export const pastTeamData: Array<yearTeamData> = [
     subcommittee: null
   }
 ];
+
+export default pastTeamData;
