@@ -1,9 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
-import navLinks from '../data/NavBar';
-import styles from 'src/styles/NavBar.module.scss';
-import useWindowDimensions from 'src/helpers/useWindowDimensions';
-import Hamburger from 'hamburger-react';
+import React from "react";
+import Link from "next/link";
+import navLinks from "../data/NavBar";
+import styles from "src/styles/NavBar.module.scss";
+import useWindowDimensions from "src/helpers/useWindowDimensions";
+import Hamburger from "hamburger-react";
 
 export default function NavBar() {
   const [isOpen, setOpen] = React.useState(false);
@@ -35,7 +35,7 @@ export default function NavBar() {
       </section>
       <section>
         <section className={styles.mobileMainContainer}>
-          <div style={{ visibility: 'hidden' }}>
+          <div style={{ visibility: "hidden" }}>
             {/* For easy flex box */}
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>

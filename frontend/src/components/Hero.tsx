@@ -1,7 +1,6 @@
-import { urlObjectKeys } from 'next/dist/next-server/lib/utils';
-import React from 'react';
+import React from "react";
 
-import styles from 'src/styles/Hero.module.scss';
+import styles from "src/styles/Hero.module.scss";
 
 interface HeroProps {
   url: string;

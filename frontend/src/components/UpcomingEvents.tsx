@@ -1,14 +1,14 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction } from "react";
 
-import styles from 'src/styles/UpcomingEvents.module.scss';
-import Card from 'src/components/Card';
-import eventData, { eventDetails } from 'src/data/eventData';
+import styles from "src/styles/UpcomingEvents.module.scss";
+import Card from "src/components/Card";
+import eventData, { eventDetails } from "src/data/eventData";
 import {
   getDateUnix,
   sortEndDateDecreasing,
   sortStartDateDecreasing
-} from 'src/helpers/eventHelpers';
-import useWindowDimensions from 'src/helpers/useWindowDimensions';
+} from "src/helpers/eventHelpers";
+import useWindowDimensions from "src/helpers/useWindowDimensions";
 
 const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number => {
   const length = sortedEventData.length;

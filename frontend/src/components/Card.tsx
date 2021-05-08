@@ -1,6 +1,6 @@
-import React from 'react';
-import style from 'src/styles/Card.module.scss';
-import { eventDetails as CardProps } from 'src/data/eventData';
+import React from "react";
+import style from "src/styles/Card.module.scss";
+import { eventDetails as CardProps } from "src/data/eventData";
 
 export default function Card({
   image,
@@ -32,7 +32,7 @@ export default function Card({
               ))}
               {linkList.map((x, index) => (
                 <li key={index}>
-                  {x.name}:{' '}
+                  {x.name}:{" "}
                   <a href={x.url} target='_blank' rel='noreferrer'>
                     {x.text}
                   </a>

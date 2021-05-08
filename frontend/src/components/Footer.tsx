@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from 'src/styles/Footer.module.scss';
+import React from "react";
+import styles from "src/styles/Footer.module.scss";
 import {
   discordLink,
   facebookLink,
   instagramLink,
   linkedInLink,
   youtubeLink
-} from 'src/data/socialLinks';
+} from "src/data/socialLinks";
 
 export default function Footer() {
   return (

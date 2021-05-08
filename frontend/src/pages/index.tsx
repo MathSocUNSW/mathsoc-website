@@ -1,9 +1,9 @@
-import React from 'react';
-import Head from 'next/head';
-import Hero from '../components/Hero';
-import styles from 'src/styles/index.module.scss';
-import UpcomingEvents from 'components/UpcomingEvents';
-import Sponsors from 'components/Sponsors';
+import React from "react";
+import Head from "next/head";
+import Hero from "../components/Hero";
+import styles from "src/styles/index.module.scss";
+import UpcomingEvents from "components/UpcomingEvents";
+import Sponsors from "components/Sponsors";
 
 export default function Index() {
   const [eventIndex, setEventIndex] = React.useState(0);

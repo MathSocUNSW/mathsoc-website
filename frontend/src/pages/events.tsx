@@ -1,17 +1,17 @@
-import React from 'react';
-import Head from 'next/head';
-import moment from 'moment';
+import React from "react";
+import Head from "next/head";
+import moment from "moment";
 
-import styles from 'src/styles/events.module.scss';
-import UpcomingEvents from 'components/UpcomingEvents';
-import Hero from 'components/Hero';
-import Card from 'src/components/Card';
-import eventData from 'src/data/eventData';
+import styles from "src/styles/events.module.scss";
+import UpcomingEvents from "components/UpcomingEvents";
+import Hero from "components/Hero";
+import Card from "src/components/Card";
+import eventData from "src/data/eventData";
 import {
   getDateUnix,
   sortEndDateDecreasing,
   sortStartDateDecreasing
-} from 'src/helpers/eventHelpers';
+} from "src/helpers/eventHelpers";
 
 export default function Events() {
   const [eventIndex, setEventIndex] = React.useState(0);

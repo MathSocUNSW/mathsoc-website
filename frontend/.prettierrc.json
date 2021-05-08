@@ -8,7 +8,7 @@
   "arrowParens": "always",
   "endOfLine": "auto",
   "jsxSingleQuote": true,
-  "singleQuote": true,
+  "singleQuote": false,
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "useTabs": false,

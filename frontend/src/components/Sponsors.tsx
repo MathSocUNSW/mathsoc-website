@@ -1,7 +1,7 @@
-import React from 'react';
-import sponsorsData from 'src/data/sponsorsData';
+import React from "react";
+import sponsorsData from "src/data/sponsorsData";
 
-import styles from 'src/styles/Sponsors.module.scss';
+import styles from "src/styles/Sponsors.module.scss";
 
 const Sponsors = () => {
   return (

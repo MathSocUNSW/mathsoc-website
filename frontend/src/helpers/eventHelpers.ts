@@ -1,6 +1,6 @@
-import moment from 'moment';
+import moment from "moment";
 
-import { eventDetails } from 'src/data/eventData';
+import { eventDetails } from "src/data/eventData";
 
 /**
  * Uses moment to parse `date` string into a unix timestamp
@@ -8,7 +8,7 @@ import { eventDetails } from 'src/data/eventData';
  * @returns
  */
 export const getDateUnix = (date: string): number => {
-  return moment(date, 'DD-MM-YYYY').valueOf();
+  return moment(date, "DD-MM-YYYY").valueOf();
 };
 
 export const sortEndDateDecreasing = (x: eventDetails, y: eventDetails): number => {
