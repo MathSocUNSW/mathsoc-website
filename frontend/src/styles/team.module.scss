@@ -1,16 +1,18 @@
 .mainContainer {
   margin-top: 50px;
-  h1 {
-    color: #201b4b;
-    font-weight: 700;
-    font-size: 40px;
-    text-align: center;
-  }
-  h3 {
-    font-weight: 500;
-    text-align: center;
-    font-size: 24px;
-  }
+}
+
+.title {
+  color: #201b4b;
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+}
+
+.subTitle {
+  font-weight: 500;
+  text-align: center;
+  font-size: 24px;
 }
 
 .cardsContainer {

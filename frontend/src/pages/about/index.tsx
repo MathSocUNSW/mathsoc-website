@@ -17,8 +17,8 @@ const About: React.FC = () => {
       <section className={styles.mainContainer}>
         <div className={styles.mainCard}>
           <section className={styles.mainText}>
-            <h1>About Us</h1>
-            <h3>
+            <h1 className={styles.title}>About Us</h1>
+            <h3 className={styles.subTitle}>
               Welcome to the official website of the University of New South Wales&apos; (UNSW)
               Mathematics Society!
             </h3>

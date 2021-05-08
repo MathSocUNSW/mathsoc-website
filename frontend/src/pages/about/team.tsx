@@ -28,8 +28,10 @@ const Team: React.FC = () => {
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Executives and Directors" />
       <section className={styles.mainContainer}>
-        <h1>Executives and Directors</h1>
-        <h3>The 2021 Executive and Director Team of the UNSW Mathematics Society</h3>
+        <h1 className={styles.title}>Executives and Directors</h1>
+        <h3 className={styles.subTitle}>
+          The 2021 Executive and Director Team of the UNSW Mathematics Society
+        </h3>
         <section className={styles.cardsContainer}>
           <div className={styles.cardsRow}>
             {teamData.map((person, index) => (
