@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 import Hero from "src/components/Hero";
 import styles from "src/styles/about.module.scss";
@@ -71,6 +72,9 @@ const About: React.FC = () => {
               Essentially, MathSoc is here to help enrich the experience of studying maths at UNSW.
               We’re here to fulfil your social, academic and career needs – and help make your time
               at UNSW a great one!
+            </p>
+            <p>
+              <Link href="/about/team">Meet the team!</Link>
             </p>
           </section>
         </div>
