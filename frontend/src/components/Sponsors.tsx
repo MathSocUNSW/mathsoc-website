@@ -9,7 +9,7 @@ const Sponsors: React.FC = () => {
       <h2 className={styles.sponsorsTitle}>Our Sponsors</h2>
       <section className={styles.sponsorsContainer}>
         {sponsorsData.map((x, index) => (
-          <a key={index} href={x.websiteURL} target='_blank' rel='noreferrer'>
+          <a key={index} href={x.websiteURL} target="_blank" rel="noreferrer">
             <img
               className={styles.logo}
               src={x.logoURL}

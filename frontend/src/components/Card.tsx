@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <section className={style.mainContainer}>
       <section>
-        <img src={image} className={style.topImage} alt='event banner' />
+        <img src={image} className={style.topImage} alt="event banner" />
       </section>
       <section className={style.content}>
         <div>
@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({
               {linkList.map((x, index) => (
                 <li key={index}>
                   {x.name}:{" "}
-                  <a href={x.url} target='_blank' rel='noreferrer'>
+                  <a href={x.url} target="_blank" rel="noreferrer">
                     {x.text}
                   </a>
                 </li>
@@ -42,7 +42,7 @@ const Card: React.FC<CardProps> = ({
           </section>
         </div>
         <section className={style.bottom}>
-          <a href={externalLink} target='_blank' rel='noreferrer'>
+          <a href={externalLink} target="_blank" rel="noreferrer">
             <p>Find out more &#8594;</p>
           </a>
         </section>

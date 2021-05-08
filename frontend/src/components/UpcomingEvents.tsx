@@ -63,10 +63,10 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
       <div className={styles.events}>
         {sortedEventData.length > 3 && (
           <img
-            src='/images/leftArrow.svg'
+            src="/images/leftArrow.svg"
             className={styles.arrows}
-            aria-label='back arrow'
-            alt='back arrow'
+            aria-label="back arrow"
+            alt="back arrow"
             onClick={() => setEventIndex(eventIndex - 1)}
           />
         )}
@@ -75,10 +75,10 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
         ))}
         {sortedEventData.length > 3 && (
           <img
-            src='/images/rightArrow.svg'
+            src="/images/rightArrow.svg"
             className={styles.arrows}
-            aria-label='forward arrow'
-            alt='forward arrow'
+            aria-label="forward arrow"
+            alt="forward arrow"
             onClick={() => setEventIndex(eventIndex + 1)}
           />
         )}

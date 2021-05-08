@@ -16,7 +16,7 @@ export default function Mia() {
     <div>
       <Head>
         <title>MathSoc - Spaghetti</title>
-        <meta name='keywords' content='mathsoc' />
+        <meta name="keywords" content="mathsoc" />
       </Head>
       <h1>Page Not Found</h1>
       <h2>Insert random maths 404 joke (like the train thingy)</h2>

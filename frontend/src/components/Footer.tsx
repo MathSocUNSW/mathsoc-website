@@ -19,52 +19,52 @@ const Footer: React.FC = () => {
         <div className={styles.rightList}>
           <ul className={styles.logoList}>
             <li>
-              <a href={facebookLink} target='_blank' rel='noreferrer'>
+              <a href={facebookLink} target="_blank" rel="noreferrer">
                 <img
-                  src='/images/facebookLogo.svg'
+                  src="/images/facebookLogo.svg"
                   className={styles.logo}
-                  aria-label='facebook'
-                  alt='facebook'
+                  aria-label="facebook"
+                  alt="facebook"
                 />
               </a>
             </li>
             <li>
-              <a href={linkedInLink} target='_blank' rel='noreferrer'>
+              <a href={linkedInLink} target="_blank" rel="noreferrer">
                 <img
-                  src='/images/linkedinLogo.svg'
+                  src="/images/linkedinLogo.svg"
                   className={styles.logo}
-                  aria-label='linkedin'
-                  alt='linkedin'
+                  aria-label="linkedin"
+                  alt="linkedin"
                 />
               </a>
             </li>
             <li>
-              <a href={instagramLink} target='_blank' rel='noreferrer'>
+              <a href={instagramLink} target="_blank" rel="noreferrer">
                 <img
-                  src='/images/instagramLogo.svg'
+                  src="/images/instagramLogo.svg"
                   className={styles.logo}
-                  aria-label='instagram'
-                  alt='instagram'
+                  aria-label="instagram"
+                  alt="instagram"
                 />
               </a>
             </li>
             <li>
-              <a href={youtubeLink} target='_blank' rel='noreferrer'>
+              <a href={youtubeLink} target="_blank" rel="noreferrer">
                 <img
-                  src='/images/youtubeLogo.svg'
+                  src="/images/youtubeLogo.svg"
                   className={styles.logo}
-                  aria-label='youtube'
-                  alt='youtube'
+                  aria-label="youtube"
+                  alt="youtube"
                 />
               </a>
             </li>
             <li>
-              <a href={discordLink} target='_blank' rel='noreferrer'>
+              <a href={discordLink} target="_blank" rel="noreferrer">
                 <img
-                  src='/images/discordLogo.svg'
+                  src="/images/discordLogo.svg"
                   className={styles.logo}
-                  aria-label='discord'
-                  alt='discord'
+                  aria-label="discord"
+                  alt="discord"
                 />
               </a>
             </li>

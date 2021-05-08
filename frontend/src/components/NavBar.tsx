@@ -12,12 +12,12 @@ const NavBar: React.FC = () => {
     <section>
       <section className={styles.mainContainer}>
         <section className={styles.leftLogoContainer}>
-          <Link href='/'>
+          <Link href="/">
             <img
-              src='/images/mathsocLogoLong.svg'
+              src="/images/mathsocLogoLong.svg"
               className={styles.logo}
-              alt='mathsoc logo'
-              aria-label='logo'
+              alt="mathsoc logo"
+              aria-label="logo"
             />
           </Link>
         </section>
@@ -39,12 +39,12 @@ const NavBar: React.FC = () => {
             {/* For easy flex box */}
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
-          <Link href='/'>
+          <Link href="/">
             <img
-              src='/images/mathsocLogoLong.svg'
+              src="/images/mathsocLogoLong.svg"
               className={styles.logo}
-              alt='mathsoc logo'
-              aria-label='logo'
+              alt="mathsoc logo"
+              aria-label="logo"
               onClick={() => setOpen(false)}
             />
           </Link>
