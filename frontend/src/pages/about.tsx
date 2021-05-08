@@ -3,6 +3,7 @@ import Head from "next/head";
 
 import Hero from "src/components/Hero";
 import styles from "src/styles/about.module.scss";
+import { facebookLink } from "src/data/socialLinks";
 
 export default function about() {
   return (
@@ -56,11 +57,16 @@ export default function about() {
               lead you to – and also allow you to chat to people who can help you get there!
             </p>
             <p>
-              To round this off, we have a Facebook group where you can discuss maths to your
-              heart’s content – which also doubles as a place to discuss anything and everything
-              mathematical. Moreover, we have dedicated First Year and Higher Year Facebook groups –
-              and for First Years, MathSoc also releases solutions to past class tests!
+              To round this off, we have a{" "}
+              <a href={facebookLink} target="_blank" rel="noreferrer">
+                Facebook group
+              </a>{" "}
+              where you can discuss maths to your heart’s content – which also doubles as a place to
+              discuss anything and everything mathematical. Moreover, we have dedicated First Year
+              and Higher Year Facebook groups – and for First Years, MathSoc also releases solutions
+              to past class tests!
             </p>
+            {/* TODO finish off links */}
             <p>
               Essentially, MathSoc is here to help enrich the experience of studying maths at UNSW.
               We’re here to fulfil your social, academic and career needs – and help make your time
