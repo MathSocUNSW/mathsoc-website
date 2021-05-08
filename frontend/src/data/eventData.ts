@@ -1,20 +1,20 @@
-type eventInfo = {
+interface eventInfo {
   name: string;
   text: string;
   // name: text
   // e.g.
   // Location: UNSW
-};
+}
 
-type eventInfoLinks = {
+interface eventInfoLinks {
   name: string;
   text: string;
   url: string;
   // e.g.
   // name: <a href="url">text</a>
-};
+}
 
-export type eventDetails = {
+export interface eventDetails {
   image: string; // local url or base64
   name: string; // title
   mainText: string; // big text
@@ -23,7 +23,7 @@ export type eventDetails = {
   detailList: Array<eventInfo>;
   linkList: Array<eventInfoLinks>;
   externalLink: string; // facebook redirect
-};
+}
 
 const eventData: Array<eventDetails> = [
   {

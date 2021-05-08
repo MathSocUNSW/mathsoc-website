@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
 
+import moment from "moment";
 import styles from "src/styles/UpcomingEvents.module.scss";
 import Card from "src/components/Card";
 import eventData, { eventDetails } from "src/data/eventData";
@@ -47,16 +48,14 @@ const figureOutWhatEventsToShow = (
   }
 };
 
-export type UpComingEventProps = {
+export interface UpComingEventProps {
   eventIndex: number;
   setEventIndex: Dispatch<SetStateAction<number>>;
-};
+}
 
-const UpcomingEvents = ({ eventIndex, setEventIndex }: UpComingEventProps): JSX.Element => {
-  // TODO: Undo
-  // const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
+const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventIndex }) => {
+  const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
   const { height, width } = useWindowDimensions();
-  const sortedEventData = eventData;
 
   return (
     <section className={styles.newEventsContainer}>

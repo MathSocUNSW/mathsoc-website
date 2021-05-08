@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 
-export default function Layout({ children }) {
+const Layout: React.FC<unknown> = ({ children }) => {
   return (
     <section className='content'>
       <header>
@@ -16,4 +16,6 @@ export default function Layout({ children }) {
       </footer>
     </section>
   );
-}
+};
+
+export default Layout;

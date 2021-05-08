@@ -8,7 +8,7 @@ import {
   youtubeLink
 } from "src/data/socialLinks";
 
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
     <section className={styles.footer}>
       <section className={styles.footerLeft}></section>
@@ -74,4 +74,6 @@ export default function Footer() {
       <section className={styles.footerRight}></section>
     </section>
   );
-}
+};
+
+export default Footer;

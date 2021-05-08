@@ -1,9 +1,9 @@
 import React from "react";
-import sponsorsData from "src/data/sponsorsData";
 
+import sponsorsData from "src/data/sponsorsData";
 import styles from "src/styles/Sponsors.module.scss";
 
-const Sponsors = () => {
+const Sponsors: React.FC = () => {
   return (
     <section className={styles.mainContainer}>
       <h2 className={styles.sponsorsTitle}>Our Sponsors</h2>

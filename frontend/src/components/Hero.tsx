@@ -6,11 +6,13 @@ interface HeroProps {
   url: string;
 }
 
-export default function Hero({ url }: HeroProps): JSX.Element {
+const Hero: React.FC<HeroProps> = ({ url }) => {
   return (
     <section className={styles.mainContainer}>
       <img src={url} className={styles.image} alt='banner' />
       <div className={styles.text}>Welcome to UNSW Mathematics Society</div>
     </section>
   );
-}
+};
+
+export default Hero;

@@ -2,7 +2,7 @@ import React from "react";
 import style from "src/styles/Card.module.scss";
 import { eventDetails as CardProps } from "src/data/eventData";
 
-export default function Card({
+const Card: React.FC<CardProps> = ({
   image,
   name,
   mainText,
@@ -11,7 +11,7 @@ export default function Card({
   detailList,
   linkList,
   externalLink
-}: CardProps): JSX.Element {
+}) => {
   return (
     <section className={style.mainContainer}>
       <section>
@@ -49,4 +49,6 @@ export default function Card({
       </section>
     </section>
   );
-}
+};
+
+export default Card;

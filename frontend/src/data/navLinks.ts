@@ -1,4 +1,9 @@
-const navLinks = [
+interface navLink {
+  name: string;
+  route: string;
+}
+
+const navLinks: Array<navLink> = [
   {
     name: "About Us",
     route: "/about"

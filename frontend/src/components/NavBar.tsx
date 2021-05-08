@@ -1,11 +1,11 @@
 import React from "react";
 import Link from "next/link";
-import navLinks from "../data/NavBar";
+
+import navLinks from "src/data/navLinks";
 import styles from "src/styles/NavBar.module.scss";
-import useWindowDimensions from "src/helpers/useWindowDimensions";
 import Hamburger from "hamburger-react";
 
-export default function NavBar() {
+const NavBar: React.FC = () => {
   const [isOpen, setOpen] = React.useState(false);
 
   return (
@@ -73,4 +73,6 @@ export default function NavBar() {
       </section>
     </section>
   );
-}
+};
+
+export default NavBar;

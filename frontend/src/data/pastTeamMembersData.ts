@@ -1,4 +1,4 @@
-type execPerson = {
+interface execPerson {
   name: string;
   role:
     | "president"
@@ -8,13 +8,13 @@ type execPerson = {
     | "arc delegate"
     | "external VP"
     | "internal VP";
-};
+}
 
-type directorPerson = {
+interface directorPerson {
   name: string;
-};
+}
 
-type directorRole = {
+interface directorRole {
   role:
     | "education"
     | "corporate events"
@@ -30,9 +30,9 @@ type directorRole = {
     | "secretary & public relations"
     | "publications";
   directors: Array<directorPerson>;
-};
+}
 
-type subcommitteeData = {
+interface subcommitteeData {
   role:
     | "education"
     | "corporate events"
@@ -44,14 +44,14 @@ type subcommitteeData = {
     | "events"
     | "general";
   members: Array<string>;
-};
+}
 
-type yearTeamData = {
+interface yearTeamData {
   year: number;
   execList: Array<execPerson>;
   directorList: Array<directorRole>;
   subcommittee: Array<subcommitteeData> | null;
-};
+}
 
 const pastTeamData: Array<yearTeamData> = [
   {
@@ -245,7 +245,7 @@ const pastTeamData: Array<yearTeamData> = [
       { role: "marketing", directors: [{ name: "Yifan Shen" }] },
       { role: "sponsorships", directors: [{ name: "Shahbaz Bains" }, { name: "Vishaal Nathan" }] },
       // eslint-disable-next-line quotes
-      { role: "women's", directors: [{ name: 'Julia Renouf' }] },
+      { role: "women's", directors: [{ name: "Julia Renouf" }] },
       { role: "outreach", directors: [{ name: "Andrew Antony" }] }
     ],
     subcommittee: [

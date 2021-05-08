@@ -1,7 +1,7 @@
-type execPerson = {
+interface execPerson {
   name: string;
   role: "president" | "vice-president" | "secretary" | "treasurer" | "arc delegate";
-};
+}
 
 const executivesData: Array<execPerson> = [
   { name: "Grace Li", role: "president" },

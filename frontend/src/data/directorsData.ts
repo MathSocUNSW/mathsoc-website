@@ -1,8 +1,8 @@
-type directorPerson = {
+interface directorPerson {
   name: string;
-};
+}
 
-type role = {
+interface role {
   role:
     | "education"
     | "corporate events"
@@ -12,7 +12,7 @@ type role = {
     | "marketing"
     | "sponsorships";
   directors: Array<directorPerson>;
-};
+}
 
 const directorsData: Array<role> = [
   {

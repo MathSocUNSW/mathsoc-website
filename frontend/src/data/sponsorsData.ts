@@ -1,10 +1,10 @@
-export type sponsor = {
+export interface sponsor {
   name: string;
   type: "affiliate" | "bespoke" | "principal" | "major" | "school";
   logoURL: string;
   websiteURL: string;
   profileText?: string;
-};
+}
 
 const sponsorsData: Array<sponsor> = [
   {
