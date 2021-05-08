@@ -1,5 +1,6 @@
 .mainContainer {
   margin-top: 50px;
+  width: 100%;
 }
 
 .title {
@@ -19,22 +20,15 @@
   margin-top: 50px;
   margin-bottom: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
-.cardsRow {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  @media (max-width: 1400px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+.widthContainer {
+  width: 80%;
+  margin-left: 10%;
 }
 
 .card {

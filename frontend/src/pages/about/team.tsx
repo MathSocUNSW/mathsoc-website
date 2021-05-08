@@ -32,17 +32,14 @@ const Team: React.FC = () => {
         <h3 className={styles.subTitle}>
           The 2021 Executive and Director Team of the UNSW Mathematics Society
         </h3>
-        <section className={styles.cardsContainer}>
-          <div className={styles.cardsRow}>
+        <section className={styles.widthContainer}>
+          <section className={styles.cardsContainer}>
             {teamData.map((person, index) => (
               <div className={styles.card} key={index}>
                 <TeamCard {...person} />
               </div>
             ))}
-            {/* <div className={styles.card}>
-              <TeamCard />
-            </div> */}
-          </div>
+          </section>
         </section>
       </section>
     </section>
