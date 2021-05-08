@@ -14,7 +14,7 @@ export default function Index() {
         <title>MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_skating.jpg" />
+      <Hero url="/images/hero/mathsoc_skating.png" text="Welcome to UNSW Mathematics Society" />
       <section className={styles.mainContainer}>
         <p className={styles.descText}>
           UNSW Mathematics Society (MathSoc) is the constituent society of the UNSW School of

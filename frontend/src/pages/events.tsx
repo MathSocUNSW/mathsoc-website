@@ -26,7 +26,7 @@ export default function Events() {
         <title>MathSoc - Events</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_skating.jpg" />
+      <Hero url="/images/hero/mathsoc_events.jpg" text="Events" />
       <section className={styles.mainContainer}>
         <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
         <h1 className={styles.title}>Past Events</h1>
