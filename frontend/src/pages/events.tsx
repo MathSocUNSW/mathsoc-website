@@ -13,7 +13,7 @@ import {
   sortStartDateDecreasing
 } from "src/helpers/eventHelpers";
 
-export default function Events() {
+const Events: React.FC = () => {
   const [eventIndex, setEventIndex] = React.useState(0);
 
   const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() < 0);
@@ -40,4 +40,6 @@ export default function Events() {
       </section>
     </section>
   );
-}
+};
+
+export default Events;

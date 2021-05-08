@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 
-export default function resources() {
+const Resources: React.FC = () => {
   return <div>All resources</div>;
-}
+};
+
+export default Resources;

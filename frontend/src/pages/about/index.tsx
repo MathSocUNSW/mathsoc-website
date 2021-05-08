@@ -5,7 +5,7 @@ import Hero from "src/components/Hero";
 import styles from "src/styles/about.module.scss";
 import { facebookLink } from "src/data/socialLinks";
 
-export default function about() {
+const About: React.FC = () => {
   return (
     <section>
       <Head>
@@ -77,4 +77,6 @@ export default function about() {
       </section>
     </section>
   );
-}
+};
+
+export default About;

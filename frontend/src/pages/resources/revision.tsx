@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function revision() {
+const Revision: React.FC = () => {
   return <div>Revision</div>;
-}
+};
+
+export default Revision;

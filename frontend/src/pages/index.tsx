@@ -5,7 +5,7 @@ import styles from "src/styles/index.module.scss";
 import UpcomingEvents from "components/UpcomingEvents";
 import Sponsors from "components/Sponsors";
 
-export default function Index() {
+const Home: React.FC = () => {
   const [eventIndex, setEventIndex] = React.useState(0);
 
   return (
@@ -29,4 +29,6 @@ export default function Index() {
       </section>
     </section>
   );
-}
+};
+
+export default Home;
