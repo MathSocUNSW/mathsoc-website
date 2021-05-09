@@ -7,18 +7,10 @@
   "jsxBracketSameLine": false,
   "arrowParens": "always",
   "endOfLine": "auto",
-  "jsxSingleQuote": true,
-  "singleQuote": true,
+  "jsxSingleQuote": false,
+  "singleQuote": false,
   "proseWrap": "preserve",
   "quoteProps": "as-needed",
   "useTabs": false,
-  "htmlWhitespaceSensitivity": "css",
-  "overrides": [
-    {
-      "files": "*.html",
-      "options": {
-        "tabWidth": 4
-      }
-    }
-  ]
+  "htmlWhitespaceSensitivity": "css"
 }

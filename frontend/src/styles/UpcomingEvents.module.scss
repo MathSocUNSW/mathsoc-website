@@ -1,0 +1,30 @@
+.newEventsContainer {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;
+  color: #201b4b;
+}
+
+.newEventsTitle {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.events {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100%;
+}
+
+.arrows {
+  height: 30px;
+  width: 30px;
+  &:hover {
+    cursor: pointer;
+  }
+}

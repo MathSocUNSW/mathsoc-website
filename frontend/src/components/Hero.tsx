@@ -1,18 +1,19 @@
-import React from 'react';
+import React from "react";
 
-export default function Hero() {
-  return (
-    <div
-      className='hero'
-      style={{
-        width: '100%',
-        height: '300px',
-        backgroundColor: 'orange',
-        display: 'grid',
-        placeItems: 'center'
-      }}
-    >
-      Hero Image Here
-    </div>
-  );
+import styles from "src/styles/Hero.module.scss";
+
+interface HeroProps {
+  url: string;
+  text: string;
 }
+
+const Hero: React.FC<HeroProps> = ({ url, text }) => {
+  return (
+    <section className={styles.mainContainer}>
+      <img src={url} className={styles.image} alt="banner" />
+      <div className={styles.text}>{text}</div>
+    </section>
+  );
+};
+
+export default Hero;

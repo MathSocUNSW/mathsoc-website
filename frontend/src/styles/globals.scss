@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap';
+@import "https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap";
 
 * {
   margin: 0;
@@ -7,7 +7,7 @@
 
 body {
   background-color: #f4f8fb;
-  font-family: 'DM Sans', sans-serif; // TODO need alternatives
+  font-family: "DM Sans", sans-serif; // TODO need alternatives
 }
 
 .content {
@@ -16,9 +16,9 @@ body {
   margin: 0 auto;
   display: grid;
   grid-template-areas:
-    'topbar   topbar  topbar'
-    'sidebar-left   content sidebar-right'
-    'footer   footer  footer';
+    "topbar   topbar  topbar"
+    "sidebar-left   content sidebar-right"
+    "footer   footer  footer";
   grid-template-columns: 1fr 6fr 1fr;
   // TODO: change 6 to 12 for smaller screens
   grid-template-rows: 60px auto 100px;
@@ -37,6 +37,12 @@ body {
   }
   footer {
     grid-area: footer;
+  }
+  @media (max-width: 1050px) {
+    grid-template-rows: 60px auto auto;
+  }
+  @media (max-width: 750px) {
+    grid-template-columns: 0fr 6fr 0fr;
   }
 }
 

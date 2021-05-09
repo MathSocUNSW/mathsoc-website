@@ -1,5 +1,7 @@
-import React from 'react';
+import React from "react";
 
-export default function examBank() {
+const ExamBank: React.FC = () => {
   return <div>exam</div>;
-}
+};
+
+export default ExamBank;

@@ -1,19 +1,54 @@
-import React from 'react';
-import style from '../styles/Card.module.scss';
-import Image from 'next/image';
+import React from "react";
+import style from "src/styles/Card.module.scss";
+import { eventDetails as CardProps } from "src/data/eventData";
 
-export default function Card() {
+const Card: React.FC<CardProps> = ({
+  image,
+  name,
+  mainText,
+  startDate,
+  endDate,
+  detailList,
+  linkList,
+  externalLink
+}) => {
   return (
-    <div className={style.card}>
-      {/* Apparently these images are 1920 x 1080 px */}
-      <img src='/tft.jpg' />
-      <div className={style.content}>
-        <h1 className={style.title}>Event Name</h1>
-        <p className={style.description}>Description</p>
-        <a href='https://www.facebook.com' className={style.link}>
-          Find out more &rarr;
-        </a>
-      </div>
-    </div>
+    <section className={style.mainContainer}>
+      <section>
+        <img src={image} className={style.topImage} alt="event banner" />
+      </section>
+      <section className={style.content}>
+        <div>
+          <h1 className={style.title}>{name}</h1>
+          <section className={style.eventInfo}>
+            <div className={style.mainText}>
+              <p>{mainText}</p>
+            </div>
+            <ul>
+              {detailList.map((x, index) => (
+                <li key={index}>
+                  {x.name}: {x.text}
+                </li>
+              ))}
+              {linkList.map((x, index) => (
+                <li key={index}>
+                  {x.name}:{" "}
+                  <a href={x.url} target="_blank" rel="noreferrer">
+                    {x.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+        <section className={style.bottom}>
+          <a href={externalLink} target="_blank" rel="noreferrer">
+            <p>Find out more &#8594;</p>
+          </a>
+        </section>
+      </section>
+    </section>
   );
-}
+};
+
+export default Card;

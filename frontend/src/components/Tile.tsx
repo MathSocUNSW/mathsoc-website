@@ -1,5 +1,7 @@
-import React from 'react';
+import React from "react";
 
-export default function Tile() {
+const Tile = () => {
   return <div>Tile - check Figma Components Page</div>;
-}
+};
+
+export default Tile;

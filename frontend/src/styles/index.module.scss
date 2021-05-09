@@ -1,0 +1,16 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+  flex-direction: column;
+}
+
+.descText {
+  text-align: center;
+  padding-left: 12.5%;
+  padding-right: 12.5%;
+  font-weight: 500;
+  font-size: 23px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
