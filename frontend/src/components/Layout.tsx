@@ -2,10 +2,12 @@ import React from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 
+import styles from "src/styles/Layout.module.scss";
+
 const Layout: React.FC<unknown> = ({ children }) => {
   return (
     <section className="content">
-      <header>
+      <header className={styles.header}>
         <NavBar />
       </header>
       <section className="grid-left_side"></section>
