@@ -1,9 +1,11 @@
+@import "./variables.scss";
+
 .mainContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: $navBarHeight;
   width: 100%;
   @media (max-width: 750px) {
     display: none;
