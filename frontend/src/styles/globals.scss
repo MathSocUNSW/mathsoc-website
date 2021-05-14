@@ -23,6 +23,7 @@ body {
   // TODO: change 6 to 12 for smaller screens
   grid-template-rows: 60px auto 100px;
   // gap: 25px 0; // horizontal vertical;
+  // NOTE: Any height changes for header needs to be reflected on Layout.module.scss
   header {
     grid-area: topbar;
   }
