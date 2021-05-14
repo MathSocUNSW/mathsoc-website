@@ -10,8 +10,8 @@ const NavBar: React.FC = () => {
 
   return (
     <section>
-      <section className={styles.mainContainer}>
-        <section className={styles.leftLogoContainer}>
+      <div className={styles.mainContainer}>
+        <div className={styles.leftLogoContainer}>
           <Link href="/">
             <img
               src="/images/mathsocLogoLong.svg"
@@ -20,8 +20,8 @@ const NavBar: React.FC = () => {
               aria-label="logo"
             />
           </Link>
-        </section>
-        <section>
+        </div>
+        <div>
           <ul className={styles.navBarList}>
             {navLinks.map(({ name, route }) => (
               <li key={name} className={styles.navItemBox}>
@@ -33,10 +33,10 @@ const NavBar: React.FC = () => {
               </li>
             ))}
           </ul>
-        </section>
-      </section>
-      <section>
-        <section className={styles.mobileMainContainer}>
+        </div>
+      </div>
+      <div>
+        <div className={styles.mobileMainContainer}>
           <div style={{ visibility: "hidden" }}>
             {/* For easy flex box */}
             <Hamburger toggled={isOpen} toggle={setOpen} />
@@ -54,11 +54,11 @@ const NavBar: React.FC = () => {
           <div>
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
-        </section>
+        </div>
         {isOpen && (
-          <section className={styles.mobileDropdown}>
-            {/* <section className={styles.mobileDropdownLeft}></section> */}
-            <section className={styles.mobileDropdownMiddle}>
+          <div className={styles.mobileDropdown}>
+            {/* <div className={styles.mobileDropdownLeft}></div> */}
+            <div className={styles.mobileDropdownMiddle}>
               <ul className={styles.mobileList}>
                 {navLinks.map(({ name, route }) => (
                   <li key={name} className={styles.navItemBox} onClick={() => setOpen(false)}>
@@ -68,11 +68,11 @@ const NavBar: React.FC = () => {
                   </li>
                 ))}
               </ul>
-            </section>
-            {/* <section className={styles.mobileDropdownRight}></section> */}
-          </section>
+            </div>
+            {/* <div className={styles.mobileDropdownRight}></div> */}
+          </div>
         )}
-      </section>
+      </div>
     </section>
   );
 };
