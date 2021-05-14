@@ -146,7 +146,7 @@ const eventData: Array<eventDetails> = [
   },
   {
     image: "/images/events/camp_2021.jpg",
-    name: "MathSoc & DataSoc Camp",
+    name: "MathSoc x DataSoc Camp",
     mainText: `UNSW Data Science Society and UNSW Mathematics Society are proud to present 🔥 THE CAMPOCALYPSE OF 2021 🔥. It's a no-BRAINER🧟: if you can survive the end of the world, you can survive ANYTHING 💪.
     Join us for a JAM-PACKED weekend of fun camp activities🏃, intense challenges 🏅, good food🍝 and drinks🍻 where you can meet a bunch of new friends👯‍♂️, make memories, dance💃 till you drop at our nightly PARTIES🎉, and celebrate your survival of ONE THIRD of the academic calendar.
     The apocalypse doesn't discriminate - students from ALL years and degrees are invited to witness the end of the world 🌏💥, especially 1ST YEARS 👶 and those 2ND YEARS 🧒 who missed out on camp last year. Tickets are ❗LIMITED❗ so get in quick! It's DEAD⚰️ easy - just click the link below!`,
