@@ -6,13 +6,13 @@ import styles from "src/styles/Layout.module.scss";
 
 const Layout: React.FC<unknown> = ({ children }) => {
   return (
-    <section className="content">
+    <section className={styles.content}>
       <header className={styles.header}>
         <NavBar />
       </header>
-      <section className="grid-left_side"></section>
+      <section className={styles["grid-left_side"]}></section>
       <article>{children}</article>
-      <section className="grid-right_side"></section>
+      <section className={styles["grid-right_side"]}></section>
       <footer>
         <Footer />
       </footer>
