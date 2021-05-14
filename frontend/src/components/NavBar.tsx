@@ -26,7 +26,9 @@ const NavBar: React.FC = () => {
             {navLinks.map(({ name, route }) => (
               <li key={name} className={styles.navItemBox}>
                 <Link href={route}>
-                  <span className={styles.navItemText}>{name}</span>
+                  <a className={styles.navLink}>
+                    <span className={styles.navItemText}>{name}</span>
+                  </a>
                 </Link>
               </li>
             ))}
