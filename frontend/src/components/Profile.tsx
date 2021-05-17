@@ -12,7 +12,7 @@ export interface profileData {
 
 const Profile: React.FC<profileData> = ({ name, role }) => {
   return (
-    <div className={styles.profile} key={name}>
+    <div className={styles.profile}>
       <div className="profileContent">
         <Typography variant="h4">{name}</Typography>
         <Typography variant="h6">{role}</Typography>

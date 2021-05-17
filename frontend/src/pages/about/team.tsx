@@ -15,7 +15,7 @@ const Team: React.FC = () => {
   const teamData: profileData[] = [...executivesData];
   directorsData.forEach((role) => {
     // sort directors alphabetically
-    let sortedDirectors = role.directors.slice().sort(alphabeticalSort);
+    const sortedDirectors = role.directors.slice().sort(alphabeticalSort);
     sortedDirectors.forEach((director) => {
       teamData.push({ name: director.name, role: `${role.role} Director` });
     });
@@ -37,7 +37,7 @@ const Team: React.FC = () => {
         </Typography>
         <section className={styles.cardsContainer}>
           {teamData.map((person, index) => (
-            <Profile {...person} />
+            <Profile {...person} key={person.name} />
           ))}
         </section>
       </Container>
