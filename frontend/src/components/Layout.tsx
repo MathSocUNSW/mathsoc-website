@@ -33,7 +33,11 @@ const theme = createMuiTheme({
     },
     body1: {
       fontSize: "1.05rem",
-      margin: "0.5rem 0"
+      margin: "0.5rem 0",
+      lineHeight: "1.6rem"
+    },
+    body2: {
+      fontSize: "0.9rem"
     },
     subtitle1: {
       fontSize: "1rem",

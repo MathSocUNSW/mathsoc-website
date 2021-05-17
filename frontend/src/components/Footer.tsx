@@ -1,17 +1,8 @@
 import React from "react";
 import styles from "src/styles/Footer.module.scss";
-import {
-  facebookData,
-  linkedInData,
-  instagramData,
-  youtubeData,
-  discordData,
-  socialData
-} from "src/data/socialData";
+import { socials } from "src/data/socialData";
 
 import { Container } from "@material-ui/core";
-
-const socials: socialData[] = [facebookData, linkedInData, instagramData, youtubeData, discordData];
 
 const Footer: React.FC = () => {
   return (
@@ -23,7 +14,7 @@ const Footer: React.FC = () => {
           </div>
           <ul className={styles.socials}>
             {socials.map(({ name, url, iconPath }) => (
-              <li>
+              <li key={name}>
                 <a href={url} target="_blank" rel="noreferrer" className={styles.socialItem}>
                   <img src={iconPath} alt={name} aria-label={name} className={styles.socialIcon} />
                 </a>
