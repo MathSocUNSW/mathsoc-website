@@ -6,7 +6,6 @@ import navLinks from "src/data/navLinks";
 import styles from "src/styles/NavBar.module.scss";
 import Hamburger from "hamburger-react";
 
-
 const NavBar: React.FC = () => {
   // mobile
   const [isOpen, setOpen] = useState(false);
@@ -16,8 +15,8 @@ const NavBar: React.FC = () => {
     window.addEventListener("scroll", () => setStuck(window.scrollY >= 80));
   }
   const stuckShadow = {
-    boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.25)",
-  }
+    boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.25)"
+  };
   // TODO: dark mode (with useContext)
 
   return (
@@ -58,6 +57,6 @@ const NavBar: React.FC = () => {
       </Container>
     </header>
   );
-}
+};
 
 export default NavBar;

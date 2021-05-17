@@ -2,15 +2,24 @@ import React from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 
-import styles from "src/styles/Layout.module.scss";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: "DM Sans",
+    h2: {
+      fontWeight: 500
+    }
+  }
+});
 
 const Layout: React.FC<unknown> = ({ children }) => {
   return (
-    <div className="layout">
+    <ThemeProvider theme={theme}>
       <NavBar />
       {children}
       <Footer />
-    </div>
+    </ThemeProvider>
   );
 };
 

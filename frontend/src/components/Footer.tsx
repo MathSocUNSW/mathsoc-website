@@ -6,12 +6,12 @@ import {
   instagramData,
   youtubeData,
   discordData,
-  socialData,
+  socialData
 } from "src/data/socialData";
 
 import { Container } from "@material-ui/core";
 
-const socials: socialData[] = [facebookData, linkedInData, instagramData, youtubeData, discordData]
+const socials: socialData[] = [facebookData, linkedInData, instagramData, youtubeData, discordData];
 
 const Footer: React.FC = () => {
   return (
@@ -22,10 +22,10 @@ const Footer: React.FC = () => {
             <p>&#169; UNSW Mathematics Society 2020</p>
           </div>
           <ul className={styles.socials}>
-            {socials.map(({name, url, iconPath}) => (
+            {socials.map(({ name, url, iconPath }) => (
               <li>
                 <a href={url} target="_blank" rel="noreferrer" className={styles.socialItem}>
-                  <img src={iconPath} alt={name} aria-label={name} className={styles.socialIcon}/>
+                  <img src={iconPath} alt={name} aria-label={name} className={styles.socialIcon} />
                 </a>
               </li>
             ))}
@@ -34,6 +34,6 @@ const Footer: React.FC = () => {
       </Container>
     </footer>
   );
-}
+};
 
 export default Footer;
