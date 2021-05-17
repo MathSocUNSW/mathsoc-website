@@ -9,7 +9,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ url, text }) => {
   return (
-    <section className={styles.mainContainer}>
+    <section className={styles.hero}>
       <img src={url} className={styles.image} alt="banner" />
       <div className={styles.text}>{text}</div>
     </section>

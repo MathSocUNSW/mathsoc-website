@@ -8,6 +8,8 @@ import {
   youtubeLink
 } from "src/data/socialLinks";
 
+import { Container } from "@material-ui/core";
+
 const Footer: React.FC = () => {
   return (
     <section className={styles.footer}>

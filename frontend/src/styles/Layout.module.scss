@@ -19,7 +19,7 @@
     "topbar   topbar  topbar"
     "sidebar-left   content sidebar-right"
     "footer   footer  footer";
-  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-columns: 1fr 4fr 1fr;
   // TODO: change 6 to 12 for smaller screens
   grid-template-rows: 60px auto 100px;
   // gap: 25px 0; // horizontal vertical;
