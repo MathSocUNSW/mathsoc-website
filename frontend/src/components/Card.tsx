@@ -1,53 +1,76 @@
 import React from "react";
-import style from "src/styles/Card.module.scss";
+import styles from "src/styles/Card.module.scss";
 import { eventDetails as CardProps } from "src/data/eventData";
+import { Typography } from "@material-ui/core";
+import { socials } from "src/data/socialData";
 
 const Card: React.FC<CardProps> = ({
-  image,
-  name,
-  mainText,
-  startDate,
-  endDate,
-  detailList,
-  linkList,
-  externalLink
+  title,
+  eventLink,
+  description,
+  imagePath,
+  location,
+  locationURL,
+  date
 }) => {
+  // adds link to keywords
+  const linker = (location) => {
+    // split location string by whitespace but keep the space
+    // https://stackoverflow.com/a/26425713
+    const linked = location.split(/(\s+)/).map((substring) => {
+      for (const { name, url } of socials) {
+        // wrap with link if a substring matches social data
+        if (substring === name) {
+          return (
+            <a href={url} target="_blank" rel="noreferrer">
+              {name}
+            </a>
+          );
+        }
+      }
+      return substring;
+    });
+    return linked;
+  };
+
   return (
-    <section className={style.mainContainer}>
-      <section>
-        <img src={image} className={style.topImage} alt="event banner" />
-      </section>
-      <section className={style.content}>
-        <div>
-          <h1 className={style.title}>{name}</h1>
-          <section className={style.eventInfo}>
-            <div className={style.mainText}>
-              <p>{mainText}</p>
-            </div>
-            <ul>
-              {detailList.map((x, index) => (
-                <li key={index}>
-                  {x.name}: {x.text}
-                </li>
-              ))}
-              {linkList.map((x, index) => (
-                <li key={index}>
-                  {x.name}:{" "}
-                  <a href={x.url} target="_blank" rel="noreferrer">
-                    {x.text}
+    <div className={styles.card}>
+      <div className="image">
+        <a href={eventLink} target="_blank" rel="noreferrer">
+          <img src={imagePath} className={styles.topImage} alt="event banner" />
+        </a>
+      </div>
+      <div className={styles.content}>
+        <div className="mainContent">
+          <Typography variant="h5">{title}</Typography>
+          <div className={styles.description}>
+            <Typography variant="body1">{description}</Typography>
+          </div>
+          <ul>
+            <li>
+              <Typography variant="body2">Date: {date}</Typography>
+            </li>
+            <li>
+              <Typography variant="body2">
+                Location:{" "}
+                {locationURL ? (
+                  <a href={locationURL} target="_blank" rel="noreferrer">
+                    {location}
                   </a>
-                </li>
-              ))}
-            </ul>
-          </section>
+                ) : (
+                  linker(location)
+                )}
+              </Typography>
+            </li>
+          </ul>
         </div>
-        <section className={style.bottom}>
-          <a href={externalLink} target="_blank" rel="noreferrer">
+        <div className={styles.link}>
+          <a href={eventLink} target="_blank" rel="noreferrer">
             <p>Find out more &#8594;</p>
           </a>
-        </section>
-      </section>
-    </section>
+        </div>
+      </div>
+    </div>
   );
 };
 

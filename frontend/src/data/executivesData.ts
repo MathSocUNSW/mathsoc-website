@@ -1,14 +1,15 @@
-interface execPerson {
+interface executive {
   name: string;
-  role: "president" | "vice president" | "secretary" | "treasurer" | "arc delegate";
+  description?: string;
+  role: "President" | "Vice President" | "Secretary" | "Treasurer" | "Arc Delegate";
 }
 
-const executivesData: Array<execPerson> = [
-  { name: "Grace Li", role: "president" },
-  { name: "Philton Zhu", role: "vice president" },
-  { name: "Justin Clarke", role: "secretary" },
-  { name: "Merry Chu", role: "treasurer" },
-  { name: "Gerald Huang", role: "arc delegate" }
+const executivesData: executive[] = [
+  { name: "Grace Li", role: "President" },
+  { name: "Philton Zhu", role: "Vice President" },
+  { name: "Justin Clarke", role: "Secretary" },
+  { name: "Merry Chu", role: "Treasurer" },
+  { name: "Gerald Huang", role: "Arc Delegate" }
 ];
 
 export default executivesData;

@@ -10,6 +10,7 @@ import {
   sortStartDateDecreasing
 } from "src/helpers/eventHelpers";
 import useWindowDimensions from "src/helpers/useWindowDimensions";
+import { Typography } from "@material-ui/core";
 
 const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number => {
   const length = sortedEventData.length;
@@ -59,7 +60,9 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
 
   return (
     <section className={styles.newEventsContainer}>
-      <h1 className={styles.newEventsTitle}>Upcoming Events</h1>
+      <Typography variant="h2" align="center">
+        Upcoming Events
+      </Typography>
       <div className={styles.events}>
         {sortedEventData.length > 3 && (
           <img
@@ -88,3 +91,5 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
 };
 
 export default UpcomingEvents;
+
+// TODO: add swipe gestures

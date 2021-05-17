@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+.profile {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
+  padding: 1.8rem;
+  max-width: 500px;
+  gap: 1.5rem;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.tempPlaceHolder {
+  width: 150px;
+  height: 150px;
+  background-color: aqua;
+  border-radius: 50%;
+}

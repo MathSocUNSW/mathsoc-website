@@ -1,22 +1,23 @@
 import React from "react";
 import Head from "next/head";
 
+import alphabeticalSort from "src/helpers/alphabeticalSort";
+
 import Hero from "src/components/Hero";
 import styles from "src/styles/team.module.scss";
-import TeamCard from "src/components/TeamCard";
+import Profile, { profileData } from "components/Profile";
 import executivesData from "src/data/executivesData";
 import directorsData from "src/data/directorsData";
-
-interface personData {
-  name: string;
-  role: string;
-}
+import { Container, Typography } from "@material-ui/core";
 
 const Team: React.FC = () => {
-  const teamData: Array<personData> = [...executivesData];
+  // unifies the format of executive and director data
+  const teamData: profileData[] = [...executivesData];
   directorsData.forEach((role) => {
-    role.directors.forEach((person) => {
-      teamData.push({ name: person.name, role: `${role.role} Director` });
+    // sort directors alphabetically
+    const sortedDirectors = role.directors.slice().sort(alphabeticalSort);
+    sortedDirectors.forEach((director) => {
+      teamData.push({ name: director.name, role: `${role.role} Director` });
     });
   });
 
@@ -27,21 +28,19 @@ const Team: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Executives and Directors" />
-      <section className={styles.mainContainer}>
-        <h1 className={styles.title}>Executives and Directors</h1>
-        <h3 className={styles.subTitle}>
+      <Container>
+        <Typography variant="h2" align="center">
+          Executives and Directors
+        </Typography>
+        <Typography variant="h5" align="center">
           The 2021 Executive and Director Team of the UNSW Mathematics Society
-        </h3>
-        <section className={styles.widthContainer}>
-          <section className={styles.cardsContainer}>
-            {teamData.map((person, index) => (
-              <div className={styles.card} key={index}>
-                <TeamCard {...person} />
-              </div>
-            ))}
-          </section>
+        </Typography>
+        <section className={styles.cardsContainer}>
+          {teamData.map((person, index) => (
+            <Profile {...person} key={person.name} />
+          ))}
         </section>
-      </section>
+      </Container>
     </section>
   );
 };

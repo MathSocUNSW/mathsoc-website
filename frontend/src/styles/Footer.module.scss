@@ -1,59 +1,40 @@
+@import "./variables.scss";
+
 .footer {
-  display: grid;
-  height: 100%;
-  width: 100%;
   background-color: #303743;
-  grid-template-areas: "left middle right";
-  grid-template-columns: 1fr 6fr 1fr;
-  // TODO might need to change this for media queries
-  @media (max-width: 1050px) {
-    place-items: center;
-    grid-template-columns: 0fr 6fr 0fr;
-  }
+  padding: 12px 0;
 }
 
-.footerLeft {
-  grid-area: left;
-}
-
-.footerRight {
-  grid-area: right;
-}
-
-.mainContainer {
-  color: #ffffff;
+.content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  grid-area: middle;
-  flex-direction: row;
-  @media (max-width: 1050px) {
+  align-items: center;
+  @media screen and (max-width: $mobile) {
     flex-direction: column;
-    justify-content: space-around;
   }
 }
 
 .leftText {
-  font-size: 24px;
-  font-weight: 700;
-  @media (max-width: 1050px) {
-    margin-top: 15px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: left;
+  @media screen and (max-width: $mobile) {
+    margin-bottom: 15px;
+    text-align: center;
   }
 }
 
-.logoList {
-  list-style-type: none;
+.socials {
+  list-style: none;
   display: flex;
-  flex-direction: row;
-  @media (max-width: 1050px) {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+  gap: 15px;
 }
 
-.logo {
-  width: 50px;
-  height: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
+.socialItem {
+  display: grid;
+  align-items: center;
+  .socialIcon {
+    max-height: 45px;
+  }
 }
