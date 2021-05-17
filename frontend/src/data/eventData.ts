@@ -173,7 +173,7 @@ const eventData: eventDetails[] = [
     Doesn't matter if you're competitive or casual- just get ready for an EXPONENTIAL 📈 amount of fun 🤩 Hope to see everyone there!
     Stay tuned as we are preparing some awesome prizes 🏆 which will be announced soon 👀`,
     imagePath: "/images/events/puzzle_hunt_2021.png",
-    location: "TBA",
+    location: "Law Building",
     date: "5th March 2021, 4-6PM",
     startDate: "5-3-2021",
     endDate: "5-3-2021"

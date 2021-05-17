@@ -91,3 +91,5 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
 };
 
 export default UpcomingEvents;
+
+// TODO: add swipe gestures
