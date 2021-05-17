@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Hero from "../components/Hero";
 import styles from "src/styles/index.module.scss";
@@ -7,7 +7,7 @@ import Sponsors from "components/Sponsors";
 import { Container, Typography } from "@material-ui/core";
 
 const Home: React.FC = () => {
-  const [eventIndex, setEventIndex] = React.useState(0);
+  const [eventIndex, setEventIndex] = useState(0);
 
   return (
     <section className="home">
@@ -16,8 +16,8 @@ const Home: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_skating.png" text="Welcome to UNSW Mathematics Society" />
-      <Container>
-        <section className={styles.intro}>
+      <section className={styles.pageContent}>
+        <Container>
           <Typography variant="h5" align="center">
             UNSW Mathematics Society (MathSoc) is the constituent society of the UNSW School of
             Mathematics and Statistics, with membership open to anyone with an interest in
@@ -26,10 +26,10 @@ const Home: React.FC = () => {
             resources for students. With over 3000 members, we are one of the largest societies at
             UNSW.
           </Typography>
-        </section>
-        <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
-        <Sponsors />
-      </Container>
+          <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
+          <Sponsors />
+        </Container>
+      </section>
     </section>
   );
 };

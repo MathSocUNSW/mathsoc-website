@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import moment from "moment";
 
@@ -15,7 +15,7 @@ import {
 import { Container, Typography } from "@material-ui/core";
 
 const Events: React.FC = () => {
-  const [eventIndex, setEventIndex] = React.useState(0);
+  const [eventIndex, setEventIndex] = useState(0);
 
   const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() < 0);
   sortedEventData.sort(sortStartDateDecreasing);
