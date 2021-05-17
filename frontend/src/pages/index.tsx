@@ -10,7 +10,7 @@ const Home: React.FC = () => {
   const [eventIndex, setEventIndex] = React.useState(0);
 
   return (
-    <div className="home">
+    <section className="home">
       <Head>
         <title>MathSoc</title>
         <meta name="keywords" content="mathsoc" />
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
         <Sponsors />
       </Container>
-    </div>
+    </section>
   );
 };
 

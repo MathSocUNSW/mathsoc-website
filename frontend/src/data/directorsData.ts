@@ -1,38 +1,40 @@
-interface directorPerson {
+interface director {
   name: string;
+  description?: string;
+  imagePath?: string;
 }
 
-interface role {
+interface portfolio {
   role:
-    | "education"
-    | "corporate events"
-    | "social events"
-    | "human resources"
+    | "Education"
+    | "Corporate Events"
+    | "Social Events"
+    | "Human Resources"
     | "IT"
-    | "marketing"
-    | "sponsorships";
-  directors: Array<directorPerson>;
+    | "Marketing"
+    | "Sponsorships";
+  directors: director[];
 }
 
-const directorsData: Array<role> = [
+const directorsData: portfolio[] = [
   {
-    role: "education",
+    role: "Education",
     directors: [{ name: "John Kameas" }, { name: "Raymond Li" }, { name: "Gorden Zhuang" }]
   },
-  { role: "corporate events", directors: [{ name: "Ting Li" }, { name: "Andrew William" }] },
-  { role: "social events", directors: [{ name: "Vedant Rampal" }, { name: "Daniel Kim" }] },
-  { role: "human resources", directors: [{ name: "Katherine Bai" }, { name: "Christopher Wu" }] },
+  { role: "Corporate Events", directors: [{ name: "Ting Li" }, { name: "Andrew William" }] },
+  { role: "Social Events", directors: [{ name: "Vedant Rampal" }, { name: "Daniel Kim" }] },
+  { role: "Human Resources", directors: [{ name: "Katherine Bai" }, { name: "Christopher Wu" }] },
   { role: "IT", directors: [{ name: "Andrew Xie" }] },
   {
-    role: "marketing",
+    role: "Marketing",
     directors: [
       { name: "Gowtham Ravikumar" },
       { name: "Celeste Thomson" },
-      { name: "Jessica Zheng" },
-      { name: "Jordan Shen" }
+      { name: "Jessica Zheng" }
     ]
   },
-  { role: "sponsorships", directors: [{ name: "Abhi Khosla" }] }
+  { role: "Sponsorships", directors: [{ name: "Abhi Khosla" }, { name: "Jordan Shen" }] }
 ];
 
 export default directorsData;
+// TODO: alphabetical order under each role
