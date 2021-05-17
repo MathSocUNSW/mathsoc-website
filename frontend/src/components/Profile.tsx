@@ -1,5 +1,5 @@
-import { Typography } from "@material-ui/core";
 import React from "react";
+import { Typography } from "@material-ui/core";
 
 import styles from "src/styles/Profile.module.scss";
 
