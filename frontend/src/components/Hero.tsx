@@ -10,10 +10,10 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ url, text }) => {
   return (
     <section className={styles.hero}>
-      <img src={url} className={styles.image} alt="banner" />
+      <img src={url} className={styles.image} alt="banner" draggable="false" />
       <Container>
         <div className={styles.text}>
-          <Typography variant="h2" component="h1" align="center">
+          <Typography variant="h1" align="center">
             {text}
           </Typography>
         </div>

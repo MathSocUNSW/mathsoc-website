@@ -7,8 +7,21 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 const theme = createMuiTheme({
   typography: {
     fontFamily: "DM Sans",
+    h1: {
+      fontSize: "3.5rem",
+      fontWeight: 600
+    },
     h2: {
+      fontSize: "2.75rem",
+      color: "#201B4B",
       fontWeight: 500
+    },
+    h5: {
+      fontSize: "1.45rem",
+      fontWeight: 500
+    },
+    body1: {
+      fontSize: "1.05rem"
     }
   }
 });
