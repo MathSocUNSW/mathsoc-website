@@ -3,7 +3,7 @@ interface navLink {
   route: string;
 }
 
-const navLinks: Array<navLink> = [
+const navLinks: navLink[] = [
   {
     name: "About Us",
     route: "/about"
