@@ -2,8 +2,8 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 
 /* My own imports */
-import styles from "../styles/button.module.scss";
-import { resourceDetails as buttonProps } from "../data/resourceData";
+import styles from "src/styles/button.module.scss";
+import { resourceDetails as buttonProps } from "src/data/resourceData";
 
 /* 
 - do we need rel="noreferrer" for an internal link?

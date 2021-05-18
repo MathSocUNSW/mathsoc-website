@@ -1,11 +1,11 @@
 import React from "react";
 import Head from "next/head";
-import Hero from "../../components/Hero";
+import Hero from "src/components/Hero";
 
 /*my own imports */
-import Button from "../../components/Button";
-import resourceData from "../../data/resourceData";
-import styles from "../../styles/resourceIndex.module.scss";
+import Button from "src/components/button";
+import resourceData from "src/data/resourceData";
+import styles from "../../../src/styles/resourceIndex.module.scss";
 import { Container } from "@material-ui/core";
 
 /*
