@@ -17,7 +17,7 @@ const Card: React.FC<CardProps> = ({
   const linker = (location) => {
     // split location string by whitespace but keep the space
     // https://stackoverflow.com/a/26425713
-    const linked = location.split(/(\s+)/).map((substring) => {
+    const linked = location.split(/(\s+)/).map((substring: string) => {
       for (const { name, url } of socials) {
         // wrap with link if a substring matches social data
         if (substring === name) {
