@@ -11,16 +11,19 @@ import { resourceDetails as buttonProps } from "src/data/resourceData";
 (I've just arbitarily picked h2)
 */
 const Button: React.FC<buttonProps> = ({
-    title,
-    resourceLink,
-    iconPath
+  title,
+  resourceLink,
+  iconPath
 }) => {
-    return (
-        <div className={styles.button}>
-            <a href={resourceLink}  target="_blank" rel="noreferrer"> 
-                <Typography variant="h2" className={styles.title}> {title} </Typography>
-                <img src={iconPath} className={styles.icon} alt="" />
-            </a>
-        </div>
-    );
+  return (
+    <div className={styles.button}>
+      <a href={resourceLink}  target="_blank" rel="noreferrer"> 
+        <Typography variant="h2" className={styles.title}> {title} </Typography>
+        <img src={iconPath} className={styles.icon} alt="" />
+      </a>
+    </div>
+  );
 }
+
+export default Button;
+

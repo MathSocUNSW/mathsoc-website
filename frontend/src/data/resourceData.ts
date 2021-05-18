@@ -5,48 +5,49 @@
 */
 
 export interface resourceDetails {
-    title: string;
-    resourceLink: string;
-    iconPath: string;
+  title: string;
+  resourceLink: string;
+  iconPath: string;
 }
 
 const resourceData: resourceDetails[] = [
-    {
-        title: "First Year Exam Bank",
-        resourceLink: "",
-        iconPath: "/images/firstYearExamBank.svg"
-    },
-    {
-        title: "Revision Lectures",
-        resourceLink: "",
-        iconPath: "/images/revisionLecturesIcon.svg" 
-    },
-    {
-        title: "LaTex Guide",
-        resourceLink: "",
-        iconPath: "/images/latexGuide.svg"
-    },
-    {
-        title: "MATLAB Guide",
-        resourceLink: "",
-        iconPath: "/images/matlabGuideIcon.svg"
-    },
-    {
-        title: "Careers Advice",
-        resourceLink: "",
-        iconPath: "/images/careersAdviceIcon.svg"
-    },
-    {
-        title: "First Year Guide",
-        resourceLink: "",
-        iconPath: "/images/firstYearGuideIcon.svg"  
-    },
-    {
-        title: "HSC Tips and Tricks",
-        resourceLink: "",
-        iconPath: "/images/hscTipsAndTricksIcon.svg"
-    },
-]
+  {
+    title: "First Year Exam Bank",
+    resourceLink: "",
+    iconPath: "/images/firstYearExamBank.svg"
+  },
+  {
+    title: "Revision Lectures",
+    resourceLink: "",
+    iconPath: "/images/revisionLecturesIcon.svg" 
+  },
+  {
+    title: "LaTex Guide",
+    resourceLink: "",
+    iconPath: "/images/latexGuide.svg"
+  },
+  {
+    title: "MATLAB Guide",
+    resourceLink: "",
+    iconPath: "/images/matlabGuideIcon.svg"
+  },
+  {
+    title: "Careers Advice",
+    resourceLink: "",
+    iconPath: "/images/careersAdviceIcon.svg"
+  },
+  {
+    title: "First Year Guide",
+    resourceLink: "",
+    iconPath: "/images/firstYearGuideIcon.svg"  
+  },
+  {
+    title: "HSC Tips and Tricks",
+    resourceLink: "",
+    iconPath: "/images/hscTipsAndTricksIcon.svg"
+  },
+];
+
 
 /*
 export const firstYearExamBank: resourceDetails = {
