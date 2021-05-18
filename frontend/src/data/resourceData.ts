@@ -2,6 +2,7 @@
 - ICON PATH DOESN'T EXIST YET
 - Is there a way to do internal links, or do I chuck the full url in
 - I've just kept another version in commenting so I don't have to write it out again if I need it...
+- 37af93faj
 */
 
 export interface resourceDetails {
@@ -13,37 +14,37 @@ export interface resourceDetails {
 const resourceData: resourceDetails[] = [
   {
     title: "First Year Exam Bank",
-    resourceLink: "",
+    resourceLink: "37af93faj",
     iconPath: "/images/firstYearExamBank.svg"
   },
   {
     title: "Revision Lectures",
-    resourceLink: "",
+    resourceLink: "37af93faj",
     iconPath: "/images/revisionLecturesIcon.svg" 
   },
   {
     title: "LaTex Guide",
-    resourceLink: "",
+    resourceLink: "37af93faj",
     iconPath: "/images/latexGuide.svg"
   },
   {
     title: "MATLAB Guide",
-    resourceLink: "",
+    resourceLink: "37af93faj",
     iconPath: "/images/matlabGuideIcon.svg"
   },
   {
     title: "Careers Advice",
-    resourceLink: "",
+    resourceLink: "37af93faj",
     iconPath: "/images/careersAdviceIcon.svg"
   },
   {
     title: "First Year Guide",
-    resourceLink: "",
+    resourceLink: "37af93faj",
     iconPath: "/images/firstYearGuideIcon.svg"  
   },
   {
     title: "HSC Tips and Tricks",
-    resourceLink: "",
+    resourceLink: "37af93faj",
     iconPath: "/images/hscTipsAndTricksIcon.svg"
   },
 ];
