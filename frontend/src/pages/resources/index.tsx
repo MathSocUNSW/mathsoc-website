@@ -3,9 +3,9 @@ import Head from "next/head";
 import Hero from "../../components/Hero";
 
 /*my own imports */
-import Button from "../../src/components/Button";
-import resourceData from "../../src/data/resourceData";
-import styles from "../../src/styles/resourceIndex.module.scss";
+import Button from "../../components/Button";
+import resourceData from "../../data/resourceData";
+import styles from "../../styles/resourceIndex.module.scss";
 import { Container } from "@material-ui/core";
 
 /*
