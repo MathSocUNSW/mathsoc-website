@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Hero from "components/Hero";
+import Hero from "src/components/Hero";
 
 /*my own imports */
 import Strip from "components/Strip";
