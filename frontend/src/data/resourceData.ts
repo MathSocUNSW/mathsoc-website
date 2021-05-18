@@ -8,99 +8,53 @@
 export interface resourceDetails {
   title: string;
   resourceLink: string;
+  backgroundImage: string;
   iconPath: string;
 }
 
 const resourceData: resourceDetails[] = [
   {
     title: "First Year Exam Bank",
-    resourceLink: "37af93faj",
+    resourceLink: "/resources/exam",
+    backgroundImage: "/images/firstYearExamBank.jpg",
     iconPath: "/images/firstYearExamBank.svg"
   },
   {
     title: "Revision Lectures",
-    resourceLink: "37af93faj",
-    iconPath: "/images/revisionLecturesIcon.svg" 
+    resourceLink: "/resources/revision",
+    backgroundImage: "/images/revisionLecturesIcon.jpg",
+    iconPath: "/images/revisionLecturesIcon.svg"
   },
   {
     title: "LaTex Guide",
     resourceLink: "37af93faj",
+    backgroundImage: "/images/latexGuide.jpg",
     iconPath: "/images/latexGuide.svg"
   },
   {
     title: "MATLAB Guide",
     resourceLink: "37af93faj",
+    backgroundImage: "/images/matlabGuideIcon.jpg",
     iconPath: "/images/matlabGuideIcon.svg"
   },
   {
     title: "Careers Advice",
     resourceLink: "37af93faj",
+    backgroundImage: "/images/careersAdviceIcon.jpg",
     iconPath: "/images/careersAdviceIcon.svg"
   },
   {
     title: "First Year Guide",
     resourceLink: "37af93faj",
-    iconPath: "/images/firstYearGuideIcon.svg"  
+    backgroundImage: "/images/firstYearGuideIcon.jpg",
+    iconPath: "/images/firstYearGuideIcon.svg"
   },
   {
     title: "HSC Tips and Tricks",
     resourceLink: "37af93faj",
+    backgroundImage: "/images/hscTipsAndTricksIcon.jpg",
     iconPath: "/images/hscTipsAndTricksIcon.svg"
-  },
+  }
 ];
 
 export default resourceData;
-
-/*
-export const firstYearExamBank: resourceDetails = {
-    title: "First Year Exam Bank",
-    resourceLink: "",
-    iconPath: "/images/firstYearExamBank.svg"
-};
-
-export const revisionLectures: resourceDetails = {
-    title: "Revision Lectures",
-    resourceLink: "",
-    iconPath: "/images/revisionLecturesIcon.svg"
-};
-
-export const latexGuide: resourceDetails = {
-    title: "LaTex Guide",
-    resourceLink: "",
-    iconPath: "/images/latexGuide.svg"
-};
-
-export const matlabGuide: resourceDetails = {
-    title: "MATLAB Guide",
-    resourceLink: "",
-    iconPath: "/images/matlabGuideIcon.svg"
-};
-
-export const careersAdvice: resourceDetails = {
-    title: "Careers Advice",
-    resourceLink: "",
-    iconPath: "/images/careersAdviceIcon.svg"
-};
-
-export const firstYearGuide: resourceDetails = {
-    title: "First Year Guide",
-    resourceLink: "",
-    iconPath: "/images/firstYearGuideIcon.svg"
-};
-
-export const hscTipsAndTricks: resourceDetails = {
-    title: "HSC Tips and Tricks",
-    resourceLink: "",
-    iconPath: "/images/hscTipsAndTricksIcon.svg"
-};
-
-export const resourceData: resourceDetails[] = [
-  firstYearExamBank,
-  revisionLectures,
-  latexGuide,
-  matlabGuide,
-  careersAdvice,
-  firstYearGuide,
-  hscTipsAndTricks
-];
-*/

@@ -1,0 +1,25 @@
+.strip {
+  /*the way each strip looks*/
+  background-color: white;
+  height: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
+  a {
+    text-decoration: none;
+  }
+}
+
+.stripContent {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-decoration: none;
+  // color: white; // temporarily red or else you can't see anything
+  color: red;
+}
+
+.flip {
+  order: 1;
+}
