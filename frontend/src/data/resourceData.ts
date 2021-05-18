@@ -49,6 +49,7 @@ const resourceData: resourceDetails[] = [
   },
 ];
 
+export default resourceData;
 
 /*
 export const firstYearExamBank: resourceDetails = {
