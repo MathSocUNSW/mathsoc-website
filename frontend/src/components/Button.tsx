@@ -23,7 +23,7 @@ const Button: React.FC<buttonProps> = ({
       </a>
     </div>
   );
-}
+};
 
 export default Button;
 
