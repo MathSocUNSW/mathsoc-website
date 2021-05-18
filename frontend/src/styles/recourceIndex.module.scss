@@ -1,23 +1,7 @@
 .buttonSection {
     /*this is the whole area that all the buttons will fit into*/
-  background-color: white;
-  height: 600px;
-  width: 325px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
 }
 
 .resourceBoxContainer {
     /*this is the box that the button will fit into (for media queries later...)*/
-  background-color: white;
-  height: 600px;
-  width: 325px;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
 }
