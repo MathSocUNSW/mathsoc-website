@@ -16,44 +16,44 @@ const resourceData: resourceDetails[] = [
   {
     title: "First Year Exam Bank",
     resourceLink: "/resources/exam",
-    backgroundImage: "/images/firstYearExamBank.jpg",
-    iconPath: "/images/firstYearExamBank.svg"
+    backgroundImage: "/images/resources/examBankBackground.jpg",
+    iconPath: "/images/resources/examBankIcon.png"
   },
   {
     title: "Revision Lectures",
     resourceLink: "/resources/revision",
-    backgroundImage: "/images/revisionLecturesIcon.jpg",
-    iconPath: "/images/revisionLecturesIcon.svg"
+    backgroundImage: "/images/resources/revisionBackground.jpg",
+    iconPath: "/images/resources/revisionIcon.png"
   },
   {
-    title: "LaTex Guide",
+    title: "LaTeX Guide",
     resourceLink: "37af93faj",
-    backgroundImage: "/images/latexGuide.jpg",
-    iconPath: "/images/latexGuide.svg"
+    backgroundImage: "/images/resources/latexBackground.jpg",
+    iconPath: "/images/resources/latexIcon.png"
   },
   {
     title: "MATLAB Guide",
     resourceLink: "37af93faj",
-    backgroundImage: "/images/matlabGuideIcon.jpg",
-    iconPath: "/images/matlabGuideIcon.svg"
+    backgroundImage: "/images/resources/matlabBackground.jpg",
+    iconPath: "/images/resources/matlabIcon.png"
   },
   {
     title: "Careers Advice",
     resourceLink: "37af93faj",
-    backgroundImage: "/images/careersAdviceIcon.jpg",
-    iconPath: "/images/careersAdviceIcon.svg"
+    backgroundImage: "/images/resources/careersBackground.jpg",
+    iconPath: "/images/resources/careersIcon.png"
   },
   {
     title: "First Year Guide",
     resourceLink: "37af93faj",
-    backgroundImage: "/images/firstYearGuideIcon.jpg",
-    iconPath: "/images/firstYearGuideIcon.svg"
+    backgroundImage: "/images/resources/firstYearBackground.jpg",
+    iconPath: "/images/resources/firstYearIcon.png"
   },
   {
     title: "HSC Tips and Tricks",
     resourceLink: "37af93faj",
-    backgroundImage: "/images/hscTipsAndTricksIcon.jpg",
-    iconPath: "/images/hscTipsAndTricksIcon.svg"
+    backgroundImage: "/images/resources/hscBackground.jpg",
+    iconPath: "/images/resources/hscIcon.png"
   }
 ];
 
