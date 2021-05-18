@@ -3,9 +3,11 @@
 .navbar {
   position: sticky;
   top: 0;
-  padding: 7px 0;
+  display: grid;
+  place-items: center;
   z-index: 100;
   background-color: white;
+  height: $headerHeight;
 }
 
 .navbarContent {
@@ -42,7 +44,7 @@
     &.open {
       display: block;
       position: absolute;
-      top: 62px;
+      top: $headerHeight;
       left: 0;
       width: 100vw;
       background-color: lightgray;
