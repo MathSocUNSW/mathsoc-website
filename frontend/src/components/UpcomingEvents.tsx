@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction } from "react";
 
 import moment from "moment";
 import styles from "src/styles/UpcomingEvents.module.scss";
-import Card from "src/components/Card";
+import EventCard from "src/components/EventCard";
 import eventData, { eventDetails } from "src/data/eventData";
 import {
   getDateUnix,
@@ -74,7 +74,7 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
           />
         )}
         {figureOutWhatEventsToShow(sortedEventData, eventIndex, width).map((x, index) => (
-          <Card key={index} {...x} />
+          <EventCard key={index} {...x} />
         ))}
         {sortedEventData.length > 3 && (
           <img
