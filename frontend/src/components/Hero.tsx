@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Typography } from "@material-ui/core";
 import styles from "src/styles/Hero.module.scss";
+import Image from "next/image";
 
 interface HeroProps {
   url: string;
@@ -10,7 +11,16 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ url, text }) => {
   return (
     <section className={styles.hero}>
-      <img src={url} className={styles.image} alt="banner" draggable="false" />
+      <div className={styles.imageContainer}>
+        <Image
+          src={url}
+          className={styles.image}
+          alt="banner"
+          layout="fill"
+          priority={true}
+          draggable="false"
+        />
+      </div>
       <Container>
         <div className={styles.text}>
           <Typography variant="h1" align="center">

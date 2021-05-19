@@ -3,7 +3,22 @@
   position: relative;
 }
 
-.image {
+.imageContainer {
+  width: 100%;
+
+  > div {
+    position: unset !important;
+  }
+
+  .image {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+
+.image2 {
   width: 100%;
   height: auto;
   min-height: 400px;
