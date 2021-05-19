@@ -1,3 +1,6 @@
+$baseColor: #05445E;
+$breakPoint: 750px;
+
 .strip {
   /*the way each strip looks*/
   background-color: white;
@@ -8,8 +11,7 @@
   a {
     text-decoration: none;
   }
-
-  background-color: rgb(42, 109, 138);
+  background-color: $baseColor;
   position: relative;
 }
 
@@ -25,7 +27,7 @@
   color: white;
   position: absolute;
   
-  @media only screen and (max-device-width: 690px) {
+  @media only screen and (max-device-width: $breakPoint) {
     flex-direction: column;
     justify-content: space-evenly;
   }
@@ -33,14 +35,13 @@
 
 .flip {
   order: 1;
-  @media only screen and (max-device-width: 690px) {
+  @media only screen and (max-device-width: $breakPoint) {
     order: 0;
   }
 }
 
 .icon {
-  @media only screen and (max-device-width: 690px) {
-    //display: none;
+  @media only screen and (max-device-width: $breakPoint) {
     max-height: 40%;
   }
 }
