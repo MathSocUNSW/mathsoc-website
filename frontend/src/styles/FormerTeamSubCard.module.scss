@@ -5,6 +5,9 @@
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
   margin-top: 20px;
   margin-bottom: 20px;
+  p {
+    font-size: 1.45rem;
+  }
 }
 
 .year {
@@ -14,34 +17,37 @@
 }
 
 .flexContainer {
-  padding-top: 30px;
+  padding-top: 150px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // justify-content: center;
+  // align-items: center;
   margin-left: 10%;
   margin-right: 10%;
 }
 
 .text {
   font-size: 1.45rem;
+  text-align: center;
 }
 
 .bold {
   font-weight: 600;
 }
 
-.other {
-  margin-top: 20px;
+.list {
+  width: 50%;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
-.nameContainer {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 50%;
-  text-align: center;
+.personContainer {
+  width: 100%;
+}
+
+.role {
+  padding-bottom: 5px;
 }
