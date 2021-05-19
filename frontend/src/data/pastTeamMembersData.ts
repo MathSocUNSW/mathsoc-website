@@ -41,7 +41,7 @@ interface subcommitteeData {
     | "Marketing"
     | "Sponsorships"
     | "Events"
-    | "general";
+    | "General";
   members: Array<string>;
 }
 
@@ -249,7 +249,7 @@ const pastTeamData: Array<yearTeamData> = [
     ],
     subcommittee: [
       {
-        role: "general",
+        role: "General",
         members: [
           "Brendon Yang",
           "Alex Zhu",
