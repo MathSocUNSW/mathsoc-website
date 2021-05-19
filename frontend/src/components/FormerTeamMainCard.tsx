@@ -4,7 +4,7 @@ import { Typography } from "@material-ui/core";
 import styles from "src/styles/FormerTeamMainCard.module.scss";
 import { yearTeamData } from "src/data/pastTeamMembersData";
 
-interface formerTeamMainCardProps {
+interface FormerTeamMainCardProps {
   data: yearTeamData;
 }
 
@@ -13,7 +13,7 @@ interface data {
   name: string;
 }
 
-const FormerTeamMainCard: React.FC<formerTeamMainCardProps> = ({ data }) => {
+const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ data }) => {
   console.log(data);
   const { year, execList, directorList } = data;
 
