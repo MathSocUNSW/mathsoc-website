@@ -10,11 +10,6 @@ interface stripProps extends resourceDetails {
   titlePosition: "left" | "right";
 }
 
-/* 
-- do we need rel="noreferrer" for an internal link? - nope - use Next Link for internal links
-- what typography varient should I be using? How can I check the different styles? 
-(I've just arbitarily picked h2) - trial and error - looks fine
-*/
 const Strip: React.FC<stripProps> = ({
   title,
   resourceLink,
@@ -26,7 +21,7 @@ const Strip: React.FC<stripProps> = ({
   const titleFlip = titlePosition === "right";
   return (
     <div className={styles.strip}>
-      <img src={backgroundImage} className={styles.background} alt={title} />
+      <img src={backgroundImage} className={styles.background} alt={title}/>
       <Link href={resourceLink}>
         <a>
           <div className={styles.stripContent}>
