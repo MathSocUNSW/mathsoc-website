@@ -5,22 +5,22 @@
 
 .imageContainer {
   width: 100%;
-  // min-height: 400px;
+  height: 100%;
   > div {
     position: unset !important;
   }
-
+  outline: auto;
   .image {
     object-fit: contain;
     width: 100% !important;
     position: relative !important;
-    height: unset !important;
+    height: 100% !important;
+    min-height: 400px !important;
   }
-  @media (max-width: 750px) {
-    // width: 100%;
-    // height: 400px;
+  @media (max-width: 1200px) {
     .image {
-      // height: 400px !important;
+      object-fit: cover !important;
+      height: 100%;
     }
   }
 }
