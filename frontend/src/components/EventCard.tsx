@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "src/styles/Card.module.scss";
-import { eventDetails as CardProps } from "src/data/eventData";
+import styles from "src/styles/EventCard.module.scss";
+import { eventDetails as EventCardProps } from "src/data/eventData";
 import { Typography } from "@material-ui/core";
 import { socials } from "src/data/socialData";
 
-const Card: React.FC<CardProps> = ({
+const EventCard: React.FC<EventCardProps> = ({
   title,
   eventLink,
   description,
@@ -74,4 +74,4 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-export default Card;
+export default EventCard;
