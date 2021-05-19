@@ -10,6 +10,7 @@ interface FormerTeamSubCardProps {
 
 const FormerTeamSubCard: React.FC<FormerTeamSubCardProps> = ({ data }) => {
   const { year, subcommittee } = data;
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.year}>
@@ -22,7 +23,11 @@ const FormerTeamSubCard: React.FC<FormerTeamSubCardProps> = ({ data }) => {
       </div>
       <div className={styles.flexContainer}>
         {subcommittee.map((role) => (
-          <div className={styles.list} key={role.role}>
+          <div
+            className={styles.list}
+            key={role.role}
+            style={subcommittee.length === 1 ? { width: "100%" } : {}}
+          >
             <div className={styles.role}>
               <p className={styles.text}>
                 <span className={styles.bold}>{role.role}</span>
