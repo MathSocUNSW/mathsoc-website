@@ -14,7 +14,6 @@ interface data {
 }
 
 const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ data }) => {
-  console.log(data);
   const { year, execList, directorList } = data;
 
   // Assumption there will always be a president
@@ -31,7 +30,7 @@ const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ data }) => {
     <div className={styles.mainContainer}>
       <div className={styles.year}>
         <Typography variant="h3" align="left">
-          <span style={{ fontWeight: 600 }}>{year}:</span>
+          <span style={{ fontWeight: 600 }}>{year}</span>
         </Typography>
       </div>
       <div className={styles.flexContainer}>

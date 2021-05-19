@@ -10,15 +10,14 @@ interface FormerTeamSubCardProps {
 
 const FormerTeamSubCard: React.FC<FormerTeamSubCardProps> = ({ data }) => {
   const { year, subcommittee } = data;
-  console.log(subcommittee);
   return (
     <div className={styles.mainContainer}>
       <div className={styles.year}>
         <Typography variant="h3" align="left">
-          <span style={{ fontWeight: 600 }}>
-            {year}:<br /> Subcommittee
-          </span>
-          <span style={{ fontWeight: 600 }}></span>
+          <div className={styles.yearParts}>
+            <span style={{ fontWeight: 600 }}>{year}</span>
+            <span style={{ fontWeight: 600 }}>Subcommittee</span>
+          </div>
         </Typography>
       </div>
       <div className={styles.flexContainer}>

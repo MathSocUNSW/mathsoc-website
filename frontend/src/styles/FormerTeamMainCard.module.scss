@@ -5,12 +5,22 @@
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
   margin-top: 20px;
   margin-bottom: 20px;
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .year {
   position: absolute;
   margin-left: 30px;
   margin-top: 15px;
+  @media (max-width: 650px) {
+    position: inherit;
+    margin-left: 0px;
+  }
 }
 
 .flexContainer {
@@ -21,6 +31,9 @@
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
+  @media (max-width: 650px) {
+    padding-top: 15px;
+  }
 }
 
 .text {
@@ -37,6 +50,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 40px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 }
 
 .nameContainer {
@@ -44,4 +60,7 @@
   padding-bottom: 10px;
   width: 50%;
   text-align: center;
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 }
