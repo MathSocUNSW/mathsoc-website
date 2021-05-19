@@ -11,13 +11,22 @@ import directorsData from "src/data/directorsData";
 import { Container, Typography } from "@material-ui/core";
 
 const Team: React.FC = () => {
-  // unifies the format of executive and director data
-  const teamData: profileData[] = [...executivesData];
+  // // unifies the format of executive and director data
+  // const teamData: profileData[] = [...executivesData];
+  // directorsData.forEach((role) => {
+  //   // sort directors alphabetically
+  //   const sortedDirectors = role.directors.slice().sort(alphabeticalSort);
+  //   sortedDirectors.forEach((director) => {
+  //     teamData.push({ name: director.name, role: `${role.role} Director` });
+  //   });
+  // });
+
+  const parsedDirectorsData: profileData[] = [];
   directorsData.forEach((role) => {
     // sort directors alphabetically
     const sortedDirectors = role.directors.slice().sort(alphabeticalSort);
     sortedDirectors.forEach((director) => {
-      teamData.push({ name: director.name, role: `${role.role} Director` });
+      parsedDirectorsData.push({ name: director.name, role: `${role.role} Director` });
     });
   });
 
@@ -30,13 +39,24 @@ const Team: React.FC = () => {
       <Hero url="/images/hero/mathsoc_team.jpg" text="Executives and Directors" />
       <Container>
         <Typography variant="h2" align="center">
-          Executives and Directors
+          Executives
         </Typography>
         <Typography variant="h5" align="center">
-          The 2021 Executive and Director Team of the UNSW Mathematics Society
+          The 2021 Executive Team of the UNSW Mathematics Society
         </Typography>
         <section className={styles.cardsContainer}>
-          {teamData.map((person, index) => (
+          {executivesData.map((person, index) => (
+            <Profile {...person} key={person.name} />
+          ))}
+        </section>
+        <Typography variant="h2" align="center">
+          Directors
+        </Typography>
+        <Typography variant="h5" align="center">
+          The 2021 Directors Team of the UNSW Mathematics Society
+        </Typography>
+        <section className={styles.cardsContainer}>
+          {parsedDirectorsData.map((person, index) => (
             <Profile {...person} key={person.name} />
           ))}
         </section>
