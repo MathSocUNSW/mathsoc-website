@@ -2,9 +2,9 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 
 import sponsorsData from "src/data/sponsorsData";
-import styles from "src/styles/Sponsors.module.scss";
+import styles from "src/styles/SponsorsList.module.scss";
 
-const Sponsors: React.FC = () => {
+const SponsorsList: React.FC = () => {
   return (
     <section className={styles.mainContainer}>
       <Typography variant="h2" align="center">
@@ -26,4 +26,4 @@ const Sponsors: React.FC = () => {
   );
 };
 
-export default Sponsors;
+export default SponsorsList;
