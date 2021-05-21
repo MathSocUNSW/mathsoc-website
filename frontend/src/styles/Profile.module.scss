@@ -24,4 +24,6 @@
 .textBox {
   width: 325px;
   height: 115px;
+  overflow: hidden;
+  word-wrap: break-word;
 }
