@@ -11,6 +11,8 @@ import directorsData from "src/data/directorsData";
 import { Container, Typography } from "@material-ui/core";
 
 const Team: React.FC = () => {
+  const [tempText, setTempText] = React.useState("Write ur stuff in here");
+
   // // unifies the format of executive and director data
   // const teamData: profileData[] = [...executivesData];
   // directorsData.forEach((role) => {
@@ -45,6 +47,13 @@ const Team: React.FC = () => {
           The 2021 Executive Team of the UNSW Mathematics Society
         </Typography>
         <section className={styles.cardsContainer}>
+          {/* TODO Remove */}
+          <textarea
+            style={{ width: "300px", height: "200px" }}
+            onChange={(event) => setTempText(event.target.value)}
+            value={tempText}
+          ></textarea>
+          <Profile name="testing" role="123" description={tempText}></Profile>
           {executivesData.map((person, index) => (
             <Profile {...person} key={person.name} />
           ))}
