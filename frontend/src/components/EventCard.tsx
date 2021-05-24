@@ -55,7 +55,9 @@ const EventCard: React.FC<EventCardProps> = ({
         <div className="mainContent">
           <Typography variant="h5">{title}</Typography>
           <div className={styles.description}>
-            <Typography variant="body1">{description}</Typography>
+            {/* Typography introduces a weird bug with MacOS browsers */}
+            {/* <Typography variant="body1">{description}</Typography> */}
+            <p>{description}</p>
           </div>
           <ul>
             <li>
