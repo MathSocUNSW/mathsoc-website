@@ -4,16 +4,16 @@ import Image from "next/image";
 
 import styles from "src/styles/Profile.module.scss";
 
-export interface profileData {
+export interface ProfileProps {
   name: string;
   role: string;
-  description?: string;
-  imagePath?: string;
+  description: string | null;
+  imagePath: string | null;
 }
 
 const DEFAULT_PROFILE_IMAGE = "/images/team/blank_profile.png";
 
-const Profile: React.FC<profileData> = ({ name, role, description, imagePath }) => {
+const Profile: React.FC<ProfileProps> = ({ name, role, description, imagePath }) => {
   return (
     <div className={styles.profile}>
       <div className="profileContent">

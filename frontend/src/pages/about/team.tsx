@@ -5,7 +5,7 @@ import alphabeticalSort from "src/helpers/alphabeticalSort";
 
 import Hero from "src/components/Hero";
 import styles from "src/styles/team.module.scss";
-import Profile, { profileData } from "components/Profile";
+import Profile, { ProfileProps } from "components/Profile";
 import executivesData from "src/data/executivesData";
 import directorsData from "src/data/directorsData";
 import { Container, Typography } from "@material-ui/core";
@@ -23,7 +23,7 @@ const Team: React.FC = () => {
   //   });
   // });
 
-  const parsedDirectorsData: profileData[] = [];
+  const parsedDirectorsData: Array<ProfileProps> = [];
   directorsData.forEach((role) => {
     // sort directors alphabetically
     const sortedDirectors = role.directors.slice().sort(alphabeticalSort);
@@ -58,7 +58,7 @@ const Team: React.FC = () => {
             onChange={(event) => setTempText(event.target.value)}
             value={tempText}
           ></textarea>
-          <Profile name="testing" role="123" description={tempText}></Profile>
+          <Profile name="testing" role="123" description={tempText} imagePath={null}></Profile>
           {executivesData.map((person, index) => (
             <Profile
               name={person.name}
