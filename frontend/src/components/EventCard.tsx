@@ -36,7 +36,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   return (
     <div className={styles.card}>
-      <div className="image">
+      <div>
         <a href={eventLink} target="_blank" rel="noreferrer">
           <div className={styles.imageContainer}>
             <Image
