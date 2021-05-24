@@ -10,7 +10,9 @@ export interface profileData {
   imageURL?: string;
 }
 
-const Profile: React.FC<profileData> = ({ name, role, description }) => {
+const DEFAULT_PROFILE_IMAGE = "/images/team/blank_profile.png";
+
+const Profile: React.FC<profileData> = ({ name, role, description, imageURL }) => {
   return (
     <div className={styles.profile}>
       <div className="profileContent">
@@ -26,7 +28,11 @@ const Profile: React.FC<profileData> = ({ name, role, description }) => {
         </div>
       </div>
       <div className="profileImage">
-        <div className={styles.tempPlaceHolder}></div>
+        <img
+          src={imageURL ? imageURL : DEFAULT_PROFILE_IMAGE}
+          alt={`${name} photo`}
+          className={styles.personImage}
+        ></img>
       </div>
     </div>
   );
