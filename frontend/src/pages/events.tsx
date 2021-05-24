@@ -5,7 +5,7 @@ import moment from "moment";
 import styles from "src/styles/events.module.scss";
 import UpcomingEvents from "components/UpcomingEvents";
 import Hero from "components/Hero";
-import Card from "src/components/Card";
+import EventCard from "src/components/EventCard";
 import eventData from "src/data/eventData";
 import {
   getDateUnix,
@@ -36,7 +36,7 @@ const Events: React.FC = () => {
         <section className={styles.pastEvents}>
           {sortedEventData.map((x, index) => (
             <div key={index} className={styles.eventBoxContainer}>
-              <Card {...x} />
+              <EventCard {...x} />
             </div>
           ))}
         </section>

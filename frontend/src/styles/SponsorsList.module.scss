@@ -27,3 +27,24 @@
   padding-right: 10px;
   margin-bottom: 10px;
 }
+
+.imageContainer {
+  width: auto;
+  max-width: 300px;
+  height: 60px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+
+  > div {
+    position: unset !important;
+  }
+
+  .image {
+    object-fit: contain;
+    width: auto !important;
+    position: relative !important;
+    height: 60px !important;
+  }
+}
