@@ -8,12 +8,12 @@ export interface profileData {
   name: string;
   role: string;
   description?: string;
-  imageURL?: string;
+  imagePath?: string;
 }
 
 const DEFAULT_PROFILE_IMAGE = "/images/team/blank_profile.png";
 
-const Profile: React.FC<profileData> = ({ name, role, description, imageURL }) => {
+const Profile: React.FC<profileData> = ({ name, role, description, imagePath }) => {
   return (
     <div className={styles.profile}>
       <div className="profileContent">
@@ -30,16 +30,16 @@ const Profile: React.FC<profileData> = ({ name, role, description, imageURL }) =
       </div>
       <div className="profileImage">
         <Image
-          src={imageURL ? imageURL : DEFAULT_PROFILE_IMAGE}
+          src={imagePath ? imagePath : DEFAULT_PROFILE_IMAGE}
           alt={`${name} photo`}
           height={150}
           width={150}
-          quality={75}
+          quality={50}
           className={styles.personImage}
           priority={true}
         />
         {/* <img
-          src={imageURL ? imageURL : DEFAULT_PROFILE_IMAGE}
+          src={imagePath ? imagePath : DEFAULT_PROFILE_IMAGE}
           alt={`${name} photo`}
           className={styles.personImage}
         ></img> */}

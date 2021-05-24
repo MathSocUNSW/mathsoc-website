@@ -19,10 +19,29 @@ interface portfolio {
 const directorsData: portfolio[] = [
   {
     role: "Education",
-    directors: [{ name: "John Kameas" }, { name: "Raymond Li" }, { name: "Gorden Zhuang" }]
+    directors: [
+      { name: "John Kameas" },
+      { name: "Raymond Li" },
+      {
+        name: "Gorden Zhuang",
+        description:
+          "3rd year actuarial studies and applied maths student. Hibernates perennially while secretly hoping to get rich from a questionable selection of stonks."
+      }
+    ]
   },
   { role: "Corporate Events", directors: [{ name: "Ting Li" }, { name: "Andrew William" }] },
-  { role: "Social Events", directors: [{ name: "Vedant Rampal" }, { name: "Daniel Kim" }] },
+  {
+    role: "Social Events",
+    directors: [
+      { name: "Vedant Rampal" },
+      {
+        name: "Daniel Kim",
+        description: `2nd Year Computer Science/Statistics Student.
+          My vision for MathSoc: Make the supreme meme dream team`,
+        imagePath: "/images/team/DanielKim.jpg"
+      }
+    ]
+  },
   { role: "Human Resources", directors: [{ name: "Katherine Bai" }, { name: "Christopher Wu" }] },
   { role: "IT", directors: [{ name: "Andrew Xie" }] },
   {

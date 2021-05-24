@@ -28,7 +28,12 @@ const Team: React.FC = () => {
     // sort directors alphabetically
     const sortedDirectors = role.directors.slice().sort(alphabeticalSort);
     sortedDirectors.forEach((director) => {
-      parsedDirectorsData.push({ name: director.name, role: `${role.role} Director` });
+      parsedDirectorsData.push({
+        name: director.name,
+        role: `${role.role} Director`,
+        description: director.description,
+        imagePath: director.imagePath
+      });
     });
   });
 
@@ -55,7 +60,13 @@ const Team: React.FC = () => {
           ></textarea>
           <Profile name="testing" role="123" description={tempText}></Profile>
           {executivesData.map((person, index) => (
-            <Profile {...person} key={person.name} />
+            <Profile
+              name={person.name}
+              role={person.role}
+              description={person.description}
+              imagePath={person.imagePath}
+              key={person.name}
+            />
           ))}
         </section>
         <Typography variant="h2" align="center">
@@ -66,7 +77,13 @@ const Team: React.FC = () => {
         </Typography>
         <section className={styles.cardsContainer}>
           {parsedDirectorsData.map((person, index) => (
-            <Profile {...person} key={person.name} />
+            <Profile
+              name={person.name}
+              role={person.role}
+              description={person.description}
+              imagePath={person.imagePath}
+              key={person.name}
+            />
           ))}
         </section>
       </Container>
