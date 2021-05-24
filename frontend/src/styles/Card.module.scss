@@ -33,6 +33,21 @@
   object-fit: cover;
 }
 
+.imageContainer {
+  width: 100%;
+
+  > div {
+    position: unset !important;
+  }
+
+  .image {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+}
+
 .content {
   height: 100%;
   padding: 0.2rem 1.5rem;

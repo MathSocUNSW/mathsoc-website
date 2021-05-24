@@ -4,6 +4,8 @@ import { eventDetails as CardProps } from "src/data/eventData";
 import { Typography } from "@material-ui/core";
 import { socials } from "src/data/socialData";
 
+import Image from "next/image";
+
 const Card: React.FC<CardProps> = ({
   title,
   eventLink,
@@ -37,7 +39,17 @@ const Card: React.FC<CardProps> = ({
     <div className={styles.card}>
       <div className="image">
         <a href={eventLink} target="_blank" rel="noreferrer">
-          <img src={imagePath} className={styles.topImage} alt="event banner" />
+          <div className={styles.imageContainer}>
+            <Image
+              src={imagePath}
+              className={styles.image}
+              alt="banner"
+              layout="fill"
+              priority={true}
+              quality={25}
+            />
+          </div>
+          {/* <img src={imagePath} className={styles.topImage} alt="event banner" /> */}
         </a>
       </div>
       <div className={styles.content}>
