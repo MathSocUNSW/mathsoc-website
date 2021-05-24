@@ -1,7 +1,7 @@
 interface director {
   name: string;
-  description?: string;
-  imagePath?: string;
+  description: string | null;
+  imagePath?: string | null;
 }
 
 interface portfolio {
@@ -20,8 +20,8 @@ const directorsData: portfolio[] = [
   {
     role: "Education",
     directors: [
-      { name: "John Kameas" },
-      { name: "Raymond Li" },
+      { name: "John Kameas", description: null, imagePath: null },
+      { name: "Raymond Li", description: null, imagePath: null },
       {
         name: "Gorden Zhuang",
         description:
@@ -29,11 +29,17 @@ const directorsData: portfolio[] = [
       }
     ]
   },
-  { role: "Corporate Events", directors: [{ name: "Ting Li" }, { name: "Andrew William" }] },
+  {
+    role: "Corporate Events",
+    directors: [
+      { name: "Ting Li", description: null, imagePath: null },
+      { name: "Andrew William", description: null, imagePath: null }
+    ]
+  },
   {
     role: "Social Events",
     directors: [
-      { name: "Vedant Rampal" },
+      { name: "Vedant Rampal", description: null, imagePath: null },
       {
         name: "Daniel Kim",
         description: `2nd Year Computer Science/Statistics Student.
@@ -42,17 +48,29 @@ const directorsData: portfolio[] = [
       }
     ]
   },
-  { role: "Human Resources", directors: [{ name: "Katherine Bai" }, { name: "Christopher Wu" }] },
-  { role: "IT", directors: [{ name: "Andrew Xie" }] },
+  {
+    role: "Human Resources",
+    directors: [
+      { name: "Katherine Bai", description: null, imagePath: null },
+      { name: "Christopher Wu", description: null, imagePath: null }
+    ]
+  },
+  { role: "IT", directors: [{ name: "Andrew Xie", description: null, imagePath: null }] },
   {
     role: "Marketing",
     directors: [
-      { name: "Gowtham Ravikumar" },
-      { name: "Celeste Thomson" },
-      { name: "Jessica Zheng" }
+      { name: "Gowtham Ravikumar", description: null, imagePath: null },
+      { name: "Celeste Thomson", description: null, imagePath: null },
+      { name: "Jessica Zheng", description: null, imagePath: null }
     ]
   },
-  { role: "Sponsorships", directors: [{ name: "Abhi Khosla" }, { name: "Jordan Shen" }] }
+  {
+    role: "Sponsorships",
+    directors: [
+      { name: "Abhi Khosla", description: null, imagePath: null },
+      { name: "Jordan Shen", description: null, imagePath: null }
+    ]
+  }
 ];
 
 export default directorsData;

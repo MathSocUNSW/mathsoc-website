@@ -1,14 +1,14 @@
 interface executive {
   name: string;
-  description?: string;
+  description: string | null;
   role: "President" | "Vice President" | "Secretary" | "Treasurer" | "Arc Delegate";
-  imagePath?: string;
+  imagePath: string | null;
 }
 
 const executivesData: executive[] = [
-  { name: "Grace Li", role: "President" },
-  { name: "Philton Zhu", role: "Vice President" },
-  { name: "Justin Clarke", role: "Secretary" },
+  { name: "Grace Li", role: "President", description: null, imagePath: null },
+  { name: "Philton Zhu", role: "Vice President", description: null, imagePath: null },
+  { name: "Justin Clarke", role: "Secretary", description: null, imagePath: null },
   {
     name: "Merry Chu",
     role: "Treasurer",
@@ -20,7 +20,8 @@ const executivesData: executive[] = [
     name: "Gerald Huang",
     role: "Arc Delegate",
     description:
-      "4th year Advanced Science (Pure Maths) / Computer Science (Artificial Intelligence), trying to survive through this period of digital university and digital stress."
+      "4th year Advanced Science (Pure Maths) / Computer Science (Artificial Intelligence), trying to survive through this period of digital university and digital stress.",
+    imagePath: null
   }
 ];
 
