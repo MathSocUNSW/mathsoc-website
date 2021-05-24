@@ -15,7 +15,13 @@ const SponsorsList: React.FC = () => {
         {sponsorsData.map((sponsor, index) => (
           <a key={index} href={sponsor.websiteURL} target="_blank" rel="noreferrer">
             <div className={styles.imageContainer}>
-              <Image src={sponsor.logoURL} layout="fill" className={styles.image} quality={1} />
+              <Image
+                src={sponsor.logoURL}
+                layout="fill"
+                className={styles.image}
+                quality={1}
+                priority={true}
+              />
             </div>
             {/* <img
               className={styles.logo}
