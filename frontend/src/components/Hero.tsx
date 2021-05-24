@@ -19,6 +19,7 @@ const Hero: React.FC<HeroProps> = ({ url, text }) => {
           layout="fill"
           priority={true}
           draggable="false"
+          quality={80}
         />
       </div>
       <Container>
