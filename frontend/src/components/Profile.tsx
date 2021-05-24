@@ -22,8 +22,7 @@ const Profile: React.FC<ProfileProps> = ({ name, role, description, imagePath })
         <div className={styles.textBox}>
           <Typography variant="subtitle1">
             {!description
-              ? `4th Year Science and Business student. Part-time pyromaniac but only as a hobby. PM me for
-          details on joining my pyramid scheme personal business venture.`
+              ? "4th Year Science and Business student. Part-time pyromaniac but only as a hobby. PM me for details on joining my pyramid scheme personal business venture."
               : description}
           </Typography>
         </div>
