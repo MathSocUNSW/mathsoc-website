@@ -159,7 +159,7 @@ const eventData: eventDetails[] = [
     title: "Resume Workshop",
     eventLink: "https://www.facebook.com/events/284670036374709/",
     description: `Step up your resume game and your employability at our Resume Workshop! Hosted by leading data consultancy, Servian, this workshop will better prepare YOU for the recruiting season as Servian employees share their own insight into what makes an excellent resume.
-    The event will consist of a 30ute workshop where invaluable resume tips and tricks will be shared, followed by a Q&A session, then a PERSONAL student resume review session where you will have the chance for YOUR OWN RESUME to be evaluated by Servian professionals.`,
+    The event will consist of a 30-minute workshop where invaluable resume tips and tricks will be shared, followed by a Q&A session, then a PERSONAL student resume review session where you will have the chance for YOUR OWN RESUME to be evaluated by Servian professionals.`,
     imagePath: "/images/events/resume_workshop_2021.jpg",
     location: "Science and Engineering Building G07",
     date: "11th March 2021, 4-5:30PM",
