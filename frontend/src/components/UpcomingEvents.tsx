@@ -55,7 +55,7 @@ export interface UpComingEventProps {
 }
 
 const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventIndex }) => {
-  const sortedEventData = eventData;
+  const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
   const { height, width } = useWindowDimensions();
 
   return (
