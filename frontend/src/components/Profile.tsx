@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
+import Image from "next/image";
 
 import styles from "src/styles/Profile.module.scss";
 
@@ -28,11 +29,20 @@ const Profile: React.FC<profileData> = ({ name, role, description, imageURL }) =
         </div>
       </div>
       <div className="profileImage">
-        <img
+        <Image
+          src={imageURL ? imageURL : DEFAULT_PROFILE_IMAGE}
+          alt={`${name} photo`}
+          height={150}
+          width={150}
+          quality={75}
+          className={styles.personImage}
+          priority={true}
+        />
+        {/* <img
           src={imageURL ? imageURL : DEFAULT_PROFILE_IMAGE}
           alt={`${name} photo`}
           className={styles.personImage}
-        ></img>
+        ></img> */}
       </div>
     </div>
   );
