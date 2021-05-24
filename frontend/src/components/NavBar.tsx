@@ -49,9 +49,13 @@ const NavBar: React.FC = () => {
               ))}
             </ul>
           </nav>
-          <div className={styles.toggle}>
-            {/* TODO: Dark Mode Toggle Switch */}
-            <Switch />
+          {/* <div className={styles.toggle}> */}
+          {/* TODO: Dark Mode Toggle Switch */}
+          {/* <Switch /> */}
+          {/* </div> */}
+          {/* TEMP */}
+          <div className={styles.hamburger} style={{ visibility: "hidden" }}>
+            <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
         </div>
       </Container>

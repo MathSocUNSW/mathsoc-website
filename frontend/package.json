@@ -15,7 +15,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "if [ -z \"$PORT\" ]; then next start; else next start -p $PORT; fi",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix"
@@ -31,7 +31,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1",
-    "sass": "^1.32.10",
+    "sass": "^1.32.13",
     "typescript": "^4.2.4"
   }
 }

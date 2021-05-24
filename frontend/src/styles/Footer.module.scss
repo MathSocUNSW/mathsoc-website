@@ -2,7 +2,12 @@
 
 .footer {
   background-color: #303743;
-  padding: 12px 0;
+  height: $footerHeight;
+  display: grid;
+  place-items: center;
+  @media screen and (max-width: $mobile) {
+    height: $footerHeightMobile;
+  }
 }
 
 .content {

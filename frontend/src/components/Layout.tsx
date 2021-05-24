@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import styles from "src/styles/Layout.module.scss";
 
 const theme = createMuiTheme({
   typography: {
@@ -50,9 +51,13 @@ const theme = createMuiTheme({
 const Layout: React.FC<unknown> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <NavBar />
-      {children}
-      <Footer />
+      <div className={styles.content}>
+        <div className={styles.header}>
+          <NavBar />
+        </div>
+        <article>{children}</article>
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 };
