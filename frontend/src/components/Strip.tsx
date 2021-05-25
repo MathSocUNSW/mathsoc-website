@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
-/* My own imports */
 import styles from "src/styles/strip.module.scss";
 import { resourceDetails } from "src/data/resourceData";
 
@@ -17,7 +16,7 @@ const Strip: React.FC<stripProps> = ({
   backgroundImage,
   titlePosition
 }) => {
-  // determine if the title and icon should be flipped
+  // determine if the title and icon should be flipped 
   const titleFlip = titlePosition === "right";
   return (
     <div className={styles.strip}>

@@ -2,15 +2,11 @@ import React from "react";
 import Head from "next/head";
 import Hero from "src/components/Hero";
 
-/*my own imports */
 import Strip from "components/Strip";
 import resourceData from "src/data/resourceData";
 import styles from "src/styles/resources.module.scss";
 import { Container } from "@material-ui/core";
 
-/*
-- URL FOR HERO DOESN'T EXIST YET
-*/
 const Resources: React.FC = () => {
   return (
     <section>

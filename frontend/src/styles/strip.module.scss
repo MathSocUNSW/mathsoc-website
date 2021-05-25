@@ -25,7 +25,7 @@ $breakPoint: 750px;
 
   text-align: center;
   color: white;
-  position: absolute;
+  position: absolute; 
   
   @media only screen and (max-device-width: $breakPoint) {
     flex-direction: column;

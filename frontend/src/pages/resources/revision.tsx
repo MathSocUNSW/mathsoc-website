@@ -2,9 +2,9 @@ import React from "react";
 import Head from "next/head";
 import { Container, Typography } from "@material-ui/core";
 
-import Hero from "src/components/Hero";
+import Hero from "src/components/resourcesHero";
 
-{/*TODO: custom styles for resources*/}
+{/*TODO: custom styles for resources - DONE*/}
 import styles from "src/styles/revision.module.scss";
 
 const Revision: React.FC = () => {
@@ -14,8 +14,13 @@ const Revision: React.FC = () => {
         <title>MathSoc - Revision Lectures</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      {/*TODO: custom hero for resources*/}
-      <Hero url="/images/resources/revisionBackground.png" text="Revision Lectures" />
+      {/*TODO: custom hero for resources - DONE*/}
+      <Hero 
+        url="/images/resources/revisionBackground.png" 
+        text="Revision Lectures" 
+        icon="/images/resources/revisionIcon.png" 
+        titlePosition="right"
+      />
       <Container>
           <section className={styles.content}>
             <Typography variant="body1">
@@ -25,9 +30,8 @@ const Revision: React.FC = () => {
             Huge thanks to our Education team who worked tirelessly to bring you 
             this material and present the revision seminars.
             <br/><br/>
-            Please note that
-            <br/><br/>
-            Despite our best efforts in keeping our resources error-free, occasionally, 
+            <strong>Please note that, </strong>
+            despite our best efforts in keeping our resources error-free, occasionally, 
             one may slip past us. If you do happen to notice one, please do let us 
             know ASAP by clicking here! These resources are NOT endorsed by the 
             School of Mathematics and Statistics.
