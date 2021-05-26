@@ -1,29 +1,6 @@
-// 860 navbar changes, 750 hero changes, 610 NEW CHANGES
-
 .hero {
-  // this is the hero
-  height: 400px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  background-size: cover;
-  background-position: center center;
-
-  overflow: hidden;
-  //background-repeat: no-repeat;
-
-  color: white;
-  padding: 15px;
-
-  @media (max-width: 610px) {
-    flex-direction: column;
-    order: 0;
-    width: 100%;
-    position: relative;
-  }
+  width: 100%;
+  position: relative;
 }
 
 .imageContainer {
@@ -62,13 +39,15 @@
   }
 }
 
-.icon {
-  // this is the icon on resource pg heroes
-  height: 80%;
-  padding: 0px 25px 0px;
-}
-
-.flip {
-  // this is for flipping the title on resource pg heroes
-  order: 1;
+.text {
+  // https://www.w3schools.com/howto/howto_css_image_text.asp
+  // text-align: center;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 860px;
+  // font-size: 3.5vw;
+  // font-weight: 900;
 }
