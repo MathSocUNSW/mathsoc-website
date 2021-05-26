@@ -1,6 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 import styles from "src/styles/Hero.module.scss";
+import Image from "next/image";
 
 interface HeroProps {
   url: string;
@@ -8,15 +9,26 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ url, text }) => {
-  const image = {
-    backgroundImage: "url(" + url + ")"
-  };
-
   return (
-    <section>
-      <Typography style={image} className={styles.hero} variant="h1" align="center">
-        {text}
-      </Typography>
+    <section className={styles.hero}>
+      <div className={styles.imageContainer}>
+        <Image
+          src={url}
+          className={styles.image}
+          alt="banner"
+          layout="fill"
+          priority={true}
+          draggable="false"
+          quality={80}
+        />
+      </div>
+      <Container>
+        <div className={styles.text}>
+          <Typography variant="h1" align="center">
+            {text}
+          </Typography>
+        </div>
+      </Container>
     </section>
   );
 };

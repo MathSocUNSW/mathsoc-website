@@ -1,10 +1,11 @@
 import React from "react";
-import styles from "src/styles/Card.module.scss";
-import { eventDetails as CardProps } from "src/data/eventData";
+import styles from "src/styles/EventCard.module.scss";
+import { eventDetails as EventCardProps } from "src/data/eventData";
 import { Typography } from "@material-ui/core";
 import { socials } from "src/data/socialData";
+import Image from "next/image";
 
-const Card: React.FC<CardProps> = ({
+const EventCard: React.FC<EventCardProps> = ({
   title,
   eventLink,
   description,
@@ -35,16 +36,28 @@ const Card: React.FC<CardProps> = ({
 
   return (
     <div className={styles.card}>
-      <div className="image">
+      <div>
         <a href={eventLink} target="_blank" rel="noreferrer">
-          <img src={imagePath} className={styles.topImage} alt="event banner" />
+          <div className={styles.imageContainer}>
+            <Image
+              src={imagePath}
+              className={styles.image}
+              alt="banner"
+              layout="fill"
+              priority={true}
+              quality={25}
+            />
+          </div>
+          {/* <img src={imagePath} className={styles.topImage} alt="event banner" /> */}
         </a>
       </div>
       <div className={styles.content}>
         <div className="mainContent">
           <Typography variant="h5">{title}</Typography>
           <div className={styles.description}>
-            <Typography variant="body1">{description}</Typography>
+            {/* Typography introduces a weird bug with MacOS browsers */}
+            {/* <Typography variant="body1">{description}</Typography> */}
+            <p>{description}</p>
           </div>
           <ul>
             <li>
@@ -74,4 +87,4 @@ const Card: React.FC<CardProps> = ({
   );
 };
 
-export default Card;
+export default EventCard;

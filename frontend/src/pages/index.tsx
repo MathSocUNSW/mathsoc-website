@@ -3,7 +3,7 @@ import Head from "next/head";
 import Hero from "../components/Hero";
 import styles from "src/styles/index.module.scss";
 import UpcomingEvents from "components/UpcomingEvents";
-import Sponsors from "components/Sponsors";
+import SponsorsList from "components/SponsorsList";
 import { Container, Typography } from "@material-ui/core";
 
 const Home: React.FC = () => {
@@ -27,7 +27,7 @@ const Home: React.FC = () => {
             UNSW.
           </Typography>
           <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
-          <Sponsors />
+          <SponsorsList />
         </Container>
       </section>
     </section>
