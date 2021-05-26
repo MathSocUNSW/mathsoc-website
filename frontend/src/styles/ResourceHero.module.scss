@@ -1,10 +1,12 @@
+@import "./variables.scss";
+
 .mainContainer {
   width: 100%;
 }
 
 .hero {
   min-height: 350px; // TODO: To be decided
-  max-height: 700px;
+  max-height: $heroMaxHeight;
 
   display: flex;
   flex-direction: row;
