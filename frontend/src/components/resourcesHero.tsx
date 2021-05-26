@@ -18,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({
   const titleFlip = titlePosition === "right";
 
   const image = {
-    backgroundImage: 'url(' + url + ')',
+    backgroundImage: "url(" + url + ")",
   };
 
   return (
