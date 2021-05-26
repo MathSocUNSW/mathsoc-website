@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import styles from "src/styles/ResourceHero.module.scss";
-import { style } from "@material-ui/system";
 
 interface ResourceHeroProps {
   url: string;
