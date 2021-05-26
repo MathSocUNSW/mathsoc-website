@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import styles from "src/styles/ResourceHero.module.scss";
+import { style } from "@material-ui/system";
 
 interface ResourceHeroProps {
   url: string;
@@ -13,11 +14,11 @@ const ResourceHero: React.FC<ResourceHeroProps> = ({ url, text, icon, titlePosit
   const titleFlip = titlePosition === "right";
 
   const image = {
-    backgroundImage: "url(" + url + ")"
+    backgroundImage: `url(${url})`
   };
 
   return (
-    <section>
+    <section className={styles.mainContainer}>
       <Typography style={image} className={styles.hero} variant="h1" align="center">
         <div className={titleFlip && styles.flip}>{text}</div>
         <img src={icon} className={styles.icon} alt="icon" draggable="false" />
