@@ -1,7 +1,4 @@
-// 860 navbar changes, 750 hero changes, 610 NEW CHANGES
-
 .hero {
-  // this is the hero
   height: 400px;
 
   display: flex;
@@ -23,42 +20,6 @@
     order: 0;
     width: 100%;
     position: relative;
-  }
-}
-
-.imageContainer {
-  width: 100%;
-  height: 100%;
-  max-height: 700px;
-  > div {
-    position: unset !important;
-  }
-  .image {
-    object-fit: contain;
-    width: 100% !important;
-    position: relative !important;
-    height: 100% !important;
-    min-height: 400px !important;
-    max-height: 700px !important;
-  }
-  @media (max-width: 1200px) {
-    .image {
-      object-fit: cover !important;
-      height: 100%;
-    }
-  }
-}
-
-.image2 {
-  width: 100%;
-  height: auto;
-  min-height: 400px;
-  max-height: 600px;
-  object-fit: cover;
-  // opacity: 0.96;
-  @media (max-width: 750px) {
-    width: 100%;
-    height: 400px;
   }
 }
 
