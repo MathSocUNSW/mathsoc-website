@@ -7,12 +7,9 @@ interface HeroProps {
   text: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ 
-  url, 
-  text, 
-}) => {
+const Hero: React.FC<HeroProps> = ({ url, text }) => {
   const image = {
-    backgroundImage: 'url(' + url + ')',
+    backgroundImage: "url(" + url + ")"
   };
 
   return (
