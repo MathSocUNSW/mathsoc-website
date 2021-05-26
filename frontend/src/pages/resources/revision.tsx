@@ -2,7 +2,7 @@ import React from "react";
 import Head from "next/head";
 import { Container, Typography } from "@material-ui/core";
 
-import Hero from "src/components/resourcesHero";
+import ResourceHero from "src/components/ResourceHero";
 
 {
   /*TODO: custom styles for resources - DONE*/
@@ -17,7 +17,7 @@ const Revision: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       {/*TODO: custom hero for resources - DONE*/}
-      <Hero
+      <ResourceHero
         url="/images/resources/revisionBackground.png"
         text="Revision Lectures"
         icon="/images/resources/revisionIcon.png"
