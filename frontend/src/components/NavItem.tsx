@@ -23,11 +23,13 @@ const NavItem: React.FC<NavItemProps> = ({ link, setOpen }) => {
 
   return (
     <div key={link.name} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <li className={styles.navLink} onClick={() => setOpen(false)}>
-        <Link href={link.route}>
-          <a>{link.name}</a>
-        </Link>
-      </li>
+      <Link href={link.route}>
+        <a>
+          <div className={styles.navLink} onClick={() => setOpen(false)}>
+            {link.name}
+          </div>
+        </a>
+      </Link>
       {link.dropdown && dropdown && (
         <NavBarDropdown items={link.dropdown} setDropdown={setDropdown} />
       )}

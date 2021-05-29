@@ -41,11 +41,11 @@ const NavBar: React.FC = () => {
             </Link>
           </div>
           <nav className={isOpen ? `${styles.navItems}` + ` ${styles.open}` : `${styles.navItems}`}>
-            <ul className={styles.navLinks}>
+            <div className={styles.navLinks}>
               {navLinks.map((link) => (
                 <NavItem key={link.name} link={link} setOpen={setOpen} />
               ))}
-            </ul>
+            </div>
           </nav>
           {/* <div className={styles.toggle}> */}
           {/* TODO: Dark Mode Toggle Switch */}
