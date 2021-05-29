@@ -13,11 +13,13 @@ const NavBarDropdown: React.FC<NavBarDropdownProps> = ({ items, setDropdown }) =
   return (
     <div className={styles.mainContainer}>
       {items.map((item) => (
-        <div key={item.name} className={styles.item} onClick={() => setDropdown(false)}>
-          <Link href={item.route}>
-            <a>{item.name}</a>
-          </Link>
-        </div>
+        <Link href={item.route} key={item.name}>
+          <a>
+            <div className={styles.item} onClick={() => setDropdown(false)}>
+              {item.name}
+            </div>
+          </a>
+        </Link>
       ))}
     </div>
   );
