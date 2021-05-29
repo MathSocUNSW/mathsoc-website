@@ -38,22 +38,10 @@
   }
 }
 
-.navItems {
+.toggle {
+  margin-left: 5px;
   @media screen and (max-width: $mobile) {
-    display: none;
-    &.open {
-      display: block;
-      position: absolute;
-      top: $headerHeight;
-      left: 0;
-      width: 100%;
-      background-color: lightgray;
-      text-align: center;
-      .navLinks {
-        flex-direction: column;
-        font-size: 18px;
-      }
-    }
+    margin-left: 0;
   }
 }
 
@@ -67,23 +55,5 @@
       color: $darkNavy;
       font-size: 17px;
     }
-  }
-}
-
-.navLink {
-  margin: 0 2px;
-  border-radius: 15px;
-  transition: 0.3s;
-  padding: 10px;
-  &:hover {
-    // REVIEW: colour/wanted
-    background-color: lightgrey;
-  }
-}
-
-.toggle {
-  margin-left: 5px;
-  @media screen and (max-width: $mobile) {
-    margin-left: 0;
   }
 }

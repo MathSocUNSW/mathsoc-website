@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+.mainContainer {
+  background: lightblue;
+  // width: 200px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  position: absolute;
+  top: $headerHeight;
+  // list-style: none;
+  text-align: start;
+  a {
+    text-decoration: none;
+    color: $darkNavy;
+    font-size: 17px;
+  }
+}
+
+.item {
+  margin: 0 2px;
+  border-radius: 15px;
+  transition: 0.3s;
+  padding: 10px;
+  &:hover {
+    // REVIEW: colour/wanted
+    background-color: lightgrey;
+  }
+}

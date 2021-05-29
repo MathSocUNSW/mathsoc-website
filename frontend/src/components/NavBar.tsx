@@ -5,6 +5,8 @@ import { Container, Switch } from "@material-ui/core";
 import navLinks from "src/data/navLinks";
 import styles from "src/styles/NavBar.module.scss";
 import Hamburger from "hamburger-react";
+import NavBarDropdown from "./NavBarDropdown";
+import NavItem from "./NavItem";
 
 const NavBar: React.FC = () => {
   // mobile
@@ -40,12 +42,8 @@ const NavBar: React.FC = () => {
           </div>
           <nav className={isOpen ? `${styles.navItems}` + ` ${styles.open}` : `${styles.navItems}`}>
             <ul className={styles.navLinks}>
-              {navLinks.map(({ name, route }) => (
-                <li key={name} className={styles.navLink} onClick={() => setOpen(false)}>
-                  <Link href={route}>
-                    <a>{name}</a>
-                  </Link>
-                </li>
+              {navLinks.map((link) => (
+                <NavItem key={link.name} link={link} setOpen={setOpen} />
               ))}
             </ul>
           </nav>
