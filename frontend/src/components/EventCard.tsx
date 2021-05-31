@@ -16,6 +16,8 @@ const EventCard: React.FC<EventCardProps> = ({
 }) => {
   // adds link to keywords
   const linker = (location) => {
+    if (!location) return "";
+
     // split location string by whitespace but keep the space
     // https://stackoverflow.com/a/26425713
     const linked = location.split(/(\s+)/).map((substring: string) => {
