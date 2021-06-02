@@ -11,7 +11,7 @@ const About: React.FC = () => {
   return (
     <section className="about">
       <Head>
-        <title>MathSoc - About Us</title>
+        <title>About Us - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_about_us.jpg" text="About Us" />
