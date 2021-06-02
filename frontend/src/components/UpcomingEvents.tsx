@@ -60,6 +60,34 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
   const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
   const { height, width } = useWindowDimensions();
 
+  /**
+   * Given an array of `srcArray`, load all the images into cache
+   * WARNING: Don't load too many. Since this is only used to load the upcoming events,
+   * there won't be that many
+   * Also, resolve() and reject() hasn't been tested yet
+   * @param srcArray
+   */
+  const cacheImages = async (srcArray: string[]) => {
+    const promises = srcArray.map((src) => {
+      return new Promise<void>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          resolve();
+        };
+        img.onerror = () => {
+          reject();
+        };
+        img.src = src;
+      });
+    });
+    await Promise.all(promises);
+  };
+
+  React.useEffect(() => {
+    const imgs = sortedEventData.map((event) => event.imagePath);
+    cacheImages(imgs);
+  }, [sortedEventData]);
+
   return (
     <section className={styles.newEventsContainer}>
       <Typography variant="h2" align="center">

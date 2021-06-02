@@ -12,6 +12,18 @@ export interface eventDetails {
   endDate: string; // end date for rendering algorithm
 }
 
+// Template
+// {
+//   title: "",
+//   eventLink: "",
+//   description: "",
+//   imagePath: "",
+//   location: "",
+//   date: "",
+//   startDate: "",
+//   endDate: ""
+// }
+
 const eventData: eventDetails[] = [
   {
     title: "MATH1081 Revision Workshop",
@@ -260,9 +272,53 @@ const eventData: eventDetails[] = [
     imagePath: "/images/events/peer_mentoring_2021.jpg",
     location: "Apply here",
     locationURL: "http://bit.ly/3ovWbCP",
-    date: "24th January 2021 11:59PM",
+    date: "24th January 2021, 11:59PM",
     startDate: "24-1-2021",
     endDate: "24-1-2021"
+  },
+  {
+    title: "EntSoc Talkshow Vol. 1 with Adam Driussi",
+    eventLink: "https://www.facebook.com/events/4075748952480958/",
+    description: "",
+    imagePath: "/images/events/talkshow_vol_1_2021.jpeg",
+    location: "Colombo Theatres",
+    date: "16th June 2021, 4-5:30PM",
+    startDate: "16-06-2021",
+    endDate: " 16-06-2021"
+  },
+  {
+    title: "Mathematics of Poker",
+    eventLink: "https://www.facebook.com/events/473295257301669",
+    description:
+      "UNSW MathSoc and SIG are inviting STEM students to our ‘Mathematics of Poker’ talk and pizza night. Come hear from our traders about maths, poker and their connection to trading, and play some casual poker while being mentored by the very best. You are highly encouraged to attend if you are in your final or penultimate year as this might be the career move that you’re looking for!",
+    imagePath: "/images/events/mathematics_of_poker_2021.jpeg",
+    location: "SIG Office",
+    date: "9th June 2021, 5:30-8:00PM",
+    startDate: "9-06-2021",
+    endDate: "9-06-2021"
+  },
+  {
+    title: "Piece of Mind Competition",
+    eventLink: "https://www.facebook.com/events/1682361398630801",
+    description: `Introducing ♟ Piece of Mind ♟! UNSW Chess Club and UNSW MathSoc 🤓 are hosting our first ever problem solving collab to get you pumped for the term. Come and flex 💪 that big brain 🧠 with your friends (if you have any 😩) or enter by yourself and join some friendly strangers 🍬 🚙 and win some juicy prizes 🤑🤑🤑. Snacks will also be provided, so come and get a 🌟FREE🌟 bite 🍪🍕!
+    This event will run for about 2 hours, and you will be competing in teams of four against other teams to collect points by solving chess-based mathematics problems 👩‍🔬. Prizes will be given for first, second and third places. Entries are limited, so sign up fast before spots are taken🏃‍♂️🏃‍♀️💨.`,
+    imagePath: "/images/events/piece_of_mind_2021.jpeg",
+    location: "Mathews 302, 303, and 306",
+    date: "6th June 2021, 3PM",
+    startDate: "6-06-2021",
+    endDate: "6-06-2021"
+  },
+  {
+    title: "Weekly Study Sessions",
+    eventLink: "https://www.facebook.com/events/332716108424609",
+    description: `Are you worried you will fall behind in Term 2? Are you also feeling a bit lonely after many terms of online classes? If the answer is yes to any one of these, then here is a solution for you… presenting MathSoc's Weekly Study Sessions! Here you can meet new people whilst being productive!
+    These study sessions are held at uni every Wednesday where anyone can come and chill and/or study. The event is not exclusive to maths students. Each session is 3 hours long, however you are welcome to come and go whenever you’d like.
+    We hope to see you there! 🤩`,
+    imagePath: "/images/events/weekly_study_session_t2_2021.jpeg",
+    location: "Blockhouse G16",
+    date: "Every Wednesday (Weeks 1 - 10) 2-5PM",
+    startDate: "2-06-2021",
+    endDate: "4-08-2021"
   }
 ];
 
