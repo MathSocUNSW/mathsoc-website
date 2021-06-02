@@ -6,8 +6,13 @@ interface executive {
 }
 
 const executivesData: executive[] = [
-  { name: "Grace Li", role: "President", description: null, imagePath: null },
-  { name: "Philton Zhu", role: "Vice President", description: null, imagePath: null },
+  { name: "Grace Li", role: "President", description: null, imagePath: "/images/team/GraceLi.jpg" },
+  {
+    name: "Philton Zhu",
+    role: "Vice President",
+    description: null,
+    imagePath: "/images/team/PhiltonZhu.png"
+  },
   {
     name: "Justin Clarke",
     role: "Secretary",
@@ -27,7 +32,7 @@ const executivesData: executive[] = [
     role: "Arc Delegate",
     description:
       "4th year Advanced Science (Pure Maths) / Computer Science (Artificial Intelligence), trying to survive through this period of digital university and digital stress.",
-    imagePath: null
+    imagePath: "/images/team/GeraldHuang.jpg"
   }
 ];
 

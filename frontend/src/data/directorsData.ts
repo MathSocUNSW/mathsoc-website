@@ -1,7 +1,7 @@
 interface director {
   name: string;
   description: string | null;
-  imagePath?: string | null;
+  imagePath: string | null;
 }
 
 interface portfolio {
@@ -21,11 +21,12 @@ const directorsData: portfolio[] = [
     role: "Education",
     directors: [
       { name: "John Kameas", description: null, imagePath: null },
-      { name: "Raymond Li", description: null, imagePath: null },
+      { name: "Raymond Li", description: null, imagePath: "/images/team/RaymondLi.jpg" },
       {
         name: "Gorden Zhuang",
         description:
-          "3rd year actuarial studies and applied maths student. Hibernates perennially while secretly hoping to get rich from a questionable selection of stonks."
+          "3rd year actuarial studies and applied maths student. Hibernates perennially while secretly hoping to get rich from a questionable selection of stonks.",
+        imagePath: "/images/team/GordenZhuang.jpg"
       }
     ]
   },
@@ -49,7 +50,7 @@ const directorsData: portfolio[] = [
   {
     role: "Social Events",
     directors: [
-      { name: "Vedant Rampal", description: null, imagePath: null },
+      { name: "Vedant Rampal", description: null, imagePath: "/images/team/VedantRampal.jpg" },
       {
         name: "Daniel Kim",
         description: `2nd Year Computer Science/Statistics Student.
@@ -88,7 +89,7 @@ const directorsData: portfolio[] = [
     role: "Sponsorships",
     directors: [
       { name: "Abhi Khosla", description: null, imagePath: null },
-      { name: "Jordan Shen", description: null, imagePath: null }
+      { name: "Jordan Shen", description: null, imagePath: "/images/team/JordanShen.jpg" }
     ]
   }
 ];
