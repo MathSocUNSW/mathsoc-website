@@ -22,8 +22,10 @@
 
 .textBox {
   width: 325px;
-  height: 115px;
+  height: 120px;
   // overflow: hidden;
   word-wrap: break-word;
   white-space: pre-line;
+  margin-top: -5px;
+  margin-bottom: 4px;
 }
