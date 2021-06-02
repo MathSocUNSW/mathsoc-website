@@ -8,12 +8,18 @@ interface executive {
 const executivesData: executive[] = [
   { name: "Grace Li", role: "President", description: null, imagePath: null },
   { name: "Philton Zhu", role: "Vice President", description: null, imagePath: null },
-  { name: "Justin Clarke", role: "Secretary", description: null, imagePath: null },
+  {
+    name: "Justin Clarke",
+    role: "Secretary",
+    description:
+      "3rd year Quantitative Data Science and Decisions student. My name is Justin for a reason in Valorant (MeMe10rd #OCE) and I also play reps volleyball for UNSW in division 1 :) ",
+    imagePath: "/images/team/JustinClarke.jpg"
+  },
   {
     name: "Merry Chu",
     role: "Treasurer",
     description:
-      "3rd year Adv Maths/Commerce student, minoring in obscure meme knowledge. Call duck appreciation, stand-up comedy and brunch dates make up 90% of my personality <3",
+      "3rd year Adv Maths/Commerce student. Call ducks, stand-up comedy and feeling personally victimised by Buzzfeed quiz results make up 90% of my personality.",
     imagePath: "/images/team/MerryChu.jpg"
   },
   {

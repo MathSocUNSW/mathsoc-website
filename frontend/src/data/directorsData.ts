@@ -32,8 +32,18 @@ const directorsData: portfolio[] = [
   {
     role: "Corporate Events",
     directors: [
-      { name: "Ting Li", description: null, imagePath: null },
-      { name: "Andrew William", description: null, imagePath: null }
+      {
+        name: "Ting Li",
+        description: `4th Year Actl/Maths student. 
+      Will only study at Science and Engineering building on campus.`,
+        imagePath: "/images/team/TingLi.jpg"
+      },
+      {
+        name: "Andrew William",
+        description:
+          "2nd Year Quantitative Data Science student. Dog, meme and anime lover. Contact me for details on how to QuAnTiTAtivEly lose money in Crypto :>",
+        imagePath: null
+      }
     ]
   },
   {
@@ -59,8 +69,18 @@ const directorsData: portfolio[] = [
   {
     role: "Marketing",
     directors: [
-      { name: "Gowtham Ravikumar", description: null, imagePath: null },
-      { name: "Celeste Thomson", description: null, imagePath: null },
+      {
+        name: "Gowtham Ravikumar",
+        description:
+          "2nd Year Computer Science student. Enjoys reading and photography but can usually be found procrastinating. Do not let him out of sight when drunk.",
+        imagePath: "/images/team/GowthamRavikumar.jpeg"
+      },
+      {
+        name: "Celeste Thomson",
+        description:
+          "4th Year Chemical and Biomedical Engineering student. Has bad taste in video games. Likes climbing tall things and kissing cats on the head.",
+        imagePath: null
+      },
       { name: "Jessica Zheng", description: null, imagePath: null }
     ]
   },
