@@ -68,7 +68,7 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
    * @param srcArray
    */
   const cacheImages = async (srcArray: string[]) => {
-    const promises = await srcArray.map((src) => {
+    const promises = srcArray.map((src) => {
       return new Promise<void>((resolve, reject) => {
         const img = new Image();
         img.onload = () => {
