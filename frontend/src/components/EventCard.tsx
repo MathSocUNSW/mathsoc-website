@@ -40,7 +40,7 @@ const EventCard: React.FC<EventCardProps> = ({
     <div className={styles.card}>
       <div>
         <a href={eventLink} target="_blank" rel="noreferrer">
-          <div className={styles.imageContainer}>
+          {/* <div className={styles.imageContainer}>
             <Image
               src={imagePath}
               className={styles.image}
@@ -49,8 +49,8 @@ const EventCard: React.FC<EventCardProps> = ({
               priority={true}
               quality={25}
             />
-          </div>
-          {/* <img src={imagePath} className={styles.topImage} alt="event banner" /> */}
+          </div> */}
+          <img src={imagePath} className={styles.topImage} alt="event banner" />
         </a>
       </div>
       <div className={styles.content}>
