@@ -6,7 +6,11 @@ import ResourceHero from "src/components/ResourceHero";
 import styles from "src/styles/revision.module.scss";
 import WholePageBox from "components/WholePageBox";
 
+import Tile from "components/Tile";
+import revisionData from "src/data/revisionData";
+
 const Revision: React.FC = () => {
+
   return (
     <section>
       <Head>
@@ -19,7 +23,7 @@ const Revision: React.FC = () => {
         icon="/images/resources/revisionIcon.png"
         titlePosition="right"
       />
-      <Container>
+      <Container> 
         <WholePageBox>
           <Typography variant="body1">
             Here, you’ll find the slides and solutions for the revision seminars we held for UNSW
@@ -36,7 +40,14 @@ const Revision: React.FC = () => {
             These resources are NOT endorsed by the School of Mathematics and Statistics.
           </Typography>
           {/*TODO: 'tiles' for resources*/}
+          
         </WholePageBox>
+        <div className={styles.tileContainer}>
+          {revisionData.map ((tileData, index) => (
+              <Tile {...tileData} key={tileData.courseCode} />
+          ))}
+        
+        </div>
       </Container>
     </section>
   );

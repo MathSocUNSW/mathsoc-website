@@ -34,7 +34,7 @@ const Strip: React.FC<stripProps> = ({
     </div>
   );
 };
-
+ 
 // if doesn't look good on mobile - change flex direction of stripContent (mediaQuery)
 
 export default Strip;

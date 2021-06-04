@@ -1,0 +1,68 @@
+.hidden {
+  display: none;
+}
+
+.tile {
+  background-color: white;
+  height: 300px;
+  width: 380px; //change tp min- 1232/3 -> 1230/3 = 410px
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  flex-basis: auto;
+
+  margin: 15px;
+  justify-content: space-evenly;
+}
+
+.frontTile {
+  padding-left: 30px;
+  padding-right: 30px;
+  .icon {
+    padding-bottom: 50px;
+    max-height: 50px;
+  }
+}
+
+.backTile {
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 70%;
+}
+
+.tileGroup {
+  list-style-type:none
+}
+
+.traverserFront {
+  cursor: pointer;
+
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: row;
+  .text {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(32, 27, 75);
+    padding-right: 20px;
+  }
+}
+
+.traverserBack {
+  cursor: pointer;
+
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: row;
+  
+  justify-content: space-between;
+}
