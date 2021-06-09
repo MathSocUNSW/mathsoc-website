@@ -33,7 +33,9 @@ const figureOutWhatEventsToShow = (
   sortedEventData.sort(sortEndDateDecreasing);
   // console.log(width);
 
-  if (sortedEventData.length === 1 || width <= 1050) {
+  if (sortedEventData.length === 0) {
+    return [];
+  } else if (sortedEventData.length === 1 || width <= 1050) {
     return [sortedEventData[checkIndex(sortedEventData, eventIndex)]];
   } else if (sortedEventData.length === 2 || width <= 1500) {
     return [
@@ -73,9 +75,15 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
             onClick={() => setEventIndex(eventIndex - 1)}
           />
         )}
-        {figureOutWhatEventsToShow(sortedEventData, eventIndex, width).map((x, index) => (
-          <EventCard key={index} {...x} />
-        ))}
+        {sortedEventData.length === 0 ? (
+          <div className={styles.empty}>
+            <Typography variant="body1">Nothing to see here</Typography>
+          </div>
+        ) : (
+          figureOutWhatEventsToShow(sortedEventData, eventIndex, width).map((x, index) => (
+            <EventCard key={index} {...x} />
+          ))
+        )}
         {sortedEventData.length > 3 && (
           <img
             src="/images/rightArrow.svg"
