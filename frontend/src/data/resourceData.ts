@@ -26,7 +26,7 @@ const resourceData: resourceDetails[] = [
   },
   {
     title: "MATLAB Guide",
-    resourceLink: "empty",
+    resourceLink: "/resources/matlab",
     backgroundImage: "/images/resources/matlabBackground.png",
     iconPath: "/images/resources/matlabIcon.png"
   },

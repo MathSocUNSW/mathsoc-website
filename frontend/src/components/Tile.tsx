@@ -35,7 +35,7 @@ const Tile: React.FC<tileProps> = ({
         </div>
       </div>
       <div className={index <= -1 ? styles.traverserFront : styles.traverserBack}>
-        <div className={index < 0 ? styles.text : styles.hidden}>
+        <div onClick={() => setIndex(index + 1)} className={index < 0 ? styles.text : styles.hidden}>
           Explore
         </div>
         {/*LHS arrow*/}
