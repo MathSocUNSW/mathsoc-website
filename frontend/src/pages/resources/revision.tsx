@@ -41,7 +41,7 @@ const Revision: React.FC = () => {
         </WholePageBox>
         <div className={styles.tileContainer}>
           {revisionData.map ((tileData, index) => (
-              <Tile {...tileData} key={tileData.courseCode} />
+            <Tile {...tileData} key={tileData.courseCode} />
           ))}
         </div>
       </Container>
