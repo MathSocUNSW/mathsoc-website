@@ -12,8 +12,8 @@ const Tile: React.FC<tileProps> = ({
 }) => {
   const [index, setIndex] = useState(-1);
 
-  let element = revisionLinks[index];
-  let slideVisibility = revisionLinks.map((group, index) => group == element ? <TileGroup {...group} key={index}/> : <TileGroup {...group} key={index} visible = {styles.hidden}/>) ;
+  const element = revisionLinks[index];
+  const slideVisibility = revisionLinks.map((group, index) => group == element ? <TileGroup {...group} key={index}/> : <TileGroup {...group} key={index} visible = {styles.hidden}/>) ;
 
   return (    
     <div className={styles.tile}>
