@@ -6,7 +6,7 @@ const Unknown404: React.FC = () => {
   return (
     <div>
       <Head>
-        <title>MathSoc - Spaghetti</title>
+        <title>MathSoc Spaghetti</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Container>

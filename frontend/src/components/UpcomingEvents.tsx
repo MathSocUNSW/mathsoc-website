@@ -33,7 +33,9 @@ const figureOutWhatEventsToShow = (
   sortedEventData.sort(sortEndDateDecreasing);
   // console.log(width);
 
-  if (sortedEventData.length === 1 || width <= 1050) {
+  if (sortedEventData.length === 0) {
+    return [];
+  } else if (sortedEventData.length === 1 || width <= 1050) {
     return [sortedEventData[checkIndex(sortedEventData, eventIndex)]];
   } else if (sortedEventData.length === 2 || width <= 1500) {
     return [
@@ -58,6 +60,34 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
   const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
   const { height, width } = useWindowDimensions();
 
+  /**
+   * Given an array of `srcArray`, load all the images into cache
+   * WARNING: Don't load too many. Since this is only used to load the upcoming events,
+   * there won't be that many
+   * Also, resolve() and reject() hasn't been tested yet
+   * @param srcArray
+   */
+  const cacheImages = async (srcArray: string[]) => {
+    const promises = srcArray.map((src) => {
+      return new Promise<void>((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          resolve();
+        };
+        img.onerror = () => {
+          reject();
+        };
+        img.src = src;
+      });
+    });
+    await Promise.all(promises);
+  };
+
+  React.useEffect(() => {
+    const imgs = sortedEventData.map((event) => event.imagePath);
+    cacheImages(imgs);
+  }, [sortedEventData]);
+
   return (
     <section className={styles.newEventsContainer}>
       <Typography variant="h2" align="center">
@@ -73,9 +103,15 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
             onClick={() => setEventIndex(eventIndex - 1)}
           />
         )}
-        {figureOutWhatEventsToShow(sortedEventData, eventIndex, width).map((x, index) => (
-          <EventCard key={index} {...x} />
-        ))}
+        {sortedEventData.length === 0 ? (
+          <div className={styles.empty}>
+            <Typography variant="body1">Nothing to see here</Typography>
+          </div>
+        ) : (
+          figureOutWhatEventsToShow(sortedEventData, eventIndex, width).map((x, index) => (
+            <EventCard key={index} {...x} />
+          ))
+        )}
         {sortedEventData.length > 3 && (
           <img
             src="/images/rightArrow.svg"
