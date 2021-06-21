@@ -1,7 +1,3 @@
-.hidden {
-  display: none;
-}
-
 .tile { //modified from card scss
   background-color: white;
   height: 300px;
@@ -19,8 +15,14 @@
   flex-basis: auto;
   flex: 1;
 
+  
   margin: 15px;
   justify-content: space-evenly;
+}
+
+.tileContent {
+  // Can you make the navigation bar in the same position
+  // with content distributed as before (space evenly or around)
 }
 
 .frontTile {
@@ -42,20 +44,7 @@
   list-style-type:none
 }
 
-.traverserFront {
-  cursor: pointer;
 
-  padding-left: 30px;
-  padding-right: 30px;
-  display: flex;
-  flex-direction: row;
-  .text {
-    font-size: 12px;
-    font-weight: bold;
-    color: rgb(32, 27, 75);
-    padding-right: 10px;
-  }
-}
 /* TO-DO: ARROW TRANSITION
 .arrowLHS {
   transition: background-color 2s ease-out;
@@ -64,15 +53,36 @@
   }
 }*/
 
-.traverserBack {
-  //transition-delay: 20ms;
-
+.arrowLHS, .arrowRHS {
+  // transition might be difficult because we are re-rendering a new arrow for each tile slide?
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  padding-left: 30px;
-  padding-right: 30px;
+.text {
+  cursor: pointer;
+  margin-right: .5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(32, 27, 75);
+}
+
+.traverserFront {
+  padding: 0 30px;
   display: flex;
   flex-direction: row;
-  
-  justify-content: space-between;
+  justify-content: left;
+  align-items: center;
 }
+
+.traverserBack {
+  //transition-delay: 20ms;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
