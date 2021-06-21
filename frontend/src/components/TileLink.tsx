@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import {links as tileLinkProps} from "src/data/revisionData";
+import { links as tileLinkProps } from "src/data/revisionData";
 
 const TileLink: React.FC<tileLinkProps> = ({
   name,
@@ -9,13 +9,13 @@ const TileLink: React.FC<tileLinkProps> = ({
 }) => {
   return (
     <div>
-       <li>
-         <Link href={path}>
+      <li>
+        <Link href={path}>
           <a>
             {name}
           </a>
-         </Link>
-       </li>
+        </Link>
+      </li>
     </div>
   );
 };

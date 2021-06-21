@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography } from "@material-ui/core";
 
-import {revisionTile as tileProps} from "src/data/revisionData";
+import { revisionTile as tileProps } from "src/data/revisionData";
 import TileGroup from "./TileGroup";
 import styles from "src/styles/tile.module.scss";
 
@@ -12,8 +12,8 @@ const Tile: React.FC<tileProps> = ({
 }) => {
   const [index, setIndex] = useState(-1);
 
-  var element = revisionLinks[index];
-  var slideVisibility = revisionLinks.map((group, index) => group == element ? <TileGroup {...group} key={index}/> : <TileGroup {...group} key={index} visible = {styles.hidden}/>) ;
+  const element = revisionLinks[index];
+  const slideVisibility = revisionLinks.map((group, index) => group == element ? <TileGroup {...group} key={index} visible = {styles.visible}/> : <TileGroup {...group} key={index} visible = {styles.hidden}/>) ;
 
   return (    
     <div className={styles.tile}>
@@ -35,7 +35,7 @@ const Tile: React.FC<tileProps> = ({
         </div>
       </div>
       <div className={index <= -1 ? styles.traverserFront : styles.traverserBack}>
-        <div className={index < 0 ? styles.text : styles.hidden}>
+        <div onClick={() => setIndex(index + 1)} className={index < 0 ? styles.text : styles.hidden}>
           Explore
         </div>
         {/*LHS arrow*/}

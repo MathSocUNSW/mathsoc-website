@@ -2,10 +2,10 @@
   display: none;
 }
 
-.tile {
+.tile { //modified from card scss
   background-color: white;
   height: 300px;
-  width: 380px; //change tp min- 1232/3 -> 1230/3 = 410px
+  min-width: 380px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
@@ -17,6 +17,7 @@
   }
 
   flex-basis: auto;
+  flex: 1;
 
   margin: 15px;
   justify-content: space-evenly;
@@ -52,11 +53,20 @@
     font-size: 12px;
     font-weight: bold;
     color: rgb(32, 27, 75);
-    padding-right: 20px;
+    padding-right: 10px;
   }
 }
+/* TO-DO: ARROW TRANSITION
+.arrowLHS {
+  transition: background-color 2s ease-out;
+  onClick {
+    background-color: orangered;
+  }
+}*/
 
 .traverserBack {
+  //transition-delay: 20ms;
+
   cursor: pointer;
 
   padding-left: 30px;

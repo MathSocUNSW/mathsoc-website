@@ -24,7 +24,7 @@ const Events: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>MathSoc - Events</title>
+        <title>Events - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_events.jpg" text="Events" />

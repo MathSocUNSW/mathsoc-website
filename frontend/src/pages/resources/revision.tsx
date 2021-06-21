@@ -10,7 +10,6 @@ import Tile from "components/Tile";
 import revisionData from "src/data/revisionData";
 
 const Revision: React.FC = () => {
-
   return (
     <section>
       <Head>
@@ -27,7 +26,7 @@ const Revision: React.FC = () => {
         <WholePageBox>
           <Typography variant="body1">
             Here, you’ll find the slides and solutions for the revision seminars we held for UNSW
-            Mathematics courses. All the best for your revision :)
+            Mathematics courses. All the best for your revision 😊
             <br />
             <br />
             Huge thanks to our Education team who worked tirelessly to bring you this material and
@@ -39,14 +38,11 @@ const Revision: React.FC = () => {
             past us. If you do happen to notice one, please do let us know ASAP by clicking here!
             These resources are NOT endorsed by the School of Mathematics and Statistics.
           </Typography>
-          {/*TODO: 'tiles' for resources*/}
-          
         </WholePageBox>
         <div className={styles.tileContainer}>
           {revisionData.map ((tileData, index) => (
-              <Tile {...tileData} key={tileData.courseCode} />
+            <Tile {...tileData} key={tileData.courseCode} />
           ))}
-        
         </div>
       </Container>
     </section>

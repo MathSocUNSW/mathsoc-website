@@ -24,7 +24,7 @@ const Team: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>MathSoc - Meet the Team</title>
+        <title>Meet the Team - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Executives and Directors" />
