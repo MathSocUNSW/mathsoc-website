@@ -68,7 +68,12 @@ const directorsData: portfolio[] = [
           "2nd year Actuarial Studies/Advanced Maths student. Loves the aquarium!! And sushi hehe...",
         imagePath: "/images/team/KatherineBai.jpg"
       },
-      { name: "Christopher Wu", description: null, imagePath: null }
+      {
+        name: "Christopher Wu",
+        description:
+          "3rd Year Commerce and Computer Science student. Enjoys sleeping and KFC religiously.",
+        imagePath: null
+      }
     ]
   },
   { role: "IT", directors: [{ name: "Andrew Xie", description: null, imagePath: null }] },
