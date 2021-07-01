@@ -18,7 +18,7 @@ const Revision: React.FC = () => {
         icon="/images/resources/matlabIcon.png"
         titlePosition="left"
       />
-      <Container> 
+      <Container>
         <WholePageBox>
           <Typography variant="body1">
             You: I want to learn a programming language.
@@ -27,20 +27,18 @@ const Revision: React.FC = () => {
             Me, an intellectual: MATLAB.
             <br />
             <br />
-            Hey friends, the slaves at MathSoc have created an Interactive MATLAB guide, 
-            which can be accessed here. It is meant to supplement the MATH1151/MATH1251 
-            online modules, and contains 4 fun little projects to sink your teeth into. 
-            Note that it builds on, and does not replace, those modules which are excellent 
-            and comprehensive resources in itself.
+            Hey friends, the slaves at MathSoc have created an Interactive MATLAB guide, which can
+            be accessed here. It is meant to supplement the MATH1151/MATH1251 online modules, and
+            contains 4 fun little projects to sink your teeth into. Note that it builds on, and does
+            not replace, those modules which are excellent and comprehensive resources in itself.
             <br />
             <br />
-            To access it, please export all given files into the same folder and double 
-            click on the one that says ‘open this’.
-            You: I want to learn a programming language.
+            To access it, please export all given files into the same folder and double click on the
+            one that says ‘open this’. You: I want to learn a programming language.
             <br />
             <br />
-            Please do not hesitate to contact us if you have any questions, suggestions 
-            or spot any mistakes! 🙂
+            Please do not hesitate to contact us if you have any questions, suggestions or spot any
+            mistakes! 🙂
           </Typography>
         </WholePageBox>
       </Container>

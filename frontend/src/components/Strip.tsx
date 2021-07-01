@@ -16,11 +16,11 @@ const Strip: React.FC<stripProps> = ({
   backgroundImage,
   titlePosition
 }) => {
-  // determine if the title and icon should be flipped 
+  // determine if the title and icon should be flipped
   const titleFlip = titlePosition === "right";
   return (
     <div className={styles.strip}>
-      <img src={backgroundImage} className={styles.background} alt={title}/>
+      <img src={backgroundImage} className={styles.background} alt={title} />
       <Link href={resourceLink}>
         <a>
           <div className={styles.stripContent}>
@@ -34,7 +34,7 @@ const Strip: React.FC<stripProps> = ({
     </div>
   );
 };
- 
+
 // if doesn't look good on mobile - change flex direction of stripContent (mediaQuery)
 
 export default Strip;

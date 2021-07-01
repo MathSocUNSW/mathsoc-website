@@ -22,7 +22,7 @@ const Revision: React.FC = () => {
         icon="/images/resources/revisionIcon.png"
         titlePosition="right"
       />
-      <Container> 
+      <Container>
         <WholePageBox>
           <Typography variant="body1">
             Here, you’ll find the slides and solutions for the revision seminars we held for UNSW
@@ -40,7 +40,7 @@ const Revision: React.FC = () => {
           </Typography>
         </WholePageBox>
         <div className={styles.tileContainer}>
-          {revisionData.map ((tileData, index) => (
+          {revisionData.map((tileData, index) => (
             <Tile {...tileData} key={tileData.courseCode} />
           ))}
         </div>

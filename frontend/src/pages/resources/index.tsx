@@ -14,7 +14,7 @@ const Resources: React.FC = () => {
         <title>MathSoc - Resources</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_resources.png" text="Resources" /> 
+      <Hero url="/images/hero/mathsoc_resources.png" text="Resources" />
       <Container>
         <ul className={styles.resources}>
           {resourceData.map((resource, index) => (

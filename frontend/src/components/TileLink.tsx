@@ -3,17 +3,12 @@ import Link from "next/link";
 
 import { links as tileLinkProps } from "src/data/revisionData";
 
-const TileLink: React.FC<tileLinkProps> = ({
-  name,
-  path,
-}) => {
+const TileLink: React.FC<tileLinkProps> = ({ name, path }) => {
   return (
     <div>
       <li>
         <Link href={path}>
-          <a>
-            {name}
-          </a>
+          <a>{name}</a>
         </Link>
       </li>
     </div>

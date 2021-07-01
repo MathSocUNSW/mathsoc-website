@@ -46,11 +46,11 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Mathematics for Life Sciences (all)",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   //NEXT TILE
   {
@@ -62,11 +62,11 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Statistics for Life and Social Science (all)",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   //NEXT TILE
   {
@@ -78,62 +78,62 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Revison Workshop",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2020, T3 Revision Handout",
         groupLinks: [
           {
             name: "Revision Handout",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2020, T1 Revision Seminar",
         groupLinks: [
           {
             name: "Chapter 1,2,5 - Sets, Integers & Graphs",
-            path: "",
+            path: ""
           },
           {
             name: "Sets & Functions Solutions",
-            path: "",
+            path: ""
           },
           {
             name: "Relations & Graphs Solutions",
-            path: "",
+            path: ""
           },
           {
             name: "Chapter 3,4 - Proofs & Combinatorics",
-            path: "",
+            path: ""
           },
           {
             name: "Proofs & Combinatorics Solutions",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T1 Revision Seminar",
         groupLinks: [
           {
             name: "Chapter 1,2,5 - Sets, Integers & Graphs",
-            path: "",
+            path: ""
           },
           {
             name: "Sets, Integers & Graphs Solutions",
-            path: "",
+            path: ""
           },
           {
             name: "Chapter 3,4 - Proofs & Combinatorics",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   //NEXT TILE
   {
@@ -146,83 +146,83 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Revision Handout",
-            path: "",
+            path: ""
           },
           {
             name: "Algebra and Calculus",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2020, T1 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus Solutions",
-            path: "",
-          },  
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T3 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra & Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Algebra & Calculus Solutions",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T1 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus Solutions",
-            path: "",
-          },  
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2017, T3 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
-            path: "",
+            path: ""
           },
           {
             name: "Algebra Solutions",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus Solutions",
-            path: "",
-          },  
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   //NEXT TILE
   {
@@ -235,57 +235,57 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Algebra",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T2 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
-            path: "",
+            path: ""
           },
           {
             name: "Algebra Solutions",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus Solutions for Part 1",
-            path: "",
-          }, 
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2017, S2 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
-            path: "",
+            path: ""
           },
           {
             name: "Algebra Solutions",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Calculus Solutions",
-            path: "",
-          },  
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   {
     courseCode: "MATH2011/2111",
@@ -297,53 +297,53 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Full Revision Seminar Workshop",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2020, T1 Revision Seminar",
         groupLinks: [
           {
             name: "Differential Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Integral Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Vector Calculus",
-            path: "",
+            path: ""
           },
           {
             name: "Vector Calculus Solutions",
-            path: "",
-          },  
+            path: ""
+          },
           {
             name: "Analysis (MATH2111)",
-            path: "",
+            path: ""
           }
-        ],
+        ]
       },
       {
         groupHeader: "2019, T1 Revision Seminar",
         groupLinks: [
           {
             name: "Differential Calculus/Multiple Integrals (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Vector Calculus/Analysis (2/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Revision Seminar Solutions",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   {
     courseCode: "MATH2018/2019",
@@ -355,32 +355,32 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Revision Seminar Workshop",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2020, T1 Revision Seminar",
         groupLinks: [
           {
             name: "Seminar (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar Solutions (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar (2/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar Solutions (2/2)",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   {
     courseCode: "MATH2089",
@@ -392,28 +392,28 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Revision Seminar Workshop",
-            path: "",
+            path: ""
           },
           {
             name: "MATLAB, Parabolic Equation",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2020, T2 Revision Seminar",
         groupLinks: [
           {
             name: "Numerical Methods",
-            path: "",
+            path: ""
           },
           {
             name: "Statistics",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   {
     courseCode: "MATH2121/2221",
@@ -425,28 +425,28 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Seminar (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar (2/2)",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T2 Revision Seminar",
         groupLinks: [
           {
             name: "Differential Equations",
-            path: "",
+            path: ""
           },
           {
             name: "Solutions for Part 1",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   {
     courseCode: "MATH2501/2601",
@@ -458,36 +458,36 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Seminar (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar (2/2)",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T2 Revision Seminar",
         groupLinks: [
           {
             name: "Seminar (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar Solutions (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar (2/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Abstract Algebra Supplement Solutions",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   {
     courseCode: "MATH2521/2621",
@@ -499,24 +499,24 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Complex Analysis (all)",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T3 Revision Seminar",
         groupLinks: [
           {
             name: "Complex Analysis (all)",
-            path: "",
+            path: ""
           },
           {
             name: "Complex Analysis Solutions (all)",
-            path: "",
-          },
-        ],
-      },
-    ],
+            path: ""
+          }
+        ]
+      }
+    ]
   },
   {
     courseCode: "MATH2801/2901",
@@ -528,25 +528,25 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Theory of Statistics (all)",
-            path: "",
-          },
-        ],
+            path: ""
+          }
+        ]
       },
       {
         groupHeader: "2019, T3 Revision Seminar (Collab with UNSW StatSoc)",
         groupLinks: [
           {
             name: "Seminar (1/2)",
-            path: "",
+            path: ""
           },
           {
             name: "Seminar (2/2)",
-            path: "",
-          },
-        ],
-      },
-    ],
-  },
+            path: ""
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 export default revisionData;
