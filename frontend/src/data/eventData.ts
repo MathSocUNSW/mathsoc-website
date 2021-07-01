@@ -17,7 +17,7 @@ export interface eventDetails {
 //   title: "",
 //   eventLink: "",
 //   description: "",
-//   imagePath: "",
+//   imagePath: generateImagePath(""),
 //   location: "",
 //   date: "",
 //   startDate: "",
@@ -324,6 +324,57 @@ const eventData: eventDetails[] = [
     date: "Every Wednesday (Weeks 1 - 10) 2-5PM",
     startDate: "2-06-2021",
     endDate: "4-08-2021"
+  },
+  {
+    title: "2021 Mathsoc Merchandise",
+    eventLink: "https://www.facebook.com/events/337177148007511",
+    description: `MathSoc’s got you covid year-round with our 2021 Merchandise, designed to keep mew cozy and snug in our soft kitty hoodies as well as comfortable and active in our returning cowculator shirts from this year's O-Week.
+    Don’t be left feline high and dry - if you're looking for the purr-fect way to keep warm AND flex your fashion game to your furr-ends, make sure to grab one before they're all sold out.`,
+    imagePath: generateImagePath("merchandise_2021.jpg"),
+    location: "Order here",
+    locationURL: "https://unsw-mathematics-society.square.site/",
+    date: "Until July 11th",
+    startDate: "11-07-21",
+    endDate: "11-07-21"
+  },
+  {
+    title: "League of Legends Tournament",
+    eventLink: "https://www.facebook.com/events/523173728826405",
+    description: `MathSoc's got your back in quarantine, with a LEGENDARY online event that's LEAGUES better than anything you've ever seen. 👀
+    Our League of Legends Tournament will be running over the course of TWO DAYS, where 8 teams of 5 players will be battling it out in an elimination-style tournament to show off their skills and win the dazzling PRIZES that are up for grabs for the winning team. 🏆
+    So what are you waiting for! Sign up below - either in a premade team, or as an individual (individuals will then be sorted into a team). Good luck and may the best team win!`,
+    imagePath: generateImagePath("lol_tournament_2021.jpg"),
+    location: "Sign up here",
+    locationURL: "https://forms.office.com/r/SWv7kE1nSk",
+    date: "Wednesday 7th July & Thursday 8th July (Week 6)",
+    startDate: "07-07-2021",
+    endDate: "07-07-2021"
+  },
+  {
+    title: "2021 FMAA Stem Alternate Pathways Evening",
+    eventLink: "https://www.facebook.com/events/469298847502047",
+    description: `Are you a STEM (Science, Technology, Engineering or Maths) student curious about a pathway to business? Or are you still unsure about what path you want to take after uni and would like to learn more about the opportunities available?
+    Either way, FMAA UNSW invites you to the FMAA STEM Alternate Pathways Evening, to help you discover the endless possibilities that a STEM degree can lead to.
+    The evening will feature a panel discussion with a live Q&A by STEM background representatives from Australia’s leading firms across diverse industries, including management consulting, banking, asset management and professional services.
+    We encourage all STEM students (no business background required) to register for this event!`,
+    imagePath: generateImagePath("fmaa_stem_2021.jpg"),
+    location: "Zoom (register here)",
+    locationURL: "https://form.jotform.com/211698636833871",
+    date: "Wednesday, 7th July 6-8PM",
+    startDate: "7-07-2021",
+    endDate: "7-07-2021"
+  },
+  {
+    title: "Intro to R",
+    eventLink: "https://www.facebook.com/events/494177305194067",
+    description:
+      "R is a free and powerful statistical software, and is widely used in both uni courses and the workforce. The workshop will cover what you can do with R, how easy it is to use it, and show key functions in data handling and plotting.",
+    imagePath: generateImagePath("intro_to_r_2021.jpg"),
+    location: "Zoom",
+    locationURL: "https://unsw.zoom.us/j/82398091729",
+    date: "Tuesday 6th July 2-4PM",
+    startDate: "06-07-2021",
+    endDate: "06-07-2021"
   }
 ];
 
