@@ -25,9 +25,12 @@ jobs:
       - name: Install dependencies
         working-directory: ./frontend
         run: yarn
-      - name: lint
+      - name: Lint
         working-directory: ./frontend
         run: yarn lint
+      - name: Prettier
+        working-directory: ./frontend
+        run: yarn prettier:check
       - name: Build
         working-directory: ./frontend
         run: yarn build
