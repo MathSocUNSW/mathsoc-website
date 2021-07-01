@@ -11,7 +11,7 @@ const About: React.FC = () => {
   return (
     <section className="about">
       <Head>
-        <title>MathSoc - About Us</title>
+        <title>About Us - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_about_us.jpg" text="About Us" />
@@ -76,9 +76,15 @@ const About: React.FC = () => {
             </Typography>
             <Typography variant="h2">Meet the team!</Typography>
             <Typography variant="body1">
+              {/* TODO finish */}
               Our student team is comprised of x executives, directors and subcommittee members.
-              Stuff about these roles blah blah. Click here to
-              <Link href="/about/team">Meet the team!</Link>
+              Stuff about these roles blah blah.
+            </Typography>
+            <Typography variant="body1">
+              Click here to <Link href="/about/team">Meet the team!</Link>
+            </Typography>
+            <Typography variant="body1">
+              Click here to see the <Link href="/about/formerteam">former team!</Link>
             </Typography>
           </section>
         </div>

@@ -14,9 +14,18 @@
   }
 }
 
-.tempPlaceHolder {
+.personImage {
   width: 150px;
   height: 150px;
-  background-color: aqua;
   border-radius: 50%;
+}
+
+.textBox {
+  width: 325px;
+  height: 120px;
+  // overflow: hidden;
+  word-wrap: break-word;
+  white-space: pre-line;
+  margin-top: -5px;
+  margin-bottom: 4px;
 }

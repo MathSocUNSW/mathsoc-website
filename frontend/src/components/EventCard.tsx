@@ -16,6 +16,8 @@ const EventCard: React.FC<EventCardProps> = ({
 }) => {
   // adds link to keywords
   const linker = (location) => {
+    if (!location) return "";
+
     // split location string by whitespace but keep the space
     // https://stackoverflow.com/a/26425713
     const linked = location.split(/(\s+)/).map((substring: string) => {
@@ -38,7 +40,7 @@ const EventCard: React.FC<EventCardProps> = ({
     <div className={styles.card}>
       <div>
         <a href={eventLink} target="_blank" rel="noreferrer">
-          <div className={styles.imageContainer}>
+          {/* <div className={styles.imageContainer}>
             <Image
               src={imagePath}
               className={styles.image}
@@ -47,8 +49,8 @@ const EventCard: React.FC<EventCardProps> = ({
               priority={true}
               quality={25}
             />
-          </div>
-          {/* <img src={imagePath} className={styles.topImage} alt="event banner" /> */}
+          </div> */}
+          <img src={imagePath} className={styles.topImage} alt="event banner" />
         </a>
       </div>
       <div className={styles.content}>
