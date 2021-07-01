@@ -1,0 +1,74 @@
+.mainContainer {
+  width: 100%;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  p {
+    font-size: 1.45rem;
+  }
+  @media (max-width: 550px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.yearParts {
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 550px) {
+    align-items: center;
+  }
+}
+.year {
+  position: absolute;
+  margin-left: 30px;
+  margin-top: 15px;
+  @media (max-width: 550px) {
+    position: inherit;
+    margin-left: 0px;
+  }
+}
+
+.flexContainer {
+  padding-top: 150px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // justify-content: center;
+  // align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+  @media (max-width: 550px) {
+    flex-direction: column;
+    padding-top: 15px;
+  }
+}
+
+.text {
+  font-size: 1.45rem;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.list {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  @media (max-width: 550px) {
+    width: 100%;
+  }
+}
+
+.personContainer {
+  width: 100%;
+}
+
+.role {
+  padding-bottom: 5px;
+}
