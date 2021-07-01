@@ -62,7 +62,12 @@ const directorsData: portfolio[] = [
   {
     role: "Human Resources",
     directors: [
-      { name: "Katherine Bai", description: null, imagePath: null },
+      {
+        name: "Katherine Bai",
+        description:
+          "2nd year Actuarial Studies/Advanced Maths student. Loves the aquarium!! And sushi hehe...",
+        imagePath: "/images/team/KatherineBai.jpg"
+      },
       { name: "Christopher Wu", description: null, imagePath: null }
     ]
   },
