@@ -8,18 +8,22 @@ import WholePageBox from "components/WholePageBox";
 
 import Tile from "components/Tile";
 import revisionData from "src/data/revisionData";
+import resourceData from "src/data/resourceData";
 
 const Revision: React.FC = () => {
+  const PAGE_PATH = "/resources/revision";
+  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
+
   return (
     <section>
       <Head>
-        <title>MathSoc - Revision Lectures</title>
+        <title>MathSoc - {pageData.title}</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url="/images/resources/revisionBackground.png"
-        text="Revision Lectures"
-        icon="/images/resources/revisionIcon.png"
+        url={pageData.backgroundImage}
+        text={pageData.title}
+        icon={pageData.iconPath}
         titlePosition="right"
       />
       <Container>
@@ -40,7 +44,7 @@ const Revision: React.FC = () => {
           </Typography>
         </WholePageBox>
         <div className={styles.tileContainer}>
-          {revisionData.map((tileData, index) => (
+          {revisionData.map((tileData) => (
             <Tile {...tileData} key={tileData.courseCode} />
           ))}
         </div>
