@@ -14,7 +14,7 @@ const ExamBank: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>MathSoc - {pageData.title}</title>
+        <title>{pageData.title} - Mathsoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero

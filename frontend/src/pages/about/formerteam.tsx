@@ -1,22 +1,23 @@
 import React from "react";
 import Head from "next/head";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import Hero from "src/components/Hero";
 import styles from "src/styles/formerteam.module.scss";
 import pastTeamData from "src/data/pastTeamMembersData";
 import FormerTeamMainCard from "components/FormerTeamMainCard";
 import FormerTeamSubCard from "components/FormerTeamSubCard";
+import ContainerWrap from "components/ContainerWrap";
 
 const FormerTeam: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>MathSoc - Former Team</title>
+        <title>Former Team - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Former Team" />
-      <Container>
+      <ContainerWrap>
         <Typography variant="h2" align="left">
           Past Teams
         </Typography>
@@ -34,7 +35,7 @@ const FormerTeam: React.FC = () => {
             )}
           </section>
         ))}
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };
