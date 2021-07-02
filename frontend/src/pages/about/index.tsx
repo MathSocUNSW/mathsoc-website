@@ -3,10 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Hero from "src/components/Hero";
-import styles from "src/styles/about.module.scss";
 import { facebookData } from "src/data/socialData";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import WholePageBox from "components/WholePageBox";
+import ContainerWrap from "components/ContainerWrap";
 
 const About: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const About: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_about_us.jpg" text="About Us" />
-      <Container>
+      <ContainerWrap>
         <WholePageBox>
           <Typography variant="h2">About Us</Typography>
           <Typography variant="h5">
@@ -87,7 +87,7 @@ const About: React.FC = () => {
             Click here to see the <Link href="/about/formerteam">former team!</Link>
           </Typography>
         </WholePageBox>
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };

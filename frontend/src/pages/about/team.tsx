@@ -8,7 +8,8 @@ import styles from "src/styles/team.module.scss";
 import Profile, { ProfileProps } from "components/Profile";
 import executivesData from "src/data/executivesData";
 import directorsData from "src/data/directorsData";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import ContainerWrap from "components/ContainerWrap";
 
 const Team: React.FC = () => {
   const [tempText, setTempText] = React.useState("Write ur stuff in here");
@@ -44,7 +45,7 @@ const Team: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Executives and Directors" />
-      <Container>
+      <ContainerWrap>
         <Typography variant="h2" align="center">
           Executives
         </Typography>
@@ -86,7 +87,7 @@ const Team: React.FC = () => {
             />
           ))}
         </section>
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };
