@@ -5,19 +5,23 @@ import { Container } from "@material-ui/core";
 import ResourceHero from "src/components/ResourceHero";
 import WholePageBox from "components/WholePageBox";
 
+import resourceData from "src/data/resourceData";
+
 const HSC: React.FC = () => {
+  const PAGE_PATH = "/resources/hsc";
+  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
   return (
     <section>
       <Head>
-        <title>MathSoc - Revision Lectures</title>
+        <title>MathSoc - {pageData.title}</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      {/* <ResourceHero
-        url="/images/resources/revisionBackground.png"
-        text="Revision Lectures"
-        icon="/images/resources/revisionIcon.png"
+      <ResourceHero
+        url={pageData.backgroundImage}
+        text={pageData.title}
+        icon={pageData.iconPath}
         titlePosition="right"
-      /> */}
+      />
       <Container>
         <WholePageBox>{"Page under construction"}</WholePageBox>
       </Container>

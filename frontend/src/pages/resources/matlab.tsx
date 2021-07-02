@@ -3,19 +3,24 @@ import Head from "next/head";
 import { Container, Typography } from "@material-ui/core";
 
 import ResourceHero from "src/components/ResourceHero";
-import WholePageBox from "components/WholePageBox";
+import WholePageBox from "src/components/WholePageBox";
+
+import resourceData from "src/data/resourceData";
 
 const Revision: React.FC = () => {
+  const PAGE_PATH = "/resources/matlab";
+  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
+
   return (
     <section>
       <Head>
-        <title>MathSoc - MATLAB Guide</title>
+        <title>MathSoc - {pageData.title}</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url="/images/resources/matlabBackground.png"
-        text="MATLAB Guide"
-        icon="/images/resources/matlabIcon.png"
+        url={pageData.backgroundImage}
+        text={pageData.title}
+        icon={pageData.iconPath}
         titlePosition="left"
       />
       <Container>
