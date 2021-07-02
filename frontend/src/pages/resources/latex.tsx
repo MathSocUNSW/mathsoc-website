@@ -5,7 +5,7 @@ import { Container } from "@material-ui/core";
 import ResourceHero from "src/components/ResourceHero";
 import WholePageBox from "components/WholePageBox";
 
-const ExamBank: React.FC = () => {
+const Latex: React.FC = () => {
   return (
     <section>
       <Head>
@@ -25,4 +25,4 @@ const ExamBank: React.FC = () => {
   );
 };
 
-export default ExamBank;
+export default Latex;

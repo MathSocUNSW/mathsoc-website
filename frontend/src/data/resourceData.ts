@@ -5,48 +5,58 @@ export interface resourceDetails {
   iconPath: string;
 }
 
+/**
+ * Takes fileName and returns full path
+ * @param fileName
+ * @returns full path
+ */
+const generateImagePath = (fileName: string): string => {
+  const PATH = "/images/resources";
+  return `${PATH}/${fileName}`;
+};
+
 const resourceData: resourceDetails[] = [
   {
     title: "First Year Exam Bank",
-    resourceLink: "/resources/exam",
-    backgroundImage: "/images/resources/examBankBackground.png",
-    iconPath: "/images/resources/examBankIcon.png"
+    resourceLink: "/resources/exam-bank",
+    backgroundImage: generateImagePath("examBankBackground.png"),
+    iconPath: generateImagePath("examBankIcon.png")
   },
   {
     title: "Revision Lectures",
     resourceLink: "/resources/revision",
-    backgroundImage: "/images/resources/revisionBackground.png",
-    iconPath: "/images/resources/revisionIcon.png"
+    backgroundImage: generateImagePath("revisionBackground.png"),
+    iconPath: generateImagePath("revisionIcon.png")
   },
   {
     title: "LaTeX Guide",
-    resourceLink: "empty",
-    backgroundImage: "/images/resources/latexBackground.png",
-    iconPath: "/images/resources/latexIcon.png"
+    resourceLink: "/resources/latex",
+    backgroundImage: generateImagePath("latexBackground.png"),
+    iconPath: generateImagePath("latexIcon.png")
   },
   {
     title: "MATLAB Guide",
     resourceLink: "/resources/matlab",
-    backgroundImage: "/images/resources/matlabBackground.png",
-    iconPath: "/images/resources/matlabIcon.png"
+    backgroundImage: generateImagePath("matlabBackground.png"),
+    iconPath: generateImagePath("matlabIcon.png")
   },
   {
     title: "Careers Advice",
-    resourceLink: "empty",
-    backgroundImage: "/images/resources/careersBackground.png",
-    iconPath: "/images/resources/careersIcon.png"
+    resourceLink: "/resources/careers",
+    backgroundImage: generateImagePath("careersBackground.png"),
+    iconPath: generateImagePath("careersIcon.png")
   },
   {
     title: "First Year Guide",
     resourceLink: "empty",
-    backgroundImage: "/images/resources/firstYearBackground.png",
-    iconPath: "/images/resources/firstYearIcon.png"
+    backgroundImage: generateImagePath("firstYearBackground.png"),
+    iconPath: generateImagePath("firstYearIcon.png")
   },
   {
     title: "HSC Tips and Tricks",
-    resourceLink: "empty",
-    backgroundImage: "/images/resources/hscBackground.png",
-    iconPath: "/images/resources/hscIcon.png"
+    resourceLink: "/resources/hsc",
+    backgroundImage: generateImagePath("hscBackground.png"),
+    iconPath: generateImagePath("hscIcon.png")
   }
 ];
 
