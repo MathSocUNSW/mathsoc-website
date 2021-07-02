@@ -3,10 +3,10 @@ import Head from "next/head";
 import Link from "next/link";
 
 import Hero from "src/components/Hero";
-import styles from "src/styles/about.module.scss";
 import { facebookData } from "src/data/socialData";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import WholePageBox from "components/WholePageBox";
+import ContainerWrap from "components/ContainerWrap";
 
 const About: React.FC = () => {
   return (
@@ -16,7 +16,7 @@ const About: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_about_us.jpg" text="About Us" />
-      <Container>
+      <ContainerWrap>
         <WholePageBox>
           <Typography variant="h2">About Us</Typography>
           <Typography variant="h5">
@@ -76,12 +76,18 @@ const About: React.FC = () => {
           </Typography>
           <Typography variant="h2">Meet the team!</Typography>
           <Typography variant="body1">
+            {/* TODO finish */}
             Our student team is comprised of x executives, directors and subcommittee members. Stuff
-            about these roles blah blah. Click here to
-            <Link href="/about/team">Meet the team!</Link>
+            about these roles blah blah.
+          </Typography>
+          <Typography variant="body1">
+            Click here to <Link href="/about/team">Meet the team!</Link>
+          </Typography>
+          <Typography variant="body1">
+            Click here to see the <Link href="/about/formerteam">former team!</Link>
           </Typography>
         </WholePageBox>
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };

@@ -12,7 +12,8 @@ import {
   sortEndDateDecreasing,
   sortStartDateDecreasing
 } from "src/helpers/eventHelpers";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import ContainerWrap from "components/ContainerWrap";
 
 const Events: React.FC = () => {
   const [eventIndex, setEventIndex] = useState(0);
@@ -28,7 +29,7 @@ const Events: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_events.jpg" text="Events" />
-      <Container>
+      <ContainerWrap>
         <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
         <Typography variant="h2" align="center">
           Past Events
@@ -40,7 +41,7 @@ const Events: React.FC = () => {
             </div>
           ))}
         </section>
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };

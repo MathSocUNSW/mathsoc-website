@@ -5,17 +5,17 @@ import Hero from "src/components/Hero";
 import Strip from "components/Strip";
 import resourceData from "src/data/resourceData";
 import styles from "src/styles/resources.module.scss";
-import { Container } from "@material-ui/core";
+import ContainerWrap from "components/ContainerWrap";
 
 const Resources: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>MathSoc - Resources</title>
+        <title>Resources - Mathsoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_resources.png" text="Resources" />
-      <Container>
+      <ContainerWrap>
         <ul className={styles.resources}>
           {resourceData.map((resource, index) => (
             <li key={index}>
@@ -23,7 +23,7 @@ const Resources: React.FC = () => {
             </li>
           ))}
         </ul>
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };

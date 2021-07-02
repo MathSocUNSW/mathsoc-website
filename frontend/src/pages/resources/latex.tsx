@@ -1,11 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import ResourceHero from "src/components/ResourceHero";
 import WholePageBox from "src/components/WholePageBox";
 
 import resourceData from "src/data/resourceData";
+import ContainerWrap from "components/ContainerWrap";
 
 const Latex: React.FC = () => {
   const PAGE_PATH = "/resources/latex";
@@ -14,7 +15,7 @@ const Latex: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>MathSoc - {pageData.title}</title>
+        <title>{pageData.title} - Mathsoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
@@ -23,7 +24,7 @@ const Latex: React.FC = () => {
         icon={pageData.iconPath}
         titlePosition="left"
       />
-      <Container>
+      <ContainerWrap>
         <WholePageBox>
           <Typography variant="body1">
             LaTeX is essentially treated as an efficient, neat and effective means of typesetting,
@@ -54,7 +55,7 @@ const Latex: React.FC = () => {
             files used in the presentation can be found here
           </Typography>
         </WholePageBox>
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };

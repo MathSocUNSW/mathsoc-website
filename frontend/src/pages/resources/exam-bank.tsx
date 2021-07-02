@@ -1,11 +1,12 @@
 import React from "react";
 import Head from "next/head";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 
 import ResourceHero from "src/components/ResourceHero";
 import WholePageBox from "src/components/WholePageBox";
 
 import resourceData from "src/data/resourceData";
+import ContainerWrap from "components/ContainerWrap";
 
 const ExamBank: React.FC = () => {
   const PAGE_PATH = "/resources/exam-bank";
@@ -14,7 +15,7 @@ const ExamBank: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>MathSoc - {pageData.title}</title>
+        <title>{pageData.title} - Mathsoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
@@ -23,7 +24,7 @@ const ExamBank: React.FC = () => {
         icon={pageData.iconPath}
         titlePosition="right"
       />
-      <Container>
+      <ContainerWrap>
         <WholePageBox>
           <Typography variant="body1">
             These are solutions to sample lab tests created by MathSoc. Please let us know if you
@@ -69,7 +70,7 @@ const ExamBank: React.FC = () => {
             distribute them.
           </Typography>
         </WholePageBox>
-      </Container>
+      </ContainerWrap>
     </section>
   );
 };
