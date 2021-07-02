@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import { Container } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
 const Unknown404: React.FC = () => {
   return (
@@ -10,9 +10,9 @@ const Unknown404: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Container>
-        <h1>Page Not Found</h1>
-        <h2>Insert random maths 404 joke (like the train thingy)</h2>
-        <p>Redirecting you back..</p>
+        {/* Hero: Page Not Found */}
+        <Typography variant="h1">Page Not Found</Typography>
+        <Typography variant="h5">Insert random maths 404 joke (like the train thingy)</Typography>
       </Container>
     </div>
   );

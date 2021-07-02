@@ -1,0 +1,42 @@
+@import "./variables.scss";
+
+.mainContainer {
+  width: 100%;
+}
+
+.hero {
+  min-height: 350px; // TODO: To be decided
+  max-height: $heroMaxHeight;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center center;
+
+  overflow: hidden;
+  //background-repeat: no-repeat;
+
+  color: white;
+  padding: 15px;
+
+  @media (max-width: 610px) {
+    flex-direction: column;
+    order: 0;
+    width: 100%;
+    position: relative;
+  }
+}
+
+.icon {
+  // this is the icon on resource pg heroes
+  height: 80%;
+  padding: 0px 25px 0px;
+}
+
+.flip {
+  // this is for flipping the title on resource pg heroes
+  order: 1;
+}
