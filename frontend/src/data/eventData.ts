@@ -1,5 +1,44 @@
 // NOTE: if a locationURL is not provided, the links for detected social keywords (e.g. YouTube, Discord) will be automatically added
 
+type day =
+  | "1"
+  | "2"
+  | "3"
+  | "4"
+  | "5"
+  | "6"
+  | "7"
+  | "8"
+  | "9"
+  | "10"
+  | "11"
+  | "12"
+  | "13"
+  | "14"
+  | "15"
+  | "16"
+  | "17"
+  | "18"
+  | "19"
+  | "20"
+  | "21"
+  | "22"
+  | "23"
+  | "24"
+  | "25"
+  | "26"
+  | "27"
+  | "28"
+  | "29"
+  | "30"
+  | "31";
+
+type month = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12";
+
+type year = "2021";
+
+type dateString = `${day}-${month}-${year}`;
+
 export interface eventDetails {
   title: string; // event title
   eventLink: string; // link to Facebook event
@@ -8,8 +47,8 @@ export interface eventDetails {
   location: string; // event location
   locationURL?: string; // (optional) link for location
   date: string; // date string to be displayed
-  startDate: string; // start date for rendering algorithm
-  endDate: string; // end date for rendering algorithm
+  startDate: dateString; // start date for rendering algorithm
+  endDate: dateString; // end date for rendering algorithm
 }
 
 // Template
@@ -288,8 +327,8 @@ const eventData: eventDetails[] = [
     imagePath: generateImagePath("talkshow_vol_1_2021.jpeg"),
     location: "Colombo Theatres",
     date: "16th June 2021, 4-5:30PM",
-    startDate: "16-06-2021",
-    endDate: " 16-06-2021"
+    startDate: "16-6-2021",
+    endDate: "16-6-2021"
   },
   {
     title: "Mathematics of Poker",
@@ -299,8 +338,8 @@ const eventData: eventDetails[] = [
     imagePath: generateImagePath("mathematics_of_poker_2021.jpeg"),
     location: "SIG Office",
     date: "9th June 2021, 5:30-8:00PM",
-    startDate: "9-06-2021",
-    endDate: "9-06-2021"
+    startDate: "9-6-2021",
+    endDate: "9-6-2021"
   },
   {
     title: "Piece of Mind Competition",
@@ -310,8 +349,8 @@ const eventData: eventDetails[] = [
     imagePath: generateImagePath("piece_of_mind_2021.jpeg"),
     location: "Mathews 302, 303, and 306",
     date: "6th June 2021, 3PM",
-    startDate: "6-06-2021",
-    endDate: "6-06-2021"
+    startDate: "6-6-2021",
+    endDate: "6-6-2021"
   },
   {
     title: "Weekly Study Sessions",
@@ -322,8 +361,8 @@ const eventData: eventDetails[] = [
     imagePath: generateImagePath("weekly_study_session_t2_2021.jpeg"),
     location: "Blockhouse G16",
     date: "Every Wednesday (Weeks 1 - 10) 2-5PM",
-    startDate: "2-06-2021",
-    endDate: "4-08-2021"
+    startDate: "2-6-2021",
+    endDate: "4-8-2021"
   },
   {
     title: "2021 Mathsoc Merchandise",
@@ -334,8 +373,8 @@ const eventData: eventDetails[] = [
     location: "Order here",
     locationURL: "https://unsw-mathematics-society.square.site/",
     date: "Until July 11th",
-    startDate: "11-07-21",
-    endDate: "11-07-21"
+    startDate: "11-7-2021",
+    endDate: "11-7-2021"
   },
   {
     title: "League of Legends Tournament",
@@ -347,8 +386,8 @@ const eventData: eventDetails[] = [
     location: "Sign up here",
     locationURL: "https://forms.office.com/r/SWv7kE1nSk",
     date: "Wednesday 7th July & Thursday 8th July (Week 6)",
-    startDate: "07-07-2021",
-    endDate: "07-07-2021"
+    startDate: "7-7-2021",
+    endDate: "7-7-2021"
   },
   {
     title: "2021 FMAA Stem Alternate Pathways Evening",
@@ -361,8 +400,8 @@ const eventData: eventDetails[] = [
     location: "Zoom (register here)",
     locationURL: "https://form.jotform.com/211698636833871",
     date: "Wednesday, 7th July 6-8PM",
-    startDate: "7-07-2021",
-    endDate: "7-07-2021"
+    startDate: "7-7-2021",
+    endDate: "7-7-2021"
   },
   {
     title: "Intro to R",
@@ -373,8 +412,8 @@ const eventData: eventDetails[] = [
     location: "Zoom",
     locationURL: "https://unsw.zoom.us/j/82398091729",
     date: "Tuesday 6th July 2-4PM",
-    startDate: "06-07-2021",
-    endDate: "06-07-2021"
+    startDate: "6-7-2021",
+    endDate: "6-7-2021"
   }
 ];
 
