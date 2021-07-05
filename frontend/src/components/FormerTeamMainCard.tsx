@@ -40,7 +40,7 @@ const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ data }) => {
         {dataList.map((person) => (
           <div key={person.name} className={styles.nameContainer}>
             <p className={styles.text}>
-              <span className={styles.bold}>{person.role}</span> {person.name}
+              <span className={styles.bold}>{person.role}</span> - {person.name}
             </p>
           </div>
         ))}
