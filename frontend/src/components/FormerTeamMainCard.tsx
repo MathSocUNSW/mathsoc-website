@@ -14,40 +14,36 @@ interface data {
 }
 
 const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ data }) => {
-  const { year, execList, directorList } = data;
+  const { execList, directorList } = data;
 
-  // Assumption there will always be a president
-  const president = execList.find((person) => person.role === "President");
-  const dataList: Array<data> = [...execList.filter((person) => person.role !== "President")];
+  const dataList: Array<data> = [...execList];
   directorList.forEach((directorRole) => {
     const { role, directors } = directorRole;
-    directors.forEach((person) => {
-      dataList.push({ role: `${role} Director`, name: person.name });
-    });
+    if (directors.length >= 2) {
+      const lastDirector = directors.pop();
+      const concatString = `${directors.map((x) => x.name).join(", ")} & ${lastDirector.name}`;
+      dataList.push({ role: `${role} Director`, name: concatString });
+    } else {
+      // Only 1 director exists
+      dataList.push({ role: `${role} Director`, name: directors[0].name });
+    }
   });
 
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.year}>
-        <Typography variant="h3" align="left">
-          <span style={{ fontWeight: 600 }}>{year}</span>
+      <div className={styles.execTitle}>
+        <Typography variant="h4" align="center">
+          <span>Executive Team</span>
         </Typography>
       </div>
       <div className={styles.flexContainer}>
-        <div className={styles.president}>
-          <p className={styles.text}>
-            <span className={styles.bold}>President</span> {president.name}
-          </p>
-        </div>
-        <div className={styles.other}>
-          {dataList.map((person) => (
-            <div key={person.name} className={styles.nameContainer}>
-              <p className={styles.text}>
-                <span className={styles.bold}>{person.role}</span> {person.name}
-              </p>
-            </div>
-          ))}
-        </div>
+        {dataList.map((person) => (
+          <div key={person.name} className={styles.nameContainer}>
+            <p className={styles.text}>
+              <span className={styles.bold}>{person.role}</span> {person.name}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

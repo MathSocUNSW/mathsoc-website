@@ -9,35 +9,26 @@ interface FormerTeamSubCardProps {
 }
 
 const FormerTeamSubCard: React.FC<FormerTeamSubCardProps> = ({ data }) => {
-  const { year, subcommittee } = data;
-
+  const { subcommittee } = data;
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.year}>
-        <Typography variant="h3" align="left">
-          <div className={styles.yearParts}>
-            <span style={{ fontWeight: 600 }}>{year}</span>
-            <span style={{ fontWeight: 600 }}>Subcommittee</span>
-          </div>
-        </Typography>
-      </div>
+      <Typography variant="h4" align="center">
+        <span className={styles.title}>Subcommittee</span>
+      </Typography>
+
       <div className={styles.flexContainer}>
         {subcommittee.map((role) => (
-          <div
-            className={styles.list}
-            key={role.role}
-            style={subcommittee.length === 1 ? { width: "100%" } : {}}
-          >
-            <div className={styles.role}>
-              <p className={styles.text}>
-                <span className={styles.bold}>{role.role}</span>
-              </p>
+          <div className={styles.item} key={role.role}>
+            <p className={styles.text}>
+              <span className={styles.roleTitle}>{role.role}</span>
+            </p>
+            <div className={styles.list}>
+              {role.members.map((person) => (
+                <p className={styles.text} key={person}>
+                  {person}
+                </p>
+              ))}
             </div>
-            {role.members.map((person) => (
-              <div className={styles.personContainer} key={person}>
-                <p className={styles.text}>{person}</p>
-              </div>
-            ))}
           </div>
         ))}
       </div>
