@@ -8,6 +8,7 @@ import pastTeamData from "src/data/pastTeamMembersData";
 import FormerTeamMainCard from "components/FormerTeamMainCard";
 import FormerTeamSubCard from "components/FormerTeamSubCard";
 import ContainerWrap from "components/ContainerWrap";
+import WholePageBox from "components/WholePageBox";
 
 const FormerTeam: React.FC = () => {
   return (
@@ -18,22 +19,18 @@ const FormerTeam: React.FC = () => {
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Former Team" />
       <ContainerWrap>
-        <Typography variant="h2" align="left">
-          Past Teams
-        </Typography>
         {pastTeamData.map((yearData) => (
-          <section key={yearData.year} className={styles.yearContainer}>
-            {/* Exec and Directors */}
-            <div className={styles.boxContainer}>
+          <WholePageBox key={yearData.year}>
+            <div className={styles.year}>
+              <Typography variant="h2" align="center">
+                <span>{yearData.year}</span>
+              </Typography>
+            </div>
+            <div className={yearData.subcommittee ? styles.execTeam : null}>
               <FormerTeamMainCard data={yearData} />
             </div>
-            {/* Subcommittee if exists*/}
-            {yearData.subcommittee && (
-              <div className={styles.boxContainer}>
-                <FormerTeamSubCard data={yearData} />
-              </div>
-            )}
-          </section>
+            {yearData.subcommittee && <FormerTeamSubCard data={yearData} />}
+          </WholePageBox>
         ))}
       </ContainerWrap>
     </section>
