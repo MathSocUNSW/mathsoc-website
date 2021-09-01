@@ -3,8 +3,10 @@ import cors from 'cors';
 import path from 'path';
 
 const app = express();
-app.use('/static', express.static(path.join(__dirname, '../static')));
+
+// Serves static files, available at localhost:8080/static/{FILE}
 // TODO: check LFI (local file inclusion)
+app.use('/static', express.static(path.join(__dirname, '../static')));
 
 // CORS setup
 const options: cors.CorsOptions = {
