@@ -1,0 +1,38 @@
+@import "./variables.scss";
+
+.container {
+  padding-bottom: 15px;
+}
+
+.socialContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  div {
+    // outline: auto;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  @media screen and (max-width: $sm) {
+    flex-direction: column;
+    div {
+      width: 100%;
+    }
+  }
+}
+
+.socialItem {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.socialIcon {
+  width: 30px;
+  height: 30px;
+}
