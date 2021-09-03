@@ -19,15 +19,15 @@ const SponsorsPg: React.FC<sponsorProps> = ({
   const visible = typeCheck != type;
   return (
     <section className={visible && styles.invisible}>
-      <section className={styles.mainContainer}>
+      <section className={styles.sponser}>
         {/*IMAGE*/}
         <img src={logoURL} alt={name} className={styles.logo}></img>
         {/*TITLE*/}
-        <Typography variant="h3" align="left" className={styles.title}>{name}</Typography>
+        <Typography variant="h7" align="left" className={styles.name}>{name}</Typography>
         {/*PARAGRAPH*/}
-        <Typography variant="h5">{profileText}</Typography>
+        <Typography >{profileText}</Typography>
         {/*LINK*/}
-        <a href={websiteURL} target="_blank" >See more here!</a>
+        <a href={websiteURL} target="_blank" className={styles.link} >See more here!</a>
       </section>
     </section>
   );
