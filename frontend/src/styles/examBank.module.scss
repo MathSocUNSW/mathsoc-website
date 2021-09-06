@@ -1,0 +1,22 @@
+.tileContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  max-width: 850px;
+}
+
+.testTileContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-bottom: 75px;
+}
+
+.tileSection {
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  align-content: center;
+}
