@@ -1,12 +1,15 @@
+type routeString = `/${string}`;
+
 export interface subPage {
   name: string;
-  subRoute: string;
+  subRoute: routeString;
 }
 
 export interface navLink {
   name: string;
-  route: string;
+  route: routeString;
   dropdown: subPage[] | null;
+  displayDropdownMobile: null | boolean;
 }
 
 const navLinks: navLink[] = [
@@ -16,27 +19,40 @@ const navLinks: navLink[] = [
     dropdown: [
       { name: "Meet the team", subRoute: "/team" },
       { name: "Former Team", subRoute: "/formerteam" }
-    ]
+    ],
+    displayDropdownMobile: true
   },
   {
     name: "Events",
     route: "/events",
-    dropdown: null
+    dropdown: null,
+    displayDropdownMobile: null
   },
   {
     name: "Resources",
     route: "/resources",
-    dropdown: null
+    dropdown: [
+      { name: "Fist Year Exam Bank", subRoute: "/exam-bank" },
+      { name: "Revision Lectures", subRoute: "/revision" },
+      { name: "LaTeX Guide", subRoute: "/latex" },
+      { name: "MATLAB Guide", subRoute: "/matlab" },
+      { name: "Careers Advice", subRoute: "/careers" },
+      { name: "First Year Guide", subRoute: "/404" }, // TODO
+      { name: "HSC Tips & Tricks", subRoute: "/hsc" }
+    ],
+    displayDropdownMobile: false
   },
   {
     name: "Sponsors",
     route: "/sponsors",
-    dropdown: null
+    dropdown: null,
+    displayDropdownMobile: null
   },
   {
     name: "Contact Us",
     route: "/contact",
-    dropdown: null
+    dropdown: null,
+    displayDropdownMobile: null
   }
 ];
 
