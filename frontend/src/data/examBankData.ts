@@ -136,7 +136,6 @@ const examBankData: revisionTile[] = [
       }
     ]
   }
-
 ];
 
 export default examBankData;

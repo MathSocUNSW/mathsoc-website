@@ -207,7 +207,6 @@ const examBankTutorialTestsData: revisionTile[] = [
       }
     ]
   }
-
 ];
 
 export default examBankTutorialTestsData;
