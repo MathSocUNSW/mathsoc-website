@@ -70,17 +70,6 @@
   }
 }
 
-.navLink {
-  margin: 0 2px;
-  border-radius: 15px;
-  transition: 0.3s;
-  padding: 10px;
-  &:hover {
-    // REVIEW: colour/wanted
-    background-color: lightgrey;
-  }
-}
-
 .toggle {
   margin-left: 5px;
   @media screen and (max-width: $mobile) {

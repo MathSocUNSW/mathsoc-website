@@ -1,0 +1,32 @@
+@import "./variables.scss";
+
+.mainContainer {
+  // outline: auto;
+  background: white;
+  // width: 200px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  position: absolute;
+  top: $headerHeight;
+  // list-style: none;
+  text-align: start;
+  a {
+    text-decoration: none;
+    color: $darkNavy;
+    font-size: 14px;
+  }
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.item {
+  // outline: auto;
+  margin: 0 3px;
+  border-radius: 15px;
+  transition: 0.3s;
+  padding: 10px;
+  &:hover {
+    // REVIEW: colour/wanted
+    background-color: lightgrey;
+  }
+}
