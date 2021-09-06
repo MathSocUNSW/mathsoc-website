@@ -50,7 +50,7 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
         </li>
       </div>
       {navData.dropdown && dropdown && width > 860 && DesktopVersion}
-      {navData.dropdown && !(width > 860) && MobileVersion}
+      {navData.dropdown && navData.displayDropdownMobile && !(width > 860) && MobileVersion}
     </div>
   );
 };
