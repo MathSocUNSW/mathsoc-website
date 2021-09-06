@@ -7,7 +7,7 @@ import Hero from "components/Hero";
 import WholePageBox from "components/WholePageBox";
 
 import sponsorsData from "src/data/sponsorsData";
-import SponsorsPg from "components/SponsorsPg";
+import SponsorsBox from "components/SponsorsBox";
 import styles from "src/styles/SponsorsPg.module.scss";
 
 const Sponsors: React.FC = () => {
@@ -19,27 +19,32 @@ const Sponsors: React.FC = () => {
       </Head>
       <Hero url="/images/hero/mathsoc_sponsors.png" text="Sponsors" textColor="dark"/>
       <ContainerWrap>
-      <WholePageBox>
-        <div className={styles.container}>
-          <Typography variant="h7" align="center" className={styles.title}>Sponsorship Opportunities</Typography>
-          <br></br>
-          <Typography align="center">
-            If you are interested about sponsoring opportunities or have any 
-            questions, please contact our Sponsorship Directors at <br></br>
-            sponsorship@mathsoc.unsw.edu.au
-          </Typography>
-          <br></br><br></br>
-          <Typography variant="h7" className={styles.title}>Principal Sponsors</Typography>
+        <WholePageBox>
+          <div className={styles.container}>
+            <Typography variant="h7" align="center" className={styles.title}>Sponsorship Opportunities</Typography>
+            <Typography align="center">
+              If you are interested about sponsoring opportunities or have any 
+              questions, please contact our Sponsorship Directors at <br></br>
+              sponsorship@mathsoc.unsw.edu.au
+            </Typography>
+          </div>
+        </WholePageBox>
+        <WholePageBox>
+          <div className={styles.container}>    
+            <Typography variant="h7" className={styles.title}>Principal Sponsors</Typography>
             {sponsorsData.map((sponsor) => (
-              <SponsorsPg {...sponsor} typeCheck="principal" />
+              <SponsorsBox {...sponsor} typeCheck="principal" />
             ))} 
-          <br></br><br></br>
-          <Typography variant="h7" className={styles.title}>Partners</Typography>
+          </div>
+        </WholePageBox>
+        <WholePageBox>
+          <div className={styles.container}>
+            <Typography variant="h7" className={styles.title}>Partners</Typography>
             {sponsorsData.map((sponsor) => (
-              <SponsorsPg {...sponsor} typeCheck="partner" />
+              <SponsorsBox {...sponsor} typeCheck="partner" />
             ))}
-        </div>
-      </WholePageBox>
+          </div>
+        </WholePageBox>
       </ContainerWrap>
     </section>
   );

@@ -8,7 +8,7 @@ interface sponsorProps extends sponsor {
   typeCheck: "principal" | "partner";
 }
 
-const SponsorsPg: React.FC<sponsorProps> = ({
+const SponsorsBox: React.FC<sponsorProps> = ({
   name,
   type,
   logoURL,
@@ -16,21 +16,18 @@ const SponsorsPg: React.FC<sponsorProps> = ({
   profileText,
   typeCheck,
 }) => {
+  // check if partner or pricipal
   const visible = typeCheck != type;
   return (
     <section className={visible && styles.invisible}>
       <section className={styles.sponser}>
-        {/*IMAGE*/}
-        <img src={logoURL} alt={name} className={styles.logo}></img>
-        {/*TITLE*/}
-        <Typography variant="h7" align="left" className={styles.name}>{name}</Typography>
-        {/*PARAGRAPH*/}
+        <a href={websiteURL} target="_blank"><img src={logoURL} alt={name} className={styles.logo}></img></a>
+        <Typography variant="h7" align="left" className={styles.invisible}>{name}</Typography>
         <Typography >{profileText}</Typography>
-        {/*LINK*/}
         <a href={websiteURL} target="_blank" className={styles.link} >See more here!</a>
       </section>
     </section>
   );
 };
 
-export default SponsorsPg;
+export default SponsorsBox;
