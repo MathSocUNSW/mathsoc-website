@@ -21,10 +21,8 @@ const Sponsors: React.FC = () => {
       <ContainerWrap>
         <WholePageBox>
           <div className={styles.container}>
-            <Typography variant="h7" align="center" className={styles.title}>
-              Sponsorship Opportunities
-            </Typography>
-            <Typography align="center">
+            <div className={styles.title}>Sponsorship Opportunities</div>
+            <Typography variant="body1" align="center">
               If you are interested about sponsoring opportunities or have any questions, please
               contact our Sponsorship Directors at <br></br>
               sponsorship@mathsoc.unsw.edu.au
@@ -33,9 +31,7 @@ const Sponsors: React.FC = () => {
         </WholePageBox>
         <WholePageBox>
           <div className={styles.container}>
-            <Typography variant="h7" className={styles.title}>
-              Principal Sponsors
-            </Typography>
+            <div className={styles.title}>Principal Sponsors</div>
             {sponsorsData.map((sponsor) => (
               <SponsorsBox {...sponsor} typeCheck="principal" key={sponsorsData.name} />
             ))}
@@ -43,9 +39,7 @@ const Sponsors: React.FC = () => {
         </WholePageBox>
         <WholePageBox>
           <div className={styles.container}>
-            <Typography variant="h7" className={styles.title}>
-              Partners
-            </Typography>
+            <div className={styles.title}>Partners</div>
             {sponsorsData.map((sponsor) => (
               <SponsorsBox {...sponsor} typeCheck="partner" key={sponsorsData.name} />
             ))}
