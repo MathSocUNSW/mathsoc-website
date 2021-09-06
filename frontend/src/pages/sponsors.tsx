@@ -33,7 +33,7 @@ const Sponsors: React.FC = () => {
           <div className={styles.container}>
             <div className={styles.title}>Principal Sponsors</div>
             {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="principal" key={sponsorsData.name} />
+              <SponsorsBox {...sponsor} typeCheck="principal" key={sponsor.name} />
             ))}
           </div>
         </WholePageBox>
@@ -41,7 +41,7 @@ const Sponsors: React.FC = () => {
           <div className={styles.container}>
             <div className={styles.title}>Partners</div>
             {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="partner" key={sponsorsData.name} />
+              <SponsorsBox {...sponsor} typeCheck="partner" key={sponsor.name} />
             ))}
           </div>
         </WholePageBox>
