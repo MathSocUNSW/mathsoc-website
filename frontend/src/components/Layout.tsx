@@ -2,10 +2,10 @@ import React from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider } from "@material-ui/core";
 import styles from "src/styles/Layout.module.scss";
-// createTheme back to createMuiTheme; import error
-const theme = createMuiTheme({
+
+const theme = createTheme({
   typography: {
     fontFamily: "DM Sans",
     h1: {
