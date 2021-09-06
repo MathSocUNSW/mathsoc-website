@@ -33,7 +33,7 @@ const Sponsors: React.FC = () => {
           <div className={styles.container}>    
             <Typography variant="h7" className={styles.title}>Principal Sponsors</Typography>
             {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="principal" />
+              <SponsorsBox {...sponsor} typeCheck="principal" key={sponsorsData.name}/>
             ))} 
           </div>
         </WholePageBox>
@@ -41,7 +41,7 @@ const Sponsors: React.FC = () => {
           <div className={styles.container}>
             <Typography variant="h7" className={styles.title}>Partners</Typography>
             {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="partner" />
+              <SponsorsBox {...sponsor} typeCheck="partner" key={sponsorsData.name}/>
             ))}
           </div>
         </WholePageBox>
