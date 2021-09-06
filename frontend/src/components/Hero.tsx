@@ -10,7 +10,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ url, text, textColor }) => {
-  const color = textColor == "dark"; 
+  const color = textColor == "dark";
   return (
     <section className={styles.hero}>
       <div className={styles.imageContainer}>

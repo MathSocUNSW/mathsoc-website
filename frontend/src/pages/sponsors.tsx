@@ -17,31 +17,37 @@ const Sponsors: React.FC = () => {
         <title>Sponsors - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_sponsors.png" text="Sponsors" textColor="dark"/>
+      <Hero url="/images/hero/mathsoc_sponsors.png" text="Sponsors" textColor="dark" />
       <ContainerWrap>
         <WholePageBox>
           <div className={styles.container}>
-            <Typography variant="h7" align="center" className={styles.title}>Sponsorship Opportunities</Typography>
+            <Typography variant="h7" align="center" className={styles.title}>
+              Sponsorship Opportunities
+            </Typography>
             <Typography align="center">
-              If you are interested about sponsoring opportunities or have any 
-              questions, please contact our Sponsorship Directors at <br></br>
+              If you are interested about sponsoring opportunities or have any questions, please
+              contact our Sponsorship Directors at <br></br>
               sponsorship@mathsoc.unsw.edu.au
             </Typography>
           </div>
         </WholePageBox>
         <WholePageBox>
-          <div className={styles.container}>    
-            <Typography variant="h7" className={styles.title}>Principal Sponsors</Typography>
+          <div className={styles.container}>
+            <Typography variant="h7" className={styles.title}>
+              Principal Sponsors
+            </Typography>
             {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="principal" key={sponsorsData.name}/>
-            ))} 
+              <SponsorsBox {...sponsor} typeCheck="principal" key={sponsorsData.name} />
+            ))}
           </div>
         </WholePageBox>
         <WholePageBox>
           <div className={styles.container}>
-            <Typography variant="h7" className={styles.title}>Partners</Typography>
+            <Typography variant="h7" className={styles.title}>
+              Partners
+            </Typography>
             {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="partner" key={sponsorsData.name}/>
+              <SponsorsBox {...sponsor} typeCheck="partner" key={sponsorsData.name} />
             ))}
           </div>
         </WholePageBox>
