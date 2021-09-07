@@ -13,19 +13,28 @@ interface NavItemProps {
 }
 
 const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
+  // Something is interfering with dropdown when mobile, so new state is used
   const [dropdown, setDropdown] = React.useState(false);
+  const [dropdownMobile, setDropdownMobile] = React.useState(false);
 
   const onMouseEnter = () => setDropdown(true);
   const onMouseLeave = () => setDropdown(false);
 
-  const DesktopVersion = (
+  const DesktopVersionDropdown = (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <NavDropdown items={navData.dropdown} setDropdown={setDropdown} baseRoute={navData.route} />
     </div>
   );
 
-  const MobileVersion = (
+  const MobileVersionDropdown = (
     <div className={styles.mobileContainer}>
+      {navData.dropdown && (
+        <li className={styles.navButton} onClick={() => setOpen(false)}>
+          <Link href={navData.route}>
+            <a style={{ fontSize: "15px" }}>{navData.name}</a>
+          </Link>
+        </li>
+      )}
       {navData.dropdown &&
         navData.dropdown.map((item) => (
           <li key={item.name} className={styles.navButton} onClick={() => setOpen(false)}>
@@ -37,20 +46,38 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
     </div>
   );
 
+  const DesktopVersionItem = (
+    <li className={styles.navButton} onClick={() => setOpen(false)}>
+      <Link href={navData.route}>
+        <a>
+          {navData.name} {navData.dropdown && <div className={styles.navArrow} />}
+        </a>
+      </Link>
+    </li>
+  );
+
+  const MobileVersionItem = (
+    <>
+      {navData.dropdown ? (
+        <li className={styles.navButton} onClick={() => setDropdownMobile(!dropdownMobile)}>
+          <a>
+            {navData.name} {navData.dropdown && <div className={styles.navArrow} />}
+          </a>
+        </li>
+      ) : (
+        DesktopVersionItem
+      )}
+    </>
+  );
+
   return (
     <div>
       {/* Done to separate CSS attributes from mainContainer and dropdown */}
       <div className={styles.mainContainer} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-        <li className={styles.navButton} onClick={() => setOpen(false)}>
-          <Link href={navData.route}>
-            <a>
-              {navData.name} {navData.dropdown && <div className={styles.navArrow} />}
-            </a>
-          </Link>
-        </li>
+        {width > 860 ? DesktopVersionItem : MobileVersionItem}
       </div>
-      {navData.dropdown && dropdown && width > 860 && DesktopVersion}
-      {navData.dropdown && navData.displayDropdownMobile && !(width > 860) && MobileVersion}
+      {navData.dropdown && dropdown && width > 860 && DesktopVersionDropdown}
+      {navData.dropdown && dropdownMobile && !(width > 860) && MobileVersionDropdown}
     </div>
   );
 };
