@@ -1,7 +1,6 @@
 export interface sponsor {
   name: string;
-  //type: "affiliate" | "bespoke" | "principal" | "major" | "school";
-  type: "principal" | "partner";
+  type: "affiliate" | "bespoke" | "principal" | "major" | "school" | "partner";
   logoURL: string;
   websiteURL: string;
   profileText?: string;
@@ -10,17 +9,12 @@ export interface sponsor {
 const sponsorsData: Array<sponsor> = [
   {
     name: "Akuna Capital",
-    //type: "affiliate",
-    type: "partner",
+    type: "affiliate",
     websiteURL: "https://akunacapital.com/",
-    logoURL: "/images/logos/akuna_capital_logo.png",
-    // need a real description
-    profileText:
-      "Provider of data, analytics, digital, artificial intelligence and cloud technology services based in Sydney, Australia. The company's services help organizations design and implement robust enterprise data management strategies and data warehouse builds that ensure the security, accuracy and reliability of data through advanced strategies and health checks encompassing data warehousing, analytics and business intelligence."
+    logoURL: "/images/logos/akuna_capital_logo.png"
   },
   {
     name: "Brain & Company",
-    //type: "bespoke",
     type: "partner",
     websiteURL: "https://www.bain.com/",
     logoURL: "/images/logos/brain_and_company_logo.png",
@@ -61,42 +55,27 @@ const sponsorsData: Array<sponsor> = [
   },
   {
     name: "Macquarie",
-    //type: "affiliate",
-    type: "partner",
+    type: "affiliate",
     websiteURL: "https://www.macquarie.com.au/",
-    logoURL: "/images/logos/macquarie_logo.png",
-    // need a real description
-    profileText:
-      "Provider of data, analytics, digital, artificial intelligence and cloud technology services based in Sydney, Australia. The company's services help organizations design and implement robust enterprise data management strategies and data warehouse builds that ensure the security, accuracy and reliability of data through advanced strategies and health checks encompassing data warehousing, analytics and business intelligence."
+    logoURL: "/images/logos/macquarie_logo.png"
   },
   {
     name: "Quantium",
-    //type: "major",
-    type: "partner",
+    type: "major",
     websiteURL: "https://quantium.com/",
-    logoURL: "/images/logos/quantium_logo.png",
-    // need a real description
-    profileText:
-      "Provider of data, analytics, digital, artificial intelligence and cloud technology services based in Sydney, Australia. The company's services help organizations design and implement robust enterprise data management strategies and data warehouse builds that ensure the security, accuracy and reliability of data through advanced strategies and health checks encompassing data warehousing, analytics and business intelligence."
+    logoURL: "/images/logos/quantium_logo.png"
   },
   {
     name: "School of Mathematics and Statistics",
-    //type: "school",
-    type: "partner",
+    type: "school",
     websiteURL: "https://www.maths.unsw.edu.au/",
-    logoURL: "/images/logos/unsw_maths_logo.png",
-    // need a real description
-    profileText:
-      "Provider of data, analytics, digital, artificial intelligence and cloud technology services based in Sydney, Australia. The company's services help organizations design and implement robust enterprise data management strategies and data warehouse builds that ensure the security, accuracy and reliability of data through advanced strategies and health checks encompassing data warehousing, analytics and business intelligence."
+    logoURL: "/images/logos/unsw_maths_logo.png"
   },
   {
     name: "Servian",
-    type: "principal",
+    type: "affiliate",
     websiteURL: "https://www.servian.com/",
-    logoURL: "/images/logos/servian_logo.png",
-    // need a real description
-    profileText:
-      "Provider of data, analytics, digital, artificial intelligence and cloud technology services based in Sydney, Australia. The company's services help organizations design and implement robust enterprise data management strategies and data warehouse builds that ensure the security, accuracy and reliability of data through advanced strategies and health checks encompassing data warehousing, analytics and business intelligence."
+    logoURL: "/images/logos/servian_logo.png"
   },
   {
     name: "SIG Susquehanna",
@@ -108,13 +87,25 @@ const sponsorsData: Array<sponsor> = [
   },
   {
     name: "Arc",
-    //type: "school",
-    type: "partner",
+    type: "school",
     websiteURL: "https://www.arc.unsw.edu.au/",
-    logoURL: "/images/logos/arc_green_logo.png",
-    // need a real description
+    logoURL: "/images/logos/arc_green_logo.png"
+  },
+  {
+    name: "Taylor Fry",
+    type: "partner",
+    websiteURL: "https://taylorfry.com.au/",
+    logoURL: "/images/logos/taylor_fry_logo.png",
     profileText:
-      "Arc was formed in 2006 and is a not-for-profit organisation for students studying at UNSW. It's symbolic of an umbrella covering all of the students, clubs and societies in its care, and has nothing to do with floods or paired animals. Arc is all about everything outside the classroom; from volunteering opportunities to free food, there are a zillion opportunities to find your thing at uni with one of Arc's fun events or diverse clubs and societies."
+      "Taylor Fry is an analytics and actuarial consulting firm, providing general insurance and advanced analytics services to business and government."
+  },
+  {
+    name: "The Treasury",
+    type: "partner",
+    websiteURL: "https://treasury.gov.au/",
+    logoURL: "/images/logos/treasury_logo.png",
+    profileText:
+      "The Treasury serves the Australian people by helping the Australian Government’s Treasury Ministers carry out their responsibilities. The Treasury’s three priorities are: promoting fiscal sustainability; increasing productivity and workforce participation; and securing the benefits of global economic integration. Treasury is best known for producing the Australian Government’s annual budget, but we do much more than that. We also work to strengthen Australia by developing key policies on: tax and the economy; financial, foreign investment, competition, social and broader structural policy."
   }
 ];
 
