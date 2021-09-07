@@ -6,11 +6,9 @@ import Image from "next/image";
 interface HeroProps {
   url: string;
   text: string;
-  textColor?: "light" | "dark";
 }
 
-const Hero: React.FC<HeroProps> = ({ url, text, textColor }) => {
-  const color = textColor == "dark";
+const Hero: React.FC<HeroProps> = ({ url, text }) => {
   return (
     <section className={styles.hero}>
       <div className={styles.imageContainer}>
@@ -26,11 +24,9 @@ const Hero: React.FC<HeroProps> = ({ url, text, textColor }) => {
       </div>
       <Container>
         <div className={styles.text}>
-          <div className={color && styles.dark}>
-            <Typography variant="h1" align="center">
-              {text}
-            </Typography>
-          </div>
+          <Typography variant="h1" align="center">
+            {text}
+          </Typography>
         </div>
       </Container>
     </section>
