@@ -1,6 +1,7 @@
 interface director {
   name: string;
   imagePath: string | null;
+  linkedin?: string;
 }
 
 export interface portfolio {
@@ -20,11 +21,20 @@ const directorsData: portfolio[] = [
   {
     role: "Education",
     directors: [
-      { name: "John Kameas", imagePath: null },
-      { name: "Raymond Li", imagePath: "/images/team/RaymondLi.jpg" },
+      {
+        name: "John Kameas",
+        imagePath: null,
+        linkedin: "https://www.linkedin.com/in/john-kameas-2a6692179/"
+      },
+      {
+        name: "Raymond Li",
+        imagePath: "/images/team/RaymondLi.jpg",
+        linkedin: "https://www.linkedin.com/in/raymond-li-23a576209/"
+      },
       {
         name: "Gorden Zhuang",
-        imagePath: "/images/team/GordenZhuang.jpg"
+        imagePath: "/images/team/GordenZhuang.jpg",
+        linkedin: "https://www.linkedin.com/in/gorden-z-5882661a3/"
       }
     ],
     subcom: [
@@ -45,11 +55,13 @@ const directorsData: portfolio[] = [
     directors: [
       {
         name: "Ting Li",
-        imagePath: "/images/team/TingLi.jpg"
+        imagePath: "/images/team/TingLi.jpg",
+        linkedin: "https://www.linkedin.com/in/tiantingli/"
       },
       {
         name: "Andrew William",
-        imagePath: null
+        imagePath: "/images/team/AndrewWilliam.jpeg",
+        linkedin: "https://www.linkedin.com/in/andrew-william-1507/"
       }
     ],
     subcom: [
@@ -64,10 +76,15 @@ const directorsData: portfolio[] = [
   {
     role: "Events (Social)",
     directors: [
-      { name: "Vedant Rampal", imagePath: "/images/team/VedantRampal.jpg" },
+      {
+        name: "Vedant Rampal",
+        imagePath: "/images/team/VedantRampal.jpeg",
+        linkedin: "https://www.linkedin.com/in/vedant-rampal/"
+      },
       {
         name: "Daniel Kim",
-        imagePath: "/images/team/DanielKim.jpg"
+        imagePath: "/images/team/DanielKim.jpg",
+        linkedin: "https://www.linkedin.com/in/danielkim21/"
       }
     ],
     subcom: [
@@ -84,18 +101,26 @@ const directorsData: portfolio[] = [
     directors: [
       {
         name: "Katherine Bai",
-        imagePath: "/images/team/KatherineBai.jpg"
+        imagePath: "/images/team/KatherineBai.jpg",
+        linkedin: "https://www.linkedin.com/in/katherine-bai-62b3281a7/"
       },
       {
         name: "Christopher Wu",
-        imagePath: null
+        imagePath: "/images/team/ChrisWu.png",
+        linkedin: "https://www.linkedin.com/in/christopher-wu-b296a418b/"
       }
     ],
     subcom: []
   },
   {
     role: "IT",
-    directors: [{ name: "Andrew Xie", imagePath: null }],
+    directors: [
+      {
+        name: "Andrew Xie",
+        imagePath: "/images/team/AndrewXie.jpeg",
+        linkedin: "https://www.linkedin.com/in/andrewxie1/"
+      }
+    ],
     subcom: ["Alvin Cherk", "Rahul Ahluwalia", "Wellington Dulay"]
   },
   {
@@ -103,17 +128,30 @@ const directorsData: portfolio[] = [
     directors: [
       {
         name: "Celeste Thomson",
-        imagePath: null
+        imagePath: null,
+        linkedin: "https://www.linkedin.com/in/celeste-thomson-968543160/"
       },
-      { name: "Jessica Zheng", imagePath: null }
+      {
+        name: "Jessica Zheng",
+        imagePath: "/images/team/JessicaZheng.jpeg",
+        linkedin: "https://www.linkedin.com/in/jess-zheng/"
+      }
     ],
     subcom: ["Brandon Liu", "Catherine Lye", "Erin Shee", "Lachlan Georgiadis", "Nat Brown"]
   },
   {
     role: "Sponsorships",
     directors: [
-      { name: "Abhi Khosla", imagePath: null },
-      { name: "Jordan Shen", imagePath: "/images/team/JordanShen.jpg" }
+      {
+        name: "Abhi Khosla",
+        imagePath: "/images/team/AbhiKhosla.jpeg",
+        linkedin: "https://www.linkedin.com/in/abhikhosla/"
+      },
+      {
+        name: "Jordan Shen",
+        imagePath: "/images/team/JordanShen.jpg",
+        linkedin: "https://www.linkedin.com/in/jordan-shen/"
+      }
     ],
     subcom: []
   }

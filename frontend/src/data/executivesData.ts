@@ -11,7 +11,7 @@ const executivesData: executive[] = [
     name: "Philton Zhu",
     role: "Vice President",
     description: null,
-    imagePath: "/images/team/PhiltonZhu.png"
+    imagePath: "/images/team/PhiltonZhu.jpg"
   },
   {
     name: "Justin Clarke",
