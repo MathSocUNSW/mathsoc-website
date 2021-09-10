@@ -13,10 +13,13 @@ interface NavDropdownProps {
 const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute }) => {
   return (
     <div className={styles.mainContainer}>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <Link href={baseRoute + item.subRoute} key={item.name}>
           <a>
-            <div className={styles.item} onClick={() => setDropdown(false)}>
+            <div
+              className={index === items.length - 1 ? styles.itemLast : styles.item}
+              onClick={() => setDropdown(false)}
+            >
               {item.name}
             </div>
           </a>
