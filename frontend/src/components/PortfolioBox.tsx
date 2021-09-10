@@ -24,6 +24,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
               height={150}
               width={150}
               className={styles.personImage}
+              key={person.name}
             />
             <Typography variant="h4">{person.name}</Typography>
             <Typography variant="h6">{`${role} Director`}</Typography>
@@ -33,7 +34,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
       {/*subcom*/}
       <div className={styles.subcomBox}>
         {parsedSubcom.map((person) => (
-          <Typography variant="body1" align="center">
+          <Typography variant="body1" align="center" key={person}>
             {person}
           </Typography>
         ))}

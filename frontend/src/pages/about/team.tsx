@@ -45,7 +45,7 @@ const Team: React.FC = () => {
         </Typography>
         <section className={styles.cardsContainer}>
           {portfolioData.map((portfolio) => (
-            <PortfolioBox {...portfolio} />
+            <PortfolioBox {...portfolio} key={portfolio.role} />
           ))}
         </section>
       </ContainerWrap>
