@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Container } from "@material-ui/core";
 
 import useWindowDimensions from "src/helpers/useWindowDimensions";
-import navLinks from "src/data/navLinks";
+import navLinks from "src/data/navLinksData";
 import styles from "src/styles/NavBar.module.scss";
 import Hamburger from "hamburger-react";
 import NavItem from "./NavItem";
