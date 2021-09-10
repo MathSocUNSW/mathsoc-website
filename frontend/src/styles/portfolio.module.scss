@@ -18,15 +18,10 @@
   width: 80%;
 }
 
-.subcomBox {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  max-height: 29vh;
-  width: 400px;
-  @media screen and (max-width: 800px) {
-    width: 100vw;
-  }
+.evenLarge {
+  display: inline-block;
+  column-count: 2;
+  column-fill: balance;
 }
 
 .portfolio {

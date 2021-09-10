@@ -9,6 +9,8 @@ const DEFAULT_PROFILE_IMAGE = "/images/team/blank_profile.png";
 const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
   const parsedDirectors = directors.sort(alphabeticalSort);
   const parsedSubcom = subcom.sort((a, b) => a.localeCompare(b));
+  // check if list of subcom is Even and Larger than 5, then split in 2 equal columns
+  const evenLarge = subcom.length > 5 && subcom.length % 2 == 0;
   return (
     <div className={styles.portfolio}>
       <Typography variant="h4" align="center">
@@ -40,10 +42,9 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
           <br />
         </Typography>
       )}
-      {/*NOTE: education not split into two even columns, spacing*/}
-      <div className={styles.subcomBox}>
+      <div className={evenLarge && styles.evenLarge}>
         {parsedSubcom.map((person) => (
-          <Typography variant="body1" align="center" key={person}>
+          <Typography variant="body2" align="center" key={person}>
             {person}
           </Typography>
         ))}
