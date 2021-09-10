@@ -14,6 +14,7 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
       <Typography variant="h4" align="center">
         {role}
       </Typography>
+      <br />
       {/*directors*/}
       <div className={styles.directorsBox}>
         {parsedDirectors.map((person) => (
@@ -25,12 +26,21 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
               width={150}
               className={styles.personImage}
             />
+            <br />
             <Typography variant="h4">{person.name}</Typography>
             <Typography variant="h6">{`${role} Director`}</Typography>
           </div>
         ))}
       </div>
       {/*subcom*/}
+      {parsedSubcom.length > 0 && (
+        <Typography variant="h4" align="center">
+          <br />
+          Subcom
+          <br />
+        </Typography>
+      )}
+      {/*NOTE: education not split into two even columns, spacing*/}
       <div className={styles.subcomBox}>
         {parsedSubcom.map((person) => (
           <Typography variant="body1" align="center" key={person}>

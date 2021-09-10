@@ -26,7 +26,7 @@ const Team: React.FC = () => {
         <Typography variant="h5" align="center">
           The 2021 Executive Team of the UNSW Mathematics Society
         </Typography>
-        <section className={styles.cardsContainer}>
+        <div className={styles.cardsContainer}>
           {executivesData.map((person, index) => (
             <Profile
               name={person.name}
@@ -36,7 +36,7 @@ const Team: React.FC = () => {
               key={person.name}
             />
           ))}
-        </section>
+        </div>
         <Typography variant="h2" align="center">
           Directors
         </Typography>
