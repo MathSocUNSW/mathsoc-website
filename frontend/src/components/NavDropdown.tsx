@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { subPage } from "src/data/navLinks";
+import { subPage } from "src/data/navLinksData";
 import styles from "src/styles/NavDropdown.module.scss";
 
 interface NavDropdownProps {

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { navLink } from "src/data/navLinks";
+import { navLink } from "src/data/navLinksData";
 import styles from "src/styles/NavItem.module.scss";
 import NavDropdown from "./NavDropdown";
 
