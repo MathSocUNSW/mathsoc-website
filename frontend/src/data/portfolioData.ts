@@ -4,7 +4,7 @@ interface director {
   imagePath: string | null;
 }
 
-interface portfolio {
+export interface portfolio {
   role:
     | "Education"
     | "Corporate Events"
@@ -14,6 +14,7 @@ interface portfolio {
     | "Marketing"
     | "Sponsorships";
   directors: director[];
+  subcom?: string[];
 }
 
 const directorsData: portfolio[] = [
@@ -28,6 +29,18 @@ const directorsData: portfolio[] = [
           "3rd year actuarial studies and applied maths student. Hibernates perennially while secretly hoping to get rich from a questionable selection of stonks.",
         imagePath: "/images/team/GordenZhuang.jpg"
       }
+    ],
+    subcom: [
+      "Bruce Chen",
+      "Felix Cao",
+      "Isaiah Iliffe",
+      "Jay Liang",
+      "Joanna Lin",
+      "Jordy Grant",
+      "Lisa Huang",
+      "Steve Jang",
+      "Wendy Ji",
+      "Yvonne Huang"
     ]
   },
   {
@@ -45,6 +58,14 @@ const directorsData: portfolio[] = [
           "2nd Year Quantitative Data Science student. Dog, meme and anime lover. Contact me for details on how to QuAnTiTAtivEly lose money in Crypto :>",
         imagePath: null
       }
+    ],
+    subcom: [
+      "Alice Zhang",
+      "Danni Chen",
+      "Harry Zhang",
+      "Kush Singhy",
+      "Princy Thakkar",
+      "Teya Murray"
     ]
   },
   {
@@ -57,6 +78,14 @@ const directorsData: portfolio[] = [
           My vision for MathSoc: Make the supreme meme dream team`,
         imagePath: "/images/team/DanielKim.jpg"
       }
+    ],
+    subcom: [
+      "Eva Lin",
+      "Mehak Arya",
+      "Omkar Thite",
+      "Ricky Zheng",
+      "Rijul Arjun Malik",
+      "Vincent Liang"
     ]
   },
   {
@@ -74,9 +103,14 @@ const directorsData: portfolio[] = [
           "3rd Year Commerce and Computer Science student. Enjoys sleeping and KFC religiously.",
         imagePath: null
       }
-    ]
+    ],
+    subcom: [null]
   },
-  { role: "IT", directors: [{ name: "Andrew Xie", description: null, imagePath: null }] },
+  {
+    role: "IT",
+    directors: [{ name: "Andrew Xie", description: null, imagePath: null }],
+    subcom: ["Alvin Cherk", "Rahul Ahluwalia", "Wellington Dulay"]
+  },
   {
     role: "Marketing",
     directors: [
@@ -93,16 +127,17 @@ const directorsData: portfolio[] = [
         imagePath: null
       },
       { name: "Jessica Zheng", description: null, imagePath: null }
-    ]
+    ],
+    subcom: ["Brandon Liu", "Catherine Lye", "Erin Shee", "Lachlan Georgiadis", "Nat Brown"]
   },
   {
     role: "Sponsorships",
     directors: [
       { name: "Abhi Khosla", description: null, imagePath: null },
       { name: "Jordan Shen", description: null, imagePath: "/images/team/JordanShen.jpg" }
-    ]
+    ],
+    subcom: [null]
   }
 ];
 
 export default directorsData;
-// TODO: alphabetical order under each role
