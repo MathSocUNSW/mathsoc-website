@@ -32,7 +32,7 @@ const navLinks: navLink[] = [
     name: "Resources",
     route: "/resources",
     dropdown: [
-      { name: "Fist Year Exam Bank", subRoute: "/exam-bank" },
+      { name: "First Year Exam Bank", subRoute: "/exam-bank" },
       { name: "Revision Lectures", subRoute: "/revision" },
       { name: "LaTeX Guide", subRoute: "/latex" },
       { name: "MATLAB Guide", subRoute: "/matlab" },
