@@ -36,19 +36,21 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
       </div>
       {/*subcom*/}
       {parsedSubcom.length > 0 && (
-        <Typography variant="h4" align="center">
+        <div>
           <br />
-          Subcom
-          <br />
-        </Typography>
-      )}
-      <div className={evenLarge && styles.evenLarge}>
-        {parsedSubcom.map((person) => (
-          <Typography variant="body2" align="center" key={person}>
-            {person}
+          <Typography variant="h4" align="center">
+            Subcommittee
           </Typography>
-        ))}
-      </div>
+          <br />
+          <div className={evenLarge && styles.evenLarge}>
+            {parsedSubcom.map((person) => (
+              <Typography variant="body2" align="center" key={person}>
+                {person}
+              </Typography>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
