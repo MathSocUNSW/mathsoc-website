@@ -17,14 +17,13 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcom }) => {
       {/*directors*/}
       <div className={styles.directorsBox}>
         {parsedDirectors.map((person) => (
-          <div className={styles.person}>
+          <div className={styles.person} key={person.name}>
             <img
               src={person.imagePath ? person.imagePath : DEFAULT_PROFILE_IMAGE}
               alt={`${person.name} photo`}
               height={150}
               width={150}
               className={styles.personImage}
-              key={person.name}
             />
             <Typography variant="h4">{person.name}</Typography>
             <Typography variant="h6">{`${role} Director`}</Typography>
