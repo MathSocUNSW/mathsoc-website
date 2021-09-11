@@ -90,7 +90,7 @@ const pastTeamData: Array<yearTeamData> = [
       },
       {
         role: "Corporate Events",
-        members: ["Catherine Kwon", "Ting Li", "Vedant Rampal", "CJordan Shen", "Vivian Wong"]
+        members: ["Catherine Kwon", "Ting Li", "Vedant Rampal", "Jordan Shen", "Vivian Wong"]
       },
       {
         role: "Social Events",
@@ -244,7 +244,7 @@ const pastTeamData: Array<yearTeamData> = [
       { role: "Marketing", directors: [{ name: "Yifan Shen" }] },
       { role: "Sponsorships", directors: [{ name: "Shahbaz Bains" }, { name: "Vishaal Nathan" }] },
       // eslint-disable-next-line quotes
-      { role: "Women's", directors: [{ name: "Julia Renouf" }] },
+      { role: "Women's", directors: [{ name: 'Julia Renouf' }] },
       { role: "Outreach", directors: [{ name: "Andrew Antony" }] }
     ],
     subcommittee: [

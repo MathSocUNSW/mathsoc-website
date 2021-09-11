@@ -1,11 +1,17 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
-import Hero from "src/components/Hero";
 
+// Component Imports
+import PageBody from "components/PageBody";
+import Hero from "src/components/Hero";
 import Strip from "components/Strip";
-import resourceData from "src/data/resourceData";
+
+// Styling
 import styles from "src/styles/resources.module.scss";
-import ContainerWrap from "components/ContainerWrap";
+
+// Data
+import resourceData from "src/data/resourceData";
 
 const Resources: React.FC = () => {
   return (
@@ -15,7 +21,7 @@ const Resources: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_resources.png" text="Resources" />
-      <ContainerWrap>
+      <PageBody>
         <ul className={styles.resources}>
           {resourceData.map((resource, index) => (
             <li key={index}>
@@ -23,7 +29,7 @@ const Resources: React.FC = () => {
             </li>
           ))}
         </ul>
-      </ContainerWrap>
+      </PageBody>
     </section>
   );
 };

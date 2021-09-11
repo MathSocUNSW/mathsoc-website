@@ -1,35 +1,24 @@
+// Library Imports
 import React from "react";
 import { Typography } from "@material-ui/core";
-import styles from "src/styles/SponsorsPg.module.scss";
 
+// Styling
+import styles from "src/styles/SponsorsBox.module.scss";
+
+// Data
 import { sponsor } from "src/data/sponsorsData";
 
-interface sponsorProps extends sponsor {
-  typeCheck: "principal" | "partner";
-}
-
-const SponsorsBox: React.FC<sponsorProps> = ({
-  name,
-  type,
-  logoURL,
-  websiteURL,
-  profileText,
-  typeCheck
-}) => {
-  // check if partner or pricipal
-  const visible = typeCheck != type;
+const SponsorsBox: React.FC<sponsor> = ({ name, type, logoPath, websiteURL, description }) => {
   return (
-    <section className={visible && styles.invisible}>
-      <section className={styles.sponser}>
-        <a href={websiteURL} target="_blank" rel="noreferrer">
-          <img src={logoURL} alt={name} className={styles.logo}></img>
-        </a>
-        <Typography>{profileText}</Typography>
-        <a href={websiteURL} target="_blank" rel="noreferrer" className={styles.link}>
-          See more here!
-        </a>
-      </section>
-    </section>
+    <div className={styles.sponsorBox}>
+      <a href={websiteURL} target="_blank" rel="noreferrer">
+        <img src={logoPath} alt={name} className={styles.logo}></img>
+      </a>
+      <Typography variant="body1">{description}</Typography>
+      <a href={websiteURL} target="_blank" rel="noreferrer" className={styles.link}>
+        See more here!
+      </a>
+    </div>
   );
 };
 

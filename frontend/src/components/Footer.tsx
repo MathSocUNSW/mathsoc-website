@@ -1,8 +1,13 @@
+// Library Imports
 import React from "react";
+import { Container } from "@material-ui/core";
+
+// Styling
 import styles from "src/styles/Footer.module.scss";
+
+// Data
 import { socials } from "src/data/socialData";
 
-import { Container } from "@material-ui/core";
 
 const Footer: React.FC = () => {
   return (
@@ -10,7 +15,7 @@ const Footer: React.FC = () => {
       <Container>
         <div className={styles.content}>
           <div className={styles.leftText}>
-            <p>&#169; UNSW Mathematics Society 2020</p>
+            <p>&#169; UNSW Mathematics Society 2021</p>
           </div>
           <ul className={styles.socials}>
             {socials.map(({ name, url, iconPath }) => (

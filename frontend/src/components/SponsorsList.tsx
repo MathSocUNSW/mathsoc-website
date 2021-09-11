@@ -11,12 +11,13 @@ const SponsorsList: React.FC = () => {
       <Typography variant="h2" align="center">
         Our Sponsors
       </Typography>
+      <br />
       <section className={styles.sponsorsContainer}>
         {sponsorsData.map((sponsor, index) => (
           <a key={index} href={sponsor.websiteURL} target="_blank" rel="noreferrer">
             <div className={styles.imageContainer}>
               <Image
-                src={sponsor.logoURL}
+                src={sponsor.logoPath}
                 layout="fill"
                 className={styles.image}
                 quality={1}

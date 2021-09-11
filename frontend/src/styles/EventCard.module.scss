@@ -13,6 +13,11 @@
   }
 }
 
+.title {
+  text-decoration: none;
+  color: black;
+}
+
 .description {
   // from layout.tsx for body1
   $font-size: 1.05rem;
@@ -29,6 +34,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  margin-top: 0.4rem;
 }
 
 .topImage {
