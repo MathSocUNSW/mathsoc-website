@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
   webpackDevMiddleware: (config) => {
@@ -11,12 +11,15 @@ module.exports = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"]
+      use: ['@svgr/webpack']
     });
 
     return config;
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")]
+    includePaths: [path.join(__dirname, 'styles')]
   }
+  // images: {
+  //   domains: ['media-exp1.licdn.com']
+  // }
 };
