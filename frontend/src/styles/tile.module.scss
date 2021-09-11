@@ -1,21 +1,4 @@
-.disabled {
-  background-color: rgb(233, 233, 233);
-  border: white;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 5px;
-  padding: 5px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-
-  width: 30px;
-  img {
-    filter: grayscale(100%) brightness(500%);
-  }
-}
+@import "./variables.scss";
 
 .tile {
   background-color: white;
@@ -48,6 +31,13 @@
   }
 }
 
+.nav {
+  padding: 0 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .arrow {
   cursor: pointer;
   display: flex;
@@ -60,24 +50,42 @@
   width: 30px;
 
   transition: all 0.2s;
-  background-color: rgb(228, 228, 228);
-  border: white;
+  background-color: transparent;
+  border: transparent;
 }
 .arrow:hover {
-  background-color: rgb(211, 211, 211);
+  background-color: rgb(219, 219, 219);
 }
 .arrow:active {
-  background-color: rgb(194, 194, 194);
+  background-color: rgb(190, 190, 190);
+}
+
+.disabled {
+  background-color: transparent;
+  border: transparent;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  width: 30px;
+  img {
+    filter: grayscale(100%) brightness(500%);
+  }
 }
 
 .exploreArrow {
   cursor: pointer;
-  margin-right: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
   color: rgb(32, 27, 75);
-  border: white;
-  background-color: rgb(233, 233, 233);
+  border: transparent;
+  background-color: transparent;
   border-radius: 5px;
   img {
     padding-left: 5px;
@@ -86,23 +94,21 @@
   }
   width: 100px;
   transition: all 0.5s;
-  padding-left: 15px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
+  padding: 4px 0px 4px 15px;
+  position: relative;
+  left: -10px;
 
+  @media screen and (max-width: $mobile) {
+    padding-left: 0px;
+    img {
+      opacity: 1;
+    }
+  }
+}
 .exploreArrow:hover img {
   opacity: 1;
   transition: all 0.7s;
 }
-
 .exploreArrow:hover {
   padding-left: 0px;
-}
-
-.nav {
-  padding: 0 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }

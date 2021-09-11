@@ -13,7 +13,7 @@ const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) =
     (group, index) => group == element && <TileSlide {...group} key={index} />
   );
   return (
-    // TODO: first page is clickable, animation on first arrow
+    // TODO: entire first page is clickable?
     <div className={styles.tile}>
       <div className={styles.tileContent}>
         {/* Front Slide */}
@@ -44,10 +44,8 @@ const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) =
         {/* Explore Arrow*/}
         {index < 0 && (
           <button onClick={() => setIndex(index + 1)} className={styles.exploreArrow}>
-            <span>
-              Explore
-              <img src="/images/resources/arrowRHS.png" alt="right-hand arrow" draggable="false" />
-            </span>
+            Explore
+            <img src="/images/resources/arrowRHS.png" alt="right-hand arrow" draggable="false" />
           </button>
         )}
         {/* LHS Arrow */}
