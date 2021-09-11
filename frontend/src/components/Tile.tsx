@@ -46,14 +46,14 @@ const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) =
           <button onClick={() => setIndex(index + 1)} className={styles.exploreArrow}>
             <span>
               Explore
-              <img src="/images/resources/arrowRHS.png" alt="right-hand arrow" />
+              <img src="/images/resources/arrowRHS.png" alt="right-hand arrow" draggable="false" />
             </span>
           </button>
         )}
         {/* LHS Arrow */}
         {index > -1 && (
           <button onClick={() => setIndex(index - 1)} className={styles.arrow}>
-            <img src="/images/resources/arrowLHS.png" alt="left-hand arrow" />
+            <img src="/images/resources/arrowLHS.png" alt="left-hand arrow" draggable="false" />
           </button>
         )}
         {/* RHS Arrow */}
@@ -62,7 +62,7 @@ const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) =
             onClick={() => setIndex(index + 1)}
             className={index < revisionLinks.length - 1 ? styles.arrow : styles.disabled}
           >
-            <img src="/images/resources/arrowRHS.png" alt="right-hand arrow" />
+            <img src="/images/resources/arrowRHS.png" alt="right-hand arrow" draggable="false" />
           </button>
         )}
       </div>
