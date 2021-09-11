@@ -1,26 +1,9 @@
-.disabled {
-  background-color: rgb(233, 233, 233);
-  border: white;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 5px;
-  padding: 5px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-
-  width: 30px;
-  img {
-    filter: grayscale(100%) brightness(500%);
-  }
-}
 
 .tile {
   background-color: white;
   height: 300px;
   min-width: 380px;
+  max-width: 380px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
@@ -47,6 +30,7 @@
     list-style-type: none;
   }
 }
+
 
 .arrow {
   cursor: pointer;
@@ -98,6 +82,25 @@
 
 .exploreArrow:hover {
   padding-left: 0px;
+}
+  
+.disabled {
+  background-color: rgb(233, 233, 233);
+  border: white;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  width: 30px;
+  img {
+    filter: grayscale(100%) brightness(500%);
+  }
 }
 
 .nav {
