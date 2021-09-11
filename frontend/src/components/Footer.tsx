@@ -8,7 +8,6 @@ import styles from "src/styles/Footer.module.scss";
 // Data
 import { socials } from "src/data/socialData";
 
-
 const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
