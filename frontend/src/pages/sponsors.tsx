@@ -10,7 +10,12 @@ import sponsorsData from "src/data/sponsorsData";
 import SponsorsBox from "components/SponsorsBox";
 import styles from "src/styles/SponsorsPg.module.scss";
 
+import alphabeticalSort from "src/helpers/alphabeticalSort";
+
 const Sponsors: React.FC = () => {
+  const parsedSponsors = sponsorsData.sort(alphabeticalSort);
+  const parsedPrincipal = parsedSponsors.filter((sponsor) => sponsor.type == "principal");
+  const parsedPartner = parsedSponsors.filter((sponsor) => sponsor.type == "partner");
   return (
     <section>
       <Head>
@@ -32,16 +37,16 @@ const Sponsors: React.FC = () => {
         <WholePageBox>
           <div className={styles.container}>
             <div className={styles.title}>Principal Sponsors</div>
-            {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="principal" key={sponsor.name} />
+            {parsedPrincipal.map((sponsor) => (
+              <SponsorsBox {...sponsor} key={sponsor.name} />
             ))}
           </div>
         </WholePageBox>
         <WholePageBox>
           <div className={styles.container}>
             <div className={styles.title}>Partners</div>
-            {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="partner" key={sponsor.name} />
+            {parsedPartner.map((sponsor) => (
+              <SponsorsBox {...sponsor} key={sponsor.name} />
             ))}
           </div>
         </WholePageBox>
