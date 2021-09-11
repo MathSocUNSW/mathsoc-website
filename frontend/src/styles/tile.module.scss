@@ -1,88 +1,110 @@
-.tile { //modified from card scss
+.disabled {
+  background-color: rgb(233, 233, 233);
+  border: white;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  width: 30px;
+  img {
+    filter: grayscale(100%) brightness(500%);
+  }
+}
+
+.tile {
   background-color: white;
   height: 300px;
   min-width: 380px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
+
   display: flex;
   flex-direction: column;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    transform: scale(1.02);
-  }
-
+  justify-content: space-between;
   flex-basis: auto;
   flex: 1;
 
-  
+  padding-top: 25px;
+  padding-bottom: 25px;
   margin: 15px;
-  justify-content: space-evenly;
 }
 
 .tileContent {
-  // Can you make the navigation bar in the same position
-  // with content distributed as before (space evenly or around)
-}
-
-.frontTile {
   padding-left: 30px;
   padding-right: 30px;
   .icon {
     padding-bottom: 50px;
     max-height: 50px;
   }
-}
-
-.backTile {
-  padding-left: 30px;
-  padding-right: 30px;
-  height: 70%;
-}
-
-.tileGroup {
-  list-style-type:none
-}
-
-
-/* TO-DO: ARROW TRANSITION
-.arrowLHS {
-  transition: background-color 2s ease-out;
-  onClick {
-    background-color: orangered;
+  ul {
+    list-style-type: none;
   }
-}*/
+}
 
-.arrowLHS, .arrowRHS {
-  // transition might be difficult because we are re-rendering a new arrow for each tile slide?
+.arrow {
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  border-radius: 5px;
+  padding: 8px 10px 8px;
+
+  width: 30px;
+
+  transition: all 0.2s;
+  background-color: rgb(228, 228, 228);
+  border: white;
+}
+.arrow:hover {
+  background-color: rgb(211, 211, 211);
+}
+.arrow:active {
+  background-color: rgb(194, 194, 194);
 }
 
-.text {
+.exploreArrow {
   cursor: pointer;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
   color: rgb(32, 27, 75);
+  border: white;
+  background-color: rgb(233, 233, 233);
+  border-radius: 5px;
+  img {
+    padding-left: 5px;
+    opacity: 0;
+  }
+  width: 100px;
+  transition: all 500ms;
+  padding-left: 15px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
-.traverserFront {
-  padding: 0 30px;
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
+.exploreArrow:hover img {
+  opacity: 1;
+  transition: all 500ms;
+}
+.exploreArrow img:after {
+  opacity: 0;
+  transition: 500ms;
+}
+.exploreArrow:hover {
+  padding-left: 0px;
 }
 
-.traverserBack {
-  //transition-delay: 20ms;
+.nav {
   padding: 0 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 }
-
