@@ -10,6 +10,8 @@ import Hero from "components/Hero";
 import UpcomingEvents from "components/UpcomingEvents";
 import SponsorsList from "components/SponsorsList";
 
+// TODO: add loading animation, eager load sponsor images
+
 const Home: React.FC = () => {
   // React state for upcoming events section
   const [eventIndex, setEventIndex] = useState(0);

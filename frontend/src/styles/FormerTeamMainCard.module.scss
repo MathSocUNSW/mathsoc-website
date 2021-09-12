@@ -1,36 +1,10 @@
-@import "./variables.scss";
+@import './variables.scss';
 
-.mainContainer {
-  width: 100%;
-}
-
-.flexContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.text {
-  font-size: 1.45rem;
-}
-
-.bold {
-  font-weight: 600;
+.category {
+  padding: 0.5rem 0;
 }
 
 .nameContainer {
-  // width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
-.execTitle {
-  margin-bottom: 7px;
-  span {
-    font-weight: 600;
-    font-size: 1.55em;
-    color: $darkNavy;
-  }
+  list-style-type: none;
+  padding: 0.05rem;
 }

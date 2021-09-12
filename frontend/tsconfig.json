@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "noImplicitAny": false,
     "module": "esnext",
     "target": "es5",
     "lib": ["esnext", "dom", "dom.iterable"],
@@ -18,7 +17,14 @@
       "components/*": ["src/components/*"]
     },
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "isolatedModules": true

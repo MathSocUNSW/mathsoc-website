@@ -1,4 +1,4 @@
-interface execPerson {
+export interface execPerson {
   name: string;
   role:
     | "President"
@@ -10,11 +10,7 @@ interface execPerson {
     | "Internal VP";
 }
 
-interface directorPerson {
-  name: string;
-}
-
-interface directorRole {
+export interface directorRole {
   role:
     | "Education"
     | "Corporate Events"
@@ -28,10 +24,10 @@ interface directorRole {
     | "Outreach"
     | "Secretary & Public Relations"
     | "Publications";
-  directors: Array<directorPerson>;
+  directors: string[];
 }
 
-interface subcommitteeData {
+export interface subcommitteeData {
   role:
     | "Education"
     | "Corporate Events"
@@ -42,17 +38,17 @@ interface subcommitteeData {
     | "Sponsorships"
     | "Events"
     | "General";
-  members: Array<string>;
+  members: string[];
 }
 
 export interface yearTeamData {
   year: number;
-  execList: Array<execPerson>;
-  directorList: Array<directorRole>;
-  subcommittee: Array<subcommitteeData> | null;
+  execList: execPerson[];
+  directorList: directorRole[];
+  subcommittee: subcommitteeData[];
 }
 
-const pastTeamData: Array<yearTeamData> = [
+const pastTeamData: yearTeamData[] = [
   {
     year: 2020,
     execList: [
@@ -65,13 +61,13 @@ const pastTeamData: Array<yearTeamData> = [
     directorList: [
       {
         role: "Education",
-        directors: [{ name: "Gerald Huang" }, { name: "Abdellah Islam" }, { name: "Alex Zhu" }]
+        directors: ["Gerald Huang", "Abdellah Islam", "Alex Zhu"]
       },
-      { role: "Corporate Events", directors: [{ name: "Winston Sun" }, { name: "Lauren Wu" }] },
-      { role: "Social Events", directors: [{ name: "Wendy Zhang" }, { name: "Philton Zhu" }] },
-      { role: "IT", directors: [{ name: "Ethan Brown" }] },
-      { role: "Marketing", directors: [{ name: "Isabella Falanga" }, { name: "Celeste Thomson" }] },
-      { role: "Sponsorships", directors: [{ name: "Christopher Wu" }, { name: "Nancy Yu" }] }
+      { role: "Corporate Events", directors: ["Winston Sun", "Lauren Wu"] },
+      { role: "Social Events", directors: ["Wendy Zhang", "Philton Zhu"] },
+      { role: "IT", directors: ["Ethan Brown"] },
+      { role: "Marketing", directors: ["Isabella Falanga", "Celeste Thomson"] },
+      { role: "Sponsorships", directors: ["Christopher Wu", "Nancy Yu"] }
     ],
     subcommittee: [
       {
@@ -124,14 +120,14 @@ const pastTeamData: Array<yearTeamData> = [
       { name: "Stephanie Tong", role: "Arc Delegate" }
     ],
     directorList: [
-      { role: "Education", directors: [{ name: "Rui Tong" }, { name: "James Gao" }] },
+      { role: "Education", directors: ["Rui Tong", "James Gao"] },
       {
         role: "Events",
-        directors: [{ name: "Arnav Roy" }, { name: "Matthew Xu" }, { name: "Derek Sun" }]
+        directors: ["Arnav Roy", "Matthew Xu", "Derek Sun"]
       },
-      { role: "IT", directors: [{ name: "Lucy Qiu" }] },
-      { role: "Marketing", directors: [{ name: "Grace Li" }, { name: "Spencer Yang" }] },
-      { role: "Sponsorships", directors: [{ name: "Odelia Sze-To" }, { name: "James Lu" }] }
+      { role: "IT", directors: ["Lucy Qiu"] },
+      { role: "Marketing", directors: ["Grace Li", "Spencer Yang"] },
+      { role: "Sponsorships", directors: ["Odelia Sze-To", "James Lu"] }
     ],
     subcommittee: [
       {
@@ -183,20 +179,20 @@ const pastTeamData: Array<yearTeamData> = [
     directorList: [
       {
         role: "Education",
-        directors: [{ name: "Alexander Pu Ling" }, { name: "Kevin Ge" }]
+        directors: ["Alexander Pu Ling", "Kevin Ge"]
       },
       {
         role: "Events",
-        directors: [{ name: "Samir Mustavi" }, { name: "David Wassef" }, { name: "Eugenia Cao" }]
+        directors: ["Samir Mustavi", "David Wassef", "Eugenia Cao"]
       },
-      { role: "IT", directors: [{ name: "Gal Aharon" }] },
+      { role: "IT", directors: ["Gal Aharon"] },
       {
         role: "Marketing",
-        directors: [{ name: "Andy Nguyen" }, { name: "Elie Sikh" }, { name: "Baktiar Niloy" }]
+        directors: ["Andy Nguyen", "Elie Sikh", "Baktiar Niloy"]
       },
       {
         role: "Sponsorships",
-        directors: [{ name: "Brendon Yang" }, { name: "Stephanie Tong" }, { name: "Amitoze Singh" }]
+        directors: ["Brendon Yang", "Stephanie Tong", "Amitoze Singh"]
       }
     ],
     subcommittee: [
@@ -234,18 +230,18 @@ const pastTeamData: Array<yearTeamData> = [
     directorList: [
       {
         role: "Education",
-        directors: [{ name: "Dominic Palanca" }, { name: "Aaron Hassan" }]
+        directors: ["Dominic Palanca", "Aaron Hassan"]
       },
       {
         role: "Events",
-        directors: [{ name: "Philippa Ma" }, { name: "Henderson Koh" }]
+        directors: ["Philippa Ma", "Henderson Koh"]
       },
-      { role: "IT", directors: [{ name: "Amitoze Singh" }] },
-      { role: "Marketing", directors: [{ name: "Yifan Shen" }] },
-      { role: "Sponsorships", directors: [{ name: "Shahbaz Bains" }, { name: "Vishaal Nathan" }] },
+      { role: "IT", directors: ["Amitoze Singh"] },
+      { role: "Marketing", directors: ["Yifan Shen"] },
+      { role: "Sponsorships", directors: ["Shahbaz Bains", "Vishaal Nathan"] },
       // eslint-disable-next-line quotes
-      { role: "Women's", directors: [{ name: "Julia Renouf" }] },
-      { role: "Outreach", directors: [{ name: "Andrew Antony" }] }
+      { role: "Women's", directors: ["Julia Renouf"] },
+      { role: "Outreach", directors: ["Andrew Antony"] }
     ],
     subcommittee: [
       {
@@ -287,17 +283,17 @@ const pastTeamData: Array<yearTeamData> = [
     directorList: [
       {
         role: "Education",
-        directors: [{ name: "Henderson Koh" }, { name: "Vishaal Nathan" }]
+        directors: ["Henderson Koh", "Vishaal Nathan"]
       },
       {
         role: "Events",
-        directors: [{ name: "Jamie Priest" }, { name: "Sally Wang" }]
+        directors: ["Jamie Priest", "Sally Wang"]
       },
-      { role: "IT", directors: [{ name: "Brendan Trinh" }] },
-      { role: "Marketing", directors: [{ name: "Mary Chen" }] },
-      { role: "Sponsorships", directors: [{ name: "Jack Gan" }, { name: "Yang Hu" }] }
+      { role: "IT", directors: ["Brendan Trinh"] },
+      { role: "Marketing", directors: ["Mary Chen"] },
+      { role: "Sponsorships", directors: ["Jack Gan", "Yang Hu"] }
     ],
-    subcommittee: null
+    subcommittee: []
   },
   {
     year: 2015,
@@ -309,16 +305,16 @@ const pastTeamData: Array<yearTeamData> = [
       { name: "Teresa Wu", role: "Arc Delegate" }
     ],
     directorList: [
-      { role: "Education", directors: [{ name: "Brendan Trinh" }] },
+      { role: "Education", directors: ["Brendan Trinh"] },
       {
         role: "Events",
-        directors: [{ name: "Suman Prusty" }, { name: "Jonathan Wong" }]
+        directors: ["Suman Prusty", "Jonathan Wong"]
       },
-      { role: "IT", directors: [{ name: "Ahmed Abrar Hannan" }] },
-      { role: "Marketing", directors: [{ name: "Vivian Zhang" }] },
-      { role: "Sponsorships", directors: [{ name: "Treves Li" }, { name: "Timothy Nguyen" }] }
+      { role: "IT", directors: ["Ahmed Abrar Hannan"] },
+      { role: "Marketing", directors: ["Vivian Zhang"] },
+      { role: "Sponsorships", directors: ["Treves Li", "Timothy Nguyen"] }
     ],
-    subcommittee: null
+    subcommittee: []
   },
   {
     year: 2014,
@@ -331,15 +327,15 @@ const pastTeamData: Array<yearTeamData> = [
     directorList: [
       {
         role: "Secretary & Public Relations",
-        directors: [{ name: "Miriam Greenbaum" }]
+        directors: ["Miriam Greenbaum"]
       },
       {
         role: "Events",
-        directors: [{ name: "Johann Blanco" }, { name: "Tim Nguyen" }]
+        directors: ["Johann Blanco", "Tim Nguyen"]
       }
       // { role: 'sponsorships', directors: [{ name: '' }] } NOTE missing spons
     ],
-    subcommittee: null
+    subcommittee: []
   },
   {
     year: 2013,
@@ -351,14 +347,14 @@ const pastTeamData: Array<yearTeamData> = [
     directorList: [
       {
         role: "Secretary & Public Relations",
-        directors: [{ name: "Johann Blanco" }]
+        directors: ["Johann Blanco"]
       },
       {
         role: "Events",
-        directors: [{ name: "Calvin Cheng" }, { name: "Alicia Wong" }]
+        directors: ["Calvin Cheng", "Alicia Wong"]
       }
     ],
-    subcommittee: null
+    subcommittee: []
   },
   {
     year: 2012,
@@ -368,15 +364,15 @@ const pastTeamData: Array<yearTeamData> = [
       { name: "Varun Nayyar", role: "Internal VP" }
     ],
     directorList: [
-      { role: "Social Events", directors: [{ name: "Tonia Shen" }] },
-      { role: "Publications", directors: [{ name: "Johann Blanco" }] },
+      { role: "Social Events", directors: ["Tonia Shen"] },
+      { role: "Publications", directors: ["Johann Blanco"] },
       {
         role: "Secretary & Public Relations",
-        directors: [{ name: "Georgia Tsambos" }]
+        directors: ["Georgia Tsambos"]
       },
-      { role: "Sponsorships", directors: [{ name: "Peter Ayre" }] }
+      { role: "Sponsorships", directors: ["Peter Ayre"] }
     ],
-    subcommittee: null
+    subcommittee: []
   }
 ];
 

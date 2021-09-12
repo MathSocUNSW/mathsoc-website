@@ -32,7 +32,7 @@ const Team: React.FC = () => {
           The 2021 Executive Team of the UNSW Mathematics Society
         </Typography>
         <div className={styles.cardsContainer}>
-          {executivesData.map((person, index) => (
+          {executivesData.map((person) => (
             <Profile
               name={person.name}
               role={person.role}

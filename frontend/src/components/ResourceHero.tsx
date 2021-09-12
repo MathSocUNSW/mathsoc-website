@@ -19,7 +19,7 @@ const ResourceHero: React.FC<ResourceHeroProps> = ({ url, text, icon, titlePosit
   return (
     <section className={styles.mainContainer}>
       <Typography style={image} className={styles.hero} variant="h1" align="center">
-        <div className={titleFlip && styles.flip}>{text}</div>
+        <div className={titleFlip ? styles.flip : ""}>{text}</div>
         <img src={icon} className={styles.icon} alt="icon" draggable="false" />
       </Typography>
     </section>
