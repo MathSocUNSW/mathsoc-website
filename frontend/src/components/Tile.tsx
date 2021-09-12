@@ -1,9 +1,15 @@
+// Library Imports
 import React, { useState } from "react";
 import { Typography } from "@material-ui/core";
 
-import { revisionTile as tileProps } from "src/data/revisionData";
+// Component Imports
 import TileGroup from "./TileGroup";
-import styles from "src/styles/tile.module.scss";
+
+// Styling
+import styles from "src/styles/Tile.module.scss";
+
+// Data
+import { revisionTile as tileProps } from "src/data/revisionData";
 
 const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) => {
   const [index, setIndex] = useState(-1);

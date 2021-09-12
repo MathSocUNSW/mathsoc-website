@@ -6,7 +6,7 @@ import { Typography } from "@material-ui/core";
 import WholePageBox from "components/WholePageBox";
 
 // Styling
-import styles from "src/styles/portfolio.module.scss";
+import styles from "src/styles/Portfolio.module.scss";
 
 // Helper Imports
 import alphabeticalSort from "src/helpers/alphabeticalSort";

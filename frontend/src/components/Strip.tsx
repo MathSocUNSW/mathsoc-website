@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
-import styles from "src/styles/strip.module.scss";
+import styles from "src/styles/Strip.module.scss";
 import { resourceDetails } from "src/data/resourceData";
 
 interface stripProps extends resourceDetails {
