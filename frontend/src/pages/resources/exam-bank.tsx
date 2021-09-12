@@ -15,22 +15,19 @@ import styles from "src/styles/examBank.module.scss";
 // Data
 import examBankData from "src/data/examBankData";
 import examBankTutorialTestsData from "src/data/examBankTutorialTestsData";
-import resourceData from "src/data/resourceData";
+import { examBankInfo } from "src/data/resourceData";
 
 const ExamBank: React.FC = () => {
-  const PAGE_PATH = "/resources/exam-bank";
-  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
-
   return (
     <section>
       <Head>
-        <title>{pageData.title} - Mathsoc</title>
+        <title>{examBankInfo.title} - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url={pageData.backgroundImage}
-        text={pageData.title}
-        icon={pageData.iconPath}
+        url={examBankInfo.backgroundImage}
+        text={examBankInfo.title}
+        icon={examBankInfo.iconPath}
         titlePosition="right"
       />
       <PageBody>
@@ -66,6 +63,7 @@ const ExamBank: React.FC = () => {
             (More solutions currently being written.)
           </Typography>
         </WholePageBox>
+        <br />
         <div className={styles.tileSection}>
           <div className={styles.tileContainer}>
             {examBankData.map((tileData) => (
@@ -73,6 +71,7 @@ const ExamBank: React.FC = () => {
             ))}
           </div>
         </div>
+        <br />
         <WholePageBox>
           <Typography variant="body1">
             The following resources were used in the old semester model, where tutorial tests were
@@ -85,6 +84,7 @@ const ExamBank: React.FC = () => {
             distribute them.
           </Typography>
         </WholePageBox>
+        <br />
         <div className={styles.testTileContainer}>
           {examBankTutorialTestsData.map((tileData) => (
             <Tile {...tileData} key={tileData.courseCode} />

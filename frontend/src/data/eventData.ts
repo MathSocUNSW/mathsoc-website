@@ -365,7 +365,7 @@ const eventData: eventDetails[] = [
     endDate: "4-8-2021"
   },
   {
-    title: "2021 Mathsoc Merchandise",
+    title: "2021 MathSoc Merchandise",
     eventLink: "https://www.facebook.com/events/337177148007511",
     description: `MathSoc’s got you covid year-round with our 2021 Merchandise, designed to keep mew cozy and snug in our soft kitty hoodies as well as comfortable and active in our returning cowculator shirts from this year's O-Week.
     Don’t be left feline high and dry - if you're looking for the purr-fect way to keep warm AND flex your fashion game to your furr-ends, make sure to grab one before they're all sold out.`,

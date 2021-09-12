@@ -24,7 +24,7 @@ const Strip: React.FC<stripProps> = ({
       <Link href={resourceLink}>
         <a>
           <div className={styles.stripContent}>
-            <Typography variant="h2" color="inherit" className={titleFlip && styles.flip}>
+            <Typography variant="h2" color="inherit" className={titleFlip ? styles.flip : ""}>
               {title}
             </Typography>
             <img src={iconPath} className={styles.icon} alt={title} />

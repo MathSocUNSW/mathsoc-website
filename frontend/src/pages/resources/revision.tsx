@@ -14,22 +14,19 @@ import styles from "src/styles/revision.module.scss";
 
 // Data
 import revisionData from "src/data/revisionData";
-import resourceData from "src/data/resourceData";
+import { revisionInfo } from "src/data/resourceData";
 
 const Revision: React.FC = () => {
-  const PAGE_PATH = "/resources/revision";
-  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
-
   return (
     <section>
       <Head>
-        <title>{pageData.title} - Mathsoc</title>
+        <title>{revisionInfo.title} - Mathsoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url={pageData.backgroundImage}
-        text={pageData.title}
-        icon={pageData.iconPath}
+        url={revisionInfo.backgroundImage}
+        text={revisionInfo.title}
+        icon={revisionInfo.iconPath}
         titlePosition="right"
       />
       <PageBody>
@@ -43,12 +40,13 @@ const Revision: React.FC = () => {
             present the revision seminars.
             <br />
             <br />
-            <strong>Please note that, </strong>
+            <b>Please note that, </b>
             despite our best efforts in keeping our resources error-free, occasionally, one may slip
             past us. If you do happen to notice one, please do let us know ASAP by clicking here!
             These resources are NOT endorsed by the School of Mathematics and Statistics.
           </Typography>
         </WholePageBox>
+        <br />
         <div className={styles.tileContainer}>
           {revisionData.map((tileData) => (
             <Tile {...tileData} key={tileData.courseCode} />
