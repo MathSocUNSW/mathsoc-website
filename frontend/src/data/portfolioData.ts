@@ -23,7 +23,7 @@ const directorsData: portfolio[] = [
     directors: [
       {
         name: "John Kameas",
-        imagePath: "/images/team/JohnKameas.jpg",
+        imagePath: "",
         linkedin: "https://www.linkedin.com/in/john-kameas-2a6692179/"
       },
       {
