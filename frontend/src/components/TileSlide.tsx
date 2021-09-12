@@ -1,9 +1,9 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 import Link from "next/link";
-import { groups } from "src/data/revisionData";
+import { groups as TileSlideProps } from "src/data/revisionData";
 
-const TileSlide: React.FC<groups> = ({ groupHeader, groupLinks }) => {
+const TileSlide: React.FC<TileSlideProps> = ({ groupHeader, groupLinks }) => {
   return (
     <div>
       <Typography variant="h5">{groupHeader}</Typography>
