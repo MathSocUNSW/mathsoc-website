@@ -6,8 +6,7 @@ export interface sponsor {
   description?: string;
 }
 
-// TODO: sort alphabetically
-const sponsorsData: Array<sponsor> = [
+const rawSponsorsData: Array<sponsor> = [
   {
     name: "Akuna Capital",
     type: "affiliate",
@@ -113,5 +112,8 @@ const sponsorsData: Array<sponsor> = [
       "A global quantitative trading firm founded with an entrepreneurial mindset and a rigorous analytical approach to decision making. We commit our own capital to trade financial products around the world. Building virtually all of our own trading technology from scratch, we are leaders and innovators in high performance, low latency trading. Our traders, quants, developers, and systems engineers work side by side to develop and implement our trading strategies. Each individual brings their unique expertise every day to help us make optimal decisions in the global financial markets."
   }
 ];
+
+// sort alphabetically
+const sponsorsData = rawSponsorsData.sort((a, b) => a.name.localeCompare(b.name));
 
 export default sponsorsData;
