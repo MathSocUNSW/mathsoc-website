@@ -3,26 +3,25 @@ import React from "react";
 import Head from "next/head";
 import { Typography } from "@material-ui/core";
 
-import ResourceHero from "src/components/ResourceHero";
-import WholePageBox from "src/components/WholePageBox";
-
-import resourceData from "src/data/resourceData";
+// Component Imports
 import PageBody from "components/PageBody";
+import WholePageBox from "src/components/WholePageBox";
+import ResourceHero from "src/components/ResourceHero";
+
+// Data
+import { latexInfo } from "src/data/resourceData";
 
 const Latex: React.FC = () => {
-  const PAGE_PATH = "/resources/latex";
-  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
-
   return (
     <section>
       <Head>
-        <title>{pageData.title} - MathSoc</title>
+        <title>{latexInfo.title} - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url={pageData.backgroundImage}
-        text={pageData.title}
-        icon={pageData.iconPath}
+        url={latexInfo.backgroundImage}
+        text={latexInfo.title}
+        icon={latexInfo.iconPath}
         titlePosition="left"
       />
       <PageBody>

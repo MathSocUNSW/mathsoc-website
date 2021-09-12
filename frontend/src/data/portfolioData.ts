@@ -1,4 +1,4 @@
-interface director {
+export interface director {
   name: string;
   imagePath: string;
   linkedin?: string;

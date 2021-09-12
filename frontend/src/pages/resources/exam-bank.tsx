@@ -15,22 +15,19 @@ import styles from "src/styles/examBank.module.scss";
 // Data
 import examBankData from "src/data/examBankData";
 import examBankTutorialTestsData from "src/data/examBankTutorialTestsData";
-import resourceData from "src/data/resourceData";
+import { examBankInfo } from "src/data/resourceData";
 
 const ExamBank: React.FC = () => {
-  const PAGE_PATH = "/resources/exam-bank";
-  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
-
   return (
     <section>
       <Head>
-        <title>{pageData.title} - MathSoc</title>
+        <title>{examBankInfo.title} - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url={pageData.backgroundImage}
-        text={pageData.title}
-        icon={pageData.iconPath}
+        url={examBankInfo.backgroundImage}
+        text={examBankInfo.title}
+        icon={examBankInfo.iconPath}
         titlePosition="right"
       />
       <PageBody>

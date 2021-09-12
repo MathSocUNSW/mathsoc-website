@@ -14,22 +14,19 @@ import styles from "src/styles/revision.module.scss";
 
 // Data
 import revisionData from "src/data/revisionData";
-import resourceData from "src/data/resourceData";
+import { revisionInfo } from "src/data/resourceData";
 
 const Revision: React.FC = () => {
-  const PAGE_PATH = "/resources/revision";
-  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
-
   return (
     <section>
       <Head>
-        <title>{pageData.title} - Mathsoc</title>
+        <title>{revisionInfo.title} - Mathsoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url={pageData.backgroundImage}
-        text={pageData.title}
-        icon={pageData.iconPath}
+        url={revisionInfo.backgroundImage}
+        text={revisionInfo.title}
+        icon={revisionInfo.iconPath}
         titlePosition="right"
       />
       <PageBody>

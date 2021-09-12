@@ -8,22 +8,19 @@ import WholePageBox from "components/WholePageBox";
 import ResourceHero from "src/components/ResourceHero";
 
 // Data
-import resourceData from "src/data/resourceData";
+import { careersInfo } from "src/data/resourceData";
 
 const Careers: React.FC = () => {
-  const PAGE_PATH = "/resources/careers";
-  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
-
   return (
     <section>
       <Head>
-        <title>{pageData.title} - MathSoc</title>
+        <title>{careersInfo.title} - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url={pageData.backgroundImage}
-        text={pageData.title}
-        icon={pageData.iconPath}
+        url={careersInfo.backgroundImage}
+        text={careersInfo.title}
+        icon={careersInfo.iconPath}
         titlePosition="right"
       />
       <PageBody>
