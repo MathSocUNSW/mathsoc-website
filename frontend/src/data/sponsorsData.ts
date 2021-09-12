@@ -1,3 +1,6 @@
+// Helper Imports
+import alphabeticalSort from "src/helpers/alphabeticalSort";
+
 export interface sponsor {
   name: string;
   type: "principal" | "major" | "affiliate" | "bespoke" | "school" | "events";
@@ -6,7 +9,8 @@ export interface sponsor {
   description?: string;
 }
 
-const rawSponsorsData: Array<sponsor> = [
+// TODO: sort alphabetically
+const rawSponsorsData: sponsor[] = [
   {
     name: "Akuna Capital",
     type: "affiliate",
@@ -114,6 +118,6 @@ const rawSponsorsData: Array<sponsor> = [
 ];
 
 // sort alphabetically
-const sponsorsData = rawSponsorsData.sort((a, b) => a.name.localeCompare(b.name));
+const sponsorsData = rawSponsorsData.sort(alphabeticalSort);
 
 export default sponsorsData;
