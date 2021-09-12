@@ -1,16 +1,21 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
 import { Typography } from "@material-ui/core";
 
-import ResourceHero from "src/components/ResourceHero";
+// Component Imports
+import PageBody from "components/PageBody";
 import WholePageBox from "src/components/WholePageBox";
+import ResourceHero from "src/components/ResourceHero";
+import Tile from "components/Tile";
 
+// Styling
 import styles from "src/styles/examBank.module.scss";
+
+// Data
 import examBankData from "src/data/examBankData";
 import examBankTutorialTestsData from "src/data/examBankTutorialTestsData";
-import Tile from "components/Tile";
 import resourceData from "src/data/resourceData";
-import ContainerWrap from "components/ContainerWrap";
 
 const ExamBank: React.FC = () => {
   const PAGE_PATH = "/resources/exam-bank";
@@ -28,7 +33,7 @@ const ExamBank: React.FC = () => {
         icon={pageData.iconPath}
         titlePosition="right"
       />
-      <ContainerWrap>
+      <PageBody>
         <WholePageBox>
           <Typography variant="body1">
             These are solutions to sample lab tests created by MathSoc. Please let us know if you
@@ -85,7 +90,7 @@ const ExamBank: React.FC = () => {
             <Tile {...tileData} key={tileData.courseCode} />
           ))}
         </div>
-      </ContainerWrap>
+      </PageBody>
     </section>
   );
 };

@@ -1,14 +1,19 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
-
-import Hero from "src/components/Hero";
-import styles from "src/styles/team.module.scss";
-import Profile, { ProfileProps } from "components/Profile";
-import executivesData from "src/data/executivesData";
 import { Typography } from "@material-ui/core";
-import ContainerWrap from "components/ContainerWrap";
 
+// Component Imports
+import PageBody from "components/PageBody";
+import Hero from "src/components/Hero";
+import Profile from "components/Profile";
 import PortfolioBox from "components/PortfolioBox";
+
+// Styling
+import styles from "src/styles/team.module.scss";
+
+// Data
+import executivesData from "src/data/executivesData";
 import portfolioData from "src/data/portfolioData";
 
 const Team: React.FC = () => {
@@ -19,7 +24,7 @@ const Team: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Executives and Directors" />
-      <ContainerWrap>
+      <PageBody>
         <Typography variant="h2" align="center">
           Executives
         </Typography>
@@ -48,7 +53,7 @@ const Team: React.FC = () => {
             <PortfolioBox {...portfolio} key={portfolio.role} />
           ))}
         </section>
-      </ContainerWrap>
+      </PageBody>
     </section>
   );
 };
