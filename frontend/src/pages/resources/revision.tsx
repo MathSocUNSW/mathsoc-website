@@ -1,15 +1,20 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
 import { Typography } from "@material-ui/core";
 
-import ResourceHero from "src/components/ResourceHero";
-import styles from "src/styles/revision.module.scss";
+// Component Imports
+import PageBody from "components/PageBody";
 import WholePageBox from "components/WholePageBox";
-
+import ResourceHero from "src/components/ResourceHero";
 import Tile from "components/Tile";
+
+// Styling
+import styles from "src/styles/revision.module.scss";
+
+// Data
 import revisionData from "src/data/revisionData";
 import resourceData from "src/data/resourceData";
-import ContainerWrap from "components/ContainerWrap";
 
 const Revision: React.FC = () => {
   const PAGE_PATH = "/resources/revision";
@@ -27,7 +32,7 @@ const Revision: React.FC = () => {
         icon={pageData.iconPath}
         titlePosition="right"
       />
-      <ContainerWrap>
+      <PageBody>
         <WholePageBox>
           <Typography variant="body1">
             Here, you’ll find the slides and solutions for the revision seminars we held for UNSW
@@ -49,7 +54,7 @@ const Revision: React.FC = () => {
             <Tile {...tileData} key={tileData.courseCode} />
           ))}
         </div>
-      </ContainerWrap>
+      </PageBody>
     </section>
   );
 };

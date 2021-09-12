@@ -90,7 +90,7 @@ const pastTeamData: Array<yearTeamData> = [
       },
       {
         role: "Corporate Events",
-        members: ["Catherine Kwon", "Ting Li", "Vedant Rampal", "CJordan Shen", "Vivian Wong"]
+        members: ["Catherine Kwon", "Ting Li", "Vedant Rampal", "Jordan Shen", "Vivian Wong"]
       },
       {
         role: "Social Events",
