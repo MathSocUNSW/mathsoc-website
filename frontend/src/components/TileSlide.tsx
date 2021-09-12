@@ -18,7 +18,9 @@ const TileSlide: React.FC<TileSlideProps> = ({ groupHeader, groupLinks }) => {
           <li key={index}>
             <Link href={link.path}>
               <a>
-                <Typography variant="body2">{link.name}</Typography>
+                <Typography variant="body2" style={{ fontSize: "1rem" }}>
+                  {link.name}
+                </Typography>
               </a>
             </Link>
           </li>
