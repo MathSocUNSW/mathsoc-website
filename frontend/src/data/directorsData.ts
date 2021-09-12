@@ -90,7 +90,7 @@ const directorsData: portfolio[] = [
         name: "Celeste Thomson",
         description:
           "4th Year Chemical and Biomedical Engineering student. Has bad taste in video games. Likes climbing tall things and kissing cats on the head.",
-        imagePath: null
+        imagePath: "/images/team/CelesteThomson.png"
       },
       { name: "Jessica Zheng", description: null, imagePath: null }
     ]

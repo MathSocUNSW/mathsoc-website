@@ -1,16 +1,24 @@
-import React, { Dispatch, SetStateAction } from "react";
-
+// Library Imports
+import React, { useEffect, Dispatch, SetStateAction } from "react";
+import { Typography } from "@material-ui/core";
 import moment from "moment";
-import styles from "src/styles/UpcomingEvents.module.scss";
+
+// Component Imports
 import EventCard from "src/components/EventCard";
-import eventData, { eventDetails } from "src/data/eventData";
+
+// Styling
+import styles from "src/styles/UpcomingEvents.module.scss";
+
+// Helper Imports
 import {
   getDateUnix,
   sortEndDateDecreasing,
   sortStartDateDecreasing
 } from "src/helpers/eventHelpers";
 import useWindowDimensions from "src/helpers/useWindowDimensions";
-import { Typography } from "@material-ui/core";
+
+// Data
+import eventData, { eventDetails } from "src/data/eventData";
 
 const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number => {
   const length = sortedEventData.length;
@@ -83,7 +91,7 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
     await Promise.all(promises);
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const imgs = sortedEventData.map((event) => event.imagePath);
     cacheImages(imgs);
   }, [sortedEventData]);
@@ -93,6 +101,7 @@ const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventInde
       <Typography variant="h2" align="center">
         Upcoming Events
       </Typography>
+      <br />
       <div className={styles.events}>
         {sortedEventData.length > 3 && (
           <img

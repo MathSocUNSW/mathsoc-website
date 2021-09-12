@@ -1,20 +1,24 @@
+// Library Imports
 import React from "react";
 import { Typography } from "@material-ui/core";
-import styles from "src/styles/SponsorsPg.module.scss";
 
+// Styling
+import styles from "src/styles/SponsorsBox.module.scss";
+
+// Data
 import { sponsor } from "src/data/sponsorsData";
 
-const SponsorsBox: React.FC<sponsor> = ({ name, type, logoURL, websiteURL, profileText }) => {
+const SponsorsBox: React.FC<sponsor> = ({ name, type, logoPath, websiteURL, description }) => {
   return (
-    <section className={styles.sponser}>
+    <div className={styles.sponsorBox}>
       <a href={websiteURL} target="_blank" rel="noreferrer">
-        <img src={logoURL} alt={name} className={styles.logo}></img>
+        <img src={logoPath} alt={name} className={styles.logo}></img>
       </a>
-      <Typography>{profileText}</Typography>
+      <Typography variant="body1">{description}</Typography>
       <a href={websiteURL} target="_blank" rel="noreferrer" className={styles.link}>
         See more here!
       </a>
-    </section>
+    </div>
   );
 };
 

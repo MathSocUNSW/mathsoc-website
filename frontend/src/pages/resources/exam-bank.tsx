@@ -1,12 +1,21 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
 import { Typography } from "@material-ui/core";
 
-import ResourceHero from "src/components/ResourceHero";
+// Component Imports
+import PageBody from "components/PageBody";
 import WholePageBox from "src/components/WholePageBox";
+import ResourceHero from "src/components/ResourceHero";
+import Tile from "components/Tile";
 
+// Styling
+import styles from "src/styles/examBank.module.scss";
+
+// Data
+import examBankData from "src/data/examBankData";
+import examBankTutorialTestsData from "src/data/examBankTutorialTestsData";
 import resourceData from "src/data/resourceData";
-import ContainerWrap from "components/ContainerWrap";
 
 const ExamBank: React.FC = () => {
   const PAGE_PATH = "/resources/exam-bank";
@@ -24,7 +33,7 @@ const ExamBank: React.FC = () => {
         icon={pageData.iconPath}
         titlePosition="right"
       />
-      <ContainerWrap>
+      <PageBody>
         <WholePageBox>
           <Typography variant="body1">
             These are solutions to sample lab tests created by MathSoc. Please let us know if you
@@ -57,7 +66,13 @@ const ExamBank: React.FC = () => {
             (More solutions currently being written.)
           </Typography>
         </WholePageBox>
-        <section>TODO: Squares</section>
+        <div className={styles.tileSection}>
+          <div className={styles.tileContainer}>
+            {examBankData.map((tileData) => (
+              <Tile {...tileData} key={tileData.courseCode} />
+            ))}
+          </div>
+        </div>
         <WholePageBox>
           <Typography variant="body1">
             The following resources were used in the old semester model, where tutorial tests were
@@ -70,7 +85,12 @@ const ExamBank: React.FC = () => {
             distribute them.
           </Typography>
         </WholePageBox>
-      </ContainerWrap>
+        <div className={styles.testTileContainer}>
+          {examBankTutorialTestsData.map((tileData) => (
+            <Tile {...tileData} key={tileData.courseCode} />
+          ))}
+        </div>
+      </PageBody>
     </section>
   );
 };

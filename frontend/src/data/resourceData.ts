@@ -48,13 +48,13 @@ const resourceData: resourceDetails[] = [
   },
   {
     title: "First Year Guide",
-    resourceLink: "empty",
+    resourceLink: "empty", // TODO
     backgroundImage: generateImagePath("firstYearBackground.png"),
     iconPath: generateImagePath("firstYearIcon.png")
   },
   {
     title: "HSC Tips and Tricks",
-    resourceLink: "/resources/hsc",
+    resourceLink: "empty", // TODO
     backgroundImage: generateImagePath("hscBackground.png"),
     iconPath: generateImagePath("hscIcon.png")
   }

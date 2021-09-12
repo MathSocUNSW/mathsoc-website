@@ -1,7 +1,9 @@
-.tile { //modified from card scss
+.tile {
+  //modified from card scss
   background-color: white;
   height: 300px;
   min-width: 380px;
+  max-width: 380px;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
@@ -15,7 +17,6 @@
   flex-basis: auto;
   flex: 1;
 
-  
   margin: 15px;
   justify-content: space-evenly;
 }
@@ -41,9 +42,8 @@
 }
 
 .tileGroup {
-  list-style-type:none
+  list-style-type: none;
 }
-
 
 /* TO-DO: ARROW TRANSITION
 .arrowLHS {
@@ -53,7 +53,8 @@
   }
 }*/
 
-.arrowLHS, .arrowRHS {
+.arrowLHS,
+.arrowRHS {
   // transition might be difficult because we are re-rendering a new arrow for each tile slide?
   cursor: pointer;
   display: flex;
@@ -63,7 +64,7 @@
 
 .text {
   cursor: pointer;
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
   color: rgb(32, 27, 75);
@@ -85,4 +86,3 @@
   justify-content: space-between;
   align-items: center;
 }
-

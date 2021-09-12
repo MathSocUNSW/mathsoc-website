@@ -1,12 +1,16 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-
-import Hero from "src/components/Hero";
-import { facebookData } from "src/data/socialData";
 import { Typography } from "@material-ui/core";
+
+// Component Imports
 import WholePageBox from "components/WholePageBox";
-import ContainerWrap from "components/ContainerWrap";
+import PageBody from "components/PageBody";
+import Hero from "components/Hero";
+
+// Data
+import { discordData } from "src/data/socialData";
 
 const About: React.FC = () => {
   return (
@@ -16,7 +20,7 @@ const About: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_about_us.jpg" text="About Us" />
-      <ContainerWrap>
+      <PageBody>
         <WholePageBox>
           <Typography variant="h2">About Us</Typography>
           <Typography variant="h5">
@@ -60,8 +64,8 @@ const About: React.FC = () => {
           </Typography>
           <Typography variant="body1">
             To round this off, we have a{" "}
-            <a href={facebookData.url} target="_blank" rel="noreferrer">
-              Facebook group
+            <a href={discordData.url} target="_blank" rel="noreferrer">
+              Discord server
             </a>{" "}
             where you can discuss maths to your heart’s content – which also doubles as a place to
             discuss anything and everything mathematical. Moreover, we have dedicated First Year and
@@ -74,6 +78,8 @@ const About: React.FC = () => {
             We’re here to fulfil your social, academic and career needs – and help make your time at
             UNSW a great one!
           </Typography>
+          {/* TEMP */}
+          <br />
           <Typography variant="h2">Meet the team!</Typography>
           <Typography variant="body1">
             {/* TODO finish */}
@@ -87,7 +93,7 @@ const About: React.FC = () => {
             Click here to see the <Link href="/about/formerteam">former team!</Link>
           </Typography>
         </WholePageBox>
-      </ContainerWrap>
+      </PageBody>
     </section>
   );
 };
