@@ -1,14 +1,16 @@
+// Library Imports
 import React from "react";
-import { Typography } from "@material-ui/core";
 import Image from "next/image";
+import { Typography } from "@material-ui/core";
 
+// Styling
 import styles from "src/styles/Profile.module.scss";
 
 export interface ProfileProps {
   name: string;
   role: string;
-  description: string | null;
-  imagePath: string | null;
+  description: string;
+  imagePath: string;
 }
 
 const DEFAULT_PROFILE_IMAGE = "/images/team/blank_profile.png";
@@ -20,11 +22,7 @@ const Profile: React.FC<ProfileProps> = ({ name, role, description, imagePath })
         <Typography variant="h4">{name}</Typography>
         <Typography variant="h6">{role}</Typography>
         <div className={styles.textBox}>
-          <Typography variant="subtitle1">
-            {!description
-              ? "4th Year Science and Business student. Part-time pyromaniac but only as a hobby. PM me for details on joining my pyramid scheme personal business venture."
-              : description}
-          </Typography>
+          <Typography variant="subtitle1">{description}</Typography>
         </div>
       </div>
       <div className="profileImage">

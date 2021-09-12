@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 .profile {
   display: flex;
@@ -22,10 +22,10 @@
 
 .textBox {
   width: 325px;
-  height: 120px;
+  height: 130px;
   // overflow: hidden;
   word-wrap: break-word;
   white-space: pre-line;
-  margin-top: -5px;
-  margin-bottom: 4px;
+  margin-top: -3px;
+  margin-bottom: 5px;
 }

@@ -1,16 +1,23 @@
 interface executive {
   name: string;
-  description: string | null;
+  description: string;
   role: "President" | "Vice President" | "Secretary" | "Treasurer" | "Arc Delegate";
-  imagePath: string | null;
+  imagePath: string;
 }
 
 const executivesData: executive[] = [
-  { name: "Grace Li", role: "President", description: null, imagePath: "/images/team/GraceLi.jpg" },
+  {
+    name: "Grace Li",
+    role: "President",
+    description:
+      "4th Year Science and Business student. Part-time pyromaniac but only as a hobby. PM me for details on joining my pyramid scheme personal business venture.",
+    imagePath: "/images/team/GraceLi.jpg"
+  },
   {
     name: "Philton Zhu",
     role: "Vice President",
-    description: null,
+    description:
+      "4th year Advanced Math / Compsci student. Only made it this far on my unhealthy addiction to caffeine and fried chicken. Will sacrifice lectures for a Zinger Box.",
     imagePath: "/images/team/PhiltonZhu.jpg"
   },
   {
