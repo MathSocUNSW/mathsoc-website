@@ -35,8 +35,6 @@ const SponsorSection = ({ sponsorType, condition }: sponsorSectionProps) => {
   );
 };
 
-import alphabeticalSort from "src/helpers/alphabeticalSort";
-
 const Sponsors: React.FC = () => {
   const principals = (sponsor: sponsor) => sponsor.type === "principal";
   const majors = (sponsor: sponsor) => sponsor.type === "major";
