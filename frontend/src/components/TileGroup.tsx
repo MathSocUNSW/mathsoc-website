@@ -1,8 +1,14 @@
+// Library Imports
 import React from "react";
 import { Typography } from "@material-ui/core";
 
+// Component Imports
 import TileLink from "./TileLink";
-import styles from "src/styles/tile.module.scss";
+
+// Styling
+import styles from "src/styles/Tile.module.scss";
+
+// Data
 import { groups } from "src/data/revisionData";
 
 const TileGroup: React.FC<groups> = ({ groupHeader, groupLinks }) => {
