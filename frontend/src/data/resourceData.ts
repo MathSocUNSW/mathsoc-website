@@ -5,59 +5,65 @@ export interface resourceDetails {
   iconPath: string;
 }
 
-/**
- * Takes fileName and returns full path
- * @param fileName
- * @returns full path
- */
-const generateImagePath = (fileName: string): string => {
-  const PATH = "/images/resources";
-  return `${PATH}/${fileName}`;
+const RESOURCE_IMAGE_PATH = "/images/resources/";
+
+export const examBankInfo: resourceDetails = {
+  title: "First Year Exam Bank",
+  resourceLink: "/resources/exam-bank",
+  backgroundImage: RESOURCE_IMAGE_PATH + "examBankBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "examBankIcon.png"
 };
 
-const resourceData: resourceDetails[] = [
-  {
-    title: "First Year Exam Bank",
-    resourceLink: "/resources/exam-bank",
-    backgroundImage: generateImagePath("examBankBackground.png"),
-    iconPath: generateImagePath("examBankIcon.png")
-  },
-  {
-    title: "Revision Lectures",
-    resourceLink: "/resources/revision",
-    backgroundImage: generateImagePath("revisionBackground.png"),
-    iconPath: generateImagePath("revisionIcon.png")
-  },
-  {
-    title: "LaTeX Guide",
-    resourceLink: "/resources/latex",
-    backgroundImage: generateImagePath("latexBackground.png"),
-    iconPath: generateImagePath("latexIcon.png")
-  },
-  {
-    title: "MATLAB Guide",
-    resourceLink: "/resources/matlab",
-    backgroundImage: generateImagePath("matlabBackground.png"),
-    iconPath: generateImagePath("matlabIcon.png")
-  },
-  {
-    title: "Careers Advice",
-    resourceLink: "/resources/careers",
-    backgroundImage: generateImagePath("careersBackground.png"),
-    iconPath: generateImagePath("careersIcon.png")
-  },
-  {
-    title: "First Year Guide",
-    resourceLink: "empty", // TODO
-    backgroundImage: generateImagePath("firstYearBackground.png"),
-    iconPath: generateImagePath("firstYearIcon.png")
-  },
-  {
-    title: "HSC Tips and Tricks",
-    resourceLink: "empty", // TODO
-    backgroundImage: generateImagePath("hscBackground.png"),
-    iconPath: generateImagePath("hscIcon.png")
-  }
+export const revisionInfo: resourceDetails = {
+  title: "Revision Lectures",
+  resourceLink: "/resources/revision",
+  backgroundImage: RESOURCE_IMAGE_PATH + "revisionBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "revisionIcon.png"
+};
+
+export const latexInfo: resourceDetails = {
+  title: "LaTeX Guide",
+  resourceLink: "/resources/latex",
+  backgroundImage: RESOURCE_IMAGE_PATH + "latexBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "latexIcon.png"
+};
+
+export const matlabInfo: resourceDetails = {
+  title: "MATLAB Guide",
+  resourceLink: "/resources/matlab",
+  backgroundImage: RESOURCE_IMAGE_PATH + "matlabBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "matlabIcon.png"
+};
+
+export const careersInfo: resourceDetails = {
+  title: "Careers Advice",
+  resourceLink: "/resources/careers",
+  backgroundImage: RESOURCE_IMAGE_PATH + "careersBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "careersIcon.png"
+};
+
+export const firstYearInfo: resourceDetails = {
+  title: "First Year Guide",
+  resourceLink: "empty", // TODO
+  backgroundImage: RESOURCE_IMAGE_PATH + "firstYearBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "firstYearIcon.png"
+};
+
+export const hscInfo: resourceDetails = {
+  title: "HSC Tips and Tricks",
+  resourceLink: "empty", // TODO
+  backgroundImage: RESOURCE_IMAGE_PATH + "hscBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "hscIcon.png"
+};
+
+const resourceInfo: resourceDetails[] = [
+  examBankInfo,
+  revisionInfo,
+  latexInfo,
+  matlabInfo,
+  careersInfo,
+  firstYearInfo,
+  hscInfo
 ];
 
-export default resourceData;
+export default resourceInfo;

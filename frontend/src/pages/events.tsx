@@ -42,9 +42,11 @@ const Events: React.FC = () => {
       <PageBody>
         <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
         <section className="pastEventsSection">
-          <Typography variant="h2" align="center">
-            Past Events
-          </Typography>
+          <div className={styles.title}>
+            <Typography variant="h2" align="center">
+              Past Events
+            </Typography>
+          </div>
           <div className={styles.pastEvents}>
             {sortedPastEvents.map((event, index) => (
               <div key={index} className={styles.eventBoxContainer}>

@@ -4,6 +4,7 @@ import styles from "src/styles/WholePageBox.module.scss";
 
 interface WholePageBoxProps {
   children: React.ReactNode;
+  key?: any;
 }
 
 const WholePageBox: React.FC<WholePageBoxProps> = ({ children }) => {
