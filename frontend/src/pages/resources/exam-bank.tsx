@@ -24,7 +24,7 @@ const ExamBank: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>{pageData.title} - Mathsoc</title>
+        <title>{pageData.title} - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
@@ -66,6 +66,7 @@ const ExamBank: React.FC = () => {
             (More solutions currently being written.)
           </Typography>
         </WholePageBox>
+        <br />
         <div className={styles.tileSection}>
           <div className={styles.tileContainer}>
             {examBankData.map((tileData) => (
@@ -73,6 +74,7 @@ const ExamBank: React.FC = () => {
             ))}
           </div>
         </div>
+        <br />
         <WholePageBox>
           <Typography variant="body1">
             The following resources were used in the old semester model, where tutorial tests were
@@ -85,6 +87,7 @@ const ExamBank: React.FC = () => {
             distribute them.
           </Typography>
         </WholePageBox>
+        <br />
         <div className={styles.testTileContainer}>
           {examBankTutorialTestsData.map((tileData) => (
             <Tile {...tileData} key={tileData.courseCode} />

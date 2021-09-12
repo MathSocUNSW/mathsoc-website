@@ -25,17 +25,15 @@ const FormerTeam: React.FC = () => {
       </Head>
       <Hero url="/images/hero/mathsoc_team.jpg" text="Former Team" />
       <PageBody>
-        {pastTeamData.map((yearData) => (
-          <WholePageBox key={yearData.year}>
-            <div className={styles.year}>
-              <Typography variant="h2" align="center">
-                <span>{yearData.year}</span>
-              </Typography>
+        {pastTeamData.map(({ year, execList, directorList, subcommittee }) => (
+          <WholePageBox key={year}>
+            <Typography variant="h2" align="center">
+              {year}
+            </Typography>
+            <div className={subcommittee ? styles.execTeam : ""}>
+              <FormerTeamMainCard execList={execList} directorList={directorList} />
             </div>
-            <div className={yearData.subcommittee ? styles.execTeam : null}>
-              <FormerTeamMainCard data={yearData} />
-            </div>
-            {yearData.subcommittee && <FormerTeamSubCard data={yearData} />}
+            {subcommittee.length > 0 && <FormerTeamSubCard subcommittee={subcommittee} />}
           </WholePageBox>
         ))}
       </PageBody>

@@ -1,9 +1,14 @@
+// Library Imports
 import React from "react";
-import styles from "src/styles/EventCard.module.scss";
-import { eventDetails as EventCardProps } from "src/data/eventData";
-import { Typography } from "@material-ui/core";
-import { socials } from "src/data/socialData";
 import Image from "next/image";
+import { Typography } from "@material-ui/core";
+
+// Styling
+import styles from "src/styles/EventCard.module.scss";
+
+// Data
+import { eventDetails as EventCardProps } from "src/data/eventData";
+import { socials } from "src/data/socialData";
 
 const EventCard: React.FC<EventCardProps> = ({
   title,
@@ -15,7 +20,7 @@ const EventCard: React.FC<EventCardProps> = ({
   date
 }) => {
   // adds link to keywords
-  const linker = (location) => {
+  const linker = (location: string) => {
     if (!location) return "";
 
     // split location string by whitespace but keep the space

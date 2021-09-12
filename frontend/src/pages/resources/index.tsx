@@ -17,7 +17,7 @@ const Resources: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>Resources - Mathsoc</title>
+        <title>Resources - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_resources.png" text="Resources" />

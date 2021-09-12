@@ -43,12 +43,13 @@ const Revision: React.FC = () => {
             present the revision seminars.
             <br />
             <br />
-            <strong>Please note that, </strong>
+            <b>Please note that, </b>
             despite our best efforts in keeping our resources error-free, occasionally, one may slip
             past us. If you do happen to notice one, please do let us know ASAP by clicking here!
             These resources are NOT endorsed by the School of Mathematics and Statistics.
           </Typography>
         </WholePageBox>
+        <br />
         <div className={styles.tileContainer}>
           {revisionData.map((tileData) => (
             <Tile {...tileData} key={tileData.courseCode} />

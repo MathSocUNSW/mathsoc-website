@@ -18,7 +18,7 @@ const Revision: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>{pageData.title} - Mathsoc</title>
+        <title>{pageData.title} - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
