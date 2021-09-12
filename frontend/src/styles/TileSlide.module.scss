@@ -1,0 +1,6 @@
+.list {
+  margin-top: 0.7rem;
+  & > *:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}

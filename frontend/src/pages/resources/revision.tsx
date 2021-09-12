@@ -40,7 +40,7 @@ const Revision: React.FC = () => {
             present the revision seminars.
             <br />
             <br />
-            <b>Please note that, </b>
+            <b>Please note that </b>
             despite our best efforts in keeping our resources error-free, occasionally, one may slip
             past us. If you do happen to notice one, please do let us know ASAP by clicking here!
             These resources are NOT endorsed by the School of Mathematics and Statistics.
