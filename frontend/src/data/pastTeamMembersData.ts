@@ -240,7 +240,7 @@ const pastTeamData: yearTeamData[] = [
       { role: "Marketing", directors: ["Yifan Shen"] },
       { role: "Sponsorships", directors: ["Shahbaz Bains", "Vishaal Nathan"] },
       // eslint-disable-next-line quotes
-      { role: "Women's", directors: ['Julia Renouf'] },
+      { role: "Women's", directors: ["Julia Renouf"] },
       { role: "Outreach", directors: ["Andrew Antony"] }
     ],
     subcommittee: [
