@@ -9,14 +9,14 @@ const theme = createTheme({
   typography: {
     fontFamily: "DM Sans",
     h1: {
-      fontSize: "3.5rem",
+      fontSize: "3.45rem",
       fontWeight: 600
     },
     h2: {
-      fontSize: "2.75rem",
+      fontSize: "2.3rem",
       color: "#201B4B",
       fontWeight: 500,
-      margin: "0.75rem 0"
+      margin: "0.2rem 0"
     },
     h4: {
       fontSize: "1.6rem",
@@ -26,10 +26,10 @@ const theme = createTheme({
     h5: {
       fontSize: "1.45rem",
       fontWeight: 500,
-      margin: "0.5rem 0"
+      margin: "0.2rem 0"
     },
     h6: {
-      fontSize: "1.3rem",
+      fontSize: "1.2rem",
       color: "#081f32"
     },
     body1: {

@@ -1,8 +1,10 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
-
 import { Typography } from "@material-ui/core";
-import ContainerWrap from "components/ContainerWrap";
+
+// Component Imports
+import PageBody from "components/PageBody";
 
 const Unknown404: React.FC = () => {
   return (
@@ -11,13 +13,14 @@ const Unknown404: React.FC = () => {
         <title>404 - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <ContainerWrap>
+      <PageBody>
         {/* Hero: Page Not Found */}
         <div style={{ display: "grid", placeItems: "center" }}>
           <Typography variant="h1">Page Not Found</Typography>
+          <br />
           <Typography variant="h5">Insert random maths 404 joke (like the train thingy)</Typography>
         </div>
-      </ContainerWrap>
+      </PageBody>
     </section>
   );
 };

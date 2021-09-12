@@ -1,6 +1,7 @@
-@import "./variables.scss";
+@import './variables.scss';
 
-.container {
+// Even spacing between each section
+.contactBody > *:not(:last-child) {
   padding-bottom: 15px;
 }
 

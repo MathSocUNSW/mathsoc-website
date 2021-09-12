@@ -1,11 +1,14 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
 
-import ResourceHero from "src/components/ResourceHero";
+// Component Imports
+import PageBody from "components/PageBody";
 import WholePageBox from "components/WholePageBox";
+import ResourceHero from "src/components/ResourceHero";
 
+// Data
 import resourceData from "src/data/resourceData";
-import ContainerWrap from "components/ContainerWrap";
 
 const Careers: React.FC = () => {
   const PAGE_PATH = "/resources/careers";
@@ -23,9 +26,9 @@ const Careers: React.FC = () => {
         icon={pageData.iconPath}
         titlePosition="right"
       />
-      <ContainerWrap>
-        <WholePageBox>{"Page under construction"}</WholePageBox>
-      </ContainerWrap>
+      <PageBody>
+        <WholePageBox>Page under construction</WholePageBox>
+      </PageBody>
     </section>
   );
 };

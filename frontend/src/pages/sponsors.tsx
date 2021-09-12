@@ -1,16 +1,47 @@
+// Library Imports
 import React from "react";
 import Head from "next/head";
-
 import { Typography } from "@material-ui/core";
-import ContainerWrap from "components/ContainerWrap";
-import Hero from "components/Hero";
-import WholePageBox from "components/WholePageBox";
 
-import sponsorsData from "src/data/sponsorsData";
+// Component Imports
+import PageBody from "components/PageBody";
+import WholePageBox from "components/WholePageBox";
+import Hero from "components/Hero";
 import SponsorsBox from "components/SponsorsBox";
-import styles from "src/styles/SponsorsPg.module.scss";
+
+// Styling
+import styles from "src/styles/sponsors.module.scss";
+
+// Data
+import sponsorsData, { sponsor } from "src/data/sponsorsData";
+
+interface sponsorSectionProps {
+  sponsorType: string;
+  condition: (sponsor: sponsor) => boolean;
+}
+
+const SponsorSection = ({ sponsorType, condition }: sponsorSectionProps) => {
+  const specificSponsors = sponsorsData.filter(condition);
+
+  return (
+    <WholePageBox>
+      <Typography variant="h2" align="center">
+        {sponsorType}
+      </Typography>
+      {specificSponsors.map((sponsor) => (
+        <SponsorsBox {...sponsor} key={sponsor.name} />
+      ))}
+    </WholePageBox>
+  );
+};
 
 const Sponsors: React.FC = () => {
+  const principals = (sponsor: sponsor) => sponsor.type === "principal";
+  const majors = (sponsor: sponsor) => sponsor.type === "major";
+  const affiliates = (sponsor: sponsor) =>
+    sponsor.type === "affiliate" || sponsor.type === "bespoke";
+  // const events = (sponsor: sponsor) => sponsor.type === "events";
+
   return (
     <section>
       <Head>
@@ -18,34 +49,26 @@ const Sponsors: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_sponsors.png" text="Sponsors" />
-      <ContainerWrap>
-        <WholePageBox>
-          <div className={styles.container}>
-            <div className={styles.title}>Sponsorship Opportunities</div>
-            <Typography variant="body1" align="center">
-              If you are interested about sponsoring opportunities or have any questions, please
-              contact our Sponsorship Directors at <br></br>
-              sponsorship@mathsoc.unsw.edu.au
-            </Typography>
-          </div>
-        </WholePageBox>
-        <WholePageBox>
-          <div className={styles.container}>
-            <div className={styles.title}>Principal Sponsors</div>
-            {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="principal" key={sponsor.name} />
-            ))}
-          </div>
-        </WholePageBox>
-        <WholePageBox>
-          <div className={styles.container}>
-            <div className={styles.title}>Partners</div>
-            {sponsorsData.map((sponsor) => (
-              <SponsorsBox {...sponsor} typeCheck="partner" key={sponsor.name} />
-            ))}
-          </div>
-        </WholePageBox>
-      </ContainerWrap>
+      <PageBody>
+        <div className={styles.sponsorsPg}>
+          <WholePageBox>
+            <div className="sponsorUs">
+              <Typography variant="h2" align="center">
+                Sponsorship Opportunities
+              </Typography>
+              <Typography variant="body1" align="center">
+                If you are interested about sponsoring opportunities or have any questions, please
+                contact our Sponsorship Directors at
+                <br />
+                <a href="mailto:sponsorship-mathsoc@unsw.edu.au">sponsorship-mathsoc@unsw.edu.au</a>
+              </Typography>
+            </div>
+          </WholePageBox>
+          <SponsorSection sponsorType="Principal Sponsors" condition={principals} />
+          <SponsorSection sponsorType="Major Sponsors" condition={majors} />
+          <SponsorSection sponsorType="Affiliates" condition={affiliates} />
+        </div>
+      </PageBody>
     </section>
   );
 };

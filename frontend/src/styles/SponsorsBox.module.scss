@@ -1,0 +1,14 @@
+.sponsorBox {
+  margin: 1.4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .logo {
+    height: 60px;
+    width: auto;
+  }
+  .link {
+    align-self: flex-start;
+    text-decoration: none;
+  }
+}
