@@ -7,7 +7,7 @@ export interface sponsor {
 }
 
 // TODO: sort alphabetically
-const sponsorsData: Array<sponsor> = [
+const sponsorsData: sponsor[] = [
   {
     name: "Akuna Capital",
     type: "affiliate",
