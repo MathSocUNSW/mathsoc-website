@@ -7,11 +7,11 @@ on:
   push:
     branches:
       - main
-      - development
+      - dev
   pull_request:
     branches:
       - main
-      - development
+      - dev
 
 jobs:
   frontend:
