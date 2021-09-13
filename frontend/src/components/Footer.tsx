@@ -19,7 +19,12 @@ const Footer: React.FC = () => {
           <ul className={styles.socials}>
             {socials.map(({ name, url, iconPath }) => (
               <li key={name}>
-                <a href={url} target="_blank" rel="noreferrer" className={styles.socialItem}>
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.socialItem}
+                >
                   <img src={iconPath} alt={name} aria-label={name} className={styles.socialIcon} />
                 </a>
               </li>

@@ -64,7 +64,7 @@ const About: React.FC = () => {
           </Typography>
           <Typography variant="body1">
             To round this off, we have a{" "}
-            <a href={discordData.url} target="_blank" rel="noreferrer">
+            <a href={discordData.url} target="_blank" rel="noopener noreferrer">
               Discord server
             </a>{" "}
             where you can discuss maths to your heart’s content – which also doubles as a place to
