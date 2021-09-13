@@ -519,6 +519,7 @@ const eventData: eventDetails[] = [
       "🧐Want to hear more about your future career pathways?\n🤩Looking for advice from experienced industry experts and leaders?\n🥰Want to bond with like-minded students, whilst forging your own career?\nIf you answered 𝐘𝐄𝐒 to any of the above, or even if you just want some more insights into what your future could look like in the STEM industry, apply now to our 𝗦𝗧𝗘𝗠 𝗜𝗻𝗱𝘂𝘀𝘁𝗿𝘆 𝗠𝗲𝗻𝘁𝗼𝗿𝗶𝗻𝗴 𝗣𝗿𝗼𝗴𝗿𝗮𝗺!",
     imagePath: generateImagePath("stem_industry_mentoring_program_2021.jpg"),
     location: "Apply here",
+    locationURL: "https://forms.gle/1WGc1niRfNqUbGQe6",
     date: "27th August - 10th September 2021",
     startDate: "27-8-2021",
     endDate: "10-9-2021"
