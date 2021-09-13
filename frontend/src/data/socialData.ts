@@ -47,6 +47,13 @@ export const gmailData: socialData = {
   altName: "unswmathsoc@gmail.com"
 };
 
+export const twitchData: socialData = {
+  name: "Twitch",
+  url: "https://twitch.tv/unswmathsoc/",
+  iconPath: "TODO",
+  altName: "UNSW MathSoc Twitch"
+};
+
 export const socials: socialData[] = [
   facebookData,
   linkedInData,
@@ -54,6 +61,8 @@ export const socials: socialData[] = [
   youtubeData,
   discordData
 ];
+
+export const linkData: socialData[] = [...socials, twitchData];
 
 export const contactUsSocials: socialData[] = [...socials, gmailData];
 

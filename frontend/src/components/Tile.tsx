@@ -1,16 +1,22 @@
+// Library Imports
 import React, { useState } from "react";
 import { Typography } from "@material-ui/core";
 
-import { revisionTile as tileProps } from "src/data/revisionData";
+// Component Imports
 import TileSlide from "./TileSlide";
-import styles from "src/styles/tile.module.scss";
 
-const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) => {
+// Styling
+import styles from "src/styles/Tile.module.scss";
+
+// Data
+import { revisionTile as TileProps } from "src/data/revisionData";
+
+const Tile: React.FC<TileProps> = ({ courseCode, courseTitle, revisionLinks }) => {
   const [index, setIndex] = useState(-1);
 
   const element = revisionLinks[index];
   const slideVisibility = revisionLinks.map(
-    (group, index) => group == element && <TileSlide {...group} key={index} />
+    (slide, index) => slide == element && <TileSlide {...slide} key={index} />
   );
   return (
     // TODO: entire first page is clickable?

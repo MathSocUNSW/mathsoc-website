@@ -39,7 +39,7 @@ const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ execList, direc
           Executive Team
         </Typography>
       </div>
-      <ul className={styles.flexContainer}>
+      <ul>
         {dataList.map((person) => (
           <li key={person.name} className={styles.nameContainer}>
             <Typography variant="body1" align="center">

@@ -23,7 +23,7 @@ const directorsData: portfolio[] = [
     directors: [
       {
         name: "John Kameas",
-        imagePath: "",
+        imagePath: "/images/team/JohnKameas.png",
         linkedin: "https://www.linkedin.com/in/john-kameas-2a6692179/"
       },
       {
@@ -128,7 +128,7 @@ const directorsData: portfolio[] = [
     directors: [
       {
         name: "Celeste Thomson",
-        imagePath: "",
+        imagePath: "/images/team/CelesteThomson.png",
         linkedin: "https://www.linkedin.com/in/celeste-thomson-968543160/"
       },
       {
