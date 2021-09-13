@@ -24,7 +24,7 @@ const executivesData: executive[] = [
     name: "Justin Clarke",
     role: "Secretary",
     description:
-      "3rd year Quantitative Data Science and Decisions student. My name is Justin for a reason in Valorant (MeMe10rd #OCE) and I also play reps volleyball for UNSW in division 1 :) ",
+      "3rd year Quantitative Data Science and Decisions student. My name is JustIn for a reason in Valorant (MeMe10rd #OCE), and I also play Div 1 reps volleyball but that's kinda a thing of the past ;-;",
     imagePath: "/images/team/JustinClarke.jpg"
   },
   {
