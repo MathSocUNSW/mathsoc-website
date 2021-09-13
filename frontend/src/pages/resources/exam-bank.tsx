@@ -13,8 +13,7 @@ import Tile from "components/Tile";
 import styles from "src/styles/examBank.module.scss";
 
 // Data
-import examBankData from "src/data/examBankData";
-import examBankTutorialTestsData from "src/data/examBankTutorialTestsData";
+import examBankData, { oldExamBankData } from "src/data/examBankData";
 import { examBankInfo } from "src/data/resourceData";
 
 const ExamBank: React.FC = () => {
@@ -86,7 +85,7 @@ const ExamBank: React.FC = () => {
         </WholePageBox>
         <br />
         <div className={styles.testTileContainer}>
-          {examBankTutorialTestsData.map((tileData) => (
+          {oldExamBankData.map((tileData) => (
             <Tile {...tileData} key={tileData.courseCode} />
           ))}
         </div>
