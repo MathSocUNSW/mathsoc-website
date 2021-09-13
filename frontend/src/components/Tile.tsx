@@ -6,7 +6,7 @@ import { Typography } from "@material-ui/core";
 import TileSlide from "./TileSlide";
 
 // Styling
-import styles from "src/styles/tile.module.scss";
+import styles from "src/styles/Tile.module.scss";
 
 // Data
 import { revisionTile as tileProps } from "src/data/revisionData";
