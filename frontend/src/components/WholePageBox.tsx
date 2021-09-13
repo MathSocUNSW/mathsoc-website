@@ -1,5 +1,7 @@
+// Library Imports
 import React from "react";
 
+// Styling
 import styles from "src/styles/WholePageBox.module.scss";
 
 interface WholePageBoxProps {

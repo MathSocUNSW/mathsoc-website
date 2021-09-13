@@ -22,7 +22,7 @@ const FormerTeamSubCard: React.FC<FormerTeamSubCardProps> = ({ subcommittee }) =
       <div className={styles.flexContainer}>
         {subcommittee.map(({ role, members }) => (
           <div className={styles.item} key={role}>
-            <Typography variant="h5" align="center">
+            <Typography variant="h5" align="center" style={{ color: "#201b4b" }}>
               {role}
             </Typography>
             <ul className={styles.list}>

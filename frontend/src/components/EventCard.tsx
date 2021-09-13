@@ -8,7 +8,7 @@ import styles from "src/styles/EventCard.module.scss";
 
 // Data
 import { eventDetails as EventCardProps } from "src/data/eventData";
-import { socials } from "src/data/socialData";
+import { linkData as socials } from "src/data/socialData";
 
 const EventCard: React.FC<EventCardProps> = ({
   title,
