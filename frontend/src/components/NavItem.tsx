@@ -22,7 +22,10 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
 
   const DesktopVersionDropdown = (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-      <NavDropdown items={navData.dropdown} setDropdown={setDropdown} baseRoute={navData.route} />
+      {/* Crude fix of type here, may cause errors in the future */}
+      {navData.dropdown && (
+        <NavDropdown items={navData.dropdown} setDropdown={setDropdown} baseRoute={navData.route} />
+      )}
     </div>
   );
 
