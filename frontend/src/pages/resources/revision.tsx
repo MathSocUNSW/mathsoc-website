@@ -47,10 +47,12 @@ const Revision: React.FC = () => {
           </Typography>
         </WholePageBox>
         <br />
-        <div className={styles.tileContainer}>
-          {revisionData.map((tileData) => (
-            <Tile {...tileData} key={tileData.courseCode} />
-          ))}
+        <div className={styles.tileSection}>
+          <div className={styles.tileContainer}>
+            {revisionData.map((tileData) => (
+              <Tile {...tileData} key={tileData.courseCode} />
+            ))}
+          </div>
         </div>
       </PageBody>
     </section>

@@ -85,10 +85,12 @@ const ExamBank: React.FC = () => {
           </Typography>
         </WholePageBox>
         <br />
-        <div className={styles.testTileContainer}>
-          {examBankTutorialTestsData.map((tileData) => (
-            <Tile {...tileData} key={tileData.courseCode} />
-          ))}
+        <div className={styles.tileSection}>
+          <div className={styles.testTileContainer}>
+            {examBankTutorialTestsData.map((tileData) => (
+              <Tile {...tileData} key={tileData.courseCode} />
+            ))}
+          </div>
         </div>
       </PageBody>
     </section>

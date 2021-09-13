@@ -1,7 +1,18 @@
+$threePerRow: 1140px;
+$scaleFactor: 0.8;
+
 .tileContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-start;
   justify-content: center;
+  max-width: 1140px;
+  zoom: 0.8;
+}
+
+.tileSection {
+  display: flex;
+  max-width: 100%;
+  justify-content: center;
+  align-content: center;
 }
