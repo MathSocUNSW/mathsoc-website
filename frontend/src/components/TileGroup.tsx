@@ -6,12 +6,12 @@ import { Typography } from "@material-ui/core";
 import TileLink from "./TileLink";
 
 // Styling
-import styles from "src/styles/Tile.module.scss";
+import styles from "src/styles/TileGroup.module.scss";
 
 // Data
-import { groups } from "src/data/revisionData";
+import { groups as TileGroupProps } from "src/data/revisionData";
 
-const TileGroup: React.FC<groups> = ({ groupHeader, groupLinks }) => {
+const TileGroup: React.FC<TileGroupProps> = ({ groupHeader, groupLinks }) => {
   return (
     <div>
       <Typography variant="h5">{groupHeader}</Typography>
