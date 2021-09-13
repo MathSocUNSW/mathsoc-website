@@ -77,7 +77,7 @@ const revisionData: revisionTile[] = [
         groupHeader: "2021, T1 Revision Seminar",
         groupLinks: [
           {
-            name: "Revison Workshop",
+            name: "Revision Workshop",
             path: ""
           }
         ]

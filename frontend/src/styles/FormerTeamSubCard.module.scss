@@ -1,68 +1,23 @@
 @import "./variables.scss";
 
-.mainContainer {
-  width: 100%;
-  // background-color: white;
-  // border-radius: 16px;
-  // box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
-  // margin-top: 20px;
-  // margin-bottom: 20px;
-  p {
-    font-size: 1.45rem;
-  }
-  // @media (max-width: 550px) {
-  // display: flex;
-  // flex-direction: column;
-  // }
-}
-
-.title {
-  font-weight: 600;
-  color: $darkNavy;
-  font-size: 1.55em;
-}
-
 .flexContainer {
-  padding-top: 10px;
+  padding-top: 1rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  @media (max-width: 550px) {
-    flex-direction: column;
-    padding-top: 15px;
-  }
 }
 
 .text {
-  font-size: 1.45rem;
-  text-align: center;
-  line-height: 180%;
-}
-
-.roleTitle {
-  font-weight: 600;
-  font-size: 1.8rem;
-  color: $darkNavy;
+  list-style-type: none;
+  padding: 0.02px 0;
 }
 
 .list {
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
-  // align-items: center;
-  // margin-bottom: 30px;
-  // @media (max-width: 550px) {
-  //   width: 100%;
-  // }
-  margin-bottom: 15px;
-}
-
-.personContainer {
-  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .item {
-  width: 33%;
   min-width: 280px;
 }

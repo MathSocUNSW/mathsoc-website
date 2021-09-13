@@ -3,8 +3,8 @@ import Layout from "../components/Layout";
 import "src/styles/globals.scss";
 
 interface AppProps {
-  Component: React.FC;
-  pageProps: unknown;
+  Component: any;
+  pageProps: any;
 }
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {

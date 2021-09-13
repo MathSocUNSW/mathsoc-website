@@ -1,11 +1,16 @@
+// Library Imports
 import React from "react";
 import { Typography } from "@material-ui/core";
 
+// Styling
 import styles from "src/styles/FormerTeamMainCard.module.scss";
-import { yearTeamData } from "src/data/pastTeamMembersData";
+
+// Data
+import { execPerson, directorRole } from "src/data/pastTeamMembersData";
 
 interface FormerTeamMainCardProps {
-  data: yearTeamData;
+  execList: execPerson[];
+  directorList: directorRole[];
 }
 
 interface data {
@@ -13,38 +18,36 @@ interface data {
   name: string;
 }
 
-const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ data }) => {
-  const { execList, directorList } = data;
-
-  const dataList: Array<data> = [...execList];
-  directorList.forEach((directorRole) => {
-    const { role, directors } = directorRole;
+const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ execList, directorList }) => {
+  const dataList: data[] = [...execList];
+  // Add directors to dataList
+  directorList.forEach(({ role, directors }) => {
     if (directors.length >= 2) {
       const lastDirector = directors.pop();
-      const concatString = `${directors.map((x) => x.name).join(", ")} & ${lastDirector.name}`;
+      const concatString = `${directors.join(", ")} & ${lastDirector}`;
       dataList.push({ role: `${role} Director`, name: concatString });
     } else {
       // Only 1 director exists
-      dataList.push({ role: `${role} Director`, name: directors[0].name });
+      dataList.push({ role: `${role} Director`, name: directors[0] });
     }
   });
 
   return (
     <div className={styles.mainContainer}>
-      <div className={styles.execTitle}>
+      <div className={styles.category}>
         <Typography variant="h4" align="center">
-          <span>Executive Team</span>
+          Executive Team
         </Typography>
       </div>
-      <div className={styles.flexContainer}>
+      <ul>
         {dataList.map((person) => (
-          <div key={person.name} className={styles.nameContainer}>
-            <p className={styles.text}>
-              <span className={styles.bold}>{person.role}</span> - {person.name}
-            </p>
-          </div>
+          <li key={person.name} className={styles.nameContainer}>
+            <Typography variant="body1" align="center">
+              <b>{person.role}</b> - {person.name}
+            </Typography>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

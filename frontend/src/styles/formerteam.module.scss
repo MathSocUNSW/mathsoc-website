@@ -1,15 +1,9 @@
-@import './variables.scss';
-
-.year {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  span {
-    font-weight: 600;
-    font-size: 1.4em;
-    color: $darkNavy;
-  }
-}
+@import "./variables.scss";
 
 .execTeam {
-  margin-bottom: 35px;
+  margin-bottom: 2rem;
+}
+
+.boxes > *:not(:last-child) {
+  margin-bottom: 2.5rem;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
-import styles from "src/styles/strip.module.scss";
+import styles from "src/styles/Strip.module.scss";
 import { resourceDetails } from "src/data/resourceData";
 
 interface stripProps extends resourceDetails {
@@ -24,7 +24,7 @@ const Strip: React.FC<stripProps> = ({
       <Link href={resourceLink}>
         <a>
           <div className={styles.stripContent}>
-            <Typography variant="h2" color="inherit" className={titleFlip && styles.flip}>
+            <Typography variant="h2" color="inherit" className={titleFlip ? styles.flip : ""}>
               {title}
             </Typography>
             <img src={iconPath} className={styles.icon} alt={title} />

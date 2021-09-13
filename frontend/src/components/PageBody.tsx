@@ -6,11 +6,12 @@ import { Container } from "@material-ui/core";
 import styles from "src/styles/PageBody.module.scss";
 
 // Type Definitions
-interface pageBodyProps {
-  children: React.ReactNode;
+interface PageBodyProps {
+  // children: React.ReactNode;
+  children: any;
 }
 
-const PageBody: React.FC<pageBodyProps> = ({ children }) => {
+const PageBody: React.FC<PageBodyProps> = ({ children }) => {
   return (
     <div className={styles.pageBody}>
       <Container>{children}</Container>

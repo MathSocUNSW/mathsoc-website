@@ -1,34 +1,39 @@
+// Library Imports
 import React from "react";
 import { Typography } from "@material-ui/core";
 
+// Styling
 import styles from "src/styles/FormerTeamSubCard.module.scss";
-import { yearTeamData } from "src/data/pastTeamMembersData";
+
+// Data
+import { subcommitteeData } from "src/data/pastTeamMembersData";
 
 interface FormerTeamSubCardProps {
-  data: yearTeamData;
+  subcommittee: subcommitteeData[];
 }
 
-const FormerTeamSubCard: React.FC<FormerTeamSubCardProps> = ({ data }) => {
-  const { subcommittee } = data;
+const FormerTeamSubCard: React.FC<FormerTeamSubCardProps> = ({ subcommittee }) => {
   return (
     <div className={styles.mainContainer}>
       <Typography variant="h4" align="center">
-        <span className={styles.title}>Subcommittee</span>
+        Subcommittee
       </Typography>
 
       <div className={styles.flexContainer}>
-        {subcommittee.map((role) => (
-          <div className={styles.item} key={role.role}>
-            <p className={styles.text}>
-              <span className={styles.roleTitle}>{role.role}</span>
-            </p>
-            <div className={styles.list}>
-              {role.members.map((person) => (
-                <p className={styles.text} key={person}>
-                  {person}
-                </p>
+        {subcommittee.map(({ role, members }) => (
+          <div className={styles.item} key={role}>
+            <Typography variant="h5" align="center" style={{ color: "#201b4b" }}>
+              {role}
+            </Typography>
+            <ul className={styles.list}>
+              {members.map((person) => (
+                <li className={styles.text} key={person}>
+                  <Typography variant="body1" align="center">
+                    {person}
+                  </Typography>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         ))}
       </div>

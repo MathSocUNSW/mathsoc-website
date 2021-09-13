@@ -9,22 +9,19 @@ import WholePageBox from "src/components/WholePageBox";
 import ResourceHero from "src/components/ResourceHero";
 
 // Data
-import resourceData from "src/data/resourceData";
+import { matlabInfo } from "src/data/resourceData";
 
 const Revision: React.FC = () => {
-  const PAGE_PATH = "/resources/matlab";
-  const pageData = resourceData.find((x) => x.resourceLink === PAGE_PATH);
-
   return (
     <section>
       <Head>
-        <title>{pageData.title} - Mathsoc</title>
+        <title>{matlabInfo.title} - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <ResourceHero
-        url={pageData.backgroundImage}
-        text={pageData.title}
-        icon={pageData.iconPath}
+        url={matlabInfo.backgroundImage}
+        text={matlabInfo.title}
+        icon={matlabInfo.iconPath}
         titlePosition="left"
       />
       <PageBody>
