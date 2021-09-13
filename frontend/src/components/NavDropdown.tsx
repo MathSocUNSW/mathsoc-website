@@ -14,8 +14,8 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute
   return (
     <div className={styles.mainContainer}>
       {items.map((item, index) => (
-        <Link href={baseRoute + item.subRoute} key={item.name}>
-          <a>
+        <Link href={!item.routeOutside ? baseRoute + item.subRoute : item.subRoute} key={item.name}>
+          <a target={!item.routeOutside ? "" : "_blank"}>
             <div
               className={index === items.length - 1 ? styles.itemLast : styles.item}
               onClick={() => setDropdown(false)}

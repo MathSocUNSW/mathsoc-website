@@ -3,6 +3,7 @@ type routeString = `/${string}`;
 export interface subPage {
   name: string;
   subRoute: routeString;
+  routeOutside: boolean;
 }
 
 export interface navLink {
@@ -17,8 +18,8 @@ const navLinks: navLink[] = [
     name: "About Us",
     route: "/about",
     dropdown: [
-      { name: "Meet the team", subRoute: "/team" },
-      { name: "Former Team", subRoute: "/formerteam" }
+      { name: "Meet the team", subRoute: "/team", routeOutside: false },
+      { name: "Former Team", subRoute: "/formerteam", routeOutside: false }
     ],
     displayDropdownMobile: true
   },
@@ -32,13 +33,21 @@ const navLinks: navLink[] = [
     name: "Resources",
     route: "/resources",
     dropdown: [
-      { name: "First Year Exam Bank", subRoute: "/exam-bank" },
-      { name: "Revision Lectures", subRoute: "/revision" },
-      { name: "LaTeX Guide", subRoute: "/latex" },
-      { name: "MATLAB Guide", subRoute: "/matlab" },
-      { name: "Careers Advice", subRoute: "/careers" },
-      { name: "First Year Guide", subRoute: "/404" }, // TODO
-      { name: "HSC Tips & Tricks", subRoute: "/hsc" }
+      { name: "First Year Exam Bank", subRoute: "/exam-bank", routeOutside: false },
+      { name: "Revision Lectures", subRoute: "/revision", routeOutside: false },
+      { name: "LaTeX Guide", subRoute: "/latex", routeOutside: false },
+      { name: "MATLAB Guide", subRoute: "/matlab", routeOutside: false },
+      { name: "Careers Advice", subRoute: "/careers", routeOutside: false },
+      {
+        name: "First Year Guide",
+        subRoute: "/files/First_Year_Guide_2021.pdf",
+        routeOutside: true
+      },
+      {
+        name: "HSC Tips & Tricks",
+        subRoute: "/files/HSC-Tips-and-Tricks-booklet-2019.pdf",
+        routeOutside: true
+      }
     ],
     displayDropdownMobile: false
   },
