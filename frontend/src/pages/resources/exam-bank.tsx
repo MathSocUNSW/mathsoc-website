@@ -60,7 +60,7 @@ const ExamBank: React.FC = () => {
             Good luck studying 🙂
             <br />
             <br />
-            (More solutions currently being written.)
+            (More solutions are currently being written.)
           </Typography>
         </WholePageBox>
         <br />
