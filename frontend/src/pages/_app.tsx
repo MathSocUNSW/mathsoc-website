@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import Layout from "../components/Layout";
 import "src/styles/globals.scss";

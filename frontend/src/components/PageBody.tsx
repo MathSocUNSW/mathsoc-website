@@ -8,6 +8,7 @@ import styles from "src/styles/PageBody.module.scss";
 // Type Definitions
 interface PageBodyProps {
   // children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children: any;
 }
 
