@@ -10,6 +10,9 @@ import Hero from "components/Hero";
 import UpcomingEvents from "components/UpcomingEvents";
 import SponsorsList from "components/SponsorsList";
 
+// Styling
+import styles from "src/styles/home.module.scss";
+
 // TODO: add loading animation, eager load sponsor images
 
 const Home: React.FC = () => {
@@ -24,9 +27,9 @@ const Home: React.FC = () => {
       </Head>
       <Hero url="/images/hero/mathsoc_skating.png" text="Welcome to UNSW Mathematics Society" />
       <PageBody>
-        <section className="introduction">
+        <div className={styles.intro}>
           <WholePageBox>
-            <Typography variant="h6" align="center">
+            <Typography variant="body1" align="center">
               UNSW Mathematics Society (MathSoc) is the constituent society of the UNSW School of
               Mathematics and Statistics, with membership open to anyone with an interest in
               mathematics. We support students by enhancing the sense of community amongst
@@ -35,7 +38,7 @@ const Home: React.FC = () => {
               largest societies at UNSW.
             </Typography>
           </WholePageBox>
-        </section>
+        </div>
         <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
         <SponsorsList />
       </PageBody>

@@ -19,8 +19,8 @@
     "start": "if [ -z \"$PORT\" ]; then next start; else next start -p $PORT; fi",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
-    "prettier:check": "prettier --check 'src/**/*.{ts,tsx}'",
-    "prettier:write": "prettier --write 'src/**/*.{ts,tsx}'"
+    "prettier:check": "prettier --check 'src/**/*.{ts,tsx,scss}'",
+    "prettier:write": "prettier --write 'src/**/*.{ts,tsx,scss}'"
   },
   "devDependencies": {
     "@types/react": "^17.0.20",

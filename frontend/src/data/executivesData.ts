@@ -1,23 +1,30 @@
 interface executive {
   name: string;
-  description: string | null;
+  description: string;
   role: "President" | "Vice President" | "Secretary" | "Treasurer" | "Arc Delegate";
-  imagePath: string | null;
+  imagePath: string;
 }
 
 const executivesData: executive[] = [
-  { name: "Grace Li", role: "President", description: null, imagePath: "/images/team/GraceLi.jpg" },
+  {
+    name: "Grace Li",
+    role: "President",
+    description:
+      "4th Year Science and Business student. Part-time pyromaniac but only as a hobby. PM me for details on joining my pyramid scheme personal business venture.",
+    imagePath: "/images/team/GraceLi.jpg"
+  },
   {
     name: "Philton Zhu",
     role: "Vice President",
-    description: null,
+    description:
+      "4th year Advanced Math / Compsci student. Only made it this far on my unhealthy addiction to caffeine and fried chicken. Will sacrifice lectures for a Zinger Box.",
     imagePath: "/images/team/PhiltonZhu.jpg"
   },
   {
     name: "Justin Clarke",
     role: "Secretary",
     description:
-      "3rd year Quantitative Data Science and Decisions student. My name is Justin for a reason in Valorant (MeMe10rd #OCE) and I also play reps volleyball for UNSW in division 1 :) ",
+      "3rd year Quantitative Data Science and Decisions student. My name is JustIn for a reason in Valorant (MeMe10rd #OCE), and I also play Div 1 reps volleyball but that's kinda a thing of the past ;-;",
     imagePath: "/images/team/JustinClarke.jpg"
   },
   {
