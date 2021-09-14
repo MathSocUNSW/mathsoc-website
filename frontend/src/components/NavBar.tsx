@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import Link from "next/link";
-import { Container, Switch } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
-import navLinks from "src/data/navLinks";
+import useWindowDimensions from "src/helpers/useWindowDimensions";
+import navLinks from "src/data/navLinksData";
 import styles from "src/styles/NavBar.module.scss";
 import Hamburger from "hamburger-react";
+import NavItem from "./NavItem";
 
 const NavBar: React.FC = () => {
   // mobile
@@ -18,6 +20,8 @@ const NavBar: React.FC = () => {
     boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.25)"
   };
   // TODO: dark mode (with useContext)
+
+  const { width } = useWindowDimensions();
 
   return (
     <header className={styles.navbar} style={isStuck ? stuckShadow : {}}>
@@ -40,12 +44,8 @@ const NavBar: React.FC = () => {
           </div>
           <nav className={isOpen ? `${styles.navItems}` + ` ${styles.open}` : `${styles.navItems}`}>
             <ul className={styles.navLinks}>
-              {navLinks.map(({ name, route }) => (
-                <li key={name} className={styles.navLink} onClick={() => setOpen(false)}>
-                  <Link href={route}>
-                    <a>{name}</a>
-                  </Link>
-                </li>
+              {navLinks.map((item) => (
+                <NavItem key={item.name} navData={item} setOpen={setOpen} width={width} />
               ))}
             </ul>
           </nav>

@@ -6,6 +6,7 @@ import styles from "src/styles/WholePageBox.module.scss";
 
 interface WholePageBoxProps {
   children: React.ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   key?: any;
 }
 

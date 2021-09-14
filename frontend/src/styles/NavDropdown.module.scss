@@ -1,0 +1,53 @@
+@import "./variables.scss";
+
+.mainContainer {
+  // outline: auto;
+  background: white;
+  // width: 200px;
+  // padding-right: 5px;
+  // padding-bottom: 5px;
+  position: absolute;
+  top: $headerHeight;
+  // list-style: none;
+  text-align: start;
+  a {
+    text-decoration: none;
+    color: $darkNavy;
+    font-size: 15px;
+    text-align: center;
+    &:hover {
+      color: white;
+    }
+    &:last-child {
+      background-color: red;
+    }
+  }
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 1px 3px 20px 0 rgba(0, 0, 0, 0.25);
+}
+
+.item {
+  // outline: auto;
+  // margin: 0 3px;
+  // border-radius: 15px;
+  transition: 0.3s;
+  padding: 10px;
+  &:hover {
+    // REVIEW: colour/wanted
+    background-color: #0074b7;
+  }
+  border-bottom: solid 1px #dfe0e3;
+}
+
+// Couldn't get :last-child to work
+.itemLast {
+  transition: 0.3s;
+  padding: 10px;
+  &:hover {
+    // REVIEW: colour/wanted
+    background-color: #0074b7;
+  }
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

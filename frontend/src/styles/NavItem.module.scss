@@ -1,0 +1,39 @@
+@import "./variables.scss";
+
+.navButton {
+  margin: 0 2px;
+  border-radius: 15px;
+  transition: 0.3s;
+  padding: 10px;
+  &:hover {
+    // REVIEW: colour/wanted
+    background-color: lightgrey;
+    cursor: pointer;
+  }
+}
+
+.mainContainer {
+  // outline: auto;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  @media screen and (max-width: $mobile) {
+    height: 100%;
+  }
+}
+
+.navArrow {
+  border: solid $darkNavy;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2.75px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  margin-bottom: 3.25px;
+  margin-left: 2.5px;
+}
+
+.mobileContainer {
+  display: flex;
+  flex-direction: column;
+}
