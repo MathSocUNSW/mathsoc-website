@@ -44,14 +44,14 @@ export const careersInfo: resourceDetails = {
 
 export const firstYearInfo: resourceDetails = {
   title: "First Year Guide",
-  resourceLink: "empty", // TODO
+  resourceLink: "/files/First_Year_Guide_2021.pdf",
   backgroundImage: RESOURCE_IMAGE_PATH + "firstYearBackground.png",
   iconPath: RESOURCE_IMAGE_PATH + "firstYearIcon.png"
 };
 
 export const hscInfo: resourceDetails = {
   title: "HSC Tips and Tricks",
-  resourceLink: "empty", // TODO
+  resourceLink: "/files/HSC-Tips-and-Tricks-booklet-2019.pdf",
   backgroundImage: RESOURCE_IMAGE_PATH + "hscBackground.png",
   iconPath: RESOURCE_IMAGE_PATH + "hscIcon.png"
 };
