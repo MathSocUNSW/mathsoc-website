@@ -36,6 +36,29 @@ export interface links {
 /*TODO: revision paths*/
 const examBankData: revisionTile[] = [
   {
+    courseCode: "MATH1031",
+    courseTitle: "Mathematics for Life Sciences (Labs)",
+    revisionLinks: [
+      {
+        groupHeader: "",
+        groupLinks: [
+          {
+            name: "Mystery Lab 1 Sample Solutions 2019",
+            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_1_Solutions_2019.pdf"
+          },
+          {
+            name: "Mystery Lab 2 Sample Solutions 2019",
+            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_1_Solutions_2019.pdf"
+          },
+          {
+            name: "Mystery Lab 3 Sample Solutions 2019",
+            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_1_Solutions_2019.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
     courseCode: "MATH1081",
     courseTitle: "Discrete Mathematics (Labs)",
     revisionLinks: [
@@ -103,61 +126,6 @@ const examBankData: revisionTile[] = [
           {
             name: "2019 Test 2 Calculus",
             path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Labtest2_Calculus_2019.pdf"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    courseCode: "MATH1151",
-    courseTitle: "Mathematics for Actuarial Studies and Finance 1A",
-    revisionLinks: [
-      {
-        groupHeader: "",
-        groupLinks: [
-          {
-            name: "2008 Test 1 Algebra",
-            path: "/files/examBank/MATH1151/MATH1151_Test_1_Algebra_2008.pdf"
-          },
-          {
-            name: "2008 Test 1 Calculus",
-            path: "/files/examBank/MATH1151/MATH1151_Test_1_Calculus_2008.pdf"
-          },
-          {
-            name: "2008 Test 2 Algebra",
-            path: "/files/examBank/MATH1151/MATH1151_Test_2_Algebra_2008.pdf"
-          },
-          {
-            name: "2008 Test 2 Calculus",
-            path: "/files/examBank/MATH1151/MATH1151_Test_2_Calculus_2008.pdf"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    courseCode: "MATH1251",
-    courseTitle: "Mathematics for Actuarial Studies and Finance 1B",
-    revisionLinks: [
-      {
-        groupHeader: "",
-        groupLinks: [
-          { name: "2018 Algebra", path: "/files/examBank/MATH1251/MATH1251_Algebra_2018.pdf" },
-          { name: "2018 Calculus", path: "/files/examBank/MATH1251/MATH1251_Calculus_2018.pdf" }
-        ]
-      }
-    ]
-  },
-  {
-    courseCode: "MATH2621",
-    courseTitle: "Higher Complex Analysis",
-    revisionLinks: [
-      {
-        groupHeader: "",
-        groupLinks: [
-          {
-            name: "2018 Homework Worked Solutions",
-            path: "/files/examBank/MATH2621/MATH2621_Worked_HW_Solutions_2018.pdf"
           }
         ]
       }
@@ -261,18 +229,49 @@ export const oldExamBankData: revisionTile[] = [
       }
     ]
   },
-  //NEXT TILE
-  // {
-  //   courseCode: "MATH1151",
-  //   courseTitle: "Mathematics for Actuarial Studies and Finance 1A",
-  //   revisionLinks: [
-  //     {
-  //       groupHeader: "",
-  //       groupLinks: []
-  //     }
-  //   ]
-  // },
-  //NEXT TILE
+  {
+    courseCode: "MATH1151",
+    courseTitle: "Mathematics for Actuarial Studies and Finance 1A",
+    revisionLinks: [
+      {
+        groupHeader: "",
+        groupLinks: [
+          {
+            name: "2008 Test 1 Algebra",
+            path: "/files/examBank/MATH1151/MATH1151_Test_1_Algebra_2008.pdf"
+          },
+          {
+            name: "2008 Test 1 Calculus",
+            path: "/files/examBank/MATH1151/MATH1151_Test_1_Calculus_2008.pdf"
+          },
+          {
+            name: "2008 Test 2 Algebra",
+            path: "/files/examBank/MATH1151/MATH1151_Test_2_Algebra_2008.pdf"
+          },
+          {
+            name: "2008 Test 2 Calculus",
+            path: "/files/examBank/MATH1151/MATH1151_Test_2_Calculus_2008.pdf"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    courseCode: "MATH2621",
+    courseTitle: "Higher Complex Analysis",
+    revisionLinks: [
+      {
+        groupHeader: "",
+        groupLinks: [
+          {
+            name: "2018 Homework Worked Solutions",
+            path: "/files/examBank/MATH2621/MATH2621_Worked_HW_Solutions_2018.pdf"
+          }
+        ]
+      }
+    ]
+  },
   {
     courseCode: "MATH1251",
     courseTitle: "Mathematics for Actuarial Studies and Finance 1B",
@@ -292,22 +291,6 @@ export const oldExamBankData: revisionTile[] = [
       }
     ]
   }
-  //NEXT TILE
-  // {
-  //   courseCode: "MATH2621",
-  //   courseTitle: "Higher Complex Analysis",
-  //   revisionLinks: [
-  //     {
-  //       groupHeader: "",
-  //       groupLinks: [
-  //         {
-  //           name: "Homework Worked Solutions",
-  //           path: ""
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // }
 ];
 
 export default examBankData;
