@@ -1,18 +1,23 @@
+$threePerRow: 1140px;
+$twoPerRow: 760px;
+$scaleFactor: 0.9;
+
 .tileContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-start;
   justify-content: center;
-  max-width: 850px;
+  max-width: $twoPerRow;
+  zoom: $scaleFactor;
 }
 
 .testTileContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: flex-start;
   justify-content: center;
+  max-width: $threePerRow;
+  zoom: $scaleFactor;
 }
 
 .tileSection {
