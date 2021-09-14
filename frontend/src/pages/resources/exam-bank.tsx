@@ -60,7 +60,7 @@ const ExamBank: React.FC = () => {
             Good luck studying 🙂
             <br />
             <br />
-            (More solutions currently being written.)
+            (More solutions are currently being written.)
           </Typography>
         </WholePageBox>
         <br />
@@ -85,10 +85,12 @@ const ExamBank: React.FC = () => {
           </Typography>
         </WholePageBox>
         <br />
-        <div className={styles.testTileContainer}>
-          {examBankTutorialTestsData.map((tileData) => (
-            <Tile {...tileData} key={tileData.courseCode} />
-          ))}
+        <div className={styles.tileSection}>
+          <div className={styles.testTileContainer}>
+            {examBankTutorialTestsData.map((tileData) => (
+              <Tile {...tileData} key={tileData.courseCode} />
+            ))}
+          </div>
         </div>
       </PageBody>
     </section>
