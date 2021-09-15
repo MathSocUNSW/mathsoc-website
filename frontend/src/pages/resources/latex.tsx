@@ -38,7 +38,7 @@ const Latex: React.FC = () => {
             In 2020, MathSoc teamed up with CSESoc to present a LaTeX seminar online. Thanks to
             Nicholas Berridge-Argent for presenting, and providing the resources{" "}
             <a
-              href="/resources/misc/LaTeX_Seminar_2020.zip"
+              href="/files/resources/misc/LaTeX_Seminar_2020.zip"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -61,7 +61,7 @@ const Latex: React.FC = () => {
             introductory means, it was designed to provide as much of the basics as required for
             generic use as well. The guide can be found{" "}
             <a
-              href="/resources/misc/LaTeX_Guide_2019.pdf"
+              href="/files/resources/misc/LaTeX_Guide_2019.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -75,7 +75,7 @@ const Latex: React.FC = () => {
             to get started and providing a basic view of a typical LaTeX document structure. The
             files used in the presentation can be found{" "}
             <a
-              href="/resources/misc/LaTeX_Seminar_2015.zip"
+              href="/files/resources/misc/LaTeX_Seminar_2015.zip"
               target="_blank"
               rel="noopener noreferrer"
             >

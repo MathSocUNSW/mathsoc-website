@@ -40,12 +40,12 @@ const navLinks: navLink[] = [
       { name: "Careers Advice", subRoute: "/careers", routeOutside: false },
       {
         name: "First Year Guide",
-        subRoute: "/resources/misc/First_Year_Guide_2021.pdf",
+        subRoute: "/files/resources/misc/First_Year_Guide_2021.pdf",
         routeOutside: true
       },
       {
         name: "HSC Tips & Tricks",
-        subRoute: "/resources/misc/HSC-Tips-and-Tricks-Booklet-2019.pdf",
+        subRoute: "/files/resources/misc/HSC-Tips-and-Tricks-Booklet-2019.pdf",
         routeOutside: true
       }
     ],

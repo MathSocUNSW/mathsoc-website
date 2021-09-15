@@ -31,7 +31,11 @@ const Revision: React.FC = () => {
           <Typography variant="body1">
             Hey friends, the slaves at MathSoc have created an Interactive MATLAB guide, which can
             be accessed{" "}
-            <a href="/resources/misc/MATLAB_Guide.zip" target="_blank" rel="noopener noreferrer">
+            <a
+              href="/files/resources/misc/MATLAB_Guide.zip"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               here
             </a>
             . It is meant to supplement the MATH1151/MATH1251{" "}
