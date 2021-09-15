@@ -167,31 +167,31 @@ export const oldExamBankData: revisionTile[] = [
         groupHeader: "Sample Solutions",
         groupLinks: [
           {
-            name: "Test 1 Solutions",
+            name: "Test 1",
             path: "/files/resources/examBank/MATH1081/old/MATH1081_Test_1.pdf"
           },
           {
-            name: "Test 2 Solutions (Sem 1)",
+            name: "Test 2 (Semester 1)",
             path: "/files/resources/examBank/MATH1081/old/MATH1081_Test_2_S1.pdf"
           },
           {
-            name: "Test 2 Solutions (Sem 2)",
+            name: "Test 2 (Semester 2)",
             path: "/files/resources/examBank/MATH1081/old/MATH1081_Test_2_S2.pdf"
           },
           {
-            name: "Test 3 Solutions (Sem 1)",
+            name: "Test 3 (Semester 1)",
             path: "/files/resources/examBank/MATH1081/old/MATH1081_Test_3_S1.pdf"
           },
           {
-            name: "Test 3 Solutions (Sem 2)",
+            name: "Test 3 (Semester 2)",
             path: "/files/resources/examBank/MATH1081/old/MATH1081_Test_3_S2.pdf"
           },
           {
-            name: "Test 4 Solutions (Sem 1)",
+            name: "Test 4 (Semester 1)",
             path: "/files/resources/examBank/MATH1081/old/MATH1081_Test_4_S1.pdf"
           },
           {
-            name: "Test 4 Solutions (Sem 2)",
+            name: "Test 4 (Semester 2)",
             path: "/files/resources/examBank/MATH1081/old/MATH1081_Test_4_S2.pdf"
           }
         ]

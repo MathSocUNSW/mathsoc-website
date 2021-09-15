@@ -1,3 +1,11 @@
+// Helper imports and functions
+@use "sass:math";
+
+// multiplies two variables using rem units together
+@function multiply-rem($x, $y) {
+  @return math.div($x * $y, 1rem);
+}
+
 .card {
   background-color: white;
   height: 600px;
@@ -27,7 +35,9 @@
   // https://stackoverflow.com/questions/53156266/reactjs-multiline-textarea-with-ellipsis
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
-  height: calc($font-size * $line-height * $lines-to-show); /* Fallback for non-webkit */
+  height: calc(
+    multiply-rem($font-size, $line-height) * $lines-to-show
+  ); /* Fallback for non-webkit */
   font-size: $font-size;
   line-height: $line-height;
   -webkit-line-clamp: $lines-to-show;
