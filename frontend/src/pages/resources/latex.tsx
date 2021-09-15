@@ -25,7 +25,7 @@ const Latex: React.FC = () => {
         url={latexInfo.backgroundImage}
         text={latexInfo.title}
         icon={latexInfo.iconPath}
-        titlePosition="left"
+        titlePosition={latexInfo.titlePosition}
       />
       <PageBody>
         <WholePageBox>

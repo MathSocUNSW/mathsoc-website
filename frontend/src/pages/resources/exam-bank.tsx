@@ -27,7 +27,7 @@ const ExamBank: React.FC = () => {
         url={examBankInfo.backgroundImage}
         text={examBankInfo.title}
         icon={examBankInfo.iconPath}
-        titlePosition="right"
+        titlePosition={examBankInfo.titlePosition}
       />
       <PageBody>
         <WholePageBox>

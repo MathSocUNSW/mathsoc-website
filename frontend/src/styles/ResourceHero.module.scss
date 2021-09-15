@@ -1,10 +1,9 @@
-@import "./variables.scss";
+@import './variables.scss';
 
-.mainContainer {
-  width: 100%;
-}
+$breakpoint: 610px;
 
 .hero {
+  width: 100%;
   min-height: 350px; // TODO: To be decided
   max-height: $heroMaxHeight;
 
@@ -17,12 +16,11 @@
   background-position: center center;
 
   overflow: hidden;
-  //background-repeat: no-repeat;
+  background-repeat: no-repeat;
 
   color: white;
-  padding: 15px;
 
-  @media (max-width: 610px) {
+  @media (max-width: $breakpoint) {
     flex-direction: column;
     order: 0;
     position: relative;
@@ -30,12 +28,29 @@
 }
 
 .icon {
-  // this is the icon on resource pg heroes
-  height: 80%;
-  padding: 0px 25px 0px;
+  max-height: 210px;
+  margin: 1.5rem;
+
+  @media (max-width: $breakpoint) {
+    max-height: 180px;
+    max-width: 260px;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.title {
+  margin: 1.5rem;
+
+  @media (max-width: $breakpoint) {
+    margin-bottom: 1rem;
+  }
 }
 
 .flip {
   // this is for flipping the title on resource pg heroes
   order: 1;
+  @media (max-width: $breakpoint) {
+    order: 0;
+  }
 }

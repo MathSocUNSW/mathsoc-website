@@ -21,7 +21,7 @@ const Careers: React.FC = () => {
         url={careersInfo.backgroundImage}
         text={careersInfo.title}
         icon={careersInfo.iconPath}
-        titlePosition="right"
+        titlePosition={careersInfo.titlePosition}
       />
       <PageBody>
         <WholePageBox>Page under construction</WholePageBox>

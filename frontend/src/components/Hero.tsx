@@ -20,6 +20,7 @@ const Hero: React.FC<HeroProps> = ({ url, text }) => {
           priority={true}
           draggable="false"
           quality={80}
+          key={text}
         />
       </div>
       <Container>

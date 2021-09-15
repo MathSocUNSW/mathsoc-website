@@ -22,7 +22,7 @@ const Revision: React.FC = () => {
         url={matlabInfo.backgroundImage}
         text={matlabInfo.title}
         icon={matlabInfo.iconPath}
-        titlePosition="left"
+        titlePosition={matlabInfo.titlePosition}
       />
       <PageBody>
         <WholePageBox>

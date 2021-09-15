@@ -1,5 +1,8 @@
+// Library Imports
 import React from "react";
 import { Typography } from "@material-ui/core";
+
+// Styling
 import styles from "src/styles/ResourceHero.module.scss";
 
 interface ResourceHeroProps {
@@ -12,16 +15,18 @@ interface ResourceHeroProps {
 const ResourceHero: React.FC<ResourceHeroProps> = ({ url, text, icon, titlePosition }) => {
   const titleFlip = titlePosition === "right";
 
-  const image = {
+  const bgImage = {
     backgroundImage: `url(${url})`
   };
 
   return (
-    <section className={styles.mainContainer}>
-      <Typography style={image} className={styles.hero} variant="h1" align="center">
-        <div className={titleFlip ? styles.flip : ""}>{text}</div>
-        <img src={icon} className={styles.icon} alt="icon" draggable="false" />
-      </Typography>
+    <section className={styles.hero} style={bgImage}>
+      <div className={`${styles.title} ${titleFlip ? styles.flip : ""}`}>
+        <Typography variant="h1" align="center">
+          {text}
+        </Typography>
+      </div>
+      <img src={icon} className={styles.icon} alt="icon" draggable="false" />
     </section>
   );
 };
