@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSe1lAW158F3s0NFJEHn2Fsfo4goau4QQTLhlbX7cJJiXGS7xw/viewform"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   this form.
                 </a>
@@ -47,7 +47,12 @@ const Contact: React.FC = () => {
               <div className={styles.socialContainer}>
                 {contactUsSocials.map(({ name, url, iconPath, altName }) => (
                   <div key={name}>
-                    <a href={url} target="_blank" rel="noreferrer" className={styles.socialItem}>
+                    <a
+                      href={url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.socialItem}
+                    >
                       <img
                         src={iconPath}
                         alt={name}
@@ -59,7 +64,7 @@ const Contact: React.FC = () => {
                       <a
                         href={url}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noopener noreferrer"
                         style={{
                           color: "inherit",
                           textDecoration: "none"

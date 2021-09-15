@@ -14,7 +14,7 @@ const SponsorsList: React.FC = () => {
       <br />
       <section className={styles.sponsorsContainer}>
         {sponsorsData.map((sponsor, index) => (
-          <a key={index} href={sponsor.websiteURL} target="_blank" rel="noreferrer">
+          <a key={index} href={sponsor.websiteURL} target="_blank" rel="noopener noreferrer">
             <div className={styles.imageContainer}>
               <Image
                 src={sponsor.logoPath}

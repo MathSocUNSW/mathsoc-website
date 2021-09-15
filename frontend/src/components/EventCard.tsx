@@ -30,7 +30,7 @@ const EventCard: React.FC<EventCardProps> = ({
         // wrap with link if a substring matches social data
         if (substring === name) {
           return (
-            <a href={url} target="_blank" rel="noreferrer">
+            <a href={url} target="_blank" rel="noopener noreferrer">
               {name}
             </a>
           );
@@ -44,7 +44,7 @@ const EventCard: React.FC<EventCardProps> = ({
   return (
     <div className={styles.card}>
       <div>
-        <a href={eventLink} target="_blank" rel="noreferrer">
+        <a href={eventLink} target="_blank" rel="noopener noreferrer">
           {/* <div className={styles.imageContainer}>
             <Image
               src={imagePath}
@@ -60,7 +60,7 @@ const EventCard: React.FC<EventCardProps> = ({
       </div>
       <div className={styles.content}>
         <div className="mainContent">
-          <a href={eventLink} target="_blank" rel="noreferrer" className={styles.title}>
+          <a href={eventLink} target="_blank" rel="noopener noreferrer" className={styles.title}>
             <Typography variant="h5">{title}</Typography>
           </a>
           <div className={styles.description}>
@@ -76,7 +76,7 @@ const EventCard: React.FC<EventCardProps> = ({
               <Typography variant="body2">
                 Location:{" "}
                 {locationURL ? (
-                  <a href={locationURL} target="_blank" rel="noreferrer">
+                  <a href={locationURL} target="_blank" rel="noopener noreferrer">
                     {location}
                   </a>
                 ) : (
@@ -87,7 +87,7 @@ const EventCard: React.FC<EventCardProps> = ({
           </ul>
         </div>
         <div className={styles.link}>
-          <a href={eventLink} target="_blank" rel="noreferrer">
+          <a href={eventLink} target="_blank" rel="noopener noreferrer">
             <p>Find out more &#8594;</p>
           </a>
         </div>
