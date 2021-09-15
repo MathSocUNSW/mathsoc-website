@@ -1,10 +1,10 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 .navButton {
   margin: 0 2px;
   border-radius: 15px;
   transition: 0.3s;
-  padding: 10px;
+  padding: 0.5rem;
   &:hover {
     // REVIEW: colour/wanted
     background-color: lightgrey;

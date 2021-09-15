@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import './variables.scss';
 
 .mainContainer {
   // outline: auto;
@@ -32,7 +32,7 @@
   // margin: 0 3px;
   // border-radius: 15px;
   transition: 0.3s;
-  padding: 10px;
+  padding: 0.7rem 1rem;
   &:hover {
     // REVIEW: colour/wanted
     background-color: #0074b7;
@@ -42,12 +42,6 @@
 
 // Couldn't get :last-child to work
 .itemLast {
-  transition: 0.3s;
-  padding: 10px;
-  &:hover {
-    // REVIEW: colour/wanted
-    background-color: #0074b7;
-  }
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }

@@ -1,12 +1,20 @@
+// Library Imports
 import React, { useState, useContext } from "react";
 import Link from "next/link";
+import Hamburger from "hamburger-react";
 import { Container } from "@material-ui/core";
 
-import useWindowDimensions from "src/helpers/useWindowDimensions";
-import navLinks from "src/data/navLinksData";
-import styles from "src/styles/NavBar.module.scss";
-import Hamburger from "hamburger-react";
+// Component Imports
 import NavItem from "./NavItem";
+
+// Styling
+import styles from "src/styles/NavBar.module.scss";
+
+// Helper Imports
+import useWindowDimensions from "src/helpers/useWindowDimensions";
+
+// Data
+import navLinks from "src/data/navLinksData";
 
 const NavBar: React.FC = () => {
   // mobile
