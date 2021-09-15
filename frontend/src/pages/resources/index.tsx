@@ -25,7 +25,7 @@ const Resources: React.FC = () => {
         <ul className={styles.resources}>
           {resourceInfo.map((resource, index) => (
             <li key={index}>
-              <Strip {...resource} titlePosition={index % 2 == 0 ? "left" : "right"} />
+              <Strip {...resource} />
             </li>
           ))}
         </ul>

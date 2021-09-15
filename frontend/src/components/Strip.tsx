@@ -3,11 +3,7 @@ import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
 import styles from "src/styles/Strip.module.scss";
-import { resourceDetails } from "src/data/resourceData";
-
-interface stripProps extends resourceDetails {
-  titlePosition: "left" | "right";
-}
+import { resourceDetails as stripProps } from "src/data/resourceData";
 
 const Strip: React.FC<stripProps> = ({
   title,

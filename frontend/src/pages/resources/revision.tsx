@@ -14,7 +14,7 @@ import styles from "src/styles/revision.module.scss";
 
 // Data
 import revisionData from "src/data/revisionData";
-import { revisionInfo } from "src/data/resourceData";
+import { examBankInfo, revisionInfo } from "src/data/resourceData";
 
 const Revision: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ const Revision: React.FC = () => {
         url={revisionInfo.backgroundImage}
         text={revisionInfo.title}
         icon={revisionInfo.iconPath}
-        titlePosition="right"
+        titlePosition={examBankInfo.titlePosition}
       />
       <PageBody>
         <WholePageBox>
