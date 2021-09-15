@@ -1,8 +1,12 @@
+// Library Imports
 import React from "react";
+import { createTheme, ThemeProvider } from "@material-ui/core";
+
+// Component Imports
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 
-import { createTheme, ThemeProvider } from "@material-ui/core";
+// Styling
 import styles from "src/styles/Layout.module.scss";
 
 const theme = createTheme({
@@ -10,6 +14,9 @@ const theme = createTheme({
     fontFamily: "DM Sans",
     h1: {
       fontSize: "3.45rem",
+      ["@media screen and (max-width: 860px)"]: {
+        fontSize: "2.6rem"
+      },
       fontWeight: 600
     },
     h2: {
