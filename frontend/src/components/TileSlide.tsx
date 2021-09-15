@@ -17,7 +17,7 @@ const TileSlide: React.FC<TileSlideProps> = ({ groupHeader, groupLinks }) => {
         {groupLinks.map((link, index) => (
           <li key={index}>
             <Link href={link.path}>
-              <a>
+              <a target="_blank">
                 <Typography variant="body2" style={{ fontSize: "1rem" }}>
                   {link.name}
                 </Typography>

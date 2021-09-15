@@ -37,22 +37,32 @@ export interface links {
 const examBankData: revisionTile[] = [
   {
     courseCode: "MATH1031",
-    courseTitle: "Mathematics for Life Sciences (Labs)",
+    courseTitle: "Mathematics for Life Sciences",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Mastery Lab 1",
         groupLinks: [
           {
-            name: "Mystery Lab 1 Sample Solutions 2019",
-            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_1_Solutions_2019.pdf"
-          },
+            name: "2019T3 Sample Solutions",
+            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_1_Solutions_2019T3.pdf"
+          }
+        ]
+      },
+      {
+        groupHeader: "Mastery Lab 2",
+        groupLinks: [
           {
-            name: "Mystery Lab 2 Sample Solutions 2019",
-            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_1_Solutions_2019.pdf"
-          },
+            name: "2019T3 Sample Solutions",
+            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_2_Solutions_2019T3.pdf"
+          }
+        ]
+      },
+      {
+        groupHeader: "Mastery Lab 3",
+        groupLinks: [
           {
-            name: "Mystery Lab 3 Sample Solutions 2019",
-            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_1_Solutions_2019.pdf"
+            name: "2019T3 Sample Solutions",
+            path: "/files/examBank/MATH1031/MATH1031_Mastery_Labtest_3_Solutions_2019T3.pdf"
           }
         ]
       }
@@ -60,18 +70,23 @@ const examBankData: revisionTile[] = [
   },
   {
     courseCode: "MATH1081",
-    courseTitle: "Discrete Mathematics (Labs)",
+    courseTitle: "Discrete Mathematics",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Lab Test 1",
         groupLinks: [
           {
-            name: "2019T3 Lab Test 1 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_T3_Labtest1_2019.pdf"
-          },
+            name: "2019T3 Sample Solutions",
+            path: "/files/examBank/MATH1081/MATH1081_Lab_Test_1_2019T3.pdf"
+          }
+        ]
+      },
+      {
+        groupHeader: "Lab Test 2",
+        groupLinks: [
           {
-            name: "2019T3 Lab Test 2 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_T3_Labtest2_2019.pdf"
+            name: "2019T3 Sample Solutions",
+            path: "/files/examBank/MATH1081/MATH1081_Lab_Test_2_2019T3.pdf"
           }
         ]
       }
@@ -82,23 +97,28 @@ const examBankData: revisionTile[] = [
     courseTitle: "(Higher) Mathematics 1A",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Lab Test 1",
         groupLinks: [
           {
-            name: "2019 Test 1 Calculus",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Labtest1_Calculus_2019.pdf"
+            name: "2019T3 Algebra Sample Solutions",
+            path: "/files/examBank/MATH1131_1141/MATH1131_1141_Lab_Test_1_Algebra_2019T3.pdf"
           },
           {
-            name: "2019T3 Test 1 Algebra",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Labtest1_Algebra_2019.pdf"
+            name: "2019T3 Calculus Sample Solutions",
+            path: "/files/examBank/MATH1131_1141/MATH1131_1141_Lab_Test_1_Calculus_2019T3.pdf"
+          }
+        ]
+      },
+      {
+        groupHeader: "Lab Test 2",
+        groupLinks: [
+          {
+            name: "2019T3 Algebra Sample Solutions",
+            path: "/files/examBank/MATH1131_1141/MATH1131_1141_Lab_Test_2_Algebra_2019T3.pdf"
           },
           {
-            name: "2019 Test 2 Calculus",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Labtest2_Calculus_2019.pdf"
-          },
-          {
-            name: "2019 Test 2 Algebra",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Labtest2_Algebra_2019.pdf"
+            name: "2019T3 Calculus Sample Solutions",
+            path: "/files/examBank/MATH1131_1141/MATH1131_1141_Lab_Test_2_Calculus_2019T3.pdf"
           }
         ]
       }
@@ -109,23 +129,28 @@ const examBankData: revisionTile[] = [
     courseTitle: "(Higher) Mathematics 1B",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Lab Test 1",
         groupLinks: [
           {
-            name: "2020 Test 1 Calculus",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Labtest1_Calculus_2020.pdf"
+            name: "2019T3 Algebra Sample Solutions",
+            path: "/files/examBank/MATH1231_1241/MATH1231_1241_Lab_Test_1_Algebra_2019T3.pdf"
           },
           {
-            name: "2019 Test 1 Algebra",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Labtest1_Algebra_2019.pdf"
+            name: "2020T3 Calculus Sample Solutions",
+            path: "/files/examBank/MATH1231_1241/MATH1231_1241_Lab_Test_1_Calculus_2020T3.pdf"
+          }
+        ]
+      },
+      {
+        groupHeader: "Lab Test 2",
+        groupLinks: [
+          {
+            name: "2019T3 Algebra Sample Solutions",
+            path: "/files/examBank/MATH1231_1241/MATH1231_1241_Lab_Test_2_Algebra_2019T3.pdf"
           },
           {
-            name: "2019 Test 2 Algebra",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Labtest2_Algebra_2019.pdf"
-          },
-          {
-            name: "2019 Test 2 Calculus",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Labtest2_Calculus_2019.pdf"
+            name: "2019T3 Calculus Sample Solutions",
+            path: "/files/examBank/MATH1231_1241/MATH1231_1241_Lab_Test_2_Calculus_2019T3.pdf"
           }
         ]
       }
@@ -136,94 +161,92 @@ const examBankData: revisionTile[] = [
 export const oldExamBankData: revisionTile[] = [
   {
     courseCode: "MATH1081",
-    courseTitle: "Discrete Mathematics (Labs)",
+    courseTitle: "Discrete Mathematics",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Sample Solutions",
         groupLinks: [
           {
-            name: "2008S1 Test 1 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_Test_1_Solutions_2008.pdf"
+            name: "Test 1 Solutions",
+            path: "/files/examBank/MATH1081/old/MATH1081_Test_1.pdf"
           },
           {
-            name: "2008S1 Test 2 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_Test_2_Solutions_2008.pdf"
+            name: "Test 2 Solutions (Sem 1)",
+            path: "/files/examBank/MATH1081/old/MATH1081_Test_2_S1.pdf"
           },
           {
-            name: "2008S1 Test 2 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_Test_2_Semester_2_2008.pdf"
+            name: "Test 2 Solutions (Sem 2)",
+            path: "/files/examBank/MATH1081/old/MATH1081_Test_2_S2.pdf"
           },
           {
-            name: "2008S1 Test 3 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_Test_3_Solutions_2008.pdf"
+            name: "Test 3 Solutions (Sem 1)",
+            path: "/files/examBank/MATH1081/old/MATH1081_Test_3_S1.pdf"
           },
           {
-            name: "2008S1 Test 3 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_Test_3_Semester_2_2008.pdf"
+            name: "Test 3 Solutions (Sem 2)",
+            path: "/files/examBank/MATH1081/old/MATH1081_Test_3_S2.pdf"
           },
           {
-            name: "2008S1 Test 4 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_Test_4_Solutions_2008.pdf"
+            name: "Test 4 Solutions (Sem 1)",
+            path: "/files/examBank/MATH1081/old/MATH1081_Test_4_S1.pdf"
           },
           {
-            name: "2008S1 Test 4 Solutions",
-            path: "/files/examBank/MATH1081/MATH1081_Test_4_Semester_2_2008.pdf"
+            name: "Test 4 Solutions (Sem 2)",
+            path: "/files/examBank/MATH1081/old/MATH1081_Test_4_S2.pdf"
           }
         ]
       }
     ]
   },
-  //NEXT TILE
   {
     courseCode: "MATH1131/MATH1141",
     courseTitle: "(Higher) Mathematics 1A",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Sample Solutions",
         groupLinks: [
           {
-            name: "2014 Test 1 Algebra",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Test_1_Algebra_2014.pdf"
+            name: "Test 1 (Algebra)",
+            path: "/files/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_1_Algebra.pdf"
           },
           {
-            name: "2014 Test 2 Algebra",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Test_2_Algebra_2014.pdf"
+            name: "Test 1 (Calculus)",
+            path: "/files/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_1_Calculus.pdf"
           },
           {
-            name: "2008 Test 1 Calculus",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Test_1_Calculus_2008.pdf"
+            name: "Test 2 (Algebra)",
+            path: "/files/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_2_Algebra.pdf"
           },
           {
-            name: "2009 Test 2 Calculus",
-            path: "/files/examBank/MATH1131_MATH1141/MATH1131_1141_Test_2_Calculus_2009.pdf"
+            name: "Test 2 (Calculus)",
+            path: "/files/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_2_Calculus.pdf"
           }
         ]
       }
     ]
   },
-  //NEXT TILE
   {
     courseCode: "MATH1231/MATH1241",
     courseTitle: "(Higher) Mathematics 1B",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Sample Solutions",
         groupLinks: [
           {
-            name: "2007 Test 1 Calculus",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Algebra_Test_1_2007.pdf"
+            name: "Test 1 (Algebra)",
+            path: "/files/examBank/MATH1231_1241/old/MATH1231_1241_Test_1_Algebra.pdf"
           },
           {
-            name: "2008 Test 1 Calculus",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Calculus_Test_1_2008.pdf"
+            name: "Test 1 (Calculus)",
+            path: "/files/examBank/MATH1231_1241/old/MATH1231_1241_Test_1_Calculus.pdf"
           },
           {
-            name: "2009 Test 2 Algebra",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Algebra_Test_2_2009.pdf"
+            name: "Test 2 (Algebra)",
+            path: "/files/examBank/MATH1231_1241/old/MATH1231_1241_Test_2_Algebra.pdf"
           },
           {
-            name: "2008 Test 2 Calculus",
-            path: "/files/examBank/MATH1231_MATH1241/MATH1231_1241_Calculus_Test_2_2008.pdf"
+            name: "Test 2 (Calculus)",
+            path: "/files/examBank/MATH1231_1241/old/MATH1231_1241_Test_2_Calculus.pdf"
           }
         ]
       }
@@ -234,39 +257,23 @@ export const oldExamBankData: revisionTile[] = [
     courseTitle: "Mathematics for Actuarial Studies and Finance 1A",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Sample Solutions",
         groupLinks: [
           {
-            name: "2008 Test 1 Algebra",
-            path: "/files/examBank/MATH1151/MATH1151_Test_1_Algebra_2008.pdf"
+            name: "Test 1 (Algebra)",
+            path: "/files/examBank/MATH1151/old/MATH1151_Test_1_Algebra.pdf"
           },
           {
-            name: "2008 Test 1 Calculus",
-            path: "/files/examBank/MATH1151/MATH1151_Test_1_Calculus_2008.pdf"
+            name: "Test 1 (Calculus)",
+            path: "/files/examBank/MATH1151/old/MATH1151_Test_1_Calculus.pdf"
           },
           {
-            name: "2008 Test 2 Algebra",
-            path: "/files/examBank/MATH1151/MATH1151_Test_2_Algebra_2008.pdf"
+            name: "Test 2 (Algebra)",
+            path: "/files/examBank/MATH1151/old/MATH1151_Test_2_Algebra.pdf"
           },
           {
-            name: "2008 Test 2 Calculus",
-            path: "/files/examBank/MATH1151/MATH1151_Test_2_Calculus_2008.pdf"
-          }
-        ]
-      }
-    ]
-  },
-
-  {
-    courseCode: "MATH2621",
-    courseTitle: "Higher Complex Analysis",
-    revisionLinks: [
-      {
-        groupHeader: "",
-        groupLinks: [
-          {
-            name: "2018 Homework Worked Solutions",
-            path: "/files/examBank/MATH2621/MATH2621_Worked_HW_Solutions_2018.pdf"
+            name: "Test 2 (Calculus)",
+            path: "/files/examBank/MATH1151/old/MATH1151_Test_2_Calculus.pdf"
           }
         ]
       }
@@ -277,15 +284,38 @@ export const oldExamBankData: revisionTile[] = [
     courseTitle: "Mathematics for Actuarial Studies and Finance 1B",
     revisionLinks: [
       {
-        groupHeader: "",
+        groupHeader: "Sample Solutions",
         groupLinks: [
           {
-            name: "2010 Algebra - Course Pack Solutions",
-            path: "/files/examBank/MATH1251/MATH1251_Algebra_Course_Pack_Solutions_2010.pdf"
+            name: "Quiz (Algebra)",
+            path: "/files/examBank/MATH1251/old/MATH1251_Quiz_Algebra.pdf"
           },
           {
-            name: "2010 Calculus - Course Pack Solutions",
-            path: "/files/examBank/MATH1251/MATH1251_Calculus_Course_Pack_Solutions_2010.pdf"
+            name: "Quiz (Calculus)",
+            path: "/files/examBank/MATH1251/old/MATH1251_Quiz_Calculus.pdf"
+          },
+          {
+            name: "Test (Algebra)",
+            path: "/files/examBank/MATH1251/old/MATH1251_Test_Algebra.pdf"
+          },
+          {
+            name: "Test (Calculus)",
+            path: "/files/examBank/MATH1251/old/MATH1251_Test_Calculus.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    courseCode: "MATH2621",
+    courseTitle: "Higher Complex Analysis",
+    revisionLinks: [
+      {
+        groupHeader: "Sample Solutions",
+        groupLinks: [
+          {
+            name: "Homework Worked Solutions (2018)",
+            path: "/files/examBank/MATH2621/old/MATH2621_Worked_HW_Solutions_2018.pdf"
           }
         ]
       }

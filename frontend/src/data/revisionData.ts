@@ -40,7 +40,7 @@ const revisionData: revisionTile[] = [
     courseTitle: "Mathematics for Life Sciences",
     revisionLinks: [
       {
-        groupHeader: "2020, T3 Revision Seminar",
+        groupHeader: "2020T3 Revision Seminar",
         groupLinks: [
           {
             name: "Mathematics for Life Sciences (all)",
@@ -55,10 +55,10 @@ const revisionData: revisionTile[] = [
     courseTitle: "Statistics for Life and Social Science",
     revisionLinks: [
       {
-        groupHeader: "2020, T3 Revision Seminar",
+        groupHeader: "2020T3 Revision Seminar",
         groupLinks: [
           {
-            name: "Statistics for Life and Social Science (all)",
+            name: "Statistics for Life and Social Sciences (all)",
             path: "/files/revision/MATH1041/MATH1041_2020.pdf"
           }
         ]
@@ -70,29 +70,29 @@ const revisionData: revisionTile[] = [
     courseTitle: "Discrete Mathematics",
     revisionLinks: [
       {
-        groupHeader: "2021, T1 Revision Seminar",
+        groupHeader: "Revision Resources",
         groupLinks: [
-          {
-            name: "Revision Workshop",
-            path: "/files/revision/MATH1081/MATH1081_Workshop_Term_1_2020.pdf"
-          },
           {
             name: "Revision Sheet",
             path: "/files/revision/MATH1081/MATH1081_Revision_Sheet_Term_1_2021.pdf"
-          }
-        ]
-      },
-      {
-        groupHeader: "2020, T3 Revision Handout",
-        groupLinks: [
+          },
           {
-            name: "Revision Handout",
+            name: "Revision Handout (2020T3)",
             path: "/files/revision/MATH1081/MATH1081_Handout_Term_3_2020.pdf"
           }
         ]
       },
       {
-        groupHeader: "2020, T1 Revision Seminar",
+        groupHeader: "2021T1 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Discrete Mathematics (all)",
+            path: "/files/revision/MATH1081/MATH1081_Workshop_Term_1_2020.pdf"
+          }
+        ]
+      },
+      {
+        groupHeader: "2020T1 Revision Seminar",
         groupLinks: [
           {
             name: "Chapter 1,2,5 - Sets, Integers & Graphs",
@@ -117,7 +117,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T1 Revision Seminar",
+        groupHeader: "2019T1 Revision Seminar",
         groupLinks: [
           {
             name: "Chapter 1,2,5 - Sets, Integers & Graphs",
@@ -140,12 +140,17 @@ const revisionData: revisionTile[] = [
     courseTitle: "Mathematics 1A",
     revisionLinks: [
       {
-        groupHeader: "2021, T1 Revision Seminar",
+        groupHeader: "Revision Resources",
         groupLinks: [
           {
-            name: "Revision Handout",
+            name: "Revision Sheet",
             path: "/files/revision/MATH1131_1141/MATH1131_Essential_Formulas_and_Theorems_Term_1_2021.pdf"
-          },
+          }
+        ]
+      },
+      {
+        groupHeader: "2021T1 Revision Seminar",
+        groupLinks: [
           {
             name: "Algebra and Calculus",
             path: "/files/revision/MATH1131_1141/MATH1131_1141_Workshop_Term_1_2021.pdf"
@@ -153,7 +158,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2020, T1 Revision Seminar",
+        groupHeader: "2020T1 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
@@ -170,7 +175,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T3 Revision Seminar",
+        groupHeader: "2019T3 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra & Calculus",
@@ -183,7 +188,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T1 Revision Seminar",
+        groupHeader: "2019T1 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
@@ -200,7 +205,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2017, T3 Revision Seminar",
+        groupHeader: "2017T3 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
@@ -227,7 +232,7 @@ const revisionData: revisionTile[] = [
     courseTitle: "Mathematics 1B",
     revisionLinks: [
       {
-        groupHeader: "2021, T2 Revision Seminar",
+        groupHeader: "2021T2 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
@@ -240,7 +245,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2020, T2 Revision Seminar",
+        groupHeader: "2020T2 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
@@ -253,7 +258,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T2 Revision Seminar",
+        groupHeader: "2019T2 Revision Seminar",
         groupLinks: [
           {
             name: "Algebra",
@@ -274,7 +279,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2017, S2 Revision Seminar",
+        groupHeader: "2017S2 Revision Seminar",
         groupLinks: [
           { name: "Algebra", path: "/files/revision/MATH1231_1241/MATH1231_Algebra_2017.pdf" },
           {
@@ -295,16 +300,16 @@ const revisionData: revisionTile[] = [
     courseTitle: "Several Variable Calculus",
     revisionLinks: [
       {
-        groupHeader: "2021, T1 Revision Seminar",
+        groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
           {
-            name: "Full Revision Seminar Workshop",
+            name: "Several Variable Calculus (all)",
             path: "/files/revision/MATH2011_2111/MATH2111_Seminar_Term_1_2021.pdf"
           }
         ]
       },
       {
-        groupHeader: "2020, T1 Revision Seminar",
+        groupHeader: "2020T1 Revision Seminar",
         groupLinks: [
           {
             name: "Differential Calculus",
@@ -329,14 +334,14 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T1 Revision Seminar",
+        groupHeader: "2019T1 Revision Seminar",
         groupLinks: [
           {
-            name: "Differential Calculus/Multiple Integrals (1/2)",
+            name: "Differential Calculus/Multiple Integrals",
             path: "/files/revision/MATH2011_2111/MATH2011_Part_1_Term_1_2019.pdf"
           },
           {
-            name: "Vector Calculus/Analysis (2/2)",
+            name: "Vector Calculus/Analysis",
             path: "/files/revision/MATH2011_2111/MATH2011_Part_2_Term_1_2019.pdf"
           },
           {
@@ -352,16 +357,16 @@ const revisionData: revisionTile[] = [
     courseTitle: "Engineering Mathematics 2D/E",
     revisionLinks: [
       {
-        groupHeader: "2021, T1 Revision Seminar",
+        groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
           {
-            name: "Revision Seminar Workshop",
+            name: "Engineering Mathematics (all)",
             path: "/files/revision/MATH2018_2019/MATH2019_Workshop_Term_1_2021.pdf"
           }
         ]
       },
       {
-        groupHeader: "2020, T1 Revision Seminar",
+        groupHeader: "2020T1 Revision Seminar",
         groupLinks: [
           {
             name: "Seminar (1/2)",
@@ -388,20 +393,20 @@ const revisionData: revisionTile[] = [
     courseTitle: "Numerical Methods and Statistics",
     revisionLinks: [
       {
-        groupHeader: "2021, T1 Revision Seminar",
+        groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
           {
             name: "Revision Seminar Workshop",
             path: "/files/revision/MATH2089/MATH2089_Workshop_Term_1_2021.pdf"
           },
           {
-            name: "MATLAB, Parabolic Equation",
+            name: "Parabolic Equation (MATLAB)",
             path: "/files/revision/MATH2089/MATH2089_Parabolic_Equation_Term_1_2021.mlx"
           }
         ]
       },
       {
-        groupHeader: "2020, T2 Revision Seminar",
+        groupHeader: "2020T2 Revision Seminar",
         groupLinks: [
           {
             name: "Numerical Methods",
@@ -420,7 +425,7 @@ const revisionData: revisionTile[] = [
     courseTitle: "Theory and Applications of Differential Equations",
     revisionLinks: [
       {
-        groupHeader: "2020, T2 Revision Seminar",
+        groupHeader: "2020T2 Revision Seminar",
         groupLinks: [
           {
             name: "Seminar (1/2)",
@@ -433,7 +438,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T2 Revision Seminar",
+        groupHeader: "2019T2 Revision Seminar",
         groupLinks: [
           {
             name: "Differential Equations",
@@ -452,7 +457,7 @@ const revisionData: revisionTile[] = [
     courseTitle: "Linear Algebra",
     revisionLinks: [
       {
-        groupHeader: "2021, T2 Revision Seminar",
+        groupHeader: "2021T2 Revision Seminar",
         groupLinks: [
           {
             name: "Seminar (1/2)",
@@ -465,7 +470,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2020, T2 Revision Seminar",
+        groupHeader: "2020T2 Revision Seminar",
         groupLinks: [
           {
             name: "Seminar (1/2)",
@@ -478,7 +483,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T2 Revision Seminar",
+        groupHeader: "2019T2 Revision Seminar",
         groupLinks: [
           {
             name: "Seminar (1/2)",
@@ -505,7 +510,7 @@ const revisionData: revisionTile[] = [
     courseTitle: "Complex Analysis",
     revisionLinks: [
       {
-        groupHeader: "2020, T3 Revision Seminar",
+        groupHeader: "2020T3 Revision Seminar",
         groupLinks: [
           {
             name: "Complex Analysis (all)",
@@ -514,7 +519,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2019, T3 Revision Seminar",
+        groupHeader: "2019T3 Revision Seminar",
         groupLinks: [
           {
             name: "Complex Analysis (all)",
@@ -533,7 +538,7 @@ const revisionData: revisionTile[] = [
     courseTitle: "Theory of Statistics",
     revisionLinks: [
       {
-        groupHeader: "2021, T2 Revision Seminar",
+        groupHeader: "2021T2 Revision Seminar",
         groupLinks: [
           {
             name: "Theory of Statistics (all)",
@@ -542,7 +547,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2020, T2 Revision Seminar (Collab with UNSW StatSoc)",
+        groupHeader: "2020T2 Revision Seminar (Collab with UNSW StatSoc)",
         groupLinks: [
           {
             name: "MATH2801/2901 Theory of Statistics (all)",
@@ -551,7 +556,7 @@ const revisionData: revisionTile[] = [
         ]
       },
       {
-        groupHeader: "2020, T2 Revision Seminar (Collab with UNSW StatSoc)",
+        groupHeader: "2020T2 Revision Seminar (Collab with UNSW StatSoc)",
         groupLinks: [
           {
             name: "MATH2901 Seminar (1/2)",
@@ -570,10 +575,10 @@ const revisionData: revisionTile[] = [
     courseTitle: "Finite Mathematics",
     revisionLinks: [
       {
-        groupHeader: "2021, T2 Revision Seminar",
+        groupHeader: "2021T2 Revision Seminar",
         groupLinks: [
           {
-            name: "MATH2400 Workshop",
+            name: "Finite Mathematics (all)",
             path: "/files/revision/MATH2400/MATH2400_Workshop_Term_2_2021.pdf"
           }
         ]

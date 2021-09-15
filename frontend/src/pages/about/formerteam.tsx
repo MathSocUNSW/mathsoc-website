@@ -31,9 +31,7 @@ const FormerTeam: React.FC = () => {
               <Typography variant="h2" align="center">
                 {year}
               </Typography>
-              <div className={subcommittee ? styles.execTeam : ""}>
-                <FormerTeamMainCard execList={execList} directorList={directorList} />
-              </div>
+              <FormerTeamMainCard execList={execList} directorList={directorList} />
               {subcommittee.length > 0 && <FormerTeamSubCard subcommittee={subcommittee} />}
             </WholePageBox>
           ))}
