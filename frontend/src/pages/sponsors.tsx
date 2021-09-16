@@ -60,7 +60,7 @@ const Sponsors: React.FC = () => {
                 If you are interested about sponsoring opportunities or have any questions, please
                 contact our Sponsorship Directors at
                 <br />
-                <a href="mailto:sponsorship-mathsoc@unsw.edu.au">sponsorship-mathsoc@unsw.edu.au</a>
+                <a href="mailto:sponsorships@unswmathsoc.org">sponsorships@unswmathsoc.org</a>
               </Typography>
             </div>
           </WholePageBox>

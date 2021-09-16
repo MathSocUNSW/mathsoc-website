@@ -68,9 +68,7 @@ const About: React.FC = () => {
               Discord server
             </a>{" "}
             where you can discuss maths to your heart’s content – which also doubles as a place to
-            discuss anything and everything mathematical. Moreover, we have dedicated First Year and
-            Higher Year Facebook groups – and for First Years, MathSoc also releases solutions to
-            past class tests!
+            discuss anything and everything mathematical.
           </Typography>
           {/* TODO finish off links */}
           <Typography variant="body1">
