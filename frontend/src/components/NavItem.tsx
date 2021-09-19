@@ -1,10 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { navLink } from "src/data/navLinksData";
 import styles from "src/styles/NavItem.module.scss";
 import NavDropdown from "./NavDropdown";
+import { useDropdownData } from "src/utils/DropdownContext";
 
 // Clean up, use extend
 interface NavItemProps {
@@ -21,6 +21,9 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width, currentRoute
 
   const onMouseEnter = () => setDropdown(true);
   const onMouseLeave = () => setDropdown(false);
+
+  const { currentDropdownOpen, setCurrentDropdownOpen } = useDropdownData();
+
   const DesktopVersionDropdown = (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {/* Crude fix of type here, may cause errors in the future */}
@@ -72,6 +75,18 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width, currentRoute
     </li>
   );
 
+  const handleMobileOnClick = () => {
+    setDropdownMobile(!dropdownMobile);
+    if (setCurrentDropdownOpen) setCurrentDropdownOpen(navData.route);
+  };
+
+  React.useEffect(() => {
+    if (dropdownMobile && currentDropdownOpen !== navData.route) {
+      setDropdownMobile(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentDropdownOpen]);
+
   const MobileVersionItem = (
     <>
       {navData.dropdown ? (
@@ -79,7 +94,7 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width, currentRoute
           className={`${styles.navButton} ${
             navData.route === currentRouterPath ? styles.navButtonActivePage : ""
           }`}
-          onClick={() => setDropdownMobile(!dropdownMobile)}
+          onClick={handleMobileOnClick}
         >
           <a>
             <span>{navData.name}</span> {navData.dropdown && <div className={styles.navArrow} />}
