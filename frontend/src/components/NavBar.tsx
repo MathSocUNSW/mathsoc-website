@@ -1,5 +1,6 @@
 // Library Imports
 import React, { useState, useContext } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Hamburger from "hamburger-react";
 import { Container } from "@material-ui/core";
@@ -17,20 +18,18 @@ import useWindowDimensions from "src/helpers/useWindowDimensions";
 import navLinks from "src/data/navLinksData";
 
 const NavBar: React.FC = () => {
-  // mobile
-  const [isOpen, setOpen] = useState(false);
-  // sticky
-  const [isStuck, setStuck] = useState(false);
-  if (typeof window !== "undefined") {
+  const [isOpen, setOpen] = useState(false); // mobile
+  const [isStuck, setStuck] = useState(false); // sticky
+  const { width } = useWindowDimensions();
+  if (typeof window !== "undefined")
     window.addEventListener("scroll", () => setStuck(window.scrollY >= 80));
-  }
-  const stuckShadow = {
-    boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.25)"
-  };
+  const stuckShadow = { boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.25)" };
   // TODO: dark mode (with useContext)
 
-  const { width } = useWindowDimensions();
-
+  // Get path
+  const router = useRouter();
+  const paths = router.pathname.split("/").filter((x) => x.length !== 0);
+  console.log(paths);
   return (
     <header className={styles.navbar} style={isStuck ? stuckShadow : {}}>
       <Container>
@@ -53,7 +52,13 @@ const NavBar: React.FC = () => {
           <nav className={isOpen ? `${styles.navItems}` + ` ${styles.open}` : `${styles.navItems}`}>
             <ul className={styles.navLinks}>
               {navLinks.map((item) => (
-                <NavItem key={item.name} navData={item} setOpen={setOpen} width={width} />
+                <NavItem
+                  key={item.name}
+                  navData={item}
+                  setOpen={setOpen}
+                  width={width}
+                  currentRouterPath={paths.length === 0 ? null : `/${paths[0]}`} // string formatted for navData
+                />
               ))}
             </ul>
           </nav>

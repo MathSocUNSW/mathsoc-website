@@ -12,6 +12,17 @@
   }
 }
 
+.navButtonActivePage {
+  background-color: $navDropdownBGHover;
+  span {
+    color: white;
+  }
+}
+
+.navButtonActivePageText {
+  color: white;
+}
+
 .mainContainer {
   // outline: auto;
   height: 60px;
