@@ -29,7 +29,7 @@ const NavBar: React.FC = () => {
   // Get path
   const router = useRouter();
   const paths = router.pathname.split("/").filter((x) => x.length !== 0);
-  console.log(paths);
+
   return (
     <header className={styles.navbar} style={isStuck ? stuckShadow : {}}>
       <Container>
