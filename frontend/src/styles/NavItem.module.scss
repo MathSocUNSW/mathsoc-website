@@ -17,6 +17,11 @@
   span {
     color: white;
   }
+  &:hover {
+    span {
+      color: $darkNavy;
+    }
+  }
 }
 
 .navButtonActivePageText {
