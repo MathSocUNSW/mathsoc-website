@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { navLink } from "src/data/navLinksData";
 import styles from "src/styles/NavItem.module.scss";
