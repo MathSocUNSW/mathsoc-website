@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { navLink } from "src/data/navLinksData";
 import styles from "src/styles/NavItem.module.scss";
@@ -10,16 +11,16 @@ interface NavItemProps {
   navData: navLink;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   width: number;
+  currentRouterPath: string | null;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
+const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width, currentRouterPath }) => {
   // Something is interfering with dropdown when mobile, so new state is used
   const [dropdown, setDropdown] = React.useState(false);
   const [dropdownMobile, setDropdownMobile] = React.useState(false);
 
   const onMouseEnter = () => setDropdown(true);
   const onMouseLeave = () => setDropdown(false);
-
   const DesktopVersionDropdown = (
     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {/* Crude fix of type here, may cause errors in the future */}
@@ -49,11 +50,23 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
     </div>
   );
 
+  /**
+   * NOTE: Any changes made to `DesktopVersionItem` should be made to `MobileVersionItem`,
+   * otherwise page loading might not be consistent.
+   *
+   * It could probably be decoupled better
+   */
+
   const DesktopVersionItem = (
-    <li className={styles.navButton} onClick={() => setOpen(false)}>
+    <li
+      className={`${styles.navButton} ${
+        navData.route === currentRouterPath ? styles.navButtonActivePage : ""
+      }`}
+      onClick={() => setOpen(false)}
+    >
       <Link href={navData.route}>
         <a>
-          {navData.name} {navData.dropdown && <div className={styles.navArrow} />}
+          <span>{navData.name}</span> {navData.dropdown && <div className={styles.navArrow} />}
         </a>
       </Link>
     </li>
@@ -62,9 +75,14 @@ const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
   const MobileVersionItem = (
     <>
       {navData.dropdown ? (
-        <li className={styles.navButton} onClick={() => setDropdownMobile(!dropdownMobile)}>
+        <li
+          className={`${styles.navButton} ${
+            navData.route === currentRouterPath ? styles.navButtonActivePage : ""
+          }`}
+          onClick={() => setDropdownMobile(!dropdownMobile)}
+        >
           <a>
-            {navData.name} {navData.dropdown && <div className={styles.navArrow} />}
+            <span>{navData.name}</span> {navData.dropdown && <div className={styles.navArrow} />}
           </a>
         </li>
       ) : (
