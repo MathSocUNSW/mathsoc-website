@@ -16,6 +16,7 @@ import useWindowDimensions from "src/helpers/useWindowDimensions";
 
 // Data
 import navLinks from "src/data/navLinksData";
+import { DropdownProvider } from "src/utils/DropdownContext";
 
 const NavBar: React.FC = () => {
   const [isOpen, setOpen] = useState(false); // mobile
@@ -29,7 +30,6 @@ const NavBar: React.FC = () => {
   // Get path
   const router = useRouter();
   const paths = router.pathname.split("/").filter((x) => x.length !== 0);
-  console.log(paths);
   return (
     <header className={styles.navbar} style={isStuck ? stuckShadow : {}}>
       <Container>
@@ -50,17 +50,19 @@ const NavBar: React.FC = () => {
             </Link>
           </div>
           <nav className={isOpen ? `${styles.navItems}` + ` ${styles.open}` : `${styles.navItems}`}>
-            <ul className={styles.navLinks}>
-              {navLinks.map((item) => (
-                <NavItem
-                  key={item.name}
-                  navData={item}
-                  setOpen={setOpen}
-                  width={width}
-                  currentRouterPath={paths.length === 0 ? null : `/${paths[0]}`} // string formatted for navData
-                />
-              ))}
-            </ul>
+            <DropdownProvider>
+              <ul className={styles.navLinks}>
+                {navLinks.map((item) => (
+                  <NavItem
+                    key={item.name}
+                    navData={item}
+                    setOpen={setOpen}
+                    width={width}
+                    currentRouterPath={paths.length === 0 ? null : `/${paths[0]}`} // string formatted for navData
+                  />
+                ))}
+              </ul>
+            </DropdownProvider>
           </nav>
           {/* <div className={styles.toggle}> */}
           {/* TODO: Dark Mode Toggle Switch */}
