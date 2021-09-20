@@ -42,9 +42,9 @@ export const discordData: socialData = {
 
 export const gmailData: socialData = {
   name: "Gmail",
-  url: "mailto:unswmathsoc@gmail.com",
+  url: "mailto:hello@unswmathsoc.org",
   iconPath: "/images/logos/gmailLogo.svg",
-  altName: "unswmathsoc@gmail.com"
+  altName: "hello@unswmathsoc.org"
 };
 
 export const twitchData: socialData = {
