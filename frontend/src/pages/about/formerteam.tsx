@@ -20,10 +20,10 @@ const FormerTeam: React.FC = () => {
   return (
     <section>
       <Head>
-        <title>Former Team - MathSoc</title>
+        <title>Former Teams - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_team.jpg" text="Former Team" />
+      <Hero url="/images/hero/mathsoc_team.jpg" text="Former Teams" />
       <PageBody>
         <div className={styles.boxes}>
           {pastTeamData.map(({ year, execList, directorList, subcommittee }) => (

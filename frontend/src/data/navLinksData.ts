@@ -19,7 +19,7 @@ const navLinks: navLink[] = [
     route: "/about",
     dropdown: [
       { name: "Meet the Team", subRoute: "/team", externalRoute: false },
-      { name: "Former Team", subRoute: "/formerteam", externalRoute: false }
+      { name: "Former Teams", subRoute: "/formerteam", externalRoute: false }
     ],
     displayDropdownMobile: true
   },
