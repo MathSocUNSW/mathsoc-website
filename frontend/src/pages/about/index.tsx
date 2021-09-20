@@ -76,15 +76,6 @@ const About: React.FC = () => {
             We’re here to fulfil your social, academic and career needs – and help make your time at
             UNSW a great one!
           </Typography>
-          {/* TEMP */}
-          <br />
-          <Typography variant="h2">Meet the team!</Typography>
-          <Typography variant="body1">
-            Click here to <Link href="/about/team">meet the 2021 team!</Link>
-          </Typography>
-          <Typography variant="body1">
-            Click here to see <Link href="/about/formerteam">former MathSoc teams!</Link>
-          </Typography>
         </WholePageBox>
       </PageBody>
     </section>
