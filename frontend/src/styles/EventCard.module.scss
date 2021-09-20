@@ -36,7 +36,7 @@
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
   height: calc(
-    multiply-rem($font-size, $line-height) * $lines-to-show
+    multiply-rem($font-size, $line-height) * ($lines-to-show - 0.35)
   ); /* Fallback for non-webkit */
   font-size: $font-size;
   line-height: $line-height;
