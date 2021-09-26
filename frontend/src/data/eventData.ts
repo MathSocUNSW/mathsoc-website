@@ -415,7 +415,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "Careers in Consulting",
-    eventLink: "www.facebook.com/events/2657273001237201",
+    eventLink: "https://www.facebook.com/events/2657273001237201",
     description:
       "Ever thought about becoming a consultant? Don’t know what the consulting industry is like? Curious about how your STEM degree can help you become a ✨star consultant✨?\nUNSW MathSoc is proud to present Careers in Consulting, our Q&A panel discussion featuring representatives from the following distinguished consulting firms:\n🌟 Servian\n🌟 Deloitte\n🌟 EY\nWe’ll be diving into various topics regarding consulting, such as what the average day in a life of a consultant looks like, what are the most valuable soft and technical skills in their consulting toolkit, how they familiarise themselves with a new industry to tackle a new project, and many more insightful topics!\nIf you have any of your own burning questions, or are just simply curious about other aspects of the consulting industry, then don’t worry, because there will be a section at the end for YOUR questions!\nRegister below for the Zoom link to the event!",
     imagePath: generateImagePath("careers_in_consulting_2021.jpg"),
@@ -426,7 +426,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "Exploring Mathematics at UNSW",
-    eventLink: "www.facebook.com/events/496876828053416",
+    eventLink: "https://www.facebook.com/events/496876828053416",
     description:
       "Not sure about which Math major to choose? Curious about the difficulty of Math courses later on in your degree? Need advice on how to survive UNSW Math & Stats degrees?\nIf you've ever asked yourself questions like these, wonder no more! MathSoc is proud to present Exploring Mathematics at UNSW, a Q&A panel discussion featuring some of our very own experienced MathSoc alumni who have nearly finished their Math degrees, and are here to guide you along your journey!\nWe’ll be going through various topics about the experience of doing Math & Stats at UNSW, such as the different majors available to choose from, what honours year is like, what the most interesting Math/Stats courses are, and many more insightful things!\nIn fact, you can also bring your questions to the discussion floor with the panellists! So make sure to come prepared with your juiciest questions 😳😳.",
     imagePath: generateImagePath("exploring_mathematics_at_unsw_2021.jpg"),
@@ -437,7 +437,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "Fouriers Feud",
-    eventLink: "www.facebook.com/events/532493108001312",
+    eventLink: "https://www.facebook.com/events/532493108001312",
     description:
       "We surveyed 100 people and the top 8 answers are on the board. The question: what is the best way for UNSW students to spend their lockdown? The top answer is... ATTENDING MATHSOC EVENTS! 😍\nWelcome, one and all, to Fourier's Feud* - MathSoc's very own game show! (with absolutely no relation to Family Feud.) This event aims to keep you on your toes by testing your quick thinking, general knowledge and teamwork skills.\nOur event will have 🌟4 teams🌟 of up to 5 members each going head-to-head in several rounds of Fourier's Feud, all for the chance of winning a special something from our 🌟prize pool🌟. If you are applying solo or as a team of less than 5, you will be assigned to a team.\nAnd if you don't want to compete, become a member of our live audience!\n*No Mathematics knowledge required.",
     imagePath: generateImagePath("fouriers_feud_2021.jpg"),
@@ -459,7 +459,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "MATH1231 1241 Revision Workshop",
-    eventLink: "www.facebook.com/events/1524857484521368",
+    eventLink: "https://www.facebook.com/events/1524857484521368",
     description:
       "Are you worried that you'll get matric-ked by the complex concepts taught in MATH1231/1241? Heard worrying things about the final exam and don't want to send your WAM to L'Hospital? Come along and revise with us instead of cramming and stressing the night before your final exam 😎\nMathSoc will get you exam-ready by revising the important concepts and then teaching you how to tackle past exam questions to make sure there will be no surprises when you take the real MATH1231/1241 test! We'll be splitting the workshop into two sessions: one for the course's calculus content and one for algebra content.",
     imagePath: generateImagePath("math1231_1241_revision_workshop_2021.jpg"),
@@ -470,7 +470,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "MATH2121 2221 Revision Seminar",
-    eventLink: "www.facebook.com/events/414353703280228",
+    eventLink: "https://www.facebook.com/events/414353703280228",
     description:
       "In case you haven’t noticed, I’m weird 🙄 I’m a weirdo 🤠 I don’t fit in and I don’t WANT to fit in 😔. I'm not ORDINARY... I'm different... some might say I'm differential.\" -MATH2121/2221\nMathSoc presents our ✨MATH2121/2221 Revision Seminar✨ for Term 2! This seminar will run over 2x two hour sessions to give you the best chance of understanding MATH2121/2221 course content to the fullest. We will also be covering key exam questions that may pop up in your final, as well as useful techniques to tackle them.\nSo, what are you waiting for? Put the POWER in power series, switch your brain on, and come join our sessions! It's an ELEMENTARY decision.",
     imagePath: generateImagePath("math2121_2221_revision_seminar_2021.jpg"),
@@ -481,7 +481,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "MATH2400 Revision Seminar",
-    eventLink: "www.facebook.com/events/518206899398675",
+    eventLink: "https://www.facebook.com/events/518206899398675",
     description:
       "Falling behind in MATH2400? Want to get the best marks you possibly can? MathSoc's presents our T2 ✨MATH2400 Revision Seminar.✨\nRun over the course of 2x two hour sessions, this seminar will get you prepped for your upcoming exam by covering all course content, as well as going over key exam questions and life saving techniques.\n",
     imagePath: generateImagePath("math2400_revision_seminar_2021.jpg"),
@@ -492,7 +492,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "MATH2501 2601 Revision Seminar",
-    eventLink: "www.facebook.com/events/1234679803669959",
+    eventLink: "https://www.facebook.com/events/1234679803669959",
     description:
       "Are you worried about MATH2501/2601 damaging your WAM? Does the thought of final exams approaching make your heart go boom boom? Well, stress no more because MathSoc has the solution for you! Presenting… our ✨MATH2501/2601 Revision Seminar!✨\nMathSoc is offering two 2-hour revision classes to help you ace your final exams. In these revision classes, you will learn how to confidently tackle common exam questions with the best strategies. Best of all, these revision seminars are completely free!",
     imagePath: generateImagePath("math2501_2601_revision_seminar_2021.jpg"),
@@ -503,7 +503,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "MATH2801 2901 Revision Seminar",
-    eventLink: "www.facebook.com/events/218340043528221",
+    eventLink: "https://www.facebook.com/events/218340043528221",
     description:
       "On the fence about coming to a MathSoc revision seminar? Allow us to POSITIVELY SKEW your attitude in the right direction... Statistically speaking, attending our MATH2801/2901 seminar grants you a significantly higher chance of securing the best marks possible in your final exam.\nSpeaking of statistics... MathSoc presents our ✨MATH2801/2901 Revision Seminar✨ for T2. This two part seminar will be covering all course content, while exposing you to key exam questions and life saving techniques.",
     imagePath: generateImagePath("math2801_2901_revision_seminar_2021.jpg"),
@@ -514,7 +514,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "STEM Industry Mentoring Program",
-    eventLink: "www.facebook.com/events/1261760917595142",
+    eventLink: "https://www.facebook.com/events/1261760917595142",
     description:
       "🧐Want to hear more about your future career pathways?\n🤩Looking for advice from experienced industry experts and leaders?\n🥰Want to bond with like-minded students, whilst forging your own career?\nIf you answered 𝐘𝐄𝐒 to any of the above, or even if you just want some more insights into what your future could look like in the STEM industry, apply now to our 𝗦𝗧𝗘𝗠 𝗜𝗻𝗱𝘂𝘀𝘁𝗿𝘆 𝗠𝗲𝗻𝘁𝗼𝗿𝗶𝗻𝗴 𝗣𝗿𝗼𝗴𝗿𝗮𝗺!",
     imagePath: generateImagePath("stem_industry_mentoring_program_2021.jpg"),
@@ -526,7 +526,7 @@ const eventData: eventDetails[] = [
   },
   {
     title: "The World of Trading Part 2",
-    eventLink: "www.facebook.com/events/539550180809570",
+    eventLink: "https://www.facebook.com/events/539550180809570",
     description:
       "Are you interested in using your collaborative skills and passion for the markets in a fast-paced environment? Are you curious to how your quantitative and analytical skills can be applied in a trading firm?\nDue to popular demand, UNIT UNSW and UNSW MathSoc are proud to bring back The World of Trading (Part 2), a Q&A panel discussion featuring representatives from:\n⭐ SIG\n⭐ Tibra\n⭐ Akuna Capital\nThe event will kick off with questions from UNIT UNSW and UNSW MathSoc, where the representatives will share their experiences working in a trading firm, their career journey and advice for students interested in a career in trading.\nThe event will finish off with open Q&A from the audience, where you will have the chance to get your burning questions answered.",
     imagePath: generateImagePath("the_world_of_trading_part_2_2021.jpg"),
