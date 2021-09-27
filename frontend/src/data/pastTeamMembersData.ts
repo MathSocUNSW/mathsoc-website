@@ -54,8 +54,8 @@ const pastTeamData: yearTeamData[] = [
     execList: [
       { name: "James Gao", role: "President" },
       { name: "Yuseph Ma", role: "Vice President" },
-      { name: "Rui Tong", role: "Treasurer" },
       { name: "Grace Li", role: "Secretary" },
+      { name: "Rui Tong", role: "Treasurer" },
       { name: "Jason Zhao", role: "Arc Delegate" }
     ],
     directorList: [
@@ -115,8 +115,8 @@ const pastTeamData: yearTeamData[] = [
     execList: [
       { name: "Eugenia Cao", role: "President" },
       { name: "Andrew Antony", role: "Vice President" },
-      { name: "David Wassef", role: "Treasurer" },
       { name: "Samir Mustavi", role: "Secretary" },
+      { name: "David Wassef", role: "Treasurer" },
       { name: "Stephanie Tong", role: "Arc Delegate" }
     ],
     directorList: [
@@ -172,8 +172,8 @@ const pastTeamData: yearTeamData[] = [
     execList: [
       { name: "Shahbaz Bains", role: "President" },
       { name: "Justin Huang", role: "Vice President" },
-      { name: "Philippa Ma", role: "Treasurer" },
       { name: "Andrew Antony", role: "Secretary" },
+      { name: "Philippa Ma", role: "Treasurer" },
       { name: "Yifan Shen", role: "Arc Delegate" }
     ],
     directorList: [
@@ -223,8 +223,8 @@ const pastTeamData: yearTeamData[] = [
     execList: [
       { name: "Robert Tan", role: "President" },
       { name: "Toby Walmsley", role: "Vice President" },
-      { name: "Connie Kuo", role: "Treasurer" },
       { name: "Suman Prusty", role: "Secretary" },
+      { name: "Connie Kuo", role: "Treasurer" },
       { name: "Sally Wang", role: "Arc Delegate" }
     ],
     directorList: [
@@ -276,8 +276,8 @@ const pastTeamData: yearTeamData[] = [
     execList: [
       { name: "Treves Li", role: "President" },
       { name: "Miriam Greenbaum", role: "Vice President" },
-      { name: "Robert Tan", role: "Treasurer" },
       { name: "Toby Walmsley", role: "Secretary" },
+      { name: "Robert Tan", role: "Treasurer" },
       { name: "Yongzhen Chen", role: "Arc Delegate" }
     ],
     directorList: [
