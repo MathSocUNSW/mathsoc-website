@@ -19,7 +19,12 @@ const navLinks: navLink[] = [
     route: "/about",
     dropdown: [
       { name: "Meet the Team", subRoute: "/team", externalRoute: false },
-      { name: "Former Teams", subRoute: "/formerteam", externalRoute: false }
+      { name: "Former Teams", subRoute: "/formerteam", externalRoute: false },
+      {
+        name: "Constitution",
+        subRoute: "/files/general/Constitution-and-GRPP-2021.pdf",
+        externalRoute: true
+      }
     ],
     displayDropdownMobile: true
   },
