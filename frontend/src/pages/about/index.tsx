@@ -3,12 +3,14 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Typography } from "@material-ui/core";
-import styles from "src/styles/AboutUsDotPoints.module.scss";
 
 // Component Imports
 import WholePageBox from "components/WholePageBox";
 import PageBody from "components/PageBody";
 import Hero from "components/Hero";
+
+// Styling
+import styles from "src/styles/about.module.scss";
 
 // Data
 import { discordData } from "src/data/socialData";
@@ -30,72 +32,76 @@ const About: React.FC = () => {
             UNSW and the School of Mathematics and Statistics, we are one of the largest societies
             at UNSW, boasting a member count of over 3,000.
           </Typography>
-          <Typography variant="h2">Our aims</Typography>
-          <Typography className={styles.dotPoint}>
-            <ul>
-              <li>
-                <div className={styles.DotPoint}>
-                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
-                  <Typography variant="body1">
-                    To enhance the sense of community amongst students interested in maths.
-                  </Typography>
-                </div>
-              </li>
-              <li>
-                <div className={styles.DotPoint}>
-                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
-                  <Typography variant="body1">
-                    To inform students of the maths-related opportunities in their studies and
-                  </Typography>
-                  careers.
-                </div>
-              </li>
-              <li>
-                <div className={styles.DotPoint}>
-                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
-                  <Typography variant="body1">
-                    To support students in their studies and to provide a forum to discuss all
-                    aspects of mathematics.
-                  </Typography>
-                </div>
-              </li>
-            </ul>
-          </Typography>
+          <div className={styles.objective}>
+            <Typography variant="h4">Our aims</Typography>
+            <Typography className={styles.dotPoints}>
+              <ul>
+                <li>
+                  <div className={styles.dotPoint}>
+                    <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                    <Typography variant="body1">
+                      To enhance the sense of community amongst students interested in maths.
+                    </Typography>
+                  </div>
+                </li>
+                <li>
+                  <div className={styles.dotPoint}>
+                    <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                    <Typography variant="body1">
+                      To inform students of the maths-related opportunities in their studies and
+                      careers.
+                    </Typography>
+                  </div>
+                </li>
+                <li>
+                  <div className={styles.dotPoint}>
+                    <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                    <Typography variant="body1">
+                      To support students in their studies and to provide a forum to discuss all
+                      aspects of mathematics.
+                    </Typography>
+                  </div>
+                </li>
+              </ul>
+            </Typography>
+          </div>
 
-          <Typography variant="h2">Our events</Typography>
-          <Typography className={styles.dotPoint}>
-            <ul>
-              <li>
-                <div className={styles.DotPoint}>
-                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
-                  <Typography variant="body1">
-                    We hold <b>Social</b> events such as BBQs, trivia nights, poker tournaments, and
-                    integration bees! These are designed to expand students' networks and foster a
-                    stronger community.
-                  </Typography>
-                </div>
-              </li>
-              <li>
-                <div className={styles.DotPoint}>
-                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
-                  <Typography className="body1">
-                    Our <b>Industry and Careers</b> events help students discover potential jobs and
-                    careers that maths may lead them to whilst providing the opportunity to network
-                    with industry professionals.
-                  </Typography>
-                </div>
-              </li>
-              <li>
-                <div className={styles.DotPoint}>
-                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
-                  <Typography className="body1">
-                    <b>Academic</b> events such as revision and course selection seminars, assist
-                    budding mathematics students in making decisions such as math major selection.
-                  </Typography>
-                </div>
-              </li>
-            </ul>
-          </Typography>
+          <div className={styles.objective}>
+            <Typography variant="h4">Our events</Typography>
+            <Typography className={styles.dotPoints}>
+              <ul>
+                <li>
+                  <div className={styles.dotPoint}>
+                    <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                    <Typography variant="body1">
+                      We hold <b>Social</b> events such as BBQs, trivia nights, poker tournaments,
+                      and integration bees! These are designed to expand students' networks and
+                      foster a stronger community.
+                    </Typography>
+                  </div>
+                </li>
+                <li>
+                  <div className={styles.dotPoint}>
+                    <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                    <Typography className="body1">
+                      Our <b>Industry and Careers</b> events help students discover potential jobs
+                      and careers that maths may lead them to whilst providing the opportunity to
+                      network with industry professionals.
+                    </Typography>
+                  </div>
+                </li>
+                <li>
+                  <div className={styles.dotPoint}>
+                    <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                    <Typography className="body1">
+                      <b>Academic</b> events such as revision and course selection seminars, assist
+                      budding mathematics students in making decisions such as math major selection.
+                    </Typography>
+                  </div>
+                </li>
+              </ul>
+            </Typography>
+          </div>
           <Typography variant="body1">
             To round this off, we have a{" "}
             <a href={discordData.url} target="_blank" rel="noopener noreferrer">
