@@ -3,6 +3,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { Typography } from "@material-ui/core";
+import styles from "src/styles/AboutUsDotPoints.module.scss";
 
 // Component Imports
 import WholePageBox from "components/WholePageBox";
@@ -23,44 +24,77 @@ const About: React.FC = () => {
       <PageBody>
         <WholePageBox>
           <Typography variant="h2">About Us</Typography>
-          <Typography variant="h5">
-            Welcome to the official website of the University of New South Wales&apos; (UNSW)
-            Mathematics Society!
-          </Typography>
           <Typography variant="body1">
-            UNSW Mathematics Society (MathSoc) is the society for mathematics students, however
-            membership is open to anyone, and everyone, who has an interest in mathematics.
-            Affiliated with Arc @ UNSW and with the School of Mathematics and Statistics – we are
-            one of the largest societies at UNSW, boasting a member count over 3,000.
+            Welcome to the official website of UNSW Mathematics Society! We are the society for
+            mathematics students and anyone with an interest in mathematics. Affiliated wwith ARC @
+            UNSW and the School of Mathematics and Statistics, we are one of the largest societies
+            at UNSW, boasting a member count of over 3,000.
           </Typography>
-          <Typography variant="body1">
-            We have three main aims:
-            <ol>
-              <li>To enhance the sense of community amongst mathematics students</li>
+          <Typography variant="h2">Our aims</Typography>
+          <Typography className={styles.dotPoint}>
+            <ul>
               <li>
-                To inform students of the maths-related opportunities in their studies and careers
+                <div className={styles.DotPoint}>
+                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                  <Typography variant="body1">
+                    To enhance the sense of community amongst students interested in maths.
+                  </Typography>
+                </div>
               </li>
               <li>
-                To support students in their studies and to provide a forum to discuss all aspects
-                of mathematics
+                <div className={styles.DotPoint}>
+                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                  <Typography variant="body1">
+                    To inform students of the maths-related opportunities in their studies and
+                  </Typography>
+                  careers.
+                </div>
               </li>
-            </ol>
+              <li>
+                <div className={styles.DotPoint}>
+                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                  <Typography variant="body1">
+                    To support students in their studies and to provide a forum to discuss all
+                    aspects of mathematics.
+                  </Typography>
+                </div>
+              </li>
+            </ul>
           </Typography>
-          <Typography variant="body1">
-            Our <b>social events</b> include the &apos;usual&apos;, such as BBQs and trivia nights –
-            but we also hold special events such as poker tournaments, social sports days and even
-            our annual integration bee! All these are designed to help you network with other
-            students, and build a community between you and others in a maths degree.
-          </Typography>
-          <Typography variant="body1">
-            <b>Academic events</b> are also major on the MathSoc calendar. For the budding
-            mathematics student, we offer talks and other events that assist in aiding your choice
-            in what maths major to pick,
-          </Typography>
-          <Typography variant="body1">
-            Along the same lines are our <b>Industry and Careers events</b> – which are a must for
-            the older students. These help you discover potential jobs and careers that maths can
-            lead you to – and also allow you to chat to people who can help you get there!
+
+          <Typography variant="h2">Our events</Typography>
+          <Typography className={styles.dotPoint}>
+            <ul>
+              <li>
+                <div className={styles.DotPoint}>
+                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                  <Typography variant="body1">
+                    We hold <b>Social</b> events such as BBQs, trivia nights, poker tournaments, and
+                    integration bees! These are designed to expand students' networks and foster a
+                    stronger community.
+                  </Typography>
+                </div>
+              </li>
+              <li>
+                <div className={styles.DotPoint}>
+                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                  <Typography className="body1">
+                    Our <b>Industry and Careers</b> events help students discover potential jobs and
+                    careers that maths may lead them to whilst providing the opportunity to network
+                    with industry professionals.
+                  </Typography>
+                </div>
+              </li>
+              <li>
+                <div className={styles.DotPoint}>
+                  <img src="/images/school.svg" alt="School.svg" className={styles.img} />
+                  <Typography className="body1">
+                    <b>Academic</b> events such as revision and course selection seminars, assist
+                    budding mathematics students in making decisions such as math major selection.
+                  </Typography>
+                </div>
+              </li>
+            </ul>
           </Typography>
           <Typography variant="body1">
             To round this off, we have a{" "}
@@ -68,7 +102,9 @@ const About: React.FC = () => {
               Discord server
             </a>{" "}
             where you can discuss maths to your heart’s content – which also doubles as a place to
-            discuss anything and everything mathematical.
+            discuss anything and everything mathematical. Moreover, we have dedicated First year and
+            Higher Year Facebook groups - and for First Years, MathSoc also releases solutions to
+            past class tests!
           </Typography>
           {/* TODO finish off links */}
           <Typography variant="body1">
