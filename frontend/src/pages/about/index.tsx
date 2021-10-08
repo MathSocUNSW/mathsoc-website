@@ -75,8 +75,8 @@ const About: React.FC = () => {
                     <img src="/images/school.svg" alt="School.svg" className={styles.img} />
                     <Typography variant="body1">
                       We hold <b>Social</b> events such as BBQs, trivia nights, poker tournaments,
-                      and integration bees! These are designed to expand students' networks and
-                      foster a stronger community.
+                      and integration bees! These are designed to expand student networks and foster
+                      a stronger community.
                     </Typography>
                   </div>
                 </li>
