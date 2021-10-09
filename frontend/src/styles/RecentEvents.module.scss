@@ -1,0 +1,35 @@
+@import "./variables.scss";
+
+.recentEventsCards {
+  padding-bottom: 8px;
+  max-height: 642px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.eventsButton {
+  font-size: 20px;
+  border-radius: 8px;
+  padding: 10px 53px;
+  background-color: #8822c3;
+  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
+  border: white;
+  color: white;
+  text-decoration: none;
+  &:hover {
+    background-color: #22c1c3;
+    -webkit-transition: background-color 200ms ease-in-out;
+    -ms-transition: background-color 200ms ease-in-out;
+    transition: background-color 200ms ease-in-out;
+    cursor: pointer;
+  }
+}
+
+.buttonContainer {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
