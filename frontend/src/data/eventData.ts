@@ -534,6 +534,52 @@ const eventData: eventDetails[] = [
     date: "2nd August 2021, 5:30-7PM",
     startDate: "2-8-2021",
     endDate: "2-8-2021"
+  },
+  {
+    title: "Virtual Scavenger Hunt - Scour the Net!",
+    eventLink: "https://www.facebook.com/events/182366417362039",
+    description:
+      "Covid lockdown got you yearning to travel 🛫? Well, get your friends together and join our road trip 🚗 across the internet at MathSoc’s (Virtual) Scavenger Hunt - Scour the Net! Take a tour through a series of puzzles 🧩 and just like your midterms, we’ll be searching through the net 🌐 for all the answers! There is absolutely no limit to what you can search. Get a group of your friends for a team of 3-6 or compete as a lone wolf! Keen to see you there! 🙂",
+    imagePath: generateImagePath("virtual_scavenger_hunt_2021.jpg"),
+    location: "Discord",
+    date: "30th September 2021, 6:30-8PM",
+    startDate: "30-9-2021",
+    endDate: "30-9-2021"
+  },
+  {
+    title: "Data Modelling in Sports Wagering",
+    eventLink: "https://www.facebook.com/events/547435696486153",
+    description: `Find out where mathematics can take you! It's no surprise that your uni math knowledge can open up many potential career paths. In this event, we will be exploring one potential path by learning how ⚽sports wagering⚽ incorporates the mathematics of managing risks and probabilities.
+    In our first edition of ⭐Seminal Seminars⭐, we invite data scientist Melinda Mortimer to the stage where she will be discussing the various ways that a wagering business leverages big data, from simulating live sporting matches to generating targeted campaigns.
+    The seminar, followed by a live Q&A, will run for 1h 15mins. Although the maths involved is best suited to second and third year statistics students, much of the discussion is relevant for first year mathematics & statistics students. However, all are welcome!`,
+    imagePath: generateImagePath("data_modelling_in_sports_2021.jpg"),
+    location: "Zoom",
+    date: "6th October 2021, 3-4:15PM",
+    startDate: "6-10-2021",
+    endDate: "6-10-2021"
+  },
+  {
+    title: "Accelerate",
+    eventLink: "https://www.facebook.com/events/4438215162903353",
+    description: `Are you competitive and ready to use your big brain? 🧠
+    This event is for you! All you have to do is solve a series of maths questions which don’t require any knowledge taught at uni! 🤯🤯There will be $75 worth of Uber Eats vouchers up for grabs so you better not miss out! So are you ready to Accelerate? 🏃🏻‍♀️ 🏃🏻`,
+    imagePath: generateImagePath("accelerate_2021.jpg"),
+    location: "Zoom",
+    date: "8th October 2021, 5-6PM",
+    startDate: "8-10-2021",
+    endDate: "8-10-2021"
+  },
+  {
+    title: "MathSoc Hoodie THROWBACK SALE",
+    eventLink: "https://www.facebook.com/events/535523234242404",
+    description: `Looking to DIFFERENTIATE yourself from the crowd? Then look no further! Our 🔥Anti-Derivative Derivative Hoodies🔥 are back to become an INTEGRAL part of your wardrobe. But they won't be around for long! 🤯ONLY 63🤯 of our ADDC hoodie SERIES are available for purchase.
+    And that's not all! Jump over to our website to see what other limited stock items are available from our past collections. 👀`,
+    imagePath: generateImagePath("throwback_sale_2021.jpg"),
+    location: "Here",
+    locationURL: "https://unsw-mathematics-society.square.site/",
+    date: "17 October 2021",
+    startDate: "1-10-2021",
+    endDate: "1-11-2021"
   }
 ];
 
