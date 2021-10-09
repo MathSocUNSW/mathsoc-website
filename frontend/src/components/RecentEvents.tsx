@@ -4,11 +4,10 @@ import { Typography } from "@material-ui/core";
 import moment from "moment";
 
 // Component Imports
-import EventCard from "src/components/EventCard";
+import Button from "components/Button";
 
 // Styling
 import styles from "src/styles/RecentEvents.module.scss";
-import eventStyles from "src/styles/events.module.scss";
 
 // Data
 import eventData from "src/data/eventData";
@@ -21,31 +20,29 @@ import {
 } from "src/helpers/eventHelpers";
 
 const RecentEvents: React.FC = () => {
-  // Show, at most, the 3 latest events past.
+  // Show, at most, the 6 latest events past.
+  const numberOfEventsShown = 6;
+
   const sortedPastEvents = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() < 0);
   sortedPastEvents.sort(sortStartDateDecreasing);
   sortedPastEvents.sort(sortEndDateDecreasing);
-  const slicedEventData = sortedPastEvents.slice(0, 3);
+  const slicedEventData = sortedPastEvents.slice(0, numberOfEventsShown);
 
   return (
     <div>
-      <div className={eventStyles.title}>
-        <Typography variant="h2" align="center">
-          Recent Events
-        </Typography>
+      <div className={styles.title}>
+        <Typography variant="h2">Recent Events</Typography>
       </div>
-      <div className={styles.recentEventsCards}>
+      <div className={styles.container}>
         {slicedEventData.map((event, index) => (
-          <div key={index} className={eventStyles.eventBoxContainer}>
-            <EventCard {...event} />
+          <div className={styles.cardContainer}>
+            <a href={event.eventLink} key={index} target="_blank" rel="noopener noreferrer">
+              <img src={event.imagePath} className={styles.cardImage} alt="event banner" />
+            </a>
           </div>
         ))}
       </div>
-      <div className={styles.buttonContainer}>
-        <a href="/events">
-          <button className={styles.eventsButton}>see more events!</button>
-        </a>
-      </div>
+      <Button link="/events" text="see more here!" />
     </div>
   );
 };
