@@ -35,8 +35,8 @@ const RecentEvents: React.FC = () => {
       </div>
       <div className={styles.container}>
         {slicedEventData.map((event, index) => (
-          <div className={styles.cardContainer}>
-            <a href={event.eventLink} key={index} target="_blank" rel="noopener noreferrer">
+          <div className={styles.cardContainer} key={index}>
+            <a href={event.eventLink} target="_blank" rel="noopener noreferrer">
               <img src={event.imagePath} className={styles.cardImage} alt="event banner" />
             </a>
           </div>
