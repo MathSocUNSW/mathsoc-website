@@ -42,7 +42,7 @@ const RecentEvents: React.FC = () => {
           </div>
         ))}
       </div>
-      <Button link="/events" text="see more here!" />
+      <Button link="/events" text="See more events" />
     </div>
   );
 };
