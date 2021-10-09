@@ -35,8 +35,9 @@ const Contact: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  this form.
+                  this form
                 </a>
+                .
               </Typography>
             </div>
             <div className="stayConnectedSection">

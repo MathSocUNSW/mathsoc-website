@@ -57,6 +57,12 @@ const navLinks: navLink[] = [
     displayDropdownMobile: false
   },
   {
+    name: "Competitions",
+    route: "/competitions",
+    dropdown: null,
+    displayDropdownMobile: null
+  },
+  {
     name: "Sponsors",
     route: "/sponsors",
     dropdown: null,
