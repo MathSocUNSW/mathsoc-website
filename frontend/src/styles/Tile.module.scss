@@ -1,10 +1,15 @@
 @import "./variables.scss";
-$fitSevenLinks: 320px;
+@import "./TileVariables.scss";
 
-.tile {
+/*.tile {
+  flex: 1 0 calc(25% - 10px);
+  justify-content: center;
+}*/
+
+.tileContent {
   background-color: white;
   height: $fitSevenLinks;
-  width: 350px;
+  width: $tileWidth;
   border-radius: 16px;
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.25);
 
@@ -13,10 +18,10 @@ $fitSevenLinks: 320px;
   justify-content: space-between;
 
   padding: 25px 0px;
-  margin: 15px;
+  margin: $tileMargin;
 }
 
-.tileContent {
+.tileSlides {
   padding: 0px 30px;
   .icon {
     padding-bottom: 50px;
@@ -55,6 +60,7 @@ $fitSevenLinks: 320px;
 }
 
 .disabled {
+  // use react's disabled tag on button?
   background-color: transparent;
   border: transparent;
   pointer-events: none;
