@@ -23,7 +23,7 @@ const FormerTeam: React.FC = () => {
         <title>Former Teams - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_team.jpg" text="Former Teams" />
+      <Hero url="/images/hero/mathsoc_team_former.jpg" text="Former Teams" />
       <PageBody>
         <div className={styles.boxes}>
           {pastTeamData.map(({ year, execList, directorList, subcommittee }) => (

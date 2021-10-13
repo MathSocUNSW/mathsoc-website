@@ -1,7 +1,21 @@
+@import "./variables.scss";
+
 .competitions > *:not(:last-child) {
   margin-bottom: 40px;
 }
 
 .carousel {
   text-align: center;
+}
+
+.accelerate {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  img {
+    max-width: 80%;
+    @media only screen and (max-device-width: $mobile) {
+      max-width: 100%;
+    }
+  }
 }
