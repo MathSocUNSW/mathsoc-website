@@ -1,6 +1,7 @@
 // Library Imports
 import React, { useState } from "react";
 import Link from "next/link";
+import { Typography } from "@material-ui/core";
 
 // Component Imports
 import { navLink } from "src/data/navLinksData";
@@ -8,7 +9,6 @@ import NavDropdown from "./NavDropdown";
 
 // Styling
 import styles from "src/styles/NavItem.module.scss";
-import { Typography } from "@material-ui/core";
 
 // Clean up, use extend
 interface NavItemProps extends navLink {
@@ -39,6 +39,7 @@ const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, setOpen }) => 
           />
           {isExpanded ? (
             <NavDropdown
+              parentItem={name}
               items={dropdown}
               setDropdown={setExpanded}
               baseRoute={route}

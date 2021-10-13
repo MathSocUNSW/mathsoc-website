@@ -10,13 +10,20 @@ import styles from "src/styles/NavDropdown.module.scss";
 import { subPage } from "src/data/navLinksData";
 
 interface NavDropdownProps {
+  parentItem: string;
   items: subPage[];
   setDropdown: React.Dispatch<React.SetStateAction<boolean>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   baseRoute: string;
 }
 
-const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute, setOpen }) => {
+const NavDropdown: React.FC<NavDropdownProps> = ({
+  parentItem,
+  items,
+  setDropdown,
+  baseRoute,
+  setOpen
+}) => {
   const closeMenus = () => {
     setDropdown(false);
     setOpen(false);
@@ -24,6 +31,14 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute
 
   return (
     <ul className={styles.dropdown}>
+      <div className={styles.parentBox}>
+        <img
+          src="images/leftArrow.svg"
+          className={styles.arrowLeft}
+          onClick={() => setDropdown(false)}
+        />
+        <Typography>{parentItem}</Typography>
+      </div>
       {items.map((item) => (
         <li className={styles.dropdownBox} key={item.name}>
           <Link
@@ -31,7 +46,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute
             key={item.name}
           >
             <a onClick={closeMenus}>
-              <Typography variant="body2" style={{ color: "white" }} className={styles.item}>
+              <Typography variant="body2" className={styles.item}>
                 {item.name}
               </Typography>
             </a>
