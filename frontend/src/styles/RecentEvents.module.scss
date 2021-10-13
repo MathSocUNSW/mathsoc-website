@@ -1,0 +1,30 @@
+@import "./variables.scss";
+
+.title {
+  margin-bottom: 0.4rem;
+}
+
+.cardContainer {
+  margin: 21px 10px;
+}
+
+.container {
+  padding-bottom: 8px;
+  max-height: 485px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 350px;
+  height: 200px;
+  object-fit: cover;
+  box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.09);
+  transition: all 0.2s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}

@@ -1,5 +1,5 @@
-$threePerRow: 1140px;
-$scaleFactor: 0.9;
+@import "./variables.scss";
+@import "./TileVariables.scss";
 
 .tileContainer {
   display: flex;

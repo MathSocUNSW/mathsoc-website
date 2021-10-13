@@ -9,6 +9,7 @@ import WholePageBox from "components/WholePageBox";
 import Hero from "components/Hero";
 import UpcomingEvents from "components/UpcomingEvents";
 import SponsorsList from "components/SponsorsList";
+import RecentEvents from "components/RecentEvents";
 
 // Styling
 import styles from "src/styles/home.module.scss";
@@ -40,6 +41,7 @@ const Home: React.FC = () => {
           </WholePageBox>
         </div>
         <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
+        <RecentEvents />
         <SponsorsList />
       </PageBody>
     </section>
