@@ -18,20 +18,24 @@ interface NavItemProps {
 
 const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, setOpen }) => {
   const [isExpanded, setExpanded] = useState(false);
-  console.log(isExpanded);
 
   return (
     <li className={styles.navItem}>
       <Link href={route}>
         <a className={styles.navLink}>
-          <Typography style={{ color: "white" }}>{name}</Typography>
+          <Typography style={{ color: "inherit" }}>{name}</Typography>
         </a>
       </Link>
       {dropdown.length > 0 ? (
         <div className={styles.dropdownContainer}>
           <img
             src="images/arrowDown.svg"
-            className={styles.arrow}
+            className={styles.arrowDown}
+            onClick={() => setExpanded((prevExpanded) => !prevExpanded)}
+          />
+          <img
+            src="images/arrowRight.svg"
+            className={styles.arrowRight}
             onClick={() => setExpanded((prevExpanded) => !prevExpanded)}
           />
           {isExpanded ? (

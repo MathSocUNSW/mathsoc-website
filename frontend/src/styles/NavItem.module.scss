@@ -7,19 +7,36 @@
 
 .navLink {
   text-decoration: none;
+  color: white;
+  @media screen and (max-width: $mobile) {
+    color: black;
+    padding: 0.2rem 2rem;
+    width: 100%;
+  }
 }
 
 .dropdownContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: $mobile) {
+    justify-content: space-between;
+  }
 }
 
-.arrow {
+.arrowDown {
   height: 16px;
   padding-left: 0.2rem;
   margin-right: -0.6rem;
   &:hover {
     cursor: pointer;
+  }
+}
+
+.arrowRight {
+  padding-right: 1.8rem;
+  display: none;
+  @media screen and (max-width: $mobile) {
+    display: inline-block;
   }
 }

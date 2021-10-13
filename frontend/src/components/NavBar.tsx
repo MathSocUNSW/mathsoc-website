@@ -18,11 +18,12 @@ import navLinks from "src/data/navLinksData";
 
 interface NavItemsProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  className: string;
 }
 
-const NavItems: React.FC<NavItemsProps> = ({ setOpen }) => {
+const NavItems: React.FC<NavItemsProps> = ({ setOpen, className }) => {
   return (
-    <ul className={styles.navItems}>
+    <ul className={className}>
       {navLinks.map((item) => (
         <NavItem key={item.name} {...item} setOpen={setOpen} />
       ))}
@@ -61,7 +62,7 @@ const NavBar: React.FC = () => {
               />
             </a>
           </Link>
-          <NavItems setOpen={setOpen} />
+          <NavItems setOpen={setOpen} className={styles.navItems} />
           <a
             href="https://unsw-mathematics-society.square.site/"
             target="_blank"
@@ -74,13 +75,7 @@ const NavBar: React.FC = () => {
               aria-label="logo"
             />
           </a>
-          {isOpen ? (
-            <div className={styles.navItemsMobile}>
-              <NavItems setOpen={setOpen} />
-            </div>
-          ) : (
-            <></>
-          )}
+          {isOpen ? <NavItems setOpen={setOpen} className={styles.navItemsMobile} /> : <></>}
         </div>
       </Container>
     </header>
