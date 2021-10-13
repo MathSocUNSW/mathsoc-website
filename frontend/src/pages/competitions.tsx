@@ -2,7 +2,7 @@
 import React from "react";
 import Head from "next/head";
 import { Typography } from "@material-ui/core";
-import Carousel from "react-material-ui-carousel";
+// import Carousel from "react-material-ui-carousel";
 
 // Components
 import Hero from "components/Hero";
@@ -12,7 +12,7 @@ import WholePageBox from "components/WholePageBox";
 // Styling
 import styles from "src/styles/competitions.module.scss";
 
-const Competitions: React.FC<{}> = () => {
+const Competitions: React.FC = () => {
   return (
     <div>
       <Head>
