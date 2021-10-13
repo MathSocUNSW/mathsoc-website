@@ -23,7 +23,7 @@ const Team: React.FC = () => {
         <title>Meet the Team - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_team.jpg" text="MathSoc Team 2021" />
+      <Hero url="/images/hero/mathsoc_team_2021.jpg" text="MathSoc Team 2021" />
       <PageBody>
         <div className={styles.flex}>
           <Typography variant="h2" align="center">
