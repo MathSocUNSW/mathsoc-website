@@ -18,8 +18,8 @@ interface NavDropdownProps {
 const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute }) => {
   return (
     <ul className={styles.dropdown}>
-      {items.map((item, index) => (
-        <li className={styles.dropdownBox}>
+      {items.map((item) => (
+        <li className={styles.dropdownBox} key={item.name}>
           <Link
             href={!item.externalRoute ? baseRoute + item.subRoute : item.subRoute}
             key={item.name}
