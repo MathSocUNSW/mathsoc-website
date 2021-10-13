@@ -1,6 +1,7 @@
 // Library Imports
 import React from "react";
 import Link from "next/link";
+import { Typography } from "@material-ui/core";
 
 // Styling
 import styles from "src/styles/NavDropdown.module.scss";
@@ -16,23 +17,22 @@ interface NavDropdownProps {
 
 const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute }) => {
   return (
-    <div className={styles.mainContainer}>
+    <ul className={styles.dropdown}>
       {items.map((item, index) => (
-        <Link
-          href={!item.externalRoute ? baseRoute + item.subRoute : item.subRoute}
-          key={item.name}
-        >
-          <a>
-            <div
-              className={`${styles.item} ${index === items.length - 1 ? styles.itemLast : ""}`}
-              onClick={() => setDropdown(false)}
-            >
-              {item.name}
-            </div>
-          </a>
-        </Link>
+        <li className={styles.dropdownBox}>
+          <Link
+            href={!item.externalRoute ? baseRoute + item.subRoute : item.subRoute}
+            key={item.name}
+          >
+            <a onClick={() => setDropdown(false)}>
+              <Typography variant="body2" style={{ color: "white" }} className={styles.item}>
+                {item.name}
+              </Typography>
+            </a>
+          </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

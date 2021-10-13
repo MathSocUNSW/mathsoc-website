@@ -16,6 +16,20 @@ import useWindowDimensions from "src/helpers/useWindowDimensions";
 // Data
 import navLinks from "src/data/navLinksData";
 
+interface NavItemsProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const NavItems: React.FC<NavItemsProps> = ({ setOpen }) => {
+  return (
+    <ul className={styles.navItems}>
+      {navLinks.map((item) => (
+        <NavItem key={item.name} {...item} setOpen={setOpen} />
+      ))}
+    </ul>
+  );
+};
+
 const NavBar: React.FC = () => {
   // mobile
   const [isOpen, setOpen] = useState(false);
@@ -25,9 +39,8 @@ const NavBar: React.FC = () => {
     window.addEventListener("scroll", () => setStuck(window.scrollY >= 80));
   }
   const stuckShadow = {
-    boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.25)"
+    boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.1)"
   };
-  // TODO: dark mode (with useContext)
 
   const { width } = useWindowDimensions();
 
@@ -36,35 +49,38 @@ const NavBar: React.FC = () => {
       <Container>
         <div className={styles.navbarContent}>
           <div className={styles.hamburger}>
-            <Hamburger toggled={isOpen} toggle={setOpen} />
+            <Hamburger toggled={isOpen} toggle={setOpen} size={25} />
           </div>
-          <div className={styles.logoContainer}>
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/mathsocLogoLong.svg"
-                  className={styles.logo}
-                  alt="MathSoc Logo"
-                  aria-label="logo"
-                />
-              </a>
-            </Link>
-          </div>
-          <nav className={isOpen ? `${styles.navItems}` + ` ${styles.open}` : `${styles.navItems}`}>
-            <ul className={styles.navLinks}>
-              {navLinks.map((item) => (
-                <NavItem key={item.name} navData={item} setOpen={setOpen} width={width} />
-              ))}
-            </ul>
-          </nav>
-          {/* <div className={styles.toggle}> */}
-          {/* TODO: Dark Mode Toggle Switch */}
-          {/* <Switch /> */}
-          {/* </div> */}
-          {/* TEMP */}
-          <div className={styles.hamburger} style={{ visibility: "hidden" }}>
-            <Hamburger toggled={isOpen} toggle={setOpen} />
-          </div>
+          <Link href="/">
+            <a>
+              <img
+                src="/images/mathsocWhite.svg"
+                className={styles.logo}
+                alt="MathSoc Logo"
+                aria-label="logo"
+              />
+            </a>
+          </Link>
+          <NavItems setOpen={setOpen} />
+          <a
+            href="https://unsw-mathematics-society.square.site/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/images/shop.svg"
+              className={styles.shop}
+              alt="MathSoc Shop"
+              aria-label="logo"
+            />
+          </a>
+          {isOpen ? (
+            <div className={styles.navItemsMobile}>
+              <NavItems setOpen={setOpen} />
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       </Container>
     </header>
