@@ -11,8 +11,7 @@ import styles from "src/styles/NavItem.module.scss";
 import { Typography } from "@material-ui/core";
 
 // Clean up, use extend
-interface NavItemProps {
-  navData: navLink;
+interface NavItemProps extends navLink {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -22,7 +21,7 @@ const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, setOpen }) => 
   return (
     <li className={styles.navItem}>
       <Link href={route}>
-        <a className={styles.navLink}>
+        <a className={styles.navLink} onClick={() => setOpen(false)}>
           <Typography style={{ color: "inherit" }}>{name}</Typography>
         </a>
       </Link>
@@ -34,12 +33,17 @@ const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, setOpen }) => 
             onClick={() => setExpanded((prevExpanded) => !prevExpanded)}
           />
           <img
-            src="images/arrowRight.svg"
+            src="images/rightArrow.svg"
             className={styles.arrowRight}
             onClick={() => setExpanded((prevExpanded) => !prevExpanded)}
           />
           {isExpanded ? (
-            <NavDropdown items={dropdown} setDropdown={setExpanded} baseRoute={route} />
+            <NavDropdown
+              items={dropdown}
+              setDropdown={setExpanded}
+              baseRoute={route}
+              setOpen={setOpen}
+            />
           ) : (
             <></>
           )}

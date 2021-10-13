@@ -12,10 +12,16 @@ import { subPage } from "src/data/navLinksData";
 interface NavDropdownProps {
   items: subPage[];
   setDropdown: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   baseRoute: string;
 }
 
-const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute }) => {
+const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute, setOpen }) => {
+  const closeMenus = () => {
+    setDropdown(false);
+    setOpen(false);
+  };
+
   return (
     <ul className={styles.dropdown}>
       {items.map((item) => (
@@ -24,7 +30,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ items, setDropdown, baseRoute
             href={!item.externalRoute ? baseRoute + item.subRoute : item.subRoute}
             key={item.name}
           >
-            <a onClick={() => setDropdown(false)}>
+            <a onClick={closeMenus}>
               <Typography variant="body2" style={{ color: "white" }} className={styles.item}>
                 {item.name}
               </Typography>
