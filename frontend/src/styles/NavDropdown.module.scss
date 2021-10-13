@@ -8,7 +8,6 @@
   left: 0;
   text-align: start;
   min-width: 10.5rem;
-  padding: 0 0.7rem;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   // NOTE: box shadow bleeds from top
@@ -26,13 +25,18 @@
   a {
     text-decoration: none;
   }
+  @media screen and (max-width: $mobile) {
+    padding-left: 0.4rem;
+  }
 }
 
 .parentBox {
   display: none;
   @media screen and (max-width: $mobile) {
+    padding-left: 0.7rem;
     display: flex;
     align-items: center;
+    background-color: lightgrey;
   }
 }
 
@@ -46,7 +50,7 @@
 
 .item {
   transition: background-color ease-out 0.3s;
-  padding: 0.7rem 0;
+  padding: 0.7rem 0.7rem;
   overflow: none;
   color: white;
   &:hover {
