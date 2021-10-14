@@ -19,7 +19,7 @@ const Competitions: React.FC = () => {
         <title>Competitions - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_events.jpg" text="Competitions" />
+      <Hero url="/images/hero/mathsoc_comp.jpg" text="Competitions" />
       <PageBody>
         <div className={styles.competitions}>
           <WholePageBox>
