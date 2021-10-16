@@ -21,7 +21,6 @@ import useWindowDimensions from "src/helpers/useWindowDimensions";
 import eventData, { eventDetails } from "src/data/eventData";
 
 // TODO: just use flexbox for this - instead of manual window calculations
-// NOTE: sorting may be incorrect (please see Issue #194)
 
 const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number => {
   const length = sortedEventData.length;
@@ -36,13 +35,18 @@ const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number
  * @returns array of 3 eventData
  */
 const figureOutWhatEventsToShow = (
-  sortedEventData: Array<eventDetails>,
+  sortedEventData: eventDetails[],
   eventIndex: number,
   width: number
 ) => {
-  sortedEventData.sort(sortStartDateDecreasing);
-  sortedEventData.sort(sortEndDateDecreasing);
-  // console.log(width);
+  sortedEventData.sort((x: eventDetails, y: eventDetails) => {
+    // primarily sort by increasing end date
+    const byEnd = sortEndDateDecreasing(x, y);
+    if (byEnd != 0) return -byEnd;
+    // sort same end dates by increasing start date
+    const byStart = sortStartDateDecreasing(x, y);
+    return -byStart;
+  });
 
   if (sortedEventData.length === 0) {
     return [];
