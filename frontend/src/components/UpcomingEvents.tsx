@@ -20,6 +20,8 @@ import useWindowDimensions from "src/helpers/useWindowDimensions";
 // Data
 import eventData, { eventDetails } from "src/data/eventData";
 
+// TODO: just use flexbox for this - instead of manual window calculations
+
 const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number => {
   const length = sortedEventData.length;
   const modNum = index % length;
@@ -33,13 +35,18 @@ const checkIndex = (sortedEventData: Array<eventDetails>, index: number): number
  * @returns array of 3 eventData
  */
 const figureOutWhatEventsToShow = (
-  sortedEventData: Array<eventDetails>,
+  sortedEventData: eventDetails[],
   eventIndex: number,
   width: number
 ) => {
-  sortedEventData.sort(sortStartDateDecreasing);
-  sortedEventData.sort(sortEndDateDecreasing);
-  // console.log(width);
+  sortedEventData.sort((x: eventDetails, y: eventDetails) => {
+    // primarily sort by increasing end date
+    const byEnd = sortEndDateDecreasing(x, y);
+    if (byEnd != 0) return -byEnd;
+    // sort same end dates by increasing start date
+    const byStart = sortStartDateDecreasing(x, y);
+    return -byStart;
+  });
 
   if (sortedEventData.length === 0) {
     return [];
@@ -59,12 +66,12 @@ const figureOutWhatEventsToShow = (
   }
 };
 
-export interface UpComingEventProps {
+export interface UpcomingEventsProps {
   eventIndex: number;
   setEventIndex: Dispatch<SetStateAction<number>>;
 }
 
-const UpcomingEvents: React.FC<UpComingEventProps> = ({ eventIndex, setEventIndex }) => {
+const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ eventIndex, setEventIndex }) => {
   const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
   const { height, width } = useWindowDimensions();
 

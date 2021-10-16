@@ -54,6 +54,13 @@ export const twitchData: socialData = {
   altName: "UNSW MathSoc Twitch"
 };
 
+export const storeData: socialData = {
+  name: "Store",
+  url: "https://unsw-mathematics-society.square.site/",
+  iconPath: "/images/shop_dark.svg",
+  altName: "MathSoc Store"
+};
+
 export const socials: socialData[] = [
   facebookData,
   linkedInData,
@@ -62,7 +69,7 @@ export const socials: socialData[] = [
   discordData
 ];
 
-export const linkData: socialData[] = [...socials, twitchData];
+export const linkData: socialData[] = [...socials, twitchData, storeData];
 
 export const contactUsSocials: socialData[] = [...socials, gmailData];
 
