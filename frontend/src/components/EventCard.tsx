@@ -25,12 +25,12 @@ const EventCard: React.FC<EventCardProps> = ({
 
     // split location string by whitespace but keep the space
     // https://stackoverflow.com/a/26425713
-    const linked = location.split(/(\s+)/).map((substring: string) => {
+    const linked = location.split(/(\s+)/).map((substring: string, index: number) => {
       for (const { name, url } of socials) {
         // wrap with link if a substring matches social data
         if (substring === name) {
           return (
-            <a href={url} target="_blank" rel="noopener noreferrer">
+            <a key={`${title}-${index}`} href={url} target="_blank" rel="noopener noreferrer">
               {name}
             </a>
           );

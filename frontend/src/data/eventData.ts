@@ -371,9 +371,9 @@ const eventData: eventDetails[] = [
     description: `MathSoc’s got you covid year-round with our 2021 Merchandise, designed to keep mew cozy and snug in our soft kitty hoodies as well as comfortable and active in our returning cowculator shirts from this year's O-Week.
     Don’t be left feline high and dry - if you're looking for the purr-fect way to keep warm AND flex your fashion game to your furr-ends, make sure to grab one before they're all sold out.`,
     imagePath: generateImagePath("merchandise_2021.jpg"),
-    location: "MathSoc Square Store",
+    location: "Store",
     locationURL: "https://unsw-mathematics-society.square.site/",
-    date: "Until July 11th",
+    date: "11th July 2021",
     startDate: "11-7-2021",
     endDate: "11-7-2021"
   },
@@ -463,7 +463,7 @@ const eventData: eventDetails[] = [
     description:
       "Are you worried that you'll get matric-ked by the complex concepts taught in MATH1231/1241? Heard worrying things about the final exam and don't want to send your WAM to L'Hospital? Come along and revise with us instead of cramming and stressing the night before your final exam 😎\nMathSoc will get you exam-ready by revising the important concepts and then teaching you how to tackle past exam questions to make sure there will be no surprises when you take the real MATH1231/1241 test! We'll be splitting the workshop into two sessions: one for the course's calculus content and one for algebra content.",
     imagePath: generateImagePath("math1231_1241_revision_workshop_2021.jpg"),
-    location: "Zoom",
+    location: "YouTube",
     date: "9th August 2021 3-5PM, 10th August 2021 12-2PM",
     startDate: "9-8-2021",
     endDate: "10-8-2021"
@@ -474,7 +474,7 @@ const eventData: eventDetails[] = [
     description:
       "In case you haven’t noticed, I’m weird 🙄 I’m a weirdo 🤠 I don’t fit in and I don’t WANT to fit in 😔. I'm not ORDINARY... I'm different... some might say I'm differential.\" -MATH2121/2221\nMathSoc presents our ✨MATH2121/2221 Revision Seminar✨ for Term 2! This seminar will run over 2x two hour sessions to give you the best chance of understanding MATH2121/2221 course content to the fullest. We will also be covering key exam questions that may pop up in your final, as well as useful techniques to tackle them.\nSo, what are you waiting for? Put the POWER in power series, switch your brain on, and come join our sessions! It's an ELEMENTARY decision.",
     imagePath: generateImagePath("math2121_2221_revision_seminar_2021.jpg"),
-    location: "Zoom",
+    location: "YouTube",
     date: "10th & 12th August 2021, 3-5PM",
     startDate: "10-8-2021",
     endDate: "12-8-2021"
@@ -485,7 +485,7 @@ const eventData: eventDetails[] = [
     description:
       "Falling behind in MATH2400? Want to get the best marks you possibly can? MathSoc's presents our T2 ✨MATH2400 Revision Seminar.✨\nRun over the course of 2x two hour sessions, this seminar will get you prepped for your upcoming exam by covering all course content, as well as going over key exam questions and life saving techniques.\n",
     imagePath: generateImagePath("math2400_revision_seminar_2021.jpg"),
-    location: "Zoom",
+    location: "YouTube",
     date: "3rd August 2021 2-4PM, 6th August 2021 3-5PM",
     startDate: "3-8-2021",
     endDate: "6-8-2021"
@@ -496,7 +496,7 @@ const eventData: eventDetails[] = [
     description:
       "Are you worried about MATH2501/2601 damaging your WAM? Does the thought of final exams approaching make your heart go boom boom? Well, stress no more because MathSoc has the solution for you! Presenting… our ✨MATH2501/2601 Revision Seminar!✨\nMathSoc is offering two 2-hour revision classes to help you ace your final exams. In these revision classes, you will learn how to confidently tackle common exam questions with the best strategies. Best of all, these revision seminars are completely free!",
     imagePath: generateImagePath("math2501_2601_revision_seminar_2021.jpg"),
-    location: "Zoom",
+    location: "YouTube",
     date: "9th & 12th August 2021, 12-2PM",
     startDate: "9-8-2021",
     endDate: "12-8-2021"
@@ -507,7 +507,7 @@ const eventData: eventDetails[] = [
     description:
       "On the fence about coming to a MathSoc revision seminar? Allow us to POSITIVELY SKEW your attitude in the right direction... Statistically speaking, attending our MATH2801/2901 seminar grants you a significantly higher chance of securing the best marks possible in your final exam.\nSpeaking of statistics... MathSoc presents our ✨MATH2801/2901 Revision Seminar✨ for T2. This two part seminar will be covering all course content, while exposing you to key exam questions and life saving techniques.",
     imagePath: generateImagePath("math2801_2901_revision_seminar_2021.jpg"),
-    location: "Zoom",
+    location: "YouTube",
     date: "7th & 11th August 2021, 3-5PM",
     startDate: "7-8-2021",
     endDate: "11-8-2021"
@@ -542,6 +542,7 @@ const eventData: eventDetails[] = [
       "Covid lockdown got you yearning to travel 🛫? Well, get your friends together and join our road trip 🚗 across the internet at MathSoc’s (Virtual) Scavenger Hunt - Scour the Net! Take a tour through a series of puzzles 🧩 and just like your midterms, we’ll be searching through the net 🌐 for all the answers! There is absolutely no limit to what you can search. Get a group of your friends for a team of 3-6 or compete as a lone wolf! Keen to see you there! 🙂",
     imagePath: generateImagePath("virtual_scavenger_hunt_2021.jpg"),
     location: "Discord",
+    locationURL: "https://discord.gg/F5PHHWHk",
     date: "30th September 2021, 6:30-8PM",
     startDate: "30-9-2021",
     endDate: "30-9-2021"
@@ -575,11 +576,34 @@ const eventData: eventDetails[] = [
     description: `Looking to DIFFERENTIATE yourself from the crowd? Then look no further! Our 🔥Anti-Derivative Derivative Hoodies🔥 are back to become an INTEGRAL part of your wardrobe. But they won't be around for long! 🤯ONLY 63🤯 of our ADDC hoodie SERIES are available for purchase.
     And that's not all! Jump over to our website to see what other limited stock items are available from our past collections. 👀`,
     imagePath: generateImagePath("throwback_sale_2021.jpg"),
-    location: "Here",
-    locationURL: "https://unsw-mathematics-society.square.site/",
+    location: "Store",
     date: "17 October 2021",
     startDate: "1-10-2021",
     endDate: "1-11-2021"
+  },
+  {
+    title: "MathSoc x Servian Poker Night",
+    eventLink: "https://www.facebook.com/events/955500351719146",
+    description: `❗❗Calling all poker maestros and enthusiasts ❗❗
+Bluff your way to the top with MathSoc's online ♣️♦️poker night ♣️♥️
+Unleash your competitive spirit with a multi round poker tournament to crown MathSoc's best poker players. With prizes up for grabs and the opportunity to network with Servian Representatives, this is an opportunity you don't want to miss!`,
+    imagePath: generateImagePath("servian_poker_2021.jpg"),
+    location: "Zoom",
+    date: "21st October 2021, 5:30-7:30PM",
+    startDate: "21-10-2021",
+    endDate: "21-10-2021"
+  },
+  {
+    title: "MathSoc Annual General Meeting",
+    eventLink: "https://www.facebook.com/events/1072834699788313",
+    description: `The Executives for UNSW Mathematics Society are proud to present our Annual General Meeting for 2021! With this year once again feeling the impacts of the pandemic, we have strived to connect the community and support students in their studies.
+We invite all members of the MathSoc community to our AGM hosted on Zoom!`,
+    imagePath: generateImagePath("agm_2021.jpg"),
+    location: "Zoom",
+    locationURL: "https://unsw.zoom.us/j/81643281850",
+    date: "22nd October 2021, 6-8PM",
+    startDate: "22-10-2021",
+    endDate: "22-10-2021"
   }
 ];
 
