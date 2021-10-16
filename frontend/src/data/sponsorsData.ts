@@ -114,6 +114,14 @@ const rawSponsorsData: sponsor[] = [
     logoPath: "/images/logos/sig_logo.png",
     description:
       "A global quantitative trading firm founded with an entrepreneurial mindset and a rigorous analytical approach to decision making. We commit our own capital to trade financial products around the world. Building virtually all of our own trading technology from scratch, we are leaders and innovators in high performance, low latency trading. Our traders, quants, developers, and systems engineers work side by side to develop and implement our trading strategies. Each individual brings their unique expertise every day to help us make optimal decisions in the global financial markets."
+  },
+  {
+    name: "VivCourt Trading",
+    type: "major",
+    websiteURL: "http://www.vivcourttrading.com.au/",
+    logoPath: "/images/logos/vivcourt_logo.png",
+    description:
+      "On the surface VivCourt Trading might look like your average financial trading firm.  But you just have to scratch the surface (or chat to anyone who works there!) to know it most definitely is not. VivCourt's founder, Rob Keldoulis, has taken the traditional corporate business model and flipped it on its head. He has challenged every aspect and come away with what he believes will evolve into the only sustainable corporate model of the future."
   }
 ];
 
