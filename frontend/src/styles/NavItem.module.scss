@@ -41,5 +41,6 @@
   display: none;
   @media screen and (max-width: $mobile) {
     display: inline-block;
+    height: 0.9rem;
   }
 }
