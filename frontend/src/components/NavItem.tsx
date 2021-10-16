@@ -4,22 +4,24 @@ import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
 // Component Imports
-import { navLink } from "src/data/navLinksData";
 import NavDropdown from "./NavDropdown";
 
 // Styling
 import styles from "src/styles/NavItem.module.scss";
+
+// Data
+import { navLink } from "src/data/navLinksData";
 
 // Clean up, use extend
 interface NavItemProps extends navLink {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, setOpen }) => {
+const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, mobileOnly, setOpen }) => {
   const [isExpanded, setExpanded] = useState(false);
 
   return (
-    <li className={styles.navItem}>
+    <li className={mobileOnly ? `${styles.navItem} ${styles.mobileOnly}` : styles.navItem}>
       <Link href={route}>
         <a className={styles.navLink} onClick={() => setOpen(false)}>
           <Typography style={{ color: "inherit" }}>{name}</Typography>

@@ -3,8 +3,14 @@
 .navItem {
   display: flex;
   position: relative;
+  &.mobileOnly {
+    display: none;
+  }
   @media screen and (max-width: $mobile) {
     position: static;
+    &.mobileOnly {
+      display: flex;
+    }
   }
 }
 

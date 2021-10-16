@@ -8,9 +8,16 @@ export interface navLink {
   name: string;
   route: string;
   dropdown: subPage[];
+  mobileOnly: boolean;
 }
 
 const navLinks: navLink[] = [
+  {
+    name: "Home",
+    route: "/",
+    dropdown: [],
+    mobileOnly: true
+  },
   {
     name: "About Us",
     route: "/about",
@@ -23,12 +30,14 @@ const navLinks: navLink[] = [
         subRoute: "/files/general/Constitution-and-GRPP-2021.pdf",
         externalRoute: true
       }
-    ]
+    ],
+    mobileOnly: false
   },
   {
     name: "Events",
     route: "/events",
-    dropdown: []
+    dropdown: [],
+    mobileOnly: false
   },
   {
     name: "Resources",
@@ -50,22 +59,26 @@ const navLinks: navLink[] = [
         subRoute: "/files/resources/misc/HSC-Tips-and-Tricks-Booklet-2019.pdf",
         externalRoute: true
       }
-    ]
+    ],
+    mobileOnly: false
   },
   {
     name: "Competitions",
     route: "/competitions",
-    dropdown: []
+    dropdown: [],
+    mobileOnly: false
   },
   {
     name: "Sponsors",
     route: "/sponsors",
-    dropdown: []
+    dropdown: [],
+    mobileOnly: false
   },
   {
     name: "Contact Us",
     route: "/contact",
-    dropdown: []
+    dropdown: [],
+    mobileOnly: false
   }
 ];
 
