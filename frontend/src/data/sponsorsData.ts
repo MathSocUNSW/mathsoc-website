@@ -23,7 +23,7 @@ const rawSponsorsData: sponsor[] = [
     name: "Arc",
     type: "school",
     websiteURL: "https://www.arc.unsw.edu.au/",
-    logoPath: "/images/logos/arc_green_logo.png",
+    logoPath: "/images/logos/arc_logo.png",
     description:
       "Arc is your student organisation at UNSW. From Clubs to Volunteering; Sport to Events; Wellness to Help; and heaps more, we make sure that your student experience is the best that it can be."
   },
@@ -31,7 +31,7 @@ const rawSponsorsData: sponsor[] = [
     name: "Autumn Compass",
     type: "major",
     websiteURL: "https://www.autumncompass.com/home/",
-    logoPath: "/images/logos/autumn_compass.svg",
+    logoPath: "/images/logos/autumn_compass_logo.png",
     description:
       "Autumn Compass is a proprietary trading firm developing clever algorithms to provide liquidity on financial markets across Asia-Pacific. Our objective is to efficiently facilitate the flow of capital between market participants and serve a leading role in exchange market making and capital formation."
   },
@@ -39,7 +39,7 @@ const rawSponsorsData: sponsor[] = [
     name: "Bain & Company",
     type: "bespoke",
     websiteURL: "https://www.bain.com/",
-    logoPath: "/images/logos/brain_and_company_logo.png",
+    logoPath: "/images/logos/bain_logo.png",
     description:
       "One of the world's leading management consulting firms. We work with top executives to help them make better decisions, convert those decisions to actions and deliver the sustainable success they desire. For more than 40 years, we've been passionate about achieving better results for our clients—results that go beyond financial and are uniquely tailored, pragmatic, holistic and enduring. We've worked with the majority of the Global 500, thousands of major regional and local organizations, hundreds of nonprofits, and private equity funds representing 75 percent of global equity capital. We are proud of our clients' track record, like the fact that our public clients have historically outperformed the stock market 4 to 1."
   },
