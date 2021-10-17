@@ -36,11 +36,15 @@ const NavItem: React.FC<NavItemProps> = ({
     if (isExpanded) setActiveDropdown(-1);
     else setActiveDropdown(index);
   };
+  const closeMenus = () => {
+    setActiveDropdown(-1);
+    setOpen(false);
+  };
 
   return (
     <li className={mobileOnly ? `${styles.navItem} ${styles.mobileOnly}` : styles.navItem}>
       <Link href={route}>
-        <a className={styles.navLink} onClick={() => setOpen(false)}>
+        <a className={styles.navLink} onClick={closeMenus}>
           <Typography style={{ color: "inherit" }}>{name}</Typography>
         </a>
       </Link>
