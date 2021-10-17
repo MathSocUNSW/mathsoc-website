@@ -56,6 +56,10 @@ const NavBar: React.FC = () => {
   };
   // global dropdown state
   const [activeDropdown, setActiveDropdown] = useState(-1);
+  const closeMenus = () => {
+    setActiveDropdown(-1);
+    setOpen(false);
+  };
 
   return (
     <header className={styles.navbar} style={isStuck ? stuckShadow : {}}>
@@ -71,6 +75,7 @@ const NavBar: React.FC = () => {
                 className={styles.logo}
                 alt="MathSoc Logo"
                 aria-label="logo"
+                onClick={closeMenus}
               />
             </a>
           </Link>
