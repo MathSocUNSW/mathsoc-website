@@ -8,6 +8,7 @@
   }
   @media screen and (max-width: $mobile) {
     position: static;
+    padding: 0.2rem 3rem;
     &.mobileOnly {
       display: flex;
     }
@@ -19,7 +20,6 @@
   color: white;
   @media screen and (max-width: $mobile) {
     color: black;
-    padding: 0.2rem 2rem;
     width: 100%;
   }
 }
@@ -43,8 +43,8 @@
 }
 
 .arrowRight {
-  padding-right: 2.4rem;
   display: none;
+  cursor: pointer;
   @media screen and (max-width: $mobile) {
     display: inline-block;
     height: 0.9rem;

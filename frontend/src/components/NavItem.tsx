@@ -1,5 +1,5 @@
 // Library Imports
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
@@ -14,11 +14,28 @@ import { navLink } from "src/data/navLinksData";
 
 // Clean up, use extend
 interface NavItemProps extends navLink {
+  index: number;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  activeDropdown: number;
+  setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, mobileOnly, setOpen }) => {
-  const [isExpanded, setExpanded] = useState(false);
+const NavItem: React.FC<NavItemProps> = ({
+  index,
+  name,
+  route,
+  dropdown,
+  mobileOnly,
+  setOpen,
+  activeDropdown,
+  setActiveDropdown
+}) => {
+  // change dropdown state
+  const isExpanded = activeDropdown === index;
+  const toggleDropdown = () => {
+    if (isExpanded) setActiveDropdown(-1);
+    else setActiveDropdown(index);
+  };
 
   return (
     <li className={mobileOnly ? `${styles.navItem} ${styles.mobileOnly}` : styles.navItem}>
@@ -29,21 +46,13 @@ const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, mobileOnly, se
       </Link>
       {dropdown.length > 0 ? (
         <div className={styles.dropdownContainer}>
-          <img
-            src="images/arrowDown.svg"
-            className={styles.arrowDown}
-            onClick={() => setExpanded((prevExpanded) => !prevExpanded)}
-          />
-          <img
-            src="images/rightArrow.svg"
-            className={styles.arrowRight}
-            onClick={() => setExpanded((prevExpanded) => !prevExpanded)}
-          />
+          <img src="images/arrowDown.svg" className={styles.arrowDown} onClick={toggleDropdown} />
+          <img src="images/rightArrow.svg" className={styles.arrowRight} onClick={toggleDropdown} />
           {isExpanded ? (
             <NavDropdown
               parentItem={name}
               items={dropdown}
-              setDropdown={setExpanded}
+              setActiveDropdown={setActiveDropdown}
               baseRoute={route}
               setOpen={setOpen}
             />
@@ -57,78 +66,5 @@ const NavItem: React.FC<NavItemProps> = ({ name, route, dropdown, mobileOnly, se
     </li>
   );
 };
-
-// const NavItem: React.FC<NavItemProps> = ({ navData, setOpen, width }) => {
-//   // Something is interfering with dropdown when mobile, so new state is used
-//   const [dropdown, setDropdown] = React.useState(false);
-//   const [dropdownMobile, setDropdownMobile] = React.useState(false);
-
-//   const onMouseEnter = () => setDropdown(true);
-//   const onMouseLeave = () => setDropdown(false);
-
-//   const DesktopVersionDropdown = (
-//     <div onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-//       {/* Crude fix of type here, may cause errors in the future */}
-//       {navData.dropdown && (
-//         <NavDropdown items={navData.dropdown} setDropdown={setDropdown} baseRoute={navData.route} />
-//       )}
-//     </div>
-//   );
-
-//   const MobileVersionDropdown = (
-//     <div className={styles.mobileContainer}>
-//       {navData.dropdown && (
-//         <li className={styles.navButton} onClick={() => setOpen(false)}>
-//           <Link href={navData.route}>
-//             <a style={{ fontSize: "15px" }}>{navData.name}</a>
-//           </Link>
-//         </li>
-//       )}
-//       {navData.dropdown &&
-//         navData.dropdown.map((item) => (
-//           <li key={item.name} className={styles.navButton} onClick={() => setOpen(false)}>
-//             <Link href={navData.route + item.subRoute}>
-//               <a style={{ fontSize: "15px" }}>{item.name}</a>
-//             </Link>
-//           </li>
-//         ))}
-//     </div>
-//   );
-
-//   const DesktopVersionItem = (
-//     <li className={styles.navButton} onClick={() => setOpen(false)}>
-//       <Link href={navData.route}>
-//         <a>
-//           {navData.name} {navData.dropdown && <div className={styles.navArrow} />}
-//         </a>
-//       </Link>
-//     </li>
-//   );
-
-//   const MobileVersionItem = (
-//     <>
-//       {navData.dropdown ? (
-//         <li className={styles.navButton} onClick={() => setDropdownMobile(!dropdownMobile)}>
-//           <a>
-//             {navData.name} {navData.dropdown && <div className={styles.navArrow} />}
-//           </a>
-//         </li>
-//       ) : (
-//         DesktopVersionItem
-//       )}
-//     </>
-//   );
-
-//   return (
-//     <div>
-//       {/* Done to separate CSS attributes from mainContainer and dropdown */}
-//       <div className={styles.mainContainer} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-//         {width > 860 ? DesktopVersionItem : MobileVersionItem}
-//       </div>
-//       {navData.dropdown && dropdown && width > 860 && DesktopVersionDropdown}
-//       {navData.dropdown && dropdownMobile && !(width > 860) && MobileVersionDropdown}
-//     </div>
-//   );
-// };
 
 export default NavItem;

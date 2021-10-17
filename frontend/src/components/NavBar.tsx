@@ -1,5 +1,5 @@
 // Library Imports
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Hamburger from "hamburger-react";
 import { Container } from "@material-ui/core";
@@ -10,22 +10,34 @@ import NavItem from "./NavItem";
 // Styling
 import styles from "src/styles/NavBar.module.scss";
 
-// Helper Imports
-import useWindowDimensions from "src/helpers/useWindowDimensions";
-
 // Data
 import navLinks from "src/data/navLinksData";
 
 interface NavItemsProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  className: string;
+  isMobile?: boolean;
+  activeDropdown: number;
+  setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const NavItems: React.FC<NavItemsProps> = ({ setOpen, className }) => {
+const NavItems: React.FC<NavItemsProps> = ({
+  setOpen,
+  isMobile = false,
+  activeDropdown,
+  setActiveDropdown
+}) => {
   return (
-    <ul className={className}>
-      {navLinks.map((item) => (
-        <NavItem key={item.name} {...item} setOpen={setOpen} />
+    <ul className={isMobile ? styles.navItemsMobile : styles.navItems}>
+      {navLinks.map((item, index) => (
+        <NavItem
+          key={index}
+          // index={index} // NavItems have the same state on both mobile and desktop
+          index={(isMobile ? 1 : 2) * index} // separates mobile and desktop state for same NavItem
+          {...item}
+          setOpen={setOpen}
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
       ))}
     </ul>
   );
@@ -42,8 +54,8 @@ const NavBar: React.FC = () => {
   const stuckShadow = {
     boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.1)"
   };
-
-  const { width } = useWindowDimensions();
+  // global dropdown state
+  const [activeDropdown, setActiveDropdown] = useState(-1);
 
   return (
     <header className={styles.navbar} style={isStuck ? stuckShadow : {}}>
@@ -62,7 +74,11 @@ const NavBar: React.FC = () => {
               />
             </a>
           </Link>
-          <NavItems setOpen={setOpen} className={styles.navItems} />
+          <NavItems
+            setOpen={setOpen}
+            activeDropdown={activeDropdown}
+            setActiveDropdown={setActiveDropdown}
+          />
           <a
             href="https://unsw-mathematics-society.square.site/"
             target="_blank"
@@ -75,7 +91,16 @@ const NavBar: React.FC = () => {
               aria-label="logo"
             />
           </a>
-          {isOpen ? <NavItems setOpen={setOpen} className={styles.navItemsMobile} /> : <></>}
+          {isOpen ? (
+            <NavItems
+              isMobile
+              setOpen={setOpen}
+              activeDropdown={activeDropdown}
+              setActiveDropdown={setActiveDropdown}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </Container>
     </header>

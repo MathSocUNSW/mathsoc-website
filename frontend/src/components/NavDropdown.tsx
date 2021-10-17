@@ -12,7 +12,7 @@ import { subPage } from "src/data/navLinksData";
 interface NavDropdownProps {
   parentItem: string;
   items: subPage[];
-  setDropdown: React.Dispatch<React.SetStateAction<boolean>>;
+  setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   baseRoute: string;
 }
@@ -20,23 +20,21 @@ interface NavDropdownProps {
 const NavDropdown: React.FC<NavDropdownProps> = ({
   parentItem,
   items,
-  setDropdown,
+  setActiveDropdown,
   baseRoute,
   setOpen
 }) => {
+  const closeDropdown = () => setActiveDropdown(-1);
+
   const closeMenus = () => {
-    setDropdown(false);
+    closeDropdown();
     setOpen(false);
   };
 
   return (
     <ul className={styles.dropdown}>
       <div className={styles.parentBox}>
-        <img
-          src="images/leftArrow.svg"
-          className={styles.arrowLeft}
-          onClick={() => setDropdown(false)}
-        />
+        <img src="images/leftArrow.svg" className={styles.arrowLeft} onClick={closeDropdown} />
         <Typography>{parentItem}</Typography>
       </div>
       {items.map((item) => (
