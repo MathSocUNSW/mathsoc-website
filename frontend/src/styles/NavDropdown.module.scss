@@ -57,9 +57,13 @@
   overflow: none;
   color: white;
   &:hover {
-    background-color: #0074b7;
+    background-color: $blueAccent;
   }
   @media screen and (max-width: $mobile) {
     color: black;
+    &:hover {
+      background-color: transparent;
+      color: $darkNavy;
+    }
   }
 }

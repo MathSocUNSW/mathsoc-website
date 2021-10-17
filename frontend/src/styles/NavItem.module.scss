@@ -20,6 +20,9 @@
   color: white;
   @media screen and (max-width: $mobile) {
     color: black;
+    &:hover {
+      color: $darkNavy;
+    }
     width: 100%;
   }
 }
