@@ -25,7 +25,6 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
   setOpen
 }) => {
   const closeDropdown = () => setActiveDropdown(-1);
-
   const closeMenus = () => {
     closeDropdown();
     setOpen(false);
