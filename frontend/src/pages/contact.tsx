@@ -12,7 +12,7 @@ import Hero from "components/Hero";
 import styles from "src/styles/contact.module.scss";
 
 // Data
-import { contactUsSocials } from "src/data/socialData";
+import { socials } from "src/data/socialData";
 
 const Contact: React.FC = () => {
   return (
@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
                 Follow us on social media to stay updated with upcoming events and opportunities!
               </Typography>
               <div className={styles.socialContainer}>
-                {contactUsSocials.map(({ name, url, iconPath, altName }) => (
+                {socials.map(({ name, url, iconPath, altName }) => (
                   <div key={name}>
                     <a
                       href={url}

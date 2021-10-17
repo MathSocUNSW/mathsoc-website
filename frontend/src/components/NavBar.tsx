@@ -1,5 +1,5 @@
 // Library Imports
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Hamburger from "hamburger-react";
 import { Container } from "@material-ui/core";
@@ -10,11 +10,38 @@ import NavItem from "./NavItem";
 // Styling
 import styles from "src/styles/NavBar.module.scss";
 
-// Helper Imports
-import useWindowDimensions from "src/helpers/useWindowDimensions";
-
 // Data
 import navLinks from "src/data/navLinksData";
+
+interface NavItemsProps {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  isMobile?: boolean;
+  activeDropdown: number;
+  setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const NavItems: React.FC<NavItemsProps> = ({
+  setOpen,
+  isMobile = false,
+  activeDropdown,
+  setActiveDropdown
+}) => {
+  return (
+    <ul className={isMobile ? styles.navItemsMobile : styles.navItems}>
+      {navLinks.map((item, index) => (
+        <NavItem
+          key={index}
+          // index={index} // NavItems have the same state on both mobile and desktop
+          index={(isMobile ? 1 : 2) * index} // separates mobile and desktop state for same NavItem
+          {...item}
+          setOpen={setOpen}
+          activeDropdown={activeDropdown}
+          setActiveDropdown={setActiveDropdown}
+        />
+      ))}
+    </ul>
+  );
+};
 
 const NavBar: React.FC = () => {
   // mobile
@@ -25,46 +52,60 @@ const NavBar: React.FC = () => {
     window.addEventListener("scroll", () => setStuck(window.scrollY >= 80));
   }
   const stuckShadow = {
-    boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.25)"
+    boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.1)"
   };
-  // TODO: dark mode (with useContext)
-
-  const { width } = useWindowDimensions();
+  // global dropdown state
+  const [activeDropdown, setActiveDropdown] = useState(-1);
+  const closeMenus = () => {
+    setActiveDropdown(-1);
+    setOpen(false);
+  };
 
   return (
     <header className={styles.navbar} style={isStuck ? stuckShadow : {}}>
       <Container>
         <div className={styles.navbarContent}>
           <div className={styles.hamburger}>
-            <Hamburger toggled={isOpen} toggle={setOpen} />
+            <Hamburger toggled={isOpen} toggle={setOpen} size={25} />
           </div>
-          <div className={styles.logoContainer}>
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/mathsocLogoLong.svg"
-                  className={styles.logo}
-                  alt="MathSoc Logo"
-                  aria-label="logo"
-                />
-              </a>
-            </Link>
-          </div>
-          <nav className={isOpen ? `${styles.navItems}` + ` ${styles.open}` : `${styles.navItems}`}>
-            <ul className={styles.navLinks}>
-              {navLinks.map((item) => (
-                <NavItem key={item.name} navData={item} setOpen={setOpen} width={width} />
-              ))}
-            </ul>
-          </nav>
-          {/* <div className={styles.toggle}> */}
-          {/* TODO: Dark Mode Toggle Switch */}
-          {/* <Switch /> */}
-          {/* </div> */}
-          {/* TEMP */}
-          <div className={styles.hamburger} style={{ visibility: "hidden" }}>
-            <Hamburger toggled={isOpen} toggle={setOpen} />
-          </div>
+          <Link href="/">
+            <a>
+              <img
+                src="/images/mathsocWhite.svg"
+                className={styles.logo}
+                alt="MathSoc Logo"
+                aria-label="logo"
+                onClick={closeMenus}
+              />
+            </a>
+          </Link>
+          <NavItems
+            setOpen={setOpen}
+            activeDropdown={activeDropdown}
+            setActiveDropdown={setActiveDropdown}
+          />
+          <a
+            href="https://unsw-mathematics-society.square.site/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/images/shop.svg"
+              className={styles.shop}
+              alt="MathSoc Shop"
+              aria-label="logo"
+            />
+          </a>
+          {isOpen ? (
+            <NavItems
+              isMobile
+              setOpen={setOpen}
+              activeDropdown={activeDropdown}
+              setActiveDropdown={setActiveDropdown}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </Container>
     </header>

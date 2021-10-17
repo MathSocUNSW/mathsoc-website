@@ -1,48 +1,69 @@
 @import "./variables.scss";
 
-.mainContainer {
-  // outline: auto;
-  background: white;
-  // width: 200px;
-  // padding-right: 5px;
-  // padding-bottom: 5px;
+.dropdown {
+  background-color: $lightNavyBG;
+  overflow: hidden;
   position: absolute;
-  top: $headerHeight;
-  // list-style: none;
+  top: 50px;
+  left: 0;
   text-align: start;
-  a {
-    text-decoration: none;
-    color: $darkNavy;
-    font-size: 15px;
-    text-align: center;
-    &:hover {
-      color: white;
-    }
-    &:last-child {
-      background-color: red;
-    }
-  }
+  min-width: 10.5rem;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   // NOTE: box shadow bleeds from top
   box-shadow: 1px 3px 20px 0 rgba(0, 0, 0, 0.25);
+  @media screen and (max-width: $mobile) {
+    top: 0;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.dropdownBox {
+  list-style: none;
+  a {
+    text-decoration: none;
+  }
+  @media screen and (max-width: $mobile) {
+    padding-left: 2rem;
+  }
+}
+
+.parentBox {
+  display: none;
+  @media screen and (max-width: $mobile) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.7rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    background-color: lightgrey;
+  }
+}
+
+.arrowLeft {
+  margin-right: 1rem;
+  height: 16px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .item {
-  // outline: auto;
-  // margin: 0 3px;
-  // border-radius: 15px;
-  transition: 0.3s;
-  padding: 0.7rem 1rem;
+  transition: background-color ease-out 0.3s;
+  padding: 0.7rem 0.7rem;
+  overflow: none;
+  color: white;
   &:hover {
-    // REVIEW: colour/wanted
-    background-color: #0074b7;
+    background-color: $blueAccent;
   }
-  border-bottom: solid 1px #dfe0e3;
-}
-
-// Couldn't get :last-child to work
-.itemLast {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  @media screen and (max-width: $mobile) {
+    color: black;
+    &:hover {
+      background-color: transparent;
+      color: $darkNavy;
+    }
+  }
 }

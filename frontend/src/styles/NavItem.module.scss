@@ -1,39 +1,55 @@
 @import "./variables.scss";
 
-.navButton {
-  margin: 0 2px;
-  border-radius: 15px;
-  transition: 0.3s;
-  padding: 0.5rem;
+.navItem {
+  display: flex;
+  position: relative;
+  &.mobileOnly {
+    display: none;
+  }
+  @media screen and (max-width: $mobile) {
+    position: static;
+    padding: 0.2rem 3rem;
+    &.mobileOnly {
+      display: flex;
+    }
+  }
+}
+
+.navLink {
+  text-decoration: none;
+  color: white;
+  @media screen and (max-width: $mobile) {
+    color: black;
+    &:hover {
+      color: $darkNavy;
+    }
+    width: 100%;
+  }
+}
+
+.dropdownContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: $mobile) {
+    justify-content: space-between;
+  }
+}
+
+.arrowDown {
+  height: 16px;
+  padding-left: 0.2rem;
+  margin-right: -0.6rem;
   &:hover {
-    // REVIEW: colour/wanted
-    background-color: lightgrey;
     cursor: pointer;
   }
 }
 
-.mainContainer {
-  // outline: auto;
-  height: 60px;
-  display: grid;
-  place-items: center;
+.arrowRight {
+  display: none;
+  cursor: pointer;
   @media screen and (max-width: $mobile) {
-    height: 100%;
+    display: inline-block;
+    height: 0.9rem;
   }
-}
-
-.navArrow {
-  border: solid $darkNavy;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 2.75px;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  margin-bottom: 3.25px;
-  margin-left: 2.5px;
-}
-
-.mobileContainer {
-  display: flex;
-  flex-direction: column;
 }

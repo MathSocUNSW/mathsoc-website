@@ -1,23 +1,28 @@
-type routeString = `/${string}`;
-
 export interface subPage {
   name: string;
-  subRoute: routeString;
+  subRoute: string;
   externalRoute: boolean;
 }
 
 export interface navLink {
   name: string;
-  route: routeString;
-  dropdown: subPage[] | null;
-  displayDropdownMobile: null | boolean;
+  route: string;
+  dropdown: subPage[];
+  mobileOnly: boolean;
 }
 
 const navLinks: navLink[] = [
   {
+    name: "Home",
+    route: "/",
+    dropdown: [],
+    mobileOnly: true
+  },
+  {
     name: "About Us",
     route: "/about",
     dropdown: [
+      { name: "About MathSoc", subRoute: "/", externalRoute: false },
       { name: "Meet the Team", subRoute: "/team", externalRoute: false },
       { name: "Former Teams", subRoute: "/formerteam", externalRoute: false },
       {
@@ -26,18 +31,19 @@ const navLinks: navLink[] = [
         externalRoute: true
       }
     ],
-    displayDropdownMobile: true
+    mobileOnly: false
   },
   {
     name: "Events",
     route: "/events",
-    dropdown: null,
-    displayDropdownMobile: null
+    dropdown: [],
+    mobileOnly: false
   },
   {
     name: "Resources",
     route: "/resources",
     dropdown: [
+      { name: "Our Resources", subRoute: "/", externalRoute: false },
       { name: "First Year Exam Bank", subRoute: "/exam-bank", externalRoute: false },
       { name: "Revision Lectures", subRoute: "/revision", externalRoute: false },
       { name: "LaTeX Guide", subRoute: "/latex", externalRoute: false },
@@ -54,25 +60,25 @@ const navLinks: navLink[] = [
         externalRoute: true
       }
     ],
-    displayDropdownMobile: false
+    mobileOnly: false
   },
   {
     name: "Competitions",
     route: "/competitions",
-    dropdown: null,
-    displayDropdownMobile: null
+    dropdown: [],
+    mobileOnly: false
   },
   {
     name: "Sponsors",
     route: "/sponsors",
-    dropdown: null,
-    displayDropdownMobile: null
+    dropdown: [],
+    mobileOnly: false
   },
   {
     name: "Contact Us",
     route: "/contact",
-    dropdown: null,
-    displayDropdownMobile: null
+    dropdown: [],
+    mobileOnly: false
   }
 ];
 

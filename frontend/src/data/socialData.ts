@@ -40,17 +40,17 @@ export const discordData: socialData = {
   altName: "UNSW MathSoc"
 };
 
-export const gmailData: socialData = {
-  name: "Gmail",
+export const emailData: socialData = {
+  name: "Email",
   url: "mailto:hello@unswmathsoc.org",
-  iconPath: "/images/logos/gmailLogo.svg",
+  iconPath: "/images/logos/emailLogo.svg",
   altName: "hello@unswmathsoc.org"
 };
 
 export const twitchData: socialData = {
   name: "Twitch",
   url: "https://twitch.tv/unswmathsoc/",
-  iconPath: "TODO",
+  iconPath: "", // TODO
   altName: "UNSW MathSoc Twitch"
 };
 
@@ -62,6 +62,7 @@ export const storeData: socialData = {
 };
 
 export const socials: socialData[] = [
+  emailData,
   facebookData,
   linkedInData,
   instagramData,
@@ -71,11 +72,8 @@ export const socials: socialData[] = [
 
 export const linkData: socialData[] = [...socials, twitchData, storeData];
 
-export const contactUsSocials: socialData[] = [...socials, gmailData];
-
 /*
 NOTES:
 - ARC data?
-- Discord has an updated icon
-- Twitch?
+- Twitch icon?
 */
