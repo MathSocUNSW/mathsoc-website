@@ -1,7 +1,6 @@
 // Library Imports
-import React, { useEffect, Dispatch, SetStateAction } from "react";
+import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { Typography } from "@material-ui/core";
-import moment from "moment";
 
 // Component Imports
 import EventCard from "src/components/EventCard";
@@ -55,12 +54,8 @@ const figureOutWhatEventsToShow = (
   }
 };
 
-export interface UpcomingEventsProps {
-  eventIndex: number;
-  setEventIndex: Dispatch<SetStateAction<number>>;
-}
-
-const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ eventIndex, setEventIndex }) => {
+const UpcomingEvents: React.FC = () => {
+  const [eventIndex, setEventIndex] = useState(0);
   const sortedEventData = eventData.filter(upcomingEventsFilter);
   const { height, width } = useWindowDimensions();
 
@@ -97,7 +92,6 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ eventIndex, setEventInd
       <Typography variant="h2" align="center">
         Upcoming Events
       </Typography>
-      <br />
       <div className={styles.events}>
         {sortedEventData.length > 3 && (
           <img

@@ -3,22 +3,26 @@
 }
 
 .dotPoints {
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  & > *:not(:last-child) {
-    margin-bottom: 1rem;
-  }
+  list-style: none;
+  padding-left: 0;
+  padding-top: 1rem;
 }
 
 .dotPoint {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
+$gap: 21px;
+$imgGap: 1rem;
+
 .img {
-  margin-right: 1rem;
-  width: 40;
-  height: 40;
+  margin-top: 1px;
+  margin-right: $imgGap;
+  width: $gap;
+  height: $gap;
+}
+
+.eventInfo {
+  padding-left: calc($gap + $imgGap);
 }

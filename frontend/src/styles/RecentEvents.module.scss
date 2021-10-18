@@ -1,14 +1,11 @@
 @import "./variables.scss";
 
-.title {
-  margin-bottom: 0.4rem;
-}
-
 .cardContainer {
   margin: 21px 10px;
 }
 
 .container {
+  margin-top: 0.6rem;
   padding-bottom: 8px;
   max-height: 485px;
   display: flex;

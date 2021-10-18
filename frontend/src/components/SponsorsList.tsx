@@ -1,9 +1,13 @@
+// Library Imports
 import React from "react";
-import { Typography } from "@material-ui/core";
 import Image from "next/image";
+import { Typography } from "@material-ui/core";
 
-import sponsorsData from "src/data/sponsorsData";
+// Styling
 import styles from "src/styles/SponsorsList.module.scss";
+
+// Data
+import sponsorsData from "src/data/sponsorsData";
 
 const SponsorsList: React.FC = () => {
   return (
@@ -11,8 +15,7 @@ const SponsorsList: React.FC = () => {
       <Typography variant="h2" align="center">
         Our Sponsors
       </Typography>
-      <br />
-      <section className={styles.sponsorsContainer}>
+      <div className={styles.sponsorsContainer}>
         {sponsorsData.map((sponsor, index) => (
           <a key={index} href={sponsor.websiteURL} target="_blank" rel="noopener noreferrer">
             <div className={styles.imageContainer}>
@@ -24,15 +27,9 @@ const SponsorsList: React.FC = () => {
                 priority={true}
               />
             </div>
-            {/* <img
-              className={styles.logo}
-              src={sponsor.logoURL}
-              alt={`${sponsor.name} logo`}
-              aria-label={`${sponsor.name} logo`}
-            /> */}
           </a>
         ))}
-      </section>
+      </div>
     </section>
   );
 };

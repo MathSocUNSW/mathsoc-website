@@ -1,7 +1,6 @@
 // Library Imports
 import React from "react";
 import { Typography } from "@material-ui/core";
-import moment from "moment";
 
 // Component Imports
 import Button from "components/Button";
@@ -25,11 +24,9 @@ const RecentEvents: React.FC = () => {
 
   return (
     <div>
-      <div className={styles.title}>
-        <Typography variant="h2" align="center">
-          Recent Events
-        </Typography>
-      </div>
+      <Typography variant="h2" align="center">
+        Recent Events
+      </Typography>
       <div className={styles.container}>
         {slicedEventData.map((event, index) => (
           <div className={styles.cardContainer} key={index}>
