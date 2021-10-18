@@ -14,17 +14,17 @@ import styles from "src/styles/NavBar.module.scss";
 import navLinks from "src/data/navLinksData";
 
 interface NavItemsProps {
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   isMobile?: boolean;
   activeDropdown: number;
   setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
+  closeMenus: () => void;
 }
 
 const NavItems: React.FC<NavItemsProps> = ({
-  setOpen,
   isMobile = false,
   activeDropdown,
-  setActiveDropdown
+  setActiveDropdown,
+  closeMenus
 }) => {
   return (
     <ul className={isMobile ? styles.navItemsMobile : styles.navItems}>
@@ -34,9 +34,9 @@ const NavItems: React.FC<NavItemsProps> = ({
           // index={index} // NavItems have the same state on both mobile and desktop
           index={(isMobile ? 1 : 2) * index} // separates mobile and desktop state for same NavItem
           {...item}
-          setOpen={setOpen}
           activeDropdown={activeDropdown}
           setActiveDropdown={setActiveDropdown}
+          closeMenus={closeMenus}
         />
       ))}
     </ul>
@@ -46,6 +46,7 @@ const NavItems: React.FC<NavItemsProps> = ({
 const NavBar: React.FC = () => {
   // mobile
   const [isOpen, setOpen] = useState(false);
+
   // sticky
   const [isStuck, setStuck] = useState(false);
   if (typeof window !== "undefined") {
@@ -54,6 +55,7 @@ const NavBar: React.FC = () => {
   const stuckShadow = {
     boxShadow: "1px 3px 20px 0 rgba(0, 0, 0, 0.1)"
   };
+
   // global dropdown state
   const [activeDropdown, setActiveDropdown] = useState(-1);
   const closeMenus = () => {
@@ -80,9 +82,9 @@ const NavBar: React.FC = () => {
             </a>
           </Link>
           <NavItems
-            setOpen={setOpen}
             activeDropdown={activeDropdown}
             setActiveDropdown={setActiveDropdown}
+            closeMenus={closeMenus}
           />
           <a
             href="https://unsw-mathematics-society.square.site/"
@@ -99,9 +101,9 @@ const NavBar: React.FC = () => {
           {isOpen ? (
             <NavItems
               isMobile
-              setOpen={setOpen}
               activeDropdown={activeDropdown}
               setActiveDropdown={setActiveDropdown}
+              closeMenus={closeMenus}
             />
           ) : (
             <></>

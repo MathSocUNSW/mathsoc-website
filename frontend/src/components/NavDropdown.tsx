@@ -13,8 +13,8 @@ interface NavDropdownProps {
   parentItem: string;
   items: subPage[];
   setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   baseRoute: string;
+  closeMenus: () => void;
 }
 
 const NavDropdown: React.FC<NavDropdownProps> = ({
@@ -22,13 +22,9 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
   items,
   setActiveDropdown,
   baseRoute,
-  setOpen
+  closeMenus
 }) => {
   const closeDropdown = () => setActiveDropdown(-1);
-  const closeMenus = () => {
-    closeDropdown();
-    setOpen(false);
-  };
 
   return (
     <ul className={styles.dropdown}>

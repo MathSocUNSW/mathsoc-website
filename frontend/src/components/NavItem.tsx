@@ -12,12 +12,11 @@ import styles from "src/styles/NavItem.module.scss";
 // Data
 import { navLink } from "src/data/navLinksData";
 
-// Clean up, use extend
 interface NavItemProps extends navLink {
   index: number;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   activeDropdown: number;
   setActiveDropdown: React.Dispatch<React.SetStateAction<number>>;
+  closeMenus: () => void;
 }
 
 const NavItem: React.FC<NavItemProps> = ({
@@ -26,19 +25,15 @@ const NavItem: React.FC<NavItemProps> = ({
   route,
   dropdown,
   mobileOnly,
-  setOpen,
   activeDropdown,
-  setActiveDropdown
+  setActiveDropdown,
+  closeMenus
 }) => {
   // change dropdown state
   const isExpanded = activeDropdown === index;
   const toggleDropdown = () => {
     if (isExpanded) setActiveDropdown(-1);
     else setActiveDropdown(index);
-  };
-  const closeMenus = () => {
-    setActiveDropdown(-1);
-    setOpen(false);
   };
 
   return (
@@ -58,7 +53,7 @@ const NavItem: React.FC<NavItemProps> = ({
               items={dropdown}
               setActiveDropdown={setActiveDropdown}
               baseRoute={route}
-              setOpen={setOpen}
+              closeMenus={closeMenus}
             />
           ) : (
             <></>
