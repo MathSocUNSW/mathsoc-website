@@ -193,7 +193,8 @@ const pastTeamData: yearTeamData[] = [
       {
         role: "Sponsorships",
         directors: ["Brendon Yang", "Stephanie Tong", "Amitoze Singh"]
-      }
+      },
+      { role: "Human Resources", directors: ["Henderson Koh"] }
     ],
     subcommittee: [
       {
@@ -239,7 +240,6 @@ const pastTeamData: yearTeamData[] = [
       { role: "IT", directors: ["Amitoze Singh"] },
       { role: "Marketing", directors: ["Yifan Shen"] },
       { role: "Sponsorships", directors: ["Shahbaz Bains", "Vishaal Nathan"] },
-      // eslint-disable-next-line quotes
       { role: "Women's", directors: ["Julia Renouf"] },
       { role: "Outreach", directors: ["Andrew Antony"] }
     ],
@@ -291,9 +291,39 @@ const pastTeamData: yearTeamData[] = [
       },
       { role: "IT", directors: ["Brendan Trinh"] },
       { role: "Marketing", directors: ["Mary Chen"] },
-      { role: "Sponsorships", directors: ["Jack Gan", "Yang Hu"] }
+      { role: "Sponsorships", directors: ["Jack Gan", "Yang Hu"] },
+      { role: "Women's", directors: ["Connie Kuo"] },
+      { role: "Outreach", directors: ["Thomas Sritharan"] }
     ],
-    subcommittee: []
+    subcommittee: [
+      {
+        role: "General",
+        members: [
+          "Ryan Mackay",
+          "Raymond Ye",
+          "Stephanie Chan",
+          "Jess Dai",
+          "Yifan Shen",
+          "Manishka Parkesh",
+          "Xinh Tran",
+          "Sunchit Sethi",
+          "Dominic Palanca",
+          "Shilong Zhu",
+          "Mary Chen",
+          "Andrew Dai",
+          "Aaron Hasssan",
+          "Kevin Ge",
+          "Jonathan Kim Sing",
+          "Julia Renouf",
+          "Matthew Yan",
+          "Conrad Martin",
+          "Shahbaz Bains",
+          "Allan Loi",
+          "Gaurav Sapre",
+          "Rebecca Johnston"
+        ]
+      }
+    ]
   },
   {
     year: 2015,
@@ -314,7 +344,30 @@ const pastTeamData: yearTeamData[] = [
       { role: "Marketing", directors: ["Vivian Zhang"] },
       { role: "Sponsorships", directors: ["Treves Li", "Timothy Nguyen"] }
     ],
-    subcommittee: []
+    subcommittee: [
+      {
+        role: "General",
+        members: [
+          "Brian Lam",
+          "Caroline Xie",
+          "Harry Gibbs",
+          "Henderson Koh",
+          "Hubert Wan",
+          "Ivy Lin",
+          "Jeffery Wu",
+          "Jonathan Kim Sing",
+          "Manishka Parekh",
+          "Marshall Li",
+          "Michela Castagnone",
+          "Patrick Wong",
+          "Robert Tan",
+          "Salley Wang",
+          "Theresa Ortiz",
+          "Toby Walmsley",
+          "Yonas Tibebu"
+        ]
+      }
+    ]
   },
   {
     year: 2014,
@@ -327,13 +380,13 @@ const pastTeamData: yearTeamData[] = [
     directorList: [
       {
         role: "Secretary & Public Relations",
-        directors: ["Miriam Greenbaum"]
+        directors: ["Miriam Greenbaum", "Elsa Wong"]
       },
       {
         role: "Events",
         directors: ["Johann Blanco", "Tim Nguyen"]
-      }
-      // { role: 'sponsorships', directors: [{ name: '' }] } NOTE missing spons
+      },
+      { role: "Sponsorships", directors: ["Liron Hayman"] }
     ],
     subcommittee: []
   },
@@ -352,7 +405,12 @@ const pastTeamData: yearTeamData[] = [
       {
         role: "Events",
         directors: ["Calvin Cheng", "Alicia Wong"]
-      }
+      },
+      {
+        role: "Sponsorships",
+        directors: ["Daniel Le"]
+      },
+      { role: "IT", directors: ["Anne Rong"] }
     ],
     subcommittee: []
   },
