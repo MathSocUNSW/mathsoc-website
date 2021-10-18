@@ -10,11 +10,7 @@ import EventCard from "src/components/EventCard";
 import styles from "src/styles/UpcomingEvents.module.scss";
 
 // Helper Imports
-import {
-  getDateUnix,
-  sortEndDateDecreasing,
-  sortStartDateDecreasing
-} from "src/helpers/eventHelpers";
+import { upcomingEventsFilter, eventsComparatorIncreasing } from "src/helpers/eventHelpers";
 import useWindowDimensions from "src/helpers/useWindowDimensions";
 
 // Data
@@ -39,14 +35,7 @@ const figureOutWhatEventsToShow = (
   eventIndex: number,
   width: number
 ) => {
-  sortedEventData.sort((x: eventDetails, y: eventDetails) => {
-    // primarily sort by increasing end date
-    const byEnd = sortEndDateDecreasing(x, y);
-    if (byEnd != 0) return -byEnd;
-    // sort same end dates by increasing start date
-    const byStart = sortStartDateDecreasing(x, y);
-    return -byStart;
-  });
+  sortedEventData.sort(eventsComparatorIncreasing);
 
   if (sortedEventData.length === 0) {
     return [];
@@ -72,7 +61,7 @@ export interface UpcomingEventsProps {
 }
 
 const UpcomingEvents: React.FC<UpcomingEventsProps> = ({ eventIndex, setEventIndex }) => {
-  const sortedEventData = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() >= 0);
+  const sortedEventData = eventData.filter(upcomingEventsFilter);
   const { height, width } = useWindowDimensions();
 
   /**

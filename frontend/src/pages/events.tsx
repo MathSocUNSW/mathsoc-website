@@ -14,11 +14,7 @@ import EventCard from "src/components/EventCard";
 import styles from "src/styles/events.module.scss";
 
 // Helper Imports
-import {
-  getDateUnix,
-  sortEndDateDecreasing,
-  sortStartDateDecreasing
-} from "src/helpers/eventHelpers";
+import { pastEventsFilter, eventsComparatorDecreasing } from "src/helpers/eventHelpers";
 
 // Data
 import eventData from "src/data/eventData";
@@ -28,9 +24,8 @@ const Events: React.FC = () => {
   const [eventIndex, setEventIndex] = useState(0);
 
   // Filter and sort past events
-  const sortedPastEvents = eventData.filter((x) => getDateUnix(x.endDate) - moment().valueOf() < 0);
-  sortedPastEvents.sort(sortStartDateDecreasing);
-  sortedPastEvents.sort(sortEndDateDecreasing);
+  const sortedPastEvents = eventData.filter(pastEventsFilter);
+  sortedPastEvents.sort(eventsComparatorDecreasing);
 
   return (
     <section>
