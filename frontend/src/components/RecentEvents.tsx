@@ -31,7 +31,9 @@ const RecentEvents: React.FC = () => {
   return (
     <div>
       <div className={styles.title}>
-        <Typography variant="h2">Recent Events</Typography>
+        <Typography variant="h2" align="center">
+          Recent Events
+        </Typography>
       </div>
       <div className={styles.container}>
         {slicedEventData.map((event, index) => (

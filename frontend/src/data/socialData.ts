@@ -62,9 +62,9 @@ export const storeData: socialData = {
 };
 
 export const socials: socialData[] = [
-  emailData,
   facebookData,
   linkedInData,
+  emailData,
   instagramData,
   youtubeData,
   discordData

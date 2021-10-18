@@ -1,5 +1,6 @@
 // Library Imports
 import React from "react";
+import Link from "next/link";
 
 // Styling
 import styles from "src/styles/button.module.scss";
@@ -13,9 +14,11 @@ interface buttonProps {
 const Button: React.FC<buttonProps> = ({ text, link }) => {
   return (
     <div className={styles.buttonContainer}>
-      <a href={link}>
-        <button className={styles.button}>{text}</button>
-      </a>
+      <Link href={link}>
+        <a>
+          <button className={styles.button}>{text}</button>
+        </a>
+      </Link>
     </div>
   );
 };
