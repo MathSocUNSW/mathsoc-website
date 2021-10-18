@@ -17,9 +17,6 @@ import styles from "src/styles/home.module.scss";
 // TODO: add loading animation, eager load sponsor images
 
 const Home: React.FC = () => {
-  // React state for upcoming events section
-  const [eventIndex, setEventIndex] = useState(0);
-
   return (
     <section>
       <Head>
@@ -40,7 +37,7 @@ const Home: React.FC = () => {
             </Typography>
           </WholePageBox>
         </div>
-        <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
+        <UpcomingEvents />
         <RecentEvents />
         <SponsorsList />
       </PageBody>

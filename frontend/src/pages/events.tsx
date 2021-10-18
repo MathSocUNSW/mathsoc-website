@@ -20,9 +20,6 @@ import { pastEventsFilter, eventsComparatorDecreasing } from "src/helpers/eventH
 import eventData from "src/data/eventData";
 
 const Events: React.FC = () => {
-  // React state for upcoming events section
-  const [eventIndex, setEventIndex] = useState(0);
-
   // Filter and sort past events
   const sortedPastEvents = eventData.filter(pastEventsFilter);
   sortedPastEvents.sort(eventsComparatorDecreasing);
@@ -35,7 +32,7 @@ const Events: React.FC = () => {
       </Head>
       <Hero url="/images/hero/mathsoc_events.jpg" text="Events" />
       <PageBody>
-        <UpcomingEvents eventIndex={eventIndex} setEventIndex={setEventIndex} />
+        <UpcomingEvents />
         <section className="pastEventsSection">
           <div className={styles.title}>
             <Typography variant="h2" align="center">
