@@ -52,7 +52,7 @@ const Revision: React.FC = () => {
           </Typography>
           <Typography variant="body1">
             To access it, please export all given files into the same folder and double click on the
-            one that says ‘open this’. You: I want to learn a programming language.
+            one that says ‘open this’.
           </Typography>
           <Typography variant="body1">
             Please do not hesitate to contact us if you have any questions, suggestions or spot any

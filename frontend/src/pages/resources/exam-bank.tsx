@@ -34,33 +34,29 @@ const ExamBank: React.FC = () => {
           <Typography variant="body1">
             These are solutions to sample lab tests created by MathSoc. Please let us know if you
             find any errors!
-            <br />
-            <br />
+          </Typography>
+          <Typography variant="body1">
             Your lab tests will involve questions very similar to those in the sample question
             banks. Basically they&apos;ll change the numbers to make sure you think about how to
-            solve the problem, rather than remember the letters, digits etc..
-            <br />
-            <br />
+            solve the problem, rather than remember the letters, digits etc.
+          </Typography>
+          <Typography variant="body1">
             What we have prepared are responses to sample questions generated from the question
             bank. You should always try to do the problems first yourself first. Should you get
             stuck, however, you can refer to our samples here to guide you back on the right track!
-            <br />
-            <br />
+          </Typography>
+          <Typography variant="body1">
             To get good marks, you should definitely not be relying on these solutions at all in the
             end. You should have attempted the sample questions on MapleTA often enough to handle it
             all yourself!
-            <br />
-            <br />
+          </Typography>
+          <Typography variant="body1">
             Note that these solutions are NOT endorsed by the UNSW School of Mathematics &
             Statistics, and that errors may exist. If you find answers that are incorrect, please
             send us a message, and we’ll try to address the question as soon as possible.
-            <br />
-            <br />
-            Good luck studying 🙂
-            <br />
-            <br />
-            (More solutions are currently being written.)
           </Typography>
+          <Typography variant="body1">Good luck studying 🙂</Typography>
+          <Typography variant="body1">(More solutions are currently being written.)</Typography>
         </WholePageBox>
         <br />
         <div className={styles.tileSection}>
@@ -76,8 +72,8 @@ const ExamBank: React.FC = () => {
             The following resources were used in the old semester model, where tutorial tests were
             present instead of laboratory tests. We have chosen to keep these resources to respect
             the work of the education teams before ours.
-            <br />
-            <br />
+          </Typography>
+          <Typography variant="body1">
             We will NOT be disclosing these past tutorial tests as they are copyrighted to UNSW
             School of Mathematics and Statistics, and we have not obtained any permission to
             distribute them.
