@@ -7,7 +7,7 @@ import styles from "src/styles/button.module.scss";
 
 interface buttonProps {
   text: string;
-  link: string;
+  link?: string;
   color?: string; // TODO: color tag?
 }
 
