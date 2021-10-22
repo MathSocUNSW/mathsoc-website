@@ -15,7 +15,7 @@ import { pastEventsFilter, eventsComparatorDecreasing } from "src/helpers/eventH
 // Data
 import eventData from "src/data/eventData";
 
-const pastEvents: React.FC = () => {
+const PastEvents: React.FC = () => {
   const sortedPastEvents = eventData.filter(pastEventsFilter);
   sortedPastEvents.sort(eventsComparatorDecreasing);
 
@@ -50,4 +50,4 @@ const pastEvents: React.FC = () => {
   );
 };
 
-export default pastEvents;
+export default PastEvents;
