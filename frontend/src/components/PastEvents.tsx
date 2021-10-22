@@ -19,11 +19,13 @@ const PastEvents: React.FC = () => {
   const sortedPastEvents = eventData.filter(pastEventsFilter);
   sortedPastEvents.sort(eventsComparatorDecreasing);
 
-  const NUM_ITEMS = 12;
-  const [sumItems, setSumItems] = useState(NUM_ITEMS);
+  // pagination
+  const MAX_ITEMS = 12;
+  const [itemsLimit, setItemsLimit] = useState(MAX_ITEMS);
 
-  const MAX_ITEMS = sortedPastEvents.length;
-  const slicedPastEvents = sortedPastEvents.slice(0, sumItems);
+  const numDisplayedItems = sortedPastEvents.length;
+  const slicedPastEvents = sortedPastEvents.slice(0, itemsLimit);
+
   return (
     <section className="pastEventsSection">
       <div className={styles.title}>
@@ -39,10 +41,13 @@ const PastEvents: React.FC = () => {
         ))}
       </div>
 
-      {sumItems < MAX_ITEMS && (
+      {itemsLimit < numDisplayedItems && (
         <div className={buttonStyles.buttonContainer}>
-          <button onClick={() => setSumItems(sumItems + NUM_ITEMS)} className={buttonStyles.button}>
-            Load More
+          <button
+            onClick={() => setItemsLimit(itemsLimit + MAX_ITEMS)}
+            className={buttonStyles.button}
+          >
+            Load more events
           </button>
         </div>
       )}
