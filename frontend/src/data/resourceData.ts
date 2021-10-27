@@ -26,7 +26,7 @@ export const revisionInfo: resourceDetails = {
 
 export const latexInfo: resourceDetails = {
   title: "LaTeX Guide",
-  titlePosition: "left",
+  titlePosition: "right",
   resourceLink: "/resources/latex",
   backgroundImage: RESOURCE_IMAGE_PATH + "latexBackground.png",
   iconPath: RESOURCE_IMAGE_PATH + "latexIcon.png"
@@ -34,10 +34,18 @@ export const latexInfo: resourceDetails = {
 
 export const matlabInfo: resourceDetails = {
   title: "MATLAB Guide",
-  titlePosition: "right",
+  titlePosition: "left",
   resourceLink: "/resources/matlab",
   backgroundImage: RESOURCE_IMAGE_PATH + "matlabBackground.png",
   iconPath: RESOURCE_IMAGE_PATH + "matlabIcon.png"
+};
+
+export const rInfo: resourceDetails = {
+  title: "R Guide",
+  titlePosition: "right",
+  resourceLink: "/resources/r",
+  backgroundImage: RESOURCE_IMAGE_PATH + "rBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "rIcon.png"
 };
 
 export const careersInfo: resourceDetails = {
@@ -64,11 +72,21 @@ export const hscInfo: resourceDetails = {
   iconPath: RESOURCE_IMAGE_PATH + "hscIcon.png"
 };
 
+export const appInfo: resourceDetails = {
+  title: "Applications",
+  titlePosition: "left",
+  resourceLink: "/applications",
+  backgroundImage: RESOURCE_IMAGE_PATH + "appBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "appIcon.png"
+};
+
 const resourceInfo: resourceDetails[] = [
   examBankInfo,
   revisionInfo,
+  appInfo,
   latexInfo,
   matlabInfo,
+  rInfo,
   careersInfo,
   firstYearInfo,
   hscInfo

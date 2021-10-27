@@ -579,7 +579,7 @@ const eventData: eventDetails[] = [
     location: "Store",
     date: "17 October 2021",
     startDate: "1-10-2021",
-    endDate: "1-11-2021"
+    endDate: "17-10-2021"
   },
   {
     title: "MathSoc x Servian Poker Night",

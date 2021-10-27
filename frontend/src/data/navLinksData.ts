@@ -1,7 +1,7 @@
 export interface subPage {
   name: string;
   subRoute: string;
-  externalRoute: boolean;
+  useRelativeRoute: boolean;
 }
 
 export interface navLink {
@@ -22,13 +22,13 @@ const navLinks: navLink[] = [
     name: "About Us",
     route: "/about",
     dropdown: [
-      { name: "About MathSoc", subRoute: "/", externalRoute: false },
-      { name: "Meet the Team", subRoute: "/team", externalRoute: false },
-      { name: "Former Teams", subRoute: "/formerteam", externalRoute: false },
+      { name: "About MathSoc", subRoute: "/", useRelativeRoute: false },
+      { name: "Meet the Team", subRoute: "/team", useRelativeRoute: false },
+      { name: "Former Teams", subRoute: "/formerteam", useRelativeRoute: false },
       {
         name: "Constitution",
         subRoute: "/files/general/Constitution-and-GRPP-2021.pdf",
-        externalRoute: true
+        useRelativeRoute: true
       }
     ],
     mobileOnly: false
@@ -39,25 +39,28 @@ const navLinks: navLink[] = [
     dropdown: [],
     mobileOnly: false
   },
+  // TODO: use resourceData
   {
     name: "Resources",
     route: "/resources",
     dropdown: [
-      { name: "Our Resources", subRoute: "/", externalRoute: false },
-      { name: "First Year Exam Bank", subRoute: "/exam-bank", externalRoute: false },
-      { name: "Revision Lectures", subRoute: "/revision", externalRoute: false },
-      { name: "LaTeX Guide", subRoute: "/latex", externalRoute: false },
-      { name: "MATLAB Guide", subRoute: "/matlab", externalRoute: false },
-      { name: "Careers Advice", subRoute: "/careers", externalRoute: false },
+      { name: "Our Resources", subRoute: "/", useRelativeRoute: false },
+      { name: "First Year Exam Bank", subRoute: "/exam-bank", useRelativeRoute: false },
+      { name: "Revision Lectures", subRoute: "/revision", useRelativeRoute: false },
+      { name: "Applications", subRoute: "/applications", useRelativeRoute: true },
+      { name: "LaTeX Guide", subRoute: "/latex", useRelativeRoute: false },
+      { name: "MATLAB Guide", subRoute: "/matlab", useRelativeRoute: false },
+      { name: "R Guide", subRoute: "/r", useRelativeRoute: false },
+      { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: false },
       {
         name: "First Year Guide",
         subRoute: "/files/resources/misc/First_Year_Guide_2021.pdf",
-        externalRoute: true
+        useRelativeRoute: true
       },
       {
         name: "HSC Tips & Tricks",
         subRoute: "/files/resources/misc/HSC-Tips-and-Tricks-Booklet-2019.pdf",
-        externalRoute: true
+        useRelativeRoute: true
       }
     ],
     mobileOnly: false
