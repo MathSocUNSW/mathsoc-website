@@ -577,7 +577,7 @@ const eventData: eventDetails[] = [
     And that's not all! Jump over to our website to see what other limited stock items are available from our past collections. 👀`,
     imagePath: generateImagePath("throwback_sale_2021.jpg"),
     location: "Store",
-    date: "17 October 2021",
+    date: "17st October 2021",
     startDate: "1-10-2021",
     endDate: "17-10-2021"
   },
