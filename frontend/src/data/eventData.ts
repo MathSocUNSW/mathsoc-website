@@ -604,6 +604,17 @@ We invite all members of the MathSoc community to our AGM hosted on Zoom!`,
     date: "22nd October 2021, 6-8PM",
     startDate: "22-10-2021",
     endDate: "22-10-2021"
+  },
+  {
+    title: "UNSW Interfaculty Presents - Psychometric Squid Game",
+    eventLink: "https://www.facebook.com/events/261639219309401/?ti=ls",
+    description: `💵Looking for a quick way to win 45.6 billion won?💵 Or a sure way to 𝗘𝗔𝗥𝗡 it? 🤩
+    The VIPs have arrived and the games are ready! 𝗦𝗖𝗜𝗦𝗢𝗖, 𝗘𝗻𝗴𝗦𝗼𝗰, 𝗠𝗮𝘁𝗵𝗦𝗼𝗰 and 𝗗𝗮𝘁𝗮𝗦𝗼𝗰 are glad to present ✨𝙋𝙨𝙮𝙘𝙝𝙤𝙢𝙚𝙩𝙧𝙞𝙘 𝙎𝙦𝙪𝙞𝙙 𝙂𝙖𝙢𝙚✨.`,
+    imagePath: generateImagePath("squid_game_2021.jpg"),
+    location: "Zoom",
+    date: "3rd November 2021, 6–8pm",
+    startDate: "3-11-2021",
+    endDate: "3-11-2021"
   }
 ];
 
