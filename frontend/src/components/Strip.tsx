@@ -1,8 +1,12 @@
+// Library Imports
 import React from "react";
 import Link from "next/link";
 import { Typography } from "@material-ui/core";
 
+// Styling
 import styles from "src/styles/Strip.module.scss";
+
+// Data
 import { resourceDetails as stripProps } from "src/data/resourceData";
 
 const Strip: React.FC<stripProps> = ({
