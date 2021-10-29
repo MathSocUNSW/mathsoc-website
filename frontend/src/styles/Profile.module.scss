@@ -8,9 +8,16 @@
   box-shadow: 1px 2px 20px 0 rgba(0, 0, 0, 0.13);
   padding: 1.8rem;
   max-width: 500px;
-  gap: 1.5rem;
+  & > *:not(:last-child) {
+    margin-right: 1.5rem;
+    margin-bottomm: 0;
+  }
   @media screen and (max-width: 500px) {
     flex-direction: column;
+    & > *:not(:last-child) {
+      margin-right: 0rem;
+      margin-bottom: 1.5rem;
+    }
   }
 }
 

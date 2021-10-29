@@ -22,13 +22,13 @@ const navLinks: navLink[] = [
     name: "About Us",
     route: "/about",
     dropdown: [
-      { name: "About MathSoc", subRoute: "/", useRelativeRoute: false },
-      { name: "Meet the Team", subRoute: "/team", useRelativeRoute: false },
-      { name: "Former Teams", subRoute: "/formerteam", useRelativeRoute: false },
+      { name: "About MathSoc", subRoute: "/", useRelativeRoute: true },
+      { name: "Meet the Team", subRoute: "/team", useRelativeRoute: true },
+      { name: "Former Teams", subRoute: "/formerteam", useRelativeRoute: true },
       {
         name: "Constitution",
         subRoute: "/files/general/Constitution-and-GRPP-2021.pdf",
-        useRelativeRoute: true
+        useRelativeRoute: false
       }
     ],
     mobileOnly: false
@@ -44,23 +44,23 @@ const navLinks: navLink[] = [
     name: "Resources",
     route: "/resources",
     dropdown: [
-      { name: "Our Resources", subRoute: "/", useRelativeRoute: false },
-      { name: "First Year Exam Bank", subRoute: "/exam-bank", useRelativeRoute: false },
-      { name: "Revision Lectures", subRoute: "/revision", useRelativeRoute: false },
-      { name: "LaTeX Guide", subRoute: "/latex", useRelativeRoute: false },
-      { name: "MATLAB Guide", subRoute: "/matlab", useRelativeRoute: false },
-      { name: "R Guide", subRoute: "/r", useRelativeRoute: false },
-      { name: "Applications", subRoute: "/applications", useRelativeRoute: true },
-      { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: false },
+      { name: "Our Resources", subRoute: "/", useRelativeRoute: true },
+      { name: "First Year Exam Bank", subRoute: "/exam-bank", useRelativeRoute: true },
+      { name: "Revision Lectures", subRoute: "/revision", useRelativeRoute: true },
+      { name: "LaTeX Guide", subRoute: "/latex", useRelativeRoute: true },
+      { name: "MATLAB Guide", subRoute: "/matlab", useRelativeRoute: true },
+      { name: "R Guide", subRoute: "/r", useRelativeRoute: true },
+      { name: "Applications", subRoute: "/applications", useRelativeRoute: false },
+      { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: true },
       {
         name: "First Year Guide",
         subRoute: "/files/resources/misc/First_Year_Guide_2021.pdf",
-        useRelativeRoute: true
+        useRelativeRoute: false
       },
       {
         name: "HSC Tips & Tricks",
         subRoute: "/files/resources/misc/HSC-Tips-and-Tricks-Booklet-2019.pdf",
-        useRelativeRoute: true
+        useRelativeRoute: false
       }
     ],
     mobileOnly: false
