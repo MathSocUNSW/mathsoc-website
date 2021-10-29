@@ -47,10 +47,10 @@ const navLinks: navLink[] = [
       { name: "Our Resources", subRoute: "/", useRelativeRoute: false },
       { name: "First Year Exam Bank", subRoute: "/exam-bank", useRelativeRoute: false },
       { name: "Revision Lectures", subRoute: "/revision", useRelativeRoute: false },
-      { name: "Applications", subRoute: "/applications", useRelativeRoute: true },
       { name: "LaTeX Guide", subRoute: "/latex", useRelativeRoute: false },
       { name: "MATLAB Guide", subRoute: "/matlab", useRelativeRoute: false },
       { name: "R Guide", subRoute: "/r", useRelativeRoute: false },
+      { name: "Applications", subRoute: "/applications", useRelativeRoute: true },
       { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: false },
       {
         name: "First Year Guide",
