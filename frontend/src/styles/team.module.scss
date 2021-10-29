@@ -11,7 +11,9 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
-  gap: 40px;
+  & > *:not(:last-child) {
+    margin-bottom: 40px;
+  }
 }
 
 .roleDescription {

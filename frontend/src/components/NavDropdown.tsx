@@ -35,7 +35,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
       {items.map((item) => (
         <li className={styles.dropdownBox} key={item.name}>
           <Link
-            href={!item.externalRoute ? baseRoute + item.subRoute : item.subRoute}
+            href={item.useRelativeRoute ? baseRoute + item.subRoute : item.subRoute}
             key={item.name}
           >
             <a onClick={closeMenus}>

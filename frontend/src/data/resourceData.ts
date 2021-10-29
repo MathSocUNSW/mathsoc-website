@@ -40,6 +40,22 @@ export const matlabInfo: resourceDetails = {
   iconPath: RESOURCE_IMAGE_PATH + "matlabIcon.png"
 };
 
+export const rInfo: resourceDetails = {
+  title: "R Guide",
+  titlePosition: "left",
+  resourceLink: "/resources/r",
+  backgroundImage: RESOURCE_IMAGE_PATH + "rBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "rIcon.png"
+};
+
+export const appInfo: resourceDetails = {
+  title: "Applications",
+  titlePosition: "right",
+  resourceLink: "/applications",
+  backgroundImage: RESOURCE_IMAGE_PATH + "appBackground.png",
+  iconPath: RESOURCE_IMAGE_PATH + "appIcon.png"
+};
+
 export const careersInfo: resourceDetails = {
   title: "Careers Advice",
   titlePosition: "left",
@@ -69,6 +85,8 @@ const resourceInfo: resourceDetails[] = [
   revisionInfo,
   latexInfo,
   matlabInfo,
+  rInfo,
+  appInfo,
   careersInfo,
   firstYearInfo,
   hscInfo

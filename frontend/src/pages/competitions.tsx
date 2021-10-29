@@ -26,7 +26,9 @@ const Competitions: React.FC = () => {
             <Typography variant="h2" align="center">
               Integration Bee
             </Typography>
-            <Typography align="center">Coming Soon</Typography>
+            <Typography variant="body1" align="center">
+              Coming Soon 👀
+            </Typography>
           </WholePageBox>
           <WholePageBox>
             <Typography variant="h2" align="center">

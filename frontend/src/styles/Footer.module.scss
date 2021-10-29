@@ -33,7 +33,9 @@
 .socials {
   list-style: none;
   display: flex;
-  gap: 15px;
+  & > *:not(:last-child) {
+    margin-right: 1rem;
+  }
 }
 
 .socialItem {
