@@ -609,7 +609,6 @@ We invite all members of the MathSoc community to our AGM hosted on Zoom!`,
     title: "UNSW MathSoc Presents: Tipping Points in the Climate",
     eventLink: "https://www.facebook.com/events/565254621222489/",
     description: `Passionate about mathematics? 🤔 Climate conscious? 🌎 Join us as we explore how your uni math knowledge has the potential to open up career paths you never would have thought of before!
-
     In our second edition of Seminal Seminars, we invite Rose Crocker - a mathematical programmer and modeller by day and aerial circus performer by night, to discuss tipping points in climate systems, what they are and the underlying mathematics behind them. 🤯`,
     imagePath: generateImagePath("tipping_points_in_the_climate_2021.jpg"),
     location: "Zoom",
@@ -631,7 +630,8 @@ We invite all members of the MathSoc community to our AGM hosted on Zoom!`,
   {
     title: "UNSW MathSoc x UNSW CPMSoc Presents: Trading Challenge",
     eventLink: "https://www.facebook.com/events/671547303830181/",
-    description: `Interested in learning more about quant trading at one of the world’s most successful market making firms? 🤩 You are invited to apply to the Citadel Securities virtual trading challenge! 😱 During the live virtual trading competition, you will work with team members to solve the types of problems 🧩 they face every day. Winning team members are eligible for generous prizes. 🤑`,
+    description: `Interested in learning more about quant trading at one of the world’s most successful market making firms? 🤩 You are invited to apply to the Citadel Securities virtual trading challenge! 
+    😱 During the live virtual trading competition, you will work with team members to solve the types of problems 🧩 they face every day. Winning team members are eligible for generous prizes. 🤑`,
     imagePath: generateImagePath("trading_challenge_2021.jpg"),
     location: "Zoom",
     date: "10th November 2021, 3–4:30PM",
