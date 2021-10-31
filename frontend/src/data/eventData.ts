@@ -606,15 +606,37 @@ We invite all members of the MathSoc community to our AGM hosted on Zoom!`,
     endDate: "22-10-2021"
   },
   {
+    title: "UNSW MathSoc Presents: Tipping Points in the Climate",
+    eventLink: "https://www.facebook.com/events/565254621222489/",
+    description: `Passionate about mathematics? 🤔 Climate conscious? 🌎 Join us as we explore how your uni math knowledge has the potential to open up career paths you never would have thought of before!
+    In our second edition of Seminal Seminars, we invite Rose Crocker - a mathematical programmer and modeller by day and aerial circus performer by night, to discuss tipping points in climate systems, what they are and the underlying mathematics behind them. 🤯`,
+    imagePath: generateImagePath("tipping_points_in_the_climate_2021.jpg"),
+    location: "Zoom",
+    date: "3rd November 2021, 4–5:15PM",
+    startDate: "3-11-2021",
+    endDate: "3-11-2021"
+  },
+  {
     title: "UNSW Interfaculty Presents - Psychometric Squid Game",
     eventLink: "https://www.facebook.com/events/261639219309401/?ti=ls",
     description: `💵Looking for a quick way to win 45.6 billion won?💵 Or a sure way to 𝗘𝗔𝗥𝗡 it? 🤩
     The VIPs have arrived and the games are ready! 𝗦𝗖𝗜𝗦𝗢𝗖, 𝗘𝗻𝗴𝗦𝗼𝗰, 𝗠𝗮𝘁𝗵𝗦𝗼𝗰 and 𝗗𝗮𝘁𝗮𝗦𝗼𝗰 are glad to present ✨𝙋𝙨𝙮𝙘𝙝𝙤𝙢𝙚𝙩𝙧𝙞𝙘 𝙎𝙦𝙪𝙞𝙙 𝙂𝙖𝙢𝙚✨.`,
     imagePath: generateImagePath("squid_game_2021.jpg"),
     location: "Zoom",
-    date: "3rd November 2021, 6–8pm",
+    date: "3rd November 2021, 6–8PM",
     startDate: "3-11-2021",
     endDate: "3-11-2021"
+  },
+  {
+    title: "UNSW MathSoc x UNSW CPMSoc Presents: Trading Challenge",
+    eventLink: "https://www.facebook.com/events/671547303830181/",
+    description: `Interested in learning more about quant trading at one of the world’s most successful market making firms? 🤩 You are invited to apply to the Citadel Securities virtual trading challenge! 
+    😱 During the live virtual trading competition, you will work with team members to solve the types of problems 🧩 they face every day. Winning team members are eligible for generous prizes. 🤑`,
+    imagePath: generateImagePath("trading_challenge_2021.jpg"),
+    location: "Zoom",
+    date: "10th November 2021, 3–4:30PM",
+    startDate: "10-11-2021",
+    endDate: "10-11-2021"
   }
 ];
 
