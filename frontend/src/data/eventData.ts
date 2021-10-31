@@ -623,7 +623,7 @@ We invite all members of the MathSoc community to our AGM hosted on Zoom!`,
     imagePath: generateImagePath("director_recruitment_2021.jpg"),
     location: "Apply here",
     locationURL: "https://bit.ly/3nqFpWe",
-    date: "25th October 2021, 6PM",
+    date: "6th November 2021, 11:59PM",
     startDate: "25-10-2021",
     endDate: "6-11-2021"
   },
