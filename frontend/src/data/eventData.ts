@@ -606,6 +606,28 @@ We invite all members of the MathSoc community to our AGM hosted on Zoom!`,
     endDate: "22-10-2021"
   },
   {
+    title: "UNSW MathSoc Presents: Director Recruitment 2022",
+    eventLink: "https://www.facebook.com/events/364451508796188/",
+    description: `UNSW MathSoc is looking for dedicated, enthusiastic and passionate members to join our 2022 team! 🥳🎉🎉
+
+    This is a great opportunity to develop your leadership skills in a collaborative setting and make lasting friendships ^^ You DO NOT have to be studying a Mathematics degree to be accepted.
+    
+    We are looking for:
+    ✨ 3x Education Directors
+    ✨ 2x Events (Corporate) Directors
+    ✨ 2x Events (Socials) Directors
+    ✨ 2x HR Directors
+    ✨ 2x IT Director
+    ✨ 3x Marketing Directors
+    ✨ 2x Sponsorship Directors`,
+    imagePath: generateImagePath("director_recruitment_2021.jpg"),
+    location: "Apply here",
+    locationURL: "https://bit.ly/3nqFpWe",
+    date: "6th November 2021, 11:59PM",
+    startDate: "25-10-2021",
+    endDate: "6-11-2021"
+  },
+  {
     title: "UNSW MathSoc Presents: Tipping Points in the Climate",
     eventLink: "https://www.facebook.com/events/565254621222489/",
     description: `Passionate about mathematics? 🤔 Climate conscious? 🌎 Join us as we explore how your uni math knowledge has the potential to open up career paths you never would have thought of before!
