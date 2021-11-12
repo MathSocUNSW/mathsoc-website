@@ -12,7 +12,7 @@
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-material-ui-carousel": "^2.3.5",
+    "react-material-ui-carousel": "^2.3.8",
     "scss": "^0.2.4"
   },
   "scripts": {
@@ -33,8 +33,8 @@
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.4.1",
     "sass": "^1.43.4",
     "typescript": "^4.4.4"
