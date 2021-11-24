@@ -3,7 +3,11 @@
     "sourceMap": true,
     "module": "esnext",
     "target": "es5",
-    "lib": ["esnext", "dom", "dom.iterable"],
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
@@ -14,7 +18,9 @@
     "moduleResolution": "node",
     "downlevelIteration": true,
     "paths": {
-      "components/*": ["src/components/*"]
+      "components/*": [
+        "src/components/*"
+      ]
     },
     "skipLibCheck": true,
     "strict": true,
@@ -27,8 +33,13 @@
     "strictPropertyInitialization": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "incremental": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

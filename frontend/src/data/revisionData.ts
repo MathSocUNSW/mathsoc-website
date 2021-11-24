@@ -516,6 +516,15 @@ const revisionData: revisionTile[] = [
     courseTitle: "Complex Analysis",
     revisionLinks: [
       {
+        groupHeader: "2021T3 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Complex Analysis (all)",
+            path: "/files/resources/revision/MATH2521_2621/MATH2521_Term_3_2021.pdf"
+          }
+        ]
+      },
+      {
         groupHeader: "2020T3 Revision Seminar",
         groupLinks: [
           {
