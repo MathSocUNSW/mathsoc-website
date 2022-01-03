@@ -24,23 +24,39 @@ const Contact: React.FC = () => {
       <Hero url="/images/hero/mathsoc_skating.png" text="Join Us" />
       <PageBody>
         <WholePageBox>
-            <Typography variant="h4">Join Us</Typography>
-            <Typography variant="h6">So you've decided you would like to join us? Great!</Typography>
-            <Typography variant="body1">
-                To join our society, just fill out the following form.
-                Make sure you come see us at O-Week, or any of our events to get your sticker!
-                Membership is free for any students with a major in Mathematics or Statistics,
-                otherwise the fee is $5 for the entire year,
-                which gains you access to our amazing events and a free t-shirt!
-                <ol>
-                    <li>
-                        Please complete the <Link href="https://forms.gle/jencyXN7gw4iDkDu8" target="_blank" rel="noopener noreferrer">sign up form</Link>.
-                    </li>
-                    <li>
-                        <Link href="https://member.arc.unsw.edu.au/members/s/clubdetail?clubid=0016F0000371VyZQAU" target="_blank" rel="noopener noreferrer">Join us</Link> on SpArc.
-                    </li>
-                </ol>
-            </Typography>
+          <Typography variant="h4">Join Us</Typography>
+          <Typography variant="h6">
+            So you&apos;ve decided you would like to join us? Great!
+          </Typography>
+          <Typography variant="body1">
+            To join our society, just fill out the following form. Make sure you come see us at
+            O-Week, or any of our events to get your sticker! Membership is free for any students
+            with a major in Mathematics or Statistics, otherwise the fee is $5 for the entire year,
+            which gains you access to our amazing events and a free t-shirt!
+            <ol>
+              <li>
+                Please complete the&nbsp;
+                <Link
+                  href="https://forms.gle/jencyXN7gw4iDkDu8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  sign up form
+                </Link>
+                .
+              </li>
+              <li>
+                <Link
+                  href="https://member.arc.unsw.edu.au/members/s/clubdetail?clubid=0016F0000371VyZQAU"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Join us
+                </Link>
+                &nbsp;on SpArc.
+              </li>
+            </ol>
+          </Typography>
         </WholePageBox>
       </PageBody>
     </section>
