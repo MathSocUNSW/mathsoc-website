@@ -25,6 +25,7 @@ const navLinks: navLink[] = [
       { name: "About MathSoc", subRoute: "/", useRelativeRoute: true },
       { name: "Meet the Team", subRoute: "/team", useRelativeRoute: true },
       { name: "Former Teams", subRoute: "/formerteam", useRelativeRoute: true },
+      { name: "Join Us", subRoute: "/getinvolved", useRelativeRoute: true },
       {
         name: "Constitution",
         subRoute: "/files/general/Constitution-and-GRPP-2021.pdf",
