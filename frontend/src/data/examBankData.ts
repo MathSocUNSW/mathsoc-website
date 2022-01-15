@@ -207,19 +207,19 @@ export const oldExamBankData: revisionTile[] = [
         groupLinks: [
           {
             name: "Test 1 (Algebra)",
-            path: "/files/resources/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_1_Algebra.pdf"
+            path: "/files/resources/examBank/MATH1131_1141/old/MATH1131_1141_Test_1_Algebra.pdf"
           },
           {
             name: "Test 1 (Calculus)",
-            path: "/files/resources/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_1_Calculus.pdf"
+            path: "/files/resources/examBank/MATH1131_1141/old/MATH1131_1141_Test_1_Calculus.pdf"
           },
           {
             name: "Test 2 (Algebra)",
-            path: "/files/resources/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_2_Algebra.pdf"
+            path: "/files/resources/examBank/MATH1131_1141/old/MATH1131_1141_Test_2_Algebra.pdf"
           },
           {
             name: "Test 2 (Calculus)",
-            path: "/files/resources/examBank/MATH1131_MATH1141/old/MATH1131_1141_Test_2_Calculus.pdf"
+            path: "/files/resources/examBank/MATH1131_1141/old/MATH1131_1141_Test_2_Calculus.pdf"
           }
         ]
       }
