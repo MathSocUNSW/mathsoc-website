@@ -48,6 +48,7 @@ const navLinks: navLink[] = [
       { name: "Our Resources", subRoute: "/", useRelativeRoute: true },
       { name: "First Year Exam Bank", subRoute: "/exam-bank", useRelativeRoute: true },
       { name: "Revision Lectures", subRoute: "/revision", useRelativeRoute: true },
+      { name: "Revision Sheets", subRoute: "/sheets", useRelativeRoute: true },
       { name: "LaTeX Guide", subRoute: "/latex", useRelativeRoute: true },
       { name: "MATLAB Guide", subRoute: "/matlab", useRelativeRoute: true },
       { name: "R Guide", subRoute: "/r", useRelativeRoute: true },

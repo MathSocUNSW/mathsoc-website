@@ -45,8 +45,12 @@ const NavItem: React.FC<NavItemProps> = ({
       </Link>
       {dropdown.length > 0 ? (
         <div className={styles.dropdownContainer}>
-          <img src="images/arrowDown.svg" className={styles.arrowDown} onClick={toggleDropdown} />
-          <img src="images/rightArrow.svg" className={styles.arrowRight} onClick={toggleDropdown} />
+          <img src="/images/arrowDown.svg" className={styles.arrowDown} onClick={toggleDropdown} />
+          <img
+            src="/images/rightArrow.svg"
+            className={styles.arrowRight}
+            onClick={toggleDropdown}
+          />
           {isExpanded ? (
             <NavDropdown
               parentItem={name}
