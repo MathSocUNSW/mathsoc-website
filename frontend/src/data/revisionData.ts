@@ -70,19 +70,6 @@ const revisionData: revisionTile[] = [
     courseTitle: "Discrete Mathematics",
     revisionLinks: [
       {
-        groupHeader: "Revision Resources",
-        groupLinks: [
-          {
-            name: "Revision Sheet",
-            path: "/files/resources/revision/MATH1081/MATH1081_Revision_Sheet_Term_1_2021.pdf"
-          },
-          {
-            name: "Revision Handout (2020T3)",
-            path: "/files/resources/revision/MATH1081/MATH1081_Handout_Term_3_2020.pdf"
-          }
-        ]
-      },
-      {
         groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
           {
@@ -139,15 +126,6 @@ const revisionData: revisionTile[] = [
     courseCode: "MATH1131/1141",
     courseTitle: "Mathematics 1A",
     revisionLinks: [
-      {
-        groupHeader: "Revision Resources",
-        groupLinks: [
-          {
-            name: "Revision Sheet",
-            path: "/files/resources/revision/MATH1131_1141/MATH1131_Essential_Formulas_and_Theorems_Term_1_2021.pdf"
-          }
-        ]
-      },
       {
         groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
