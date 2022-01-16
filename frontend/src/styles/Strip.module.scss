@@ -44,6 +44,7 @@ $breakPoint: 888px;
   @media only screen and (max-device-width: $breakPoint) {
     max-height: 40%;
   }
+  max-height: 200px;
 }
 
 .background {
