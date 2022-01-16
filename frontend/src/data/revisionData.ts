@@ -70,6 +70,15 @@ const revisionData: revisionTile[] = [
     courseTitle: "Discrete Mathematics",
     revisionLinks: [
       {
+        groupHeader: "Revision Resources",
+        groupLinks: [
+          {
+            name: "Revision Handout (2020T3)",
+            path: "/files/resources/revision/MATH1081/MATH1081_Handout_Term_3_2020.pdf"
+          }
+        ]
+      },
+      {
         groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
           {
