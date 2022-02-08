@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
               <li>
                 Please complete the&nbsp;
                 <Link
-                  href="https://forms.gle/qWyqqEk3GZhFkHdSA"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdsjGiMuo4LyQhZAjVV2Gzg6-tU9oSkXaadkBiXvFXC-9T9Aw/viewform?usp=sf_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
