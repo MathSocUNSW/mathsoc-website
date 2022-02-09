@@ -1,0 +1,44 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@netlify/functions": "^0.11.0",
+    "@svgr/webpack": "^6.1.1",
+    "contentful": "^9.1.6",
+    "hamburger-react": "^2.4.0",
+    "moment": "^2.29.1",
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-material-ui-carousel": "^2.3.8",
+    "scss": "^0.2.4"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "if [ -z \"$PORT\" ]; then next start; else next start -p $PORT; fi",
+    "lint": "eslint './src/**/*.{ts,tsx}'",
+    "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
+    "prettier:check": "prettier --check 'src/**/*.{ts,tsx,scss}'",
+    "prettier:write": "prettier --write 'src/**/*.{ts,tsx,scss}'"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^12.0.1",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.44.0",
+    "typescript": "^4.5.2"
+  }
+}
