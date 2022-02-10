@@ -44,14 +44,6 @@ const rawSponsorsData: sponsor[] = [
       "One of the world's leading management consulting firms. We work with top executives to help them make better decisions, convert those decisions to actions and deliver the sustainable success they desire. For more than 40 years, we've been passionate about achieving better results for our clients—results that go beyond financial and are uniquely tailored, pragmatic, holistic and enduring. We've worked with the majority of the Global 500, thousands of major regional and local organizations, hundreds of nonprofits, and private equity funds representing 75 percent of global equity capital. We are proud of our clients' track record, like the fact that our public clients have historically outperformed the stock market 4 to 1."
   },
   {
-    name: "Citadel",
-    type: "principal",
-    websiteURL: "https://www.citadel.com/",
-    logoPath: "/images/logos/citadel_logo.png",
-    description:
-      "Citadel is a leading investor in the world’s financial markets. For over a quarter of a century, we have sought to deliver industry-leading investment returns to clients including corporate pensions, endowments, foundations, public institutions, and sovereign wealth funds. Our global team works to help our clients' capital fulfill its greatest potential across a diverse range of markets and investment strategies, including fixed income & macro, equities, quantitative, commodities and credit."
-  },
-  {
     name: "Citadel Securities",
     type: "principal",
     websiteURL: "https://www.citadelsecurities.com/",
