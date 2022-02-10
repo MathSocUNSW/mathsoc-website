@@ -29,8 +29,8 @@ const checkIndex = (sortedEventData: Array<EventDetails>, index: number): number
  * @param eventIndex integer
  * @returns array of 3 eventData
  */
-const getEventsToShow = (sortedEventData: any, eventIndex: number, width: number) => {
-  //sortedEventData.sort(eventsComparatorIncreasing);
+const getEventsToShow = (sortedEventData: EventDetails[], eventIndex: number, width: number) => {
+  sortedEventData.sort(eventsComparatorIncreasing);
   if (sortedEventData.length === 0) {
     return [];
   } else if (sortedEventData.length === 1 || width <= 1050) {

@@ -19,7 +19,7 @@ import {
 import { EventDetails } from "src/data/eventData";
 
 interface EventProps {
-  events: any;
+  events: EventDetails[];
 }
 
 const Events: React.FC<EventProps> = ({ events }) => {

@@ -19,7 +19,7 @@ import { fetchEvents } from "src/helpers/eventHelpers";
 // TODO: add loading animation, eager load sponsor images
 
 interface EventProps {
-  events: any;
+  events: EventDetails[];
 }
 const Home: React.FC<EventProps> = ({ events }) => {
   return (
