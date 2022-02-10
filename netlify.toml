@@ -1,8 +1,0 @@
-[build.environment]
-  NODE_ENV = "production"
-
-[build]
-command = "sed -i \"s|process.env.CONTENTFUL_API_KEY|${CONTENTFUL_API_KEY}|g;
-  s|process.env.CONTENTFUL_SPACE_ID|${CONTENTFUL_SPACE_ID}|g;
-  s|process.env.NODE_ENV|${NODE_ENV}|g\"
-  && yarn build"

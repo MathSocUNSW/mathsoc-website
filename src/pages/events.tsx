@@ -9,11 +9,7 @@ import UpcomingEvents from "components/UpcomingEvents";
 import PastEvents from "src/components/PastEvents";
 
 // Helper Imports
-import {
-  pastEventsFilter,
-  eventsComparatorDecreasing,
-  fetchEvents
-} from "src/helpers/eventHelpers";
+import { fetchEvents } from "../lib/api";
 
 // Data
 import { EventDetails } from "src/data/eventData";

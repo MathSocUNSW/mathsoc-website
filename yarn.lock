@@ -1332,6 +1332,11 @@
   "resolved" "https://registry.npmjs.org/@trysound/sax/-/sax-0.2.0.tgz"
   "version" "0.2.0"
 
+"@types/json-patch@0.0.30":
+  "integrity" "sha512-MhCUjojzDhVLnZnxwPwa+rETFRDQ0ffjxYdrqOP6TBO2O0/Z64PV5tNeYApo4bc4y4frbWOrRwv/eEkXlI13Rw=="
+  "resolved" "https://registry.npmjs.org/@types/json-patch/-/json-patch-0.0.30.tgz"
+  "version" "0.0.30"
+
 "@types/json-schema@^7.0.7":
   "integrity" "sha512-qcUXuemtEu+E5wZSJHNxUXeCZhAfXKQ41D+duX+VYPde7xyEVZci+/oXKJL13tnRs9lR2pr4fod59GT6/X1/yQ=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.9.tgz"
@@ -1691,6 +1696,13 @@
   dependencies:
     "follow-redirects" "^1.14.4"
 
+"axios@^0.25.0":
+  "integrity" "sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.25.0.tgz"
+  "version" "0.25.0"
+  dependencies:
+    "follow-redirects" "^1.14.7"
+
 "axobject-query@^2.2.0":
   "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
   "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
@@ -2042,6 +2054,17 @@
   "resolved" "https://registry.npmjs.org/constants-browserify/-/constants-browserify-1.0.0.tgz"
   "version" "1.0.0"
 
+"contentful-management@^8.1.0":
+  "integrity" "sha512-LYHiyF6l9Z1ozIWU65PVRXwV5ut9wWhvaod2kR4M31259nsd9WQ2avEfI4UBhIYZX+wfsYb9pSqCXRdsK780og=="
+  "resolved" "https://registry.npmjs.org/contentful-management/-/contentful-management-8.1.0.tgz"
+  "version" "8.1.0"
+  dependencies:
+    "@types/json-patch" "0.0.30"
+    "axios" "^0.25.0"
+    "contentful-sdk-core" "^7.0.1"
+    "fast-copy" "^2.1.1"
+    "lodash.isplainobject" "^4.0.6"
+
 "contentful-resolve-response@^1.3.0":
   "integrity" "sha512-FFa4it5VXW1YGyim5rhPbnwmN4c8OcmkpLrsylTL2Y1YpoC+6qnZSSU/QZyvHomLdEgwXaSXhGVJkWjpdz5IMg=="
   "resolved" "https://registry.npmjs.org/contentful-resolve-response/-/contentful-resolve-response-1.3.0.tgz"
@@ -2053,6 +2076,17 @@
   "integrity" "sha512-ukKxiiHdCa/izTQbA3/VUPMQB2PZW5D2KYjV9WQVOc8QjmDhu1wpEDkYxYjOrUDgT5tM7xw6umpwlifxoYe9kQ=="
   "resolved" "https://registry.npmjs.org/contentful-sdk-core/-/contentful-sdk-core-6.11.0.tgz"
   "version" "6.11.0"
+  dependencies:
+    "fast-copy" "^2.1.0"
+    "lodash.isplainobject" "^4.0.6"
+    "lodash.isstring" "^4.0.1"
+    "p-throttle" "^4.1.1"
+    "qs" "^6.9.4"
+
+"contentful-sdk-core@^7.0.1":
+  "integrity" "sha512-3m3RTmQHEnlOtx6f9PvkKgrv5Qpzjo8X+NysBXshCYK8OEG/vNbsfsdOaiURAxcVMQ/9vM14Og+fc+aMx79Lsg=="
+  "resolved" "https://registry.npmjs.org/contentful-sdk-core/-/contentful-sdk-core-7.0.1.tgz"
+  "version" "7.0.1"
   dependencies:
     "fast-copy" "^2.1.0"
     "lodash.isplainobject" "^4.0.6"
@@ -2769,7 +2803,7 @@
     "md5.js" "^1.3.4"
     "safe-buffer" "^5.1.1"
 
-"fast-copy@^2.1.0":
+"fast-copy@^2.1.0", "fast-copy@^2.1.1":
   "integrity" "sha512-Qod3DdRgFZ8GUIM6ygeoZYpQ0QLW9cf/FS9KhhjlYggcSZXWAemAw8BOCO5LuYCrR3Uj3qXDVTUzOUwG8C7beQ=="
   "resolved" "https://registry.npmjs.org/fast-copy/-/fast-copy-2.1.1.tgz"
   "version" "2.1.1"
@@ -2863,7 +2897,7 @@
   "resolved" "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz"
   "version" "3.2.4"
 
-"follow-redirects@^1.14.4":
+"follow-redirects@^1.14.4", "follow-redirects@^1.14.7":
   "integrity" "sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.7.tgz"
   "version" "1.14.7"
@@ -3677,7 +3711,7 @@
   "resolved" "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz"
   "version" "1.4.0"
 
-"next@^11.1.2", "next@>=10.2.0":
+"next@^11.1.3", "next@>=10.2.0":
   "integrity" "sha512-GWQJrWYkfAKP8vmrzJcCfRSKv955Khyjqd5jipTcVKDGg+SH+NfjDMWFtCwArcQlHPvzisGu1ERLY0+Eoj7G+g=="
   "resolved" "https://registry.npmjs.org/next/-/next-11.1.4.tgz"
   "version" "11.1.4"

@@ -1,6 +1,7 @@
 import moment from "moment";
 
 import { EventDetails } from "src/data/eventData";
+import contentful from "contentful";
 
 /**
  * Uses moment to parse `date` string into a unix timestamp
@@ -76,25 +77,4 @@ export const formatDisplayDate = (startTime: string, endTime: string): string =>
   } else {
     return `${startDate} - ${endDate}`;
   }
-};
-/**
- * Fetch events
- */
-export const fetchEvents = async (): Promise<EventDetails[]> => {
-  let events: EventDetails[] = [];
-  const baseUrl: string =
-    process.env.NODE_ENV === "production" ? "https://unswmathsoc.org" : "http://localhost:8888";
-  await fetch(baseUrl + "/.netlify/functions/events")
-    .then((response) => response.json())
-    .then((response) => {
-      events = response.map((item) => ({
-        ...item.fields,
-        eventImage: item.fields.eventImage.fields.file.url,
-        imageDescription: item.fields.eventImage.fields.description
-      }));
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-  return events;
 };

@@ -15,7 +15,7 @@ import RecentEvents from "components/RecentEvents";
 import styles from "src/styles/home.module.scss";
 
 import { EventDetails } from "src/data/eventData";
-import { fetchEvents } from "src/helpers/eventHelpers";
+import { fetchEvents } from "../lib/api";
 // TODO: add loading animation, eager load sponsor images
 
 interface EventProps {
