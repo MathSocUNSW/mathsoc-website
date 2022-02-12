@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 15.x]
+        node-version: [12.x, 14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
       - uses: actions/checkout@v2
@@ -26,36 +26,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Create .env file
+        run: |
+          touch .env
+          echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env
+          echo CONTENTFUL_API_KEY=${{ secrets.CONTENTFUL_API_KEY }} >> .env
       - name: Install dependencies
-        working-directory: ./frontend
         run: yarn
       - name: Lint
-        working-directory: ./frontend
         run: yarn lint
       - name: Prettier
-        working-directory: ./frontend
         run: yarn prettier:check
       - name: Build
-        working-directory: ./frontend
         run: yarn build
-  # backend:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: [12.x, 14.x, 15.x]
-  #       # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v1
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #     - name: Install dependencies
-  #       working-directory: ./backend
-  #       run: yarn
-  #     - name: lint
-  #       working-directory: ./backend
-  #       run: yarn lint
-  #     - name: Build
-  #       working-directory: ./backend
-  #       run: yarn build
