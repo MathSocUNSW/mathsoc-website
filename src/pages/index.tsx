@@ -22,6 +22,7 @@ interface EventProps {
   events: EventDetails[];
 }
 const Home: React.FC<EventProps> = ({ events }) => {
+  console.log(events);
   return (
     <section>
       <Head>

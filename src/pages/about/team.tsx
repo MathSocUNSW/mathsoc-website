@@ -12,11 +12,48 @@ import PortfolioBox from "components/PortfolioBox";
 // Styling
 import styles from "src/styles/team.module.scss";
 
-// Data
-import executivesData from "src/data/executivesData";
-import portfolioData from "src/data/portfolioData";
+// Library
+import { fetchTeam } from "../../lib/api";
 
-const Team: React.FC = () => {
+// Data
+import { MemberDetails } from "src/data/portfolioData";
+
+const executiveRoles = ["President", "Vice President", "Secretary", "Treasurer", "Arc Delegate"];
+
+const portfolioRoles = [
+  "Education",
+  "Events (Corporate)",
+  "Events (Social)",
+  "HR",
+  "IT",
+  "Marketing",
+  "Sponsorships"
+];
+interface Portfolios {
+  [key: string]: MemberDetails[];
+}
+
+const partition = (members: MemberDetails[]): Portfolios => {
+  const portfolios: Portfolios = {};
+  for (const portfolioRole of portfolioRoles) {
+    portfolios[portfolioRole] = members.filter((member) => member.role.includes(portfolioRole));
+  }
+  return portfolios;
+};
+
+interface TeamProps {
+  members: MemberDetails[];
+}
+
+const Team: React.FC<TeamProps> = ({ members }) => {
+  const executives = members.filter((member) => {
+    return executiveRoles.includes(member.role);
+  });
+  executives.sort((a, b) =>
+    executiveRoles.indexOf(a.role) < executiveRoles.indexOf(b.role) ? -1 : 1
+  );
+  const portfolios = partition(members);
+  console.log(portfolios);
   return (
     <section>
       <Head>
@@ -31,18 +68,17 @@ const Team: React.FC = () => {
           </Typography>
           <div className={styles.roleDescription}>
             <Typography variant="body1" align="center">
-              These guys/gals are in charge of the high level direction of the society, and in
-              ensuring things are on track! Positions include President, Vice President, Secretary,
-              Treasurer and Arc Delegate.
+              These guys/gals are in charge of the high level direction of the society, ensuring
+              things are on track!
             </Typography>
           </div>
           <div className={styles.cardsContainer}>
-            {executivesData.map((person) => (
+            {executives.map((person) => (
               <Profile
                 name={person.name}
                 role={person.role}
-                description={person.description}
-                imagePath={person.imagePath}
+                description={person.description as string}
+                imagePath={person.imagePath as string}
                 key={person.name}
               />
             ))}
@@ -64,16 +100,28 @@ const Team: React.FC = () => {
               consider joining our subcommittee!
             </Typography>
           </div>
-
           <section className={styles.cardsContainer}>
-            {portfolioData.map((portfolio) => (
-              <PortfolioBox {...portfolio} key={portfolio.role} />
+            {portfolioRoles.map((portfolioRole) => (
+              <PortfolioBox
+                members={portfolios[portfolioRole]}
+                role={portfolioRole}
+                key={portfolioRole}
+              />
             ))}
           </section>
         </div>
       </PageBody>
     </section>
   );
+};
+
+export const getStaticProps = async (context) => {
+  const members = await fetchTeam();
+  return {
+    props: {
+      members
+    }
+  };
 };
 
 export default Team;

@@ -27,7 +27,7 @@ const Profile: React.FC<ProfileProps> = ({ name, role, description, imagePath })
       </div>
       <div className="profileImage">
         <Image
-          src={imagePath ? imagePath : DEFAULT_PROFILE_IMAGE}
+          src={imagePath ? `https:${imagePath}` : DEFAULT_PROFILE_IMAGE}
           alt={`${name} photo`}
           height={150}
           width={150}

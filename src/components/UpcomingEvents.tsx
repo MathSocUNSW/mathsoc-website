@@ -56,15 +56,15 @@ interface EventProps {
 
 const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
   const [eventIndex, setEventIndex] = useState(0);
-  const sortedEvents = events.filter(upcomingEventsFilter);
-  sortedEvents.sort(eventsComparatorIncreasing);
   const [displayedEvents, setDisplayedEvents] = useState([] as EventDetails[]);
   const { height, width } = useWindowDimensions();
 
   // Component doesn't render correctly unless the state of events is set.
   useEffect(() => {
+    const sortedEvents = events.filter(upcomingEventsFilter);
+    sortedEvents.sort(eventsComparatorIncreasing);
     setDisplayedEvents(sortedEvents);
-  }, [sortedEvents]);
+  }, []);
   /**
    * Given an array of `srcArray`, load all the images into cache
    * WARNING: Don't load too many. Since this is only used to load the upcoming events,
@@ -89,11 +89,9 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
   };
 
   useEffect(() => {
-    const imgs = sortedEvents.map((event) => event.eventImage);
+    const imgs = displayedEvents.map((event) => event.eventImage);
     cacheImages(imgs);
-  }, [sortedEvents]);
-
-  console.log("Joanna: Sorted upcoming events " + JSON.stringify(sortedEvents));
+  }, [displayedEvents]);
 
   return (
     <section className={styles.newEventsContainer}>
@@ -115,7 +113,7 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
             <Typography variant="body1">Nothing to see here</Typography>
           </div>
         ) : (
-          getEventsToShow(sortedEvents, eventIndex, width).map((x, index) => {
+          getEventsToShow(displayedEvents, eventIndex, width).map((x, index) => {
             return <EventCard key={index} {...x} />;
           })
         )}

@@ -18,8 +18,8 @@ module.exports = {
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")]
+  },
+  images: {
+    domains: ["images.ctfassets.net"]
   }
-  // images: {
-  //   domains: ['media-exp1.licdn.com']
-  // }
 };
