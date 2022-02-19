@@ -57,8 +57,14 @@ interface EventProps {
 const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
   const [eventIndex, setEventIndex] = useState(0);
   const sortedEvents = events.filter(upcomingEventsFilter);
+  sortedEvents.sort(eventsComparatorIncreasing);
+  const [displayedEvents, setDisplayedEvents] = useState([] as EventDetails[]);
   const { height, width } = useWindowDimensions();
 
+  // Component doesn't render correctly unless the state of events is set.
+  useEffect(() => {
+    setDisplayedEvents(sortedEvents);
+  }, [sortedEvents]);
   /**
    * Given an array of `srcArray`, load all the images into cache
    * WARNING: Don't load too many. Since this is only used to load the upcoming events,
@@ -87,13 +93,15 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
     cacheImages(imgs);
   }, [sortedEvents]);
 
+  console.log("Joanna: Sorted upcoming events " + JSON.stringify(sortedEvents));
+
   return (
     <section className={styles.newEventsContainer}>
       <Typography variant="h2" align="center">
         Upcoming Events
       </Typography>
       <div className={styles.events}>
-        {sortedEvents.length > 3 && (
+        {displayedEvents.length > 3 && (
           <img
             src="/images/leftArrow.svg"
             className={styles.arrows}
@@ -102,7 +110,7 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
             onClick={() => setEventIndex(eventIndex - 1)}
           />
         )}
-        {sortedEvents.length === 0 ? (
+        {displayedEvents.length === 0 ? (
           <div className={styles.empty}>
             <Typography variant="body1">Nothing to see here</Typography>
           </div>
@@ -111,7 +119,7 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
             return <EventCard key={index} {...x} />;
           })
         )}
-        {sortedEvents.length > 3 && (
+        {displayedEvents.length > 3 && (
           <img
             src="/images/rightArrow.svg"
             className={styles.arrows}

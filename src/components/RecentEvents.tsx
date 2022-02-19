@@ -1,5 +1,5 @@
 // Library Imports
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 
 // Component Imports
@@ -23,7 +23,12 @@ const RecentEvents: React.FC<EventProps> = ({ events }) => {
 
   const sortedRecentEvents = events.filter(pastEventsFilter);
   sortedRecentEvents.sort(eventsComparatorDecreasing);
-  const slicedRecentEvents = sortedRecentEvents.slice(0, MAX_ITEMS);
+  const [displayedEvents, setDisplayedEvents] = useState([] as EventDetails[]);
+
+  // Component doesn't render correctly unless the state of events is set.
+  useEffect(() => {
+    setDisplayedEvents(sortedRecentEvents.slice(0, MAX_ITEMS));
+  }, [sortedRecentEvents]);
 
   return (
     <div>
@@ -31,18 +36,18 @@ const RecentEvents: React.FC<EventProps> = ({ events }) => {
         Recent Events
       </Typography>
       <div className={styles.container}>
-        {slicedRecentEvents.length === 0 ? (
+        {displayedEvents.length === 0 ? (
           <div className={styles.empty}>
             <Typography variant="body1">Nothing to see here</Typography>
           </div>
         ) : (
-          slicedRecentEvents.map((event, index) => (
+          displayedEvents.map((event, index) => (
             <div className={styles.cardContainer} key={index}>
               <a href={event.eventLink} target="_blank" rel="noopener noreferrer">
                 <img
                   src={`https:${event.eventImage}`}
                   className={styles.cardImage}
-                  alt={event.eventDescription}
+                  alt={event.imageDescription}
                 />
               </a>
             </div>

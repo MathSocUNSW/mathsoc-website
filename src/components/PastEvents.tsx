@@ -1,5 +1,5 @@
 // Library Imports
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@material-ui/core";
 
 // Content Imports
@@ -28,7 +28,11 @@ const PastEvents: React.FC<EventProps> = ({ events }) => {
   const [itemsLimit, setItemsLimit] = useState(MAX_ITEMS);
 
   const numDisplayedItems = sortedPastEvents.length;
-  const slicedPastEvents = sortedPastEvents.slice(0, itemsLimit);
+  const [displayedEvents, setDisplayedEvents] = useState([] as EventDetails[]);
+
+  useEffect(() => {
+    setDisplayedEvents(sortedPastEvents.slice(0, itemsLimit));
+  }, [sortedPastEvents, itemsLimit]);
 
   return (
     <section className="pastEventsSection">
@@ -37,13 +41,13 @@ const PastEvents: React.FC<EventProps> = ({ events }) => {
           Past Events
         </Typography>
       </div>
-      {sortedPastEvents.length === 0 ? (
+      {displayedEvents.length === 0 ? (
         <div className={styles.empty}>
           <Typography variant="body1">Nothing to see here</Typography>
         </div>
       ) : (
         <div className={styles.pastEvents}>
-          {slicedPastEvents.map((event, index) => (
+          {displayedEvents.map((event, index) => (
             <div key={index} className={styles.eventBoxContainer}>
               <EventCard {...event} />
             </div>
