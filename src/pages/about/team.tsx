@@ -53,7 +53,6 @@ const Team: React.FC<TeamProps> = ({ members }) => {
     executiveRoles.indexOf(a.role) < executiveRoles.indexOf(b.role) ? -1 : 1
   );
   const portfolios = partition(members);
-  console.log(portfolios);
   return (
     <section>
       <Head>

@@ -36,7 +36,6 @@ const getEventsToShow = (sortedEventData: EventDetails[], eventIndex: number, wi
   } else if (sortedEventData.length === 1 || width <= 1050) {
     return [sortedEventData[checkIndex(sortedEventData, eventIndex)]];
   } else if (sortedEventData.length === 2 || width <= 1500) {
-    console.log(sortedEventData);
     return [
       sortedEventData[checkIndex(sortedEventData, eventIndex)],
       sortedEventData[checkIndex(sortedEventData, eventIndex + 1)]
