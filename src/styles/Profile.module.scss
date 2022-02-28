@@ -10,7 +10,7 @@
   max-width: 500px;
   & > *:not(:last-child) {
     margin-right: 1.5rem;
-    margin-bottomm: 0;
+    margin-bottom: 0;
   }
   @media screen and (max-width: 500px) {
     flex-direction: column;
@@ -25,11 +25,12 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .textBox {
   width: 325px;
-  height: 130px;
+  height: 150px;
   // overflow: hidden;
   word-wrap: break-word;
   white-space: pre-line;

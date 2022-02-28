@@ -4,6 +4,12 @@ export interface director {
   linkedin?: string;
 }
 
+export interface MemberDetails {
+  name: string;
+  imagePath?: string;
+  role: string;
+  description?: string;
+}
 export interface portfolio {
   role:
     | "Education"

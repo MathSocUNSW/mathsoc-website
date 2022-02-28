@@ -20,19 +20,18 @@ interface EventProps {
 }
 
 const PastEvents: React.FC<EventProps> = ({ events }) => {
-  const sortedPastEvents = events.filter(pastEventsFilter);
-  sortedPastEvents.sort(eventsComparatorDecreasing);
-
   // pagination
   const MAX_ITEMS = 12;
   const [itemsLimit, setItemsLimit] = useState(MAX_ITEMS);
 
-  const numDisplayedItems = sortedPastEvents.length;
   const [displayedEvents, setDisplayedEvents] = useState([] as EventDetails[]);
+  const numDisplayedItems = displayedEvents.length;
 
   useEffect(() => {
+    const sortedPastEvents = events.filter(pastEventsFilter);
+    sortedPastEvents.sort(eventsComparatorDecreasing);
     setDisplayedEvents(sortedPastEvents.slice(0, itemsLimit));
-  }, [sortedPastEvents, itemsLimit]);
+  }, [itemsLimit]);
 
   return (
     <section className="pastEventsSection">

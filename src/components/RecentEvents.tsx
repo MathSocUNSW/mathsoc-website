@@ -21,14 +21,14 @@ const RecentEvents: React.FC<EventProps> = ({ events }) => {
   // Show, at most, the 6 latest events past.
   const MAX_ITEMS = 6;
 
-  const sortedRecentEvents = events.filter(pastEventsFilter);
-  sortedRecentEvents.sort(eventsComparatorDecreasing);
   const [displayedEvents, setDisplayedEvents] = useState([] as EventDetails[]);
 
   // Component doesn't render correctly unless the state of events is set.
   useEffect(() => {
+    const sortedRecentEvents = events.filter(pastEventsFilter);
+    sortedRecentEvents.sort(eventsComparatorDecreasing);
     setDisplayedEvents(sortedRecentEvents.slice(0, MAX_ITEMS));
-  }, [sortedRecentEvents]);
+  }, []);
 
   return (
     <div>
