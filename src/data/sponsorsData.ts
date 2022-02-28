@@ -3,22 +3,13 @@ import alphabeticalSort from "src/helpers/alphabeticalSort";
 
 export interface sponsor {
   name: string;
-  type: "principal" | "major" | "affiliate" | "bespoke" | "school" | "events";
+  type: "principal" | "major" | "marketing" | "school" | "events";
   logoPath: string;
   websiteURL: string;
   description?: string;
 }
-
 // TODO: sort alphabetically
 const rawSponsorsData: sponsor[] = [
-  {
-    name: "Akuna Capital",
-    type: "affiliate",
-    websiteURL: "https://akunacapital.com/",
-    logoPath: "/images/logos/akuna_capital_logo.png",
-    description:
-      "Akuna Capital is a proprietary trading firm specializing in derivatives market making and sophisticated modeling with a commitment to cutting-edge technology. We are the leading options market maker to successfully enter the industry in recent years with sustainable growth. By providing more liquidity to the markets through rapid innovation, we have the advantage of youth in remaining nimble and agile in an ever-changing competitive landscape."
-  },
   {
     name: "Arc",
     type: "school",
@@ -29,19 +20,11 @@ const rawSponsorsData: sponsor[] = [
   },
   {
     name: "Autumn Compass",
-    type: "major",
+    type: "events",
     websiteURL: "https://www.autumncompass.com/home/",
     logoPath: "/images/logos/autumn_compass_logo.png",
     description:
       "Autumn Compass is a proprietary trading firm developing clever algorithms to provide liquidity on financial markets across Asia-Pacific. Our objective is to efficiently facilitate the flow of capital between market participants and serve a leading role in exchange market making and capital formation."
-  },
-  {
-    name: "Bain & Company",
-    type: "bespoke",
-    websiteURL: "https://www.bain.com/",
-    logoPath: "/images/logos/bain_logo.png",
-    description:
-      "One of the world's leading management consulting firms. We work with top executives to help them make better decisions, convert those decisions to actions and deliver the sustainable success they desire. For more than 40 years, we've been passionate about achieving better results for our clients—results that go beyond financial and are uniquely tailored, pragmatic, holistic and enduring. We've worked with the majority of the Global 500, thousands of major regional and local organizations, hundreds of nonprofits, and private equity funds representing 75 percent of global equity capital. We are proud of our clients' track record, like the fact that our public clients have historically outperformed the stock market 4 to 1."
   },
   {
     name: "Citadel Securities",
@@ -52,8 +35,16 @@ const rawSponsorsData: sponsor[] = [
       "Citadel Securities is a leading global market maker, delivering a broad array of fixed income and equity products to banks, broker-dealers, government agencies, corporations, insurers, and sovereign wealth funds. Through innovation and efficiency, the firm provides liquidity with the goal of driving price discovery in more than 35 countries and making markets more competitive, open, and transparent. Since its founding more than 15 years ago, Citadel Securities has cultivated a culture of excellence, assembling the brightest minds in trading, technology, and the sciences to make better markets for a better world."
   },
   {
+    name: "Flow Traders",
+    type: "marketing",
+    websiteURL: "https://www.flowtraders.com/",
+    logoPath: "/images/logos/flow_traders_logo.png",
+    description:
+      "Flow Traders is a leading global financial technology-enabled liquidity provider in financial products, historically specialized in Exchange Traded Products (ETPs), now expanding into other asset classes. We are able to grow our organization further, thereby ensuring that our trading desks in Europe, the Americas and Asia provide liquidity across all major exchanges, globally, 24 hours a day. Founded in 2004, we continue to cultivate the entrepreneurial, innovative and team-oriented culture that has been with us since the beginning."
+  },
+  {
     name: "IMC",
-    type: "principal",
+    type: "major",
     websiteURL: "https://www.imc.com/",
     logoPath: "/images/logos/imc_logo.png",
     description:
@@ -68,12 +59,12 @@ const rawSponsorsData: sponsor[] = [
       "A proprietary trading firm that operates around the clock and around the globe. We bring a deep understanding of markets, a scientific approach, and innovative technology to trade in the world’s highly competitive financial markets, focusing primarily on equities and equity derivatives. Founded in 2000, Jane Street employs over 700 people in offices in New York, London and Hong Kong. Our entrepreneurial culture is driven by our talented team of traders and programmers."
   },
   {
-    name: "Macquarie Group",
-    type: "affiliate",
-    websiteURL: "https://www.macquarie.com.au/",
-    logoPath: "/images/logos/macquarie_logo.png",
+    name: "Optiver",
+    type: "major",
+    websiteURL: "https://www.optiver.com/",
+    logoPath: "/images/logos/optiver_logo.png",
     description:
-      "Macquarie Group Limited is an Australian multinational independent investment bank and financial services company. Headquartered and listed in Australia (ASX: MQG), Macquarie employs more than 15,000 staff in 31 markets, is the world's largest infrastructure asset manager and Australia's top ranked mergers and acquisitions adviser, with more than A$595 billion in assets under management. The company's operating groups include Banking and Financial Services, Commodities and Global Markets, Macquarie Asset Management and Macquarie Capital."
+      "As a leading global market maker, Optiver works to make markets fairer, more transparent and more efficient. Because the better markets function, the better it is for everyone."
   },
   {
     name: "Quantium",

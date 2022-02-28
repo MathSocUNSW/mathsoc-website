@@ -39,8 +39,7 @@ const Sponsors: React.FC = () => {
   const principals = (sponsor: sponsor) => sponsor.type === "principal";
   const majors = (sponsor: sponsor) => sponsor.type === "major";
   const affiliates = (sponsor: sponsor) =>
-    sponsor.type === "affiliate" || sponsor.type === "bespoke";
-  // const events = (sponsor: sponsor) => sponsor.type === "events";
+    sponsor.type === "marketing" || sponsor.type === "events";
 
   return (
     <section>

@@ -5,7 +5,8 @@
   align-items: center;
   .logo {
     height: 60px;
-    width: auto;
+    max-width: 200px;
+    object-fit: contain;
   }
   .link {
     align-self: flex-start;
