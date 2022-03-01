@@ -1,17 +1,22 @@
-export interface director {
+export interface Director {
   name: string;
   imagePath: string;
-  linkedin?: string;
 }
 
-export interface MemberDetails {
+export type ExecutiveRole =
+  | "President"
+  | "Vice President"
+  | "Secretary"
+  | "Treasurer"
+  | "Arc Delegate";
+export interface Executive {
+  role: ExecutiveRole;
   name: string;
-  imagePath?: string;
-  role: string;
-  description?: string;
+  selfIntroduction: string;
+  imagePath: string;
 }
-export interface portfolio {
-  role:
+export interface PortfolioDetails {
+  name:
     | "Education"
     | "Events (Corporate)"
     | "Events (Social)"
@@ -19,10 +24,10 @@ export interface portfolio {
     | "IT"
     | "Marketing"
     | "Sponsorships";
-  directors: director[];
-  subcom: string[];
+  directors: Director[];
+  subcommittee?: string[];
 }
-
+/*
 const directorsData: portfolio[] = [
   {
     role: "Education",
@@ -164,3 +169,4 @@ const directorsData: portfolio[] = [
 ];
 
 export default directorsData;
+*/

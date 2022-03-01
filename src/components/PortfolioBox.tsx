@@ -12,20 +12,19 @@ import styles from "src/styles/PortfolioBox.module.scss";
 import alphabeticalSort from "src/helpers/alphabeticalSort";
 
 // Data
-import { MemberDetails } from "src/data/portfolioData";
+import { Director } from "src/data/portfolioData";
 
 const DEFAULT_PROFILE_IMAGE = "/images/team/blank_profile.png";
 const LARGE_SUBCOM_SPLIT = 5;
 
 interface PortfolioProps {
-  members: MemberDetails[];
   role: string;
+  directors: Director[];
+  subcommittee?: string[];
 }
-const Portfolio: React.FC<PortfolioProps> = ({ role, members }) => {
-  const directors = members.filter((member) => member.role.includes("Director"));
-  const subcom = members.filter((member) => member.role.includes("Subcommittee"));
+const Portfolio: React.FC<PortfolioProps> = ({ role, directors, subcommittee }) => {
   const parsedDirectors = directors.sort(alphabeticalSort);
-  const parsedSubcom = subcom.sort(alphabeticalSort);
+  const parsedSubcom = subcommittee?.sort((a, b) => a.localeCompare(b));
 
   return (
     <div className={styles.portfolio}>
@@ -53,22 +52,26 @@ const Portfolio: React.FC<PortfolioProps> = ({ role, members }) => {
             ))}
           </div>
           {/*subcom*/}
-          {parsedSubcom.length > 0 && (
+          {parsedSubcom && parsedSubcom.length > 0 && (
             <div>
               <br />
               <Typography variant="h4" align="center">
                 Subcommittee
               </Typography>
               <br />
-              <ul className={subcom.length > LARGE_SUBCOM_SPLIT ? styles.large : ""}>
+              <ul
+                className={
+                  (subcommittee as string[]).length > LARGE_SUBCOM_SPLIT ? styles.large : ""
+                }
+              >
                 {parsedSubcom.map((person) => (
-                  <li key={person.name} className={styles.item}>
+                  <li key={person} className={styles.item}>
                     <Typography
                       variant="body1"
                       align="center"
                       style={{ margin: 0, padding: "0.3rem 1rem" }}
                     >
-                      {person.name}
+                      {person}
                     </Typography>
                   </li>
                 ))}

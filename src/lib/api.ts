@@ -1,6 +1,6 @@
 import { createClient } from "contentful";
 import { EventDetails } from "../data/eventData";
-import { MemberDetails } from "../data/portfolioData";
+import { Executive, PortfolioDetails } from "../data/portfolioData";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID as string,
@@ -31,22 +31,47 @@ export const fetchEvents = async (): Promise<EventDetails[]> => {
   return events;
 };
 
-export const fetchTeam = async (): Promise<MemberDetails[]> => {
-  let memberDetails: MemberDetails[] = [];
+export const fetchPortfolios = async (): Promise<PortfolioDetails[]> => {
+  let portfolios: PortfolioDetails[] = [];
   try {
     const response = await client.getEntries({
-      content_type: "team"
+      content_type: "portfolio"
     });
-    memberDetails = response.items.map((item) => {
+    portfolios = response.items.map((item) => {
       // TODO: Figure out how to use typescript with contentful.
       const obj = item as any;
       return {
         ...obj.fields,
-        imagePath: obj.fields.image.fields.file.url
+        name: obj.fields.portfolioName,
+        directors: obj.fields.directors.map((director) => {
+          return {
+            name: director.fields.title,
+            imagePath: director.fields.file.url
+          };
+        })
       };
     });
   } catch (err) {
     console.error(err);
   }
-  return memberDetails;
+  return portfolios;
+};
+
+export const fetchExecutives = async (): Promise<Executive[]> => {
+  let executives: Executive[] = [];
+  try {
+    const response = await client.getEntries({
+      content_type: "executives"
+    });
+    executives = response.items.map((item) => {
+      const obj = item as any;
+      return {
+        ...obj.fields,
+        imagePath: obj.fields.photo.fields.file.url
+      };
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  return executives;
 };
