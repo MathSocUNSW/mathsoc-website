@@ -20,7 +20,6 @@ interface CompetitionsProps {
 }
 
 const Competitions: React.FC<CompetitionsProps> = ({ competitions }) => {
-  console.log(competitions);
   return (
     <div>
       <Head>
@@ -59,7 +58,6 @@ const Competitions: React.FC<CompetitionsProps> = ({ competitions }) => {
 
 export const getStaticProps = async (context) => {
   const competitions: Competition[] = await fetchCompetitions();
-  console.log(competitions);
   return {
     props: {
       competitions

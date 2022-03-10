@@ -94,6 +94,5 @@ export const fetchCompetitions = async (): Promise<Competition[]> => {
   } catch (err) {
     console.error(err);
   }
-  console.log(competitions);
   return competitions;
 };

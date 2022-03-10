@@ -3,5 +3,4 @@ export interface Competition {
   promotionalImage: string;
   description: string;
   solutionsLink: string;
-  eventLink: string;
 }
