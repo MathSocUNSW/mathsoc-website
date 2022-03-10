@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import { EventDetails } from "../data/eventData";
+import { Competition } from "../data/competitionData";
 import { Executive, PortfolioDetails } from "../data/portfolioData";
 
 const client = createClient({
@@ -74,4 +75,25 @@ export const fetchExecutives = async (): Promise<Executive[]> => {
     console.error(err);
   }
   return executives;
+};
+
+export const fetchCompetitions = async (): Promise<Competition[]> => {
+  let competitions: Competition[] = [];
+  try {
+    const response = await client.getEntries({
+      content_type: "competitions"
+    });
+    competitions = response.items.map((item) => {
+      const obj = item as any;
+      return {
+        ...obj.fields,
+        promotionalImage: obj.fields.promotionalImage.fields.file.url,
+        solutionsLink: obj.fields.solutions.fields.file.url
+      };
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  console.log(competitions);
+  return competitions;
 };
