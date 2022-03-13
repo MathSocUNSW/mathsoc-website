@@ -31,8 +31,10 @@
 
 .imageContainer {
   width: auto;
-  max-width: 300px;
   height: 60px;
+
+  display: flex;
+  justify-content: center;
 
   padding-left: 10px;
   padding-right: 10px;
