@@ -1,16 +1,15 @@
 .logo {
+  max-height: 100%;
   object-fit: contain;
+  align-self: center;
 }
 .logoSquare {
-  height: 80px;
-  width: 80px;
+  max-width: min(100%, 100px);
 }
 .logoHorizontal {
-  height: 80px;
-  max-width: 180px;
+  max-width: 200px;
 }
 .logoLongHorizontal {
-  height: 80px;
   max-width: 400px;
 }
 
