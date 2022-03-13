@@ -1,0 +1,21 @@
+.logo {
+  object-fit: contain;
+}
+.logoSquare {
+  height: 80px;
+  width: 80px;
+}
+.logoHorizontal {
+  height: 80px;
+  max-width: 180px;
+}
+.logoLongHorizontal {
+  height: 80px;
+  max-width: 400px;
+}
+
+@media screen and (max-width: 500px) {
+  .logoLongHorizontal {
+    max-width: 95%;
+  }
+}
