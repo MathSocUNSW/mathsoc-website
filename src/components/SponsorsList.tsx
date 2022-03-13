@@ -20,7 +20,11 @@ const SponsorsList: React.FC = () => {
         {sponsorsData.map((sponsor, index) => (
           <a key={index} href={sponsor.websiteURL} target="_blank" rel="noopener noreferrer">
             <div className={styles.imageContainer}>
-              <SponsorLogo name={sponsor.name} logoPath={sponsor.logoPath} />
+              <SponsorLogo
+                logoStyle={sponsor.logoStyle}
+                name={sponsor.name}
+                logoPath={sponsor.logoPath}
+              />
             </div>
           </a>
         ))}
