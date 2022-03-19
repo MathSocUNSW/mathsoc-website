@@ -2,7 +2,6 @@
 import React from "react";
 import Head from "next/head";
 import { Typography } from "@material-ui/core";
-// import Carousel from "react-material-ui-carousel";
 
 // Components
 import Hero from "components/Hero";
@@ -12,7 +11,15 @@ import WholePageBox from "components/WholePageBox";
 // Styling
 import styles from "src/styles/competitions.module.scss";
 
-const Competitions: React.FC = () => {
+// Data
+import { Competition } from "src/data/competitionData";
+import { fetchCompetitions } from "src/lib/api";
+
+interface CompetitionsProps {
+  competitions: Competition[];
+}
+
+const Competitions: React.FC<CompetitionsProps> = ({ competitions }) => {
   return (
     <div>
       <Head>
@@ -22,43 +29,40 @@ const Competitions: React.FC = () => {
       <Hero url="/images/hero/mathsoc_comp.jpg" text="Competitions" />
       <PageBody>
         <div className={styles.competitions}>
-          <WholePageBox>
-            <Typography variant="h2" align="center">
-              Integration Bee
-            </Typography>
-            <Typography variant="body1" align="center">
-              Coming Soon 👀
-            </Typography>
-          </WholePageBox>
-          <WholePageBox>
-            <Typography variant="h2" align="center">
-              Accelerate
-            </Typography>
-            <div className={styles.accelerate}>
-              <a
-                href="https://www.facebook.com/events/4438215162903353/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src="images/events/accelerate_2021.jpg" />
-              </a>
-            </div>
-            <Typography>
-              Congratulations to Austin Zhang for being the winner to our 2021 Accelerate event! The
-              problem set (with solutions) can be found{" "}
-              <a
-                href="files/competitions/accelerate-2021.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                here
-              </a>
-              .
-            </Typography>
-          </WholePageBox>
+          {competitions.map((competition, i) => (
+            <WholePageBox key={i}>
+              <Typography variant="h2" align="center">
+                {competition.name}
+              </Typography>
+              <div className={styles.promotionImage}>
+                <img src={`https:${competition.promotionalImage}`} />
+              </div>
+              <Typography>
+                {competition.description} The problem set (with solutions) can be found{" "}
+                <a
+                  href={`https:${competition.solutionsLink}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>
+                .
+              </Typography>
+            </WholePageBox>
+          ))}
         </div>
       </PageBody>
     </div>
   );
 };
+
+export const getStaticProps = async (context) => {
+  const competitions: Competition[] = await fetchCompetitions();
+  return {
+    props: {
+      competitions
+    }
+  };
+};
+
 export default Competitions;
