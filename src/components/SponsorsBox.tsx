@@ -9,11 +9,11 @@ import styles from "src/styles/SponsorsBox.module.scss";
 import { sponsor } from "src/data/sponsorsData";
 import SponsorsLogo from "./SponsorLogo";
 
-const SponsorsBox: React.FC<sponsor> = ({ name, logoStyle, logoPath, websiteURL, description }) => {
+const SponsorsBox: React.FC<sponsor> = ({ name, logoPath, websiteURL, description }) => {
   return (
     <div className={styles.sponsorBox}>
       <a href={websiteURL} target="_blank" rel="noopener noreferrer">
-        <SponsorsLogo logoPath={logoPath} name={name} logoStyle={logoStyle} />
+        <SponsorsLogo logoPath={logoPath} name={name} />
       </a>
       <Typography variant="body1">{description}</Typography>
       <a href={websiteURL} target="_blank" rel="noopener noreferrer" className={styles.link}>

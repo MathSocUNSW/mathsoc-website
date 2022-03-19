@@ -17,10 +17,9 @@ const getLogoClass = (height: number, width: number): string => {
 interface SponsorLogoProps {
   name: string;
   logoPath: string;
-  logoStyle: LogoStyle;
 }
 
-const SponsorLogo: React.FC<SponsorLogoProps> = ({ name, logoPath, logoStyle }) => {
+const SponsorLogo: React.FC<SponsorLogoProps> = ({ name, logoPath }) => {
   const [logoClass, setLogoClass] = useState("");
   useEffect(() => {
     const logo = new Image();
