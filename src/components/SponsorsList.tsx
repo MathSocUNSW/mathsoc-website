@@ -8,6 +8,7 @@ import styles from "src/styles/SponsorsList.module.scss";
 
 // Data
 import sponsorsData from "src/data/sponsorsData";
+import SponsorLogo from "./SponsorLogo";
 
 const SponsorsList: React.FC = () => {
   return (
@@ -19,12 +20,10 @@ const SponsorsList: React.FC = () => {
         {sponsorsData.map((sponsor, index) => (
           <a key={index} href={sponsor.websiteURL} target="_blank" rel="noopener noreferrer">
             <div className={styles.imageContainer}>
-              <Image
-                src={sponsor.logoPath}
-                layout="fill"
-                className={styles.image}
-                quality={1}
-                priority={true}
+              <SponsorLogo
+                logoStyle={sponsor.logoStyle}
+                name={sponsor.name}
+                logoPath={sponsor.logoPath}
               />
             </div>
           </a>
