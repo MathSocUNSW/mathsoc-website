@@ -50,6 +50,69 @@ export interface yearTeamData {
 
 const pastTeamData: yearTeamData[] = [
   {
+    year: 2021,
+    execList: [
+      { name: "Grace Li", role: "President" },
+      { name: "Philton Zhu", role: "Vice President" },
+      { name: "Justin Clarke", role: "Secretary" },
+      { name: "Merry Chu", role: "Treasurer" },
+      { name: "Gerald Huang", role: "Arc Delegate" }
+    ],
+    directorList: [
+      { role: "Education", directors: ["Gorden Zhuang", "John Kameas", "Raymond Li"] },
+      { role: "Social Events", directors: ["Vedant Rampal", "Daniel Kim"] },
+      { role: "Corporate Events", directors: ["Ting Li", "Andrew William"] },
+      { role: "IT", directors: ["Andrew Xie"] },
+      { role: "Marketing", directors: ["Celeste Thomson", "Jessica Zheng"] },
+      { role: "Sponsorships", directors: ["Abhi Khosla", "Jordan Shen"] },
+      { role: "Human Resources", directors: ["Katherine Bai", "Christopher Wu"] }
+    ],
+    subcommittee: [
+      {
+        role: "Education",
+        members: [
+          "Bruce Chen",
+          "Felix Cao",
+          "Isaiah Iliffe",
+          "Jay Liang",
+          "Joanna Lin",
+          "Jordy Grant",
+          "Lisa Huang",
+          "Steve Jang",
+          "Wendy Ji",
+          "Yvonne Huang"
+        ]
+      },
+      {
+        role: "Social Events",
+        members: [
+          "Alice Zhang",
+          "Danni Chen",
+          "Harry Zhang",
+          "Kush Singhy",
+          "Princy Thakkar",
+          "Teya Murray"
+        ]
+      },
+      {
+        role: "Corporate Events",
+        members: [
+          "Eva Lin",
+          "Mehak Arya",
+          "Omkar Thite",
+          "Ricky Zheng",
+          "Rijul Arjun Malik",
+          "Vincent Liang"
+        ]
+      },
+      { role: "IT", members: ["Alvin Cherk", "Rahul Ahluwalia", "Wellington Dulay"] },
+      {
+        role: "Marketing",
+        members: ["Brandon Liu", "Catherine Lye", "Erin Shee", "Lachlan Georgiadis", "Nat Brown"]
+      }
+    ]
+  },
+  {
     year: 2020,
     execList: [
       { name: "James Gao", role: "President" },

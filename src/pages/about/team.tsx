@@ -13,53 +13,34 @@ import PortfolioBox from "components/PortfolioBox";
 import styles from "src/styles/team.module.scss";
 
 // Library
-import { fetchTeam } from "../../lib/api";
+import { fetchPortfolios, fetchExecutives } from "../../lib/api";
 
 // Data
-import { MemberDetails } from "src/data/portfolioData";
+import { Executive, ExecutiveRole, PortfolioDetails } from "src/data/portfolioData";
 
-const executiveRoles = ["President", "Vice President", "Secretary", "Treasurer", "Arc Delegate"];
-
-const portfolioRoles = [
-  "Education",
-  "Events (Corporate)",
-  "Events (Social)",
-  "HR",
-  "IT",
-  "Marketing",
-  "Sponsorships"
+const executiveRoles: ExecutiveRole[] = [
+  "President",
+  "Vice President",
+  "Secretary",
+  "Treasurer",
+  "Arc Delegate"
 ];
-interface Portfolios {
-  [key: string]: MemberDetails[];
-}
-
-const partition = (members: MemberDetails[]): Portfolios => {
-  const portfolios: Portfolios = {};
-  for (const portfolioRole of portfolioRoles) {
-    portfolios[portfolioRole] = members.filter((member) => member.role.includes(portfolioRole));
-  }
-  return portfolios;
-};
-
 interface TeamProps {
-  members: MemberDetails[];
+  executives: Executive[];
+  portfolios: PortfolioDetails[];
 }
 
-const Team: React.FC<TeamProps> = ({ members }) => {
-  const executives = members.filter((member) => {
-    return executiveRoles.includes(member.role);
-  });
+const Team: React.FC<TeamProps> = ({ executives, portfolios }) => {
   executives.sort((a, b) =>
     executiveRoles.indexOf(a.role) < executiveRoles.indexOf(b.role) ? -1 : 1
   );
-  const portfolios = partition(members);
   return (
     <section>
       <Head>
         <title>Meet the Team - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_team_2021.jpg" text="MathSoc Team 2021" />
+      <Hero url="/images/hero/mathsoc_team_2021.jpg" text="MathSoc Team 2022" />
       <PageBody>
         <div className={styles.flex}>
           <Typography variant="h2" align="center">
@@ -76,8 +57,8 @@ const Team: React.FC<TeamProps> = ({ members }) => {
               <Profile
                 name={person.name}
                 role={person.role}
-                description={person.description as string}
-                imagePath={person.imagePath as string}
+                description={person.selfIntroduction}
+                imagePath={person.imagePath}
                 key={person.name}
               />
             ))}
@@ -100,11 +81,12 @@ const Team: React.FC<TeamProps> = ({ members }) => {
             </Typography>
           </div>
           <section className={styles.cardsContainer}>
-            {portfolioRoles.map((portfolioRole) => (
+            {portfolios.map((portfolio) => (
               <PortfolioBox
-                members={portfolios[portfolioRole]}
-                role={portfolioRole}
-                key={portfolioRole}
+                directors={portfolio.directors}
+                subcommittee={portfolio.subcommittee}
+                role={portfolio.name}
+                key={portfolio.name}
               />
             ))}
           </section>
@@ -115,10 +97,12 @@ const Team: React.FC<TeamProps> = ({ members }) => {
 };
 
 export const getStaticProps = async (context) => {
-  const members = await fetchTeam();
+  const portfolios = await fetchPortfolios();
+  const executives = await fetchExecutives();
   return {
     props: {
-      members
+      portfolios,
+      executives
     }
   };
 };
