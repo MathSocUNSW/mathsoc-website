@@ -72,11 +72,11 @@ const rawSponsorsData: sponsor[] = [
   {
     name: "Optiver",
     type: "major",
-    websiteURL: "https://www.optiver.com/",
+    websiteURL: "https://www.optiver.com/apac-graduates/",
     logoPath: "/images/logos/optiver_logo.png",
     logoStyle: LogoStyle.HORIZONTAL,
     description:
-      "As a leading global market maker, Optiver works to make markets fairer, more transparent and more efficient. Because the better markets function, the better it is for everyone."
+      "Optiver is a leading global trading firm, powered by technological innovation. Simply put, we trade options and other financial instruments in 50+ exchanges to improve markets around the world. It's a unique business, with unique challenges. We're a quiet powerhouse of creative problem solving and collaboration. And while we built our successfor more than 35 years, we've deliberately forged a culture that gives our people the opportunity and support to help us make an impact every day. At Optiver, we do things a bit differently to most businesses. We operate without clients, taking risks and reaping the rewards ourselves. We play by our own rules and maintain an informal culture to keep it fun. We’re passionate about empowering individuals and creating diverse teams that thrive. Every person at Optiver should feel included, valued and respected because we believe our best work is done together. We're committed to making the world better every day. This commitment extends to our people, making their lives better through a range of initiatives, benefits and opportunities. We believe the best equipped go furthest."
   },
   {
     name: "Quantium",

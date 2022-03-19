@@ -17,7 +17,7 @@ const SponsorsBox: React.FC<sponsor> = ({ name, logoStyle, logoPath, websiteURL,
       </a>
       <Typography variant="body1">{description}</Typography>
       <a href={websiteURL} target="_blank" rel="noopener noreferrer" className={styles.link}>
-        See more here!
+        Learn more about {name}
       </a>
     </div>
   );
