@@ -63,7 +63,7 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
     const sortedEvents = events.filter(upcomingEventsFilter);
     sortedEvents.sort(eventsComparatorIncreasing);
     setDisplayedEvents(sortedEvents);
-  }, []);
+  }, [events]);
   /**
    * Given an array of `srcArray`, load all the images into cache
    * WARNING: Don't load too many. Since this is only used to load the upcoming events,
