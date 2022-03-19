@@ -28,7 +28,7 @@ const RecentEvents: React.FC<EventProps> = ({ events }) => {
     const sortedRecentEvents = events.filter(pastEventsFilter);
     sortedRecentEvents.sort(eventsComparatorDecreasing);
     setDisplayedEvents(sortedRecentEvents.slice(0, MAX_ITEMS));
-  }, []);
+  }, [events]);
 
   return (
     <div>
