@@ -31,7 +31,7 @@ const PastEvents: React.FC<EventProps> = ({ events }) => {
     const sortedPastEvents = events.filter(pastEventsFilter);
     sortedPastEvents.sort(eventsComparatorDecreasing);
     setDisplayedEvents(sortedPastEvents.slice(0, itemsLimit));
-  }, [itemsLimit]);
+  }, [events, itemsLimit]);
 
   return (
     <section className="pastEventsSection">
