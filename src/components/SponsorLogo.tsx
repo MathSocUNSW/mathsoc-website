@@ -1,8 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/SponsorsLogo.module.scss";
-
-import { LogoStyle } from "../data/sponsorsData";
-import { Height } from "@material-ui/icons";
 
 const getLogoClass = (height: number, width: number): string => {
   const aspectRatio = width / height;
