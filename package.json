@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "mathsoc-website",
   "version": "1.0.0",
   "main": "index.tsx",
   "license": "MIT",
@@ -15,7 +15,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-material-ui-carousel": "^2.3.8",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "sharp": "^0.30.3"
   },
   "scripts": {
     "dev": "next dev",
@@ -27,6 +28,7 @@
     "prettier:write": "prettier --write 'src/**/*.{ts,tsx,scss}'"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "@types/react": "^17.0.37",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
