@@ -17,15 +17,20 @@ export const fetchEvents = async (): Promise<EventDetails[]> => {
     const response = await client.getEntries({
       content_type: "mathSocEvents"
     });
-    events = response.items.map((item) => {
-      // TODO: Figure out how to use typescript with contentful.
-      const obj = item as any;
-      return {
-        ...obj.fields,
-        eventImage: obj.fields.eventImage.fields.file.url,
-        imageDescription: obj.fields.eventImage.fields.description
-      };
-    });
+    events = response.items
+      .filter((item) => {
+        // TODO: Figure out how to use typescript with contentful.
+        const obj = item as any;
+        return "eventImage" in obj.fields;
+      })
+      .map((item) => {
+        const obj = item as any;
+        return {
+          ...obj.fields,
+          eventImage: obj.fields.eventImage.fields.file.url,
+          imageDescription: obj.fields.eventImage.fields.description
+        };
+      });
   } catch (err) {
     console.error(err);
   }

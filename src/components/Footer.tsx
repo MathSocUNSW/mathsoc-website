@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
       <Container>
         <div className={styles.content}>
           <div className={styles.leftText}>
-            <p>&#169; UNSW Mathematics Society 2021</p>
+            <p>&#169; UNSW Mathematics Society {new Date().getFullYear()}</p>
           </div>
           <ul className={styles.socials}>
             {socials.map(({ name, url, iconPath }) => (

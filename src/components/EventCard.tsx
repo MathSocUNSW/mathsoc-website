@@ -45,7 +45,7 @@ const EventCard: React.FC<EventDetails> = ({
   };
 
   return (
-    <div className={styles.card}>
+    <div data-testid="event-card" className={styles.card}>
       <div>
         <a href={eventLink} target="_blank" rel="noopener noreferrer">
           <img src={`https://${eventImage}`} className={styles.topImage} alt={imageDescription} />
