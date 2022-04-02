@@ -37,3 +37,82 @@
   width: 30px;
   height: 30px;
 }
+
+.contactName {
+  display: flex;
+  gap: 50px;
+  align-items: flex-end;
+}
+
+.inputItem {
+  border-radius: 30px;
+  height: 30px;
+  padding-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-color: #4169e1;
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.inputItem:hover {
+  transform: scale(1.1);
+  background-color: white;
+  color: #4169e1;
+}
+
+.emailItem {
+  width: 43%;
+  border-radius: 30px;
+  height: 30px;
+  padding-top: 0px;
+  padding-left: 1%;
+  padding-right: 1%;
+  border-color: #4169e1;
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.emailItem:hover {
+  transform: scale(1.1);
+  background-color: white;
+  color: #4169e1;
+}
+
+.messageItem {
+  width: 35%;
+  border-radius: 30px;
+  height: 200px;
+  padding: 1%;
+  border-color: #4169e1;
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.messageItem:hover {
+  transform: scale(1.05);
+  background-color: white;
+  color: #4169e1;
+}
+
+.submitButton {
+  background-color: #4169e1;
+  color: white;
+  border-radius: 30px;
+  height: 30px;
+  border-color: #4169e1;
+  padding-left: 5%;
+  padding-right: 5%;
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.submitButton:hover {
+  transform: scale(1.1);
+  background-color: white;
+  color: #4169e1;
+}

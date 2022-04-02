@@ -1,5 +1,5 @@
 // Library Imports
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import { Typography } from "@mui/material";
 
@@ -13,8 +13,37 @@ import styles from "src/styles/contact.module.scss";
 
 // Data
 import { socials } from "src/data/socialData";
+import { contactProps } from "src/data/contactData";
 
 const Contact: React.FC = () => {
+  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const [contactDetails, setContactDetails] = useState<contactProps>({
+    firstname: "",
+    lastname: "",
+    email: "",
+    message: ""
+  });
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    const name = event.target.name;
+    const value = event.target.value;
+    setContactDetails((prevForm) => ({
+      ...prevForm,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(contactDetails);
+    if (!emailRegex.test(contactDetails.email)) {
+      alert("Invalid Email");
+    } else {
+      alert("You've submitted");
+    }
+  };
+
   return (
     <section>
       <Head>
@@ -26,8 +55,8 @@ const Contact: React.FC = () => {
         <WholePageBox>
           <div className={styles.contactBody}>
             <div className="contactUsSection">
-              <Typography variant="h4">Contact Us</Typography>
-              {/* TODO Update Link? */}
+              {/* <Typography variant="h4">Contact Us</Typography>
+              TODO Update Link?
               <Typography variant="body1">
                 You can contact us using{" "}
                 <a
@@ -38,7 +67,49 @@ const Contact: React.FC = () => {
                   this form
                 </a>
                 .
-              </Typography>
+              </Typography> */}
+              <form onSubmit={handleSubmit}>
+                <div className={styles.contactName}>
+                  <div>
+                    <Typography variant="h6">First Name:</Typography>
+                    <input
+                      type="text"
+                      name="firstname"
+                      className={styles.inputItem}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div>
+                    <Typography variant="h6">Last Name:</Typography>
+                    <input
+                      type="text"
+                      name="lastname"
+                      className={styles.inputItem}
+                      onChange={handleChange}
+                    />
+                  </div>
+                </div>
+                <Typography variant="h6">Email:</Typography>
+                <input
+                  type="text"
+                  className={styles.emailItem}
+                  name="email"
+                  onChange={handleChange}
+                />
+                <Typography variant="h6">Message:</Typography>
+                <div className={styles.contactName}>
+                  <textarea
+                    rows={5}
+                    cols={50}
+                    className={styles.messageItem}
+                    name="message"
+                    onChange={handleChange}
+                  />
+                  <button type="submit" className={styles.submitButton}>
+                    Submit
+                  </button>
+                </div>
+              </form>
             </div>
             <div className="stayConnectedSection">
               <Typography variant="h4">Stay Connected</Typography>
