@@ -4,12 +4,10 @@ import { ThemeProvider, Theme, StyledEngineProvider, createTheme } from "@mui/ma
 import Layout from "../components/Layout";
 import "src/styles/globals.scss";
 
-
 declare module "@mui/styles/defaultTheme" {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface DefaultTheme extends Theme {}
 }
-
 
 const theme = createTheme();
 
