@@ -2,7 +2,7 @@
 import React from "react";
 import Head from "next/head";
 import Script from "next/script";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 // Component Imports
 import PageBody from "components/PageBody";

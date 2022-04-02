@@ -1,6 +1,6 @@
 // Library Imports
 import React, { useEffect, useState } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 // Content Imports
 import EventCard from "src/components/EventCard";

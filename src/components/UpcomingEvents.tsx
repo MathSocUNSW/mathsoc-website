@@ -1,6 +1,6 @@
 // Library Imports
 import React, { useState, useEffect, Dispatch, SetStateAction } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 // Component Imports
 import EventCard from "src/components/EventCard";

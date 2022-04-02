@@ -1,7 +1,7 @@
 // Library Imports
 import React from "react";
 import Head from "next/head";
-import { Link, Typography } from "@material-ui/core";
+import { Link, Typography } from "@mui/material";
 
 // Component Imports
 import PageBody from "components/PageBody";

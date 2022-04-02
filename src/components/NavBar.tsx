@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Hamburger from "hamburger-react";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 
 // Component Imports
 import NavItem from "./NavItem";
