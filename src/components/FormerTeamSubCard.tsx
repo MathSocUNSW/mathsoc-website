@@ -1,6 +1,6 @@
 // Library Imports
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/FormerTeamSubCard.module.scss";

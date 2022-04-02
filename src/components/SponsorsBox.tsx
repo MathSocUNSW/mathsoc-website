@@ -1,6 +1,6 @@
 // Library Imports
 import React, { useEffect, useRef, useState } from "react";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/SponsorsBox.module.scss";

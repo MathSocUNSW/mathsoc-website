@@ -1,7 +1,7 @@
 import React from "react";
-import DescriptionOutlinedIcon from "@material-ui/icons/DescriptionOutlined";
+import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import styles from "../styles/DocumentTile.module.scss";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { revisionSheetTile as SheetTileProps } from "src/data/revisionSheetData";
 const DocumentTile: React.FC<SheetTileProps> = (props) => {
   return (
