@@ -1,6 +1,6 @@
 // Library Imports
 import React from "react";
-import { Container } from "@material-ui/core";
+import { Container } from "@mui/material";
 
 // Styling
 import styles from "src/styles/Footer.module.scss";

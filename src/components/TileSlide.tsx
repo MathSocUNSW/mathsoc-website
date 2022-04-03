@@ -1,7 +1,7 @@
 // Library Imports
 import React from "react";
 import Link from "next/link";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/TileSlide.module.scss";

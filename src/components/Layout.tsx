@@ -1,6 +1,7 @@
 // Library Imports
 import React from "react";
-import { createTheme, ThemeProvider } from "@material-ui/core";
+import { createTheme, ThemeProvider, Theme, StyledEngineProvider } from "@mui/material";
+import "@mui/styles";
 
 // Component Imports
 import Footer from "./Footer";
@@ -8,6 +9,11 @@ import NavBar from "./NavBar";
 
 // Styling
 import styles from "src/styles/Layout.module.scss";
+
+declare module "@mui/styles/defaultTheme" {
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface DefaultTheme extends Theme {}
+}
 
 const theme = createTheme({
   typography: {
@@ -57,15 +63,17 @@ const theme = createTheme({
 
 const Layout: React.FC<unknown> = ({ children }) => {
   return (
-    <ThemeProvider theme={theme}>
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <NavBar />
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <div className={styles.content}>
+          <div className={styles.header}>
+            <NavBar />
+          </div>
+          <article>{children}</article>
+          <Footer />
         </div>
-        <article>{children}</article>
-        <Footer />
-      </div>
-    </ThemeProvider>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 };
 

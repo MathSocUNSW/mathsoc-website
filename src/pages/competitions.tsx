@@ -1,7 +1,7 @@
 // Library imports
 import React from "react";
 import Head from "next/head";
-import { Typography } from "@material-ui/core";
+import { Typography } from "@mui/material";
 
 // Components
 import Hero from "components/Hero";
