@@ -20,7 +20,7 @@ const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) =
   );
   return (
     // TODO: entire first page is clickable?
-    <div className={styles.tile}>
+    <div data-testid="tile" className={styles.tile}>
       <div className={styles.tileContent}>
         <div className={styles.tileSlides}>
           {/* Front Slide */}
@@ -57,13 +57,14 @@ const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) =
           )}
           {/* LHS Arrow */}
           {index > -1 && (
-            <button onClick={() => setIndex(index - 1)} className={styles.arrow}>
+            <button role="previous" onClick={() => setIndex(index - 1)} className={styles.arrow}>
               <img src="/images/resources/arrowLHS.png" alt="left-hand arrow" draggable="false" />
             </button>
           )}
           {/* RHS Arrow */}
           {index > -1 && (
             <button
+              role="next"
               onClick={() => setIndex(index + 1)}
               className={index < revisionLinks.length - 1 ? styles.arrow : styles.disabled}
             >

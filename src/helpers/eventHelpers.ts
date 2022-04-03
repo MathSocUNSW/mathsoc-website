@@ -63,16 +63,18 @@ export const eventsComparatorIncreasing = (x: EventDetails, y: EventDetails): nu
   eventsComparatorDecreasing(y, x);
 
 /**
- * Returns the formatted date to display on an event card
+ * Returns the formatted date to display on an event card. Ignores UTC offset.
+ * When startTime and endTime have the same date, the format is DD MMM YYYY, h:mm a - h:mm a.
+ * When startTime and endTime have different days, the format is D MMM YYYY - D MMM YYYY.
  * @param {string} startTime The starting time of the event in full ISO 8601 date format
  * @param {string} endTime The ending time of the event in full ISO 8601 date format
  */
 export const formatDisplayDate = (startTime: string, endTime: string): string => {
-  const startDate: string = moment(startTime).format("D MMM YYYY");
-  const endDate: string = moment(endTime).format("D MMM YYYY");
+  const startDate: string = moment(startTime).parseZone().format("D MMM YYYY");
+  const endDate: string = moment(endTime).parseZone().format("D MMM YYYY");
   if (startDate === endDate) {
-    const startHourMin = moment(startTime).format("h:mm a");
-    const endHourMin = moment(endTime).format("h:mm a");
+    const startHourMin = moment(startTime).parseZone().format("h:mm a");
+    const endHourMin = moment(endTime).parseZone().format("h:mm a");
     return `${startDate}, ${startHourMin} - ${endHourMin}`;
   } else {
     return `${startDate} - ${endDate}`;
