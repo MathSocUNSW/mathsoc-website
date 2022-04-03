@@ -1,3 +1,4 @@
+import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { revisionData } from "./data/tileData";
 import { checkTilePage } from "./helpers/testHelpers";

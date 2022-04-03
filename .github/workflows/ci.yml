@@ -33,11 +33,11 @@ jobs:
           echo CONTENTFUL_API_KEY=${{ secrets.CONTENTFUL_API_KEY }} >> .env
       - name: Install dependencies
         run: yarn
-      - name: Run unit tests
-        run: yarn test
       - name: Lint
         run: yarn lint
       - name: Prettier
         run: yarn prettier:check
+      - name: Run unit tests
+        run: yarn test
       - name: Build
         run: yarn build
