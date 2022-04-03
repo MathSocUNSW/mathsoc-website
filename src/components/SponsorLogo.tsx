@@ -17,7 +17,7 @@ interface SponsorLogoProps {
 }
 
 const SponsorLogo: React.FC<SponsorLogoProps> = ({ name, logoPath }) => {
-  const [logoClass, setLogoClass] = useState("");
+  const [logoClass, setLogoClass] = useState(styles.logoSquare);
   useEffect(() => {
     const logo = new Image();
     logo.src = logoPath;
