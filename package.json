@@ -21,7 +21,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "start": "if [ -z \"$PORT\" ]; then next start; else next start -p $PORT; fi",
     "lint": "eslint './src/**/*.{ts,tsx}'",
     "lint:fix": "eslint './src/**/*.{ts,tsx}' --fix",
