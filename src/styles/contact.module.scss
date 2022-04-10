@@ -3,6 +3,10 @@
 // Even spacing between each section
 .contactBody > *:not(:last-child) {
   padding-bottom: 15px;
+  @media screen and (max-width: $sm) {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
 }
 
 .socialContainer {
@@ -40,20 +44,42 @@
 
 .contactName {
   display: flex;
-  gap: 50px;
-  align-items: flex-end;
+  justify-content: space-between;
+  @media screen and (max-width: $sm) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  @media screen and (max-width: $sm) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.messageBox {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .inputItem {
   border-radius: 30px;
   height: 30px;
-  padding-top: 0px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 100%;
   border-color: #4169e1;
   transition-timing-function: ease-in-out;
   transition: 0.5s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  @media screen and (max-width: $sm) {
+    padding: 0;
+  }
 }
 
 .inputItem:hover {
@@ -63,16 +89,19 @@
 }
 
 .emailItem {
-  width: 43%;
+  width: 100%;
   border-radius: 30px;
   height: 30px;
+  padding-left: 2px;
+  padding-right: 2px;
   padding-top: 0px;
-  padding-left: 1%;
-  padding-right: 1%;
   border-color: #4169e1;
   transition-timing-function: ease-in-out;
   transition: 0.5s;
   transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  @media screen and (max-width: $sm) {
+    padding: 0;
+  }
 }
 
 .emailItem:hover {
@@ -82,10 +111,9 @@
 }
 
 .messageItem {
-  width: 35%;
   border-radius: 30px;
   height: 200px;
-  padding: 1%;
+  padding: 1.5%;
   border-color: #4169e1;
   transition-timing-function: ease-in-out;
   transition: 0.5s;
@@ -103,6 +131,7 @@
   color: white;
   border-radius: 30px;
   height: 30px;
+  width: 30%;
   border-color: #4169e1;
   padding-left: 5%;
   padding-right: 5%;

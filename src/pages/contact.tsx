@@ -1,7 +1,7 @@
 // Library Imports
 import React, { useState } from "react";
 import Head from "next/head";
-import { Typography } from "@mui/material";
+import { Typography, Alert } from "@mui/material";
 
 // Component Imports
 import PageBody from "components/PageBody";
@@ -17,6 +17,8 @@ import { contactProps } from "src/data/contactData";
 
 const Contact: React.FC = () => {
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  //Set alert display to none
+  const [alertInfo, setAlert] = useState(<Alert style={{ display: "none" }} />);
   const [contactDetails, setContactDetails] = useState<contactProps>({
     firstname: "",
     lastname: "",
@@ -36,11 +38,55 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(contactDetails);
     if (!emailRegex.test(contactDetails.email)) {
-      alert("Invalid Email");
+      setAlert(
+        <Alert
+          severity="error"
+          variant="filled"
+          onClose={() => {
+            setAlert(<Alert style={{ display: "none" }} />);
+          }}
+        >
+          Invalid Email
+        </Alert>
+      );
+    } else if (contactDetails.firstname === "" || contactDetails.lastname === "") {
+      setAlert(
+        <Alert
+          severity="error"
+          variant="filled"
+          onClose={() => {
+            setAlert(<Alert style={{ display: "none" }} />);
+          }}
+        >
+          Name not filled in
+        </Alert>
+      );
+    } else if (contactDetails.message === "") {
+      setAlert(
+        <Alert
+          severity="error"
+          variant="filled"
+          onClose={() => {
+            setAlert(<Alert style={{ display: "none" }} />);
+          }}
+        >
+          Message not filled in
+        </Alert>
+      );
     } else {
-      alert("You've submitted");
+      //Do something with the form
+      setAlert(
+        <Alert
+          severity="success"
+          variant="filled"
+          onClose={() => {
+            setAlert(<Alert style={{ display: "none" }} />);
+          }}
+        >
+          Form submitted
+        </Alert>
+      );
     }
   };
 
@@ -54,7 +100,7 @@ const Contact: React.FC = () => {
       <PageBody>
         <WholePageBox>
           <div className={styles.contactBody}>
-            <div className="contactUsSection">
+            <div className={styles.contactForm}>
               {/* <Typography variant="h4">Contact Us</Typography>
               TODO Update Link?
               <Typography variant="body1">
@@ -68,6 +114,7 @@ const Contact: React.FC = () => {
                 </a>
                 .
               </Typography> */}
+              {alertInfo}
               <form onSubmit={handleSubmit}>
                 <div className={styles.contactName}>
                   <div>
@@ -97,7 +144,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                 />
                 <Typography variant="h6">Message:</Typography>
-                <div className={styles.contactName}>
+                <div className={styles.messageBox}>
                   <textarea
                     rows={5}
                     cols={50}
