@@ -55,14 +55,15 @@ interface EventProps {
 
 const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
   const [eventIndex, setEventIndex] = useState(0);
-  const [displayedEvents, setDisplayedEvents] = useState([] as EventDetails[]);
-  const { height, width } = useWindowDimensions();
+  const [upcomingEvents, setUpcomingEvents] = useState([] as EventDetails[]);
+  const { width } = useWindowDimensions();
+  const eventsToShow = getEventsToShow(upcomingEvents, eventIndex, width);
 
   // Component doesn't render correctly unless the state of events is set.
   useEffect(() => {
     const sortedEvents = events.filter(upcomingEventsFilter);
     sortedEvents.sort(eventsComparatorIncreasing);
-    setDisplayedEvents(sortedEvents);
+    setUpcomingEvents(sortedEvents);
   }, [events]);
   /**
    * Given an array of `srcArray`, load all the images into cache
@@ -88,9 +89,9 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
   };
 
   useEffect(() => {
-    const imgs = displayedEvents.map((event) => event.eventImage);
+    const imgs = upcomingEvents.map((event) => event.eventImage);
     cacheImages(imgs);
-  }, [displayedEvents]);
+  }, [upcomingEvents]);
 
   return (
     <section className={styles.newEventsContainer}>
@@ -98,7 +99,7 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
         Upcoming Events
       </Typography>
       <div className={styles.events}>
-        {displayedEvents.length > 3 && (
+        {eventsToShow.length < upcomingEvents.length && (
           <img
             src="/images/leftArrow.svg"
             className={styles.arrows}
@@ -107,16 +108,16 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
             onClick={() => setEventIndex(eventIndex - 1)}
           />
         )}
-        {displayedEvents.length === 0 ? (
+        {upcomingEvents.length === 0 ? (
           <div className={styles.empty}>
             <Typography variant="body1">Nothing to see here</Typography>
           </div>
         ) : (
-          getEventsToShow(displayedEvents, eventIndex, width).map((x, index) => {
+          eventsToShow.map((x, index) => {
             return <EventCard key={index} {...x} />;
           })
         )}
-        {displayedEvents.length > 3 && (
+        {eventsToShow.length < upcomingEvents.length && (
           <img
             src="/images/rightArrow.svg"
             className={styles.arrows}
