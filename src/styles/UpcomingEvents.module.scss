@@ -8,19 +8,6 @@
   color: #201b4b;
 }
 
-.events {
+.eventCarousel {
   margin-top: 1.5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  min-width: 100%;
-}
-
-.arrows {
-  height: 30px;
-  width: 30px;
-  &:hover {
-    cursor: pointer;
-  }
 }
