@@ -95,7 +95,7 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
       </Typography>
       <Slider className={styles.eventCarousel} {...carouselSettings}>
         {upcomingEvents.map((event, i) => (
-          <EventCard className={styles.carouselEventCard} {...event} />
+          <EventCard key={i} className={styles.carouselEventCard} {...event} />
         ))}
       </Slider>
     </section>
