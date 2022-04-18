@@ -1,9 +1,10 @@
 // Library Imports
 import React, { useState, useEffect } from "react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Typography } from "@mui/material";
-
+import Slider from "react-slick";
+import Head from "next/head";
+// Component imports
+import EventCard from "./EventCard";
 // Styling
 import styles from "src/styles/UpcomingEvents.module.scss";
 
@@ -17,6 +18,48 @@ interface EventProps {
   events: EventDetails[];
 }
 
+const carouselSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  autoplay: true,
+  centerMode: true,
+  slidesToShow: 3,
+  prevArrow: (
+    <img
+      src="/images/leftArrow.svg"
+      className={styles.arrows}
+      aria-label="back arrow"
+      alt="back arrow"
+    />
+  ),
+  nextArrow: (
+    <img
+      src="/images/rightArrow.svg"
+      className={styles.arrows}
+      aria-label="next arrow"
+      alt="next arrow"
+    />
+  ),
+  responsive: [
+    {
+      breakpoint: 1250,
+      settings: {
+        centerPadding: 0,
+        arrows: true,
+        slidesToShow: 2,
+        centerMode: false
+      }
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 1,
+        centerMode: false
+      }
+    }
+  ]
+};
 const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([] as EventDetails[]);
 
@@ -29,24 +72,32 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
 
   return (
     <section className={styles.newEventsContainer}>
+      <Head>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+        />
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+        />
+        <style>
+          {`.slick-slide.slick-center {
+            transform: scale(1.05);
+            transition: transform 500ms;
+          }`}
+        </style>
+      </Head>
       <Typography variant="h2" align="center">
         Upcoming Events
       </Typography>
-      <Carousel
-        infiniteLoop
-        autoPlay
-        showStatus={false}
-        showThumbs={false}
-        className={styles.eventCarousel}
-      >
+      <Slider className={styles.eventCarousel} {...carouselSettings}>
         {upcomingEvents.map((event, i) => (
-          <img
-            key={i}
-            src={`https://${event.eventImage}`}
-            alt={`${event.eventName} promotional image`}
-          />
+          <EventCard className={styles.carouselEventCard} {...event} />
         ))}
-      </Carousel>
+      </Slider>
     </section>
   );
 };

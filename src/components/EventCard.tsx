@@ -11,7 +11,12 @@ import { EventDetails } from "src/data/eventData";
 import { linkData as socials } from "src/data/socialData";
 import { formatDisplayDate } from "src/helpers/eventHelpers";
 
-const EventCard: React.FC<EventDetails> = ({
+interface EventCardProps extends EventDetails {
+  className?: string;
+}
+
+const EventCard: React.FC<EventCardProps> = ({
+  className,
   eventName,
   eventDescription,
   eventImage,
@@ -45,7 +50,7 @@ const EventCard: React.FC<EventDetails> = ({
   };
 
   return (
-    <div data-testid="event-card" className={styles.card}>
+    <div data-testid="event-card" className={`${styles.card} ${className}`}>
       <div>
         <a href={eventLink} target="_blank" rel="noopener noreferrer">
           <img src={`https://${eventImage}`} className={styles.topImage} alt={imageDescription} />
