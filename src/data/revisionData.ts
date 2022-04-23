@@ -55,6 +55,15 @@ const revisionData: revisionTile[] = [
     courseTitle: "Statistics for Life and Social Science",
     revisionLinks: [
       {
+        groupHeader: "2022T1 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Statistics for Life and Social Sciences (all)",
+            path: "/files/resources/revision/MATH1041/MATH1041_2022.pdf"
+          }
+        ]
+      },
+      {
         groupHeader: "2020T3 Revision Seminar",
         groupLinks: [
           {
@@ -69,6 +78,19 @@ const revisionData: revisionTile[] = [
     courseCode: "MATH1081",
     courseTitle: "Discrete Mathematics",
     revisionLinks: [
+      {
+        groupHeader: "2022T1 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Discrete Mathematics (all)",
+            path: "/files/resources/revision/MATH1081/MATH1081_Workshop_Term_1_2022.pdf"
+          },
+          {
+            name: "Discrete Mathematics (all, annotated)",
+            path: "/files/resources/revision/MATH1081/MATH1081_Workshop_Term_1_2022_Annotated.pdf"
+          }
+        ]
+      },
       {
         groupHeader: "Revision Resources",
         groupLinks: [
@@ -135,6 +157,19 @@ const revisionData: revisionTile[] = [
     courseCode: "MATH1131/1141",
     courseTitle: "Mathematics 1A",
     revisionLinks: [
+      {
+        groupHeader: "2022T1 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Algebra and Calculus",
+            path: "/files/resources/revision/MATH1131_1141/MATH1131_1141_Term_1_2022.pdf"
+          },
+          {
+            name: "Algebra and Calculus (annotated)",
+            path: "/files/resources/revision/MATH1131_1141/MATH1131_1141_Term_1_2022_Annotated.pdf"
+          }
+        ]
+      },
       {
         groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
@@ -349,6 +384,15 @@ const revisionData: revisionTile[] = [
     courseCode: "MATH2018/2019",
     courseTitle: "Engineering Mathematics 2D/E",
     revisionLinks: [
+      {
+        groupHeader: "2022T1 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Engineering Mathematics (all)",
+            path: "/files/resources/revision/MATH2018_2019/MATH2019_Term_1_2022.pdf"
+          }
+        ]
+      },
       {
         groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
