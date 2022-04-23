@@ -62,7 +62,9 @@ const carouselSettings = {
 };
 const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
   const [upcomingEvents, setUpcomingEvents] = useState([] as EventDetails[]);
-
+  carouselSettings.slidesToShow = Math.min(3, upcomingEvents.length);
+  carouselSettings.centerMode = upcomingEvents.length > 3;
+  carouselSettings.responsive[0].settings.slidesToShow = Math.min(2, upcomingEvents.length);
   // Component doesn't render correctly unless the state of events is set.
   useEffect(() => {
     const sortedEvents = events.filter(upcomingEventsFilter);
@@ -93,11 +95,17 @@ const UpcomingEvents: React.FC<EventProps> = ({ events }) => {
       <Typography variant="h2" align="center">
         Upcoming Events
       </Typography>
-      <Slider className={styles.eventCarousel} {...carouselSettings}>
-        {upcomingEvents.map((event, i) => (
-          <EventCard key={i} className={styles.carouselEventCard} {...event} />
-        ))}
-      </Slider>
+      {upcomingEvents.length > 0 ? (
+        <Slider className={styles.eventCarousel} {...carouselSettings}>
+          {upcomingEvents.map((event, i) => (
+            <EventCard key={i} className={styles.carouselEventCard} {...event} />
+          ))}
+        </Slider>
+      ) : (
+        <div className={styles.empty}>
+          <Typography variant="body1">Nothing to see here</Typography>
+        </div>
+      )}
     </section>
   );
 };
