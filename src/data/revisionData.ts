@@ -328,6 +328,15 @@ const revisionData: revisionTile[] = [
     courseTitle: "Several Variable Calculus",
     revisionLinks: [
       {
+        groupHeader: "2022T1 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Several Variable Calculus (all)",
+            path: "/files/resources/revision/MATH2011_2111/MATH2111_Seminar_Term_1_2022.pdf"
+          }
+        ]
+      },
+      {
         groupHeader: "2021T1 Revision Seminar",
         groupLinks: [
           {
@@ -626,6 +635,21 @@ const revisionData: revisionTile[] = [
           {
             name: "Finite Mathematics (all)",
             path: "/files/resources/revision/MATH2400/MATH2400_Workshop_Term_2_2021.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    courseCode: "MATH3711",
+    courseTitle: "Higher Algebra",
+    revisionLinks: [
+      {
+        groupHeader: "2022T1 Revision Seminar",
+        groupLinks: [
+          {
+            name: "Higher Algebra (all)",
+            path: "/files/resources/revision/MATH3711/MATH3711_Seminar_Term_1_2022.pdf"
           }
         ]
       }
