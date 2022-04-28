@@ -641,7 +641,7 @@ const revisionData: revisionTile[] = [
     ]
   },
   {
-    courseCode: "MATH3711",
+    courseCode: "MATH3711/5706",
     courseTitle: "Higher Algebra",
     revisionLinks: [
       {
@@ -649,7 +649,7 @@ const revisionData: revisionTile[] = [
         groupLinks: [
           {
             name: "Higher Algebra (all)",
-            path: "/files/resources/revision/MATH3711/MATH3711_Seminar_Term_1_2022.pdf"
+            path: "/files/resources/revision/MATH3711_5706/MATH3711_5706_Seminar_Term_1_2022.pdf"
           }
         ]
       }
