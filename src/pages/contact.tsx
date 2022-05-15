@@ -16,6 +16,8 @@ import { socials } from "src/data/socialData";
 import { contactProps } from "src/data/contactData";
 
 const Contact: React.FC = () => {
+  // Gives useless escape error from eslint
+  //eslint-disable-next-line
   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   //Set alert display to none
   const [alertInfo, setAlert] = useState(<Alert style={{ display: "none" }} />);
@@ -87,6 +89,18 @@ const Contact: React.FC = () => {
           Form submitted
         </Alert>
       );
+      fetch("/api/mailer", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(contactDetails)
+      }).then((res) => {
+        if (res.status === 200) {
+          console.log("Response succeeded!");
+        }
+      });
     }
   };
 
@@ -101,19 +115,6 @@ const Contact: React.FC = () => {
         <WholePageBox>
           <div className={styles.contactBody}>
             <div className={styles.contactForm}>
-              {/* <Typography variant="h4">Contact Us</Typography>
-              TODO Update Link?
-              <Typography variant="body1">
-                You can contact us using{" "}
-                <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSe1lAW158F3s0NFJEHn2Fsfo4goau4QQTLhlbX7cJJiXGS7xw/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  this form
-                </a>
-                .
-              </Typography> */}
               {alertInfo}
               <form onSubmit={handleSubmit}>
                 <div className={styles.contactName}>
