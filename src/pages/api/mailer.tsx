@@ -2,10 +2,7 @@
 import nodemailer from "nodemailer";
 
 // async..await is not allowed in global scope, must use a wrapper
-async function main(
-  req: { body: { firstname: string; lastname: string; email: any; message: string } },
-  res: any
-) {
+async function main(req: any, res: any) {
   // create reusable transporter object using the default SMTP transport
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
@@ -18,7 +15,7 @@ async function main(
   });
 
   const textString =
-    "From IT new contact request from the website:" +
+    "New contact form request from MathSoc website:" +
     "\n" +
     "First Name: " +
     req.body.firstname +
@@ -38,8 +35,9 @@ async function main(
     .sendMail({
       from: process.env.EMAIL_API_EMAIL, // sender address
       to: process.env.EMAIL_API_EMAIL, // list of receivers
-      subject: "Sign Up Form", // Subject line
-      text: textString // html body
+      subject: req.body.subject, // Subject line
+      text: textString, // html body
+      replyTo: req.body.email
     })
     .catch((res: any) => {
       console.log(res);
