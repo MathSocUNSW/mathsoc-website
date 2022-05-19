@@ -20,7 +20,6 @@
     // outline: auto;
     width: 50%;
     display: flex;
-    align-items: center;
     margin-bottom: 8px;
   }
   @media screen and (max-width: $sm) {
@@ -42,68 +41,75 @@
   height: 30px;
 }
 
-.contactName {
-  display: flex;
-  justify-content: space-between;
-  @media screen and (max-width: $sm) {
-    flex-direction: column;
-    padding: 0px;
-    width: 100%;
-  }
-}
-
 .contactForm {
   display: flex;
   flex-direction: column;
   width: 60%;
+  div {
+    padding-bottom: 5px;
+  }
   @media screen and (max-width: $md) {
     flex-direction: column;
     width: 100%;
-    padding: 0px;
   }
 }
 
-.messageBox {
+.submitContainer {
+  padding-top: 2%;
+  @media screen and (max-width: $sm) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.contactName {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 10px;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8%;
+  @media screen and (max-width: $sm) {
+    flex-direction: column;
+    padding: 0px;
+    gap: 0px;
+    width: 100%;
+  }
+}
+
+.submitContainer {
+  @media screen and (max-width: $md) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@mixin animate {
+  border: 1px solid #d8d8d8;
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .inputItem {
-  border-radius: 30px;
+  @include animate;
+  border-radius: 15px;
   height: 30px;
   width: 94%;
   padding-left: 3%;
   padding-right: 3%;
-  border-color: #4169e1;
-  transition-timing-function: ease-in-out;
-  transition: 0.5s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   @media screen and (max-width: $sm) {
-    padding: 0px;
-    width: 95%;
+    padding: 0;
     text-align: center;
   }
 }
 
-.inputItem:hover {
-  transform: scale(1.1);
-  background-color: white;
-  color: #4169e1;
-}
-
-.emailItem {
-  border-radius: 30px;
+.inputFullWidth {
+  @include animate;
+  border-radius: 15px;
   height: 30px;
   width: 96%;
   padding-left: 2%;
   padding-right: 2%;
   padding-top: 0px;
-  border-color: #4169e1;
-  transition-timing-function: ease-in-out;
-  transition: 0.5s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
   @media screen and (max-width: $sm) {
     padding: 0px;
     width: 95%;
@@ -114,44 +120,43 @@
   }
 }
 
-.emailItem:hover {
-  transform: scale(1.1);
-  background-color: white;
-  color: #4169e1;
-}
-
 .messageItem {
-  border-radius: 30px;
+  @include animate;
+  border-radius: 15px;
   height: 200px;
-  padding: 1.5%;
-  border-color: #4169e1;
-  transition-timing-function: ease-in-out;
-  transition: 0.5s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.messageItem:hover {
-  transform: scale(1.05);
-  background-color: white;
-  color: #4169e1;
+  padding: 2%;
+  width: 96%;
+  resize: none;
+  font-family: sans-serif;
+  @media screen and (max-width: $sm) {
+    padding: 2%;
+    width: 92%;
+  }
 }
 
 .submitButton {
+  @include animate;
   background-color: #4169e1;
   color: white;
   border-radius: 30px;
   height: 30px;
   width: 30%;
-  border-color: #4169e1;
+  border: 1px solid #4169e1;
   padding-left: 5%;
   padding-right: 5%;
-  transition-timing-function: ease-in-out;
-  transition: 0.5s;
-  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .submitButton:hover {
-  transform: scale(1.1);
   background-color: white;
   color: #4169e1;
+}
+
+.inputItem:hover,
+.inputFullWidth:hover,
+.messageItem:hover,
+.inputItem:focus,
+.emailItem:focus,
+.messageItem:focus {
+  border: 1px solid #69cd63;
+  outline: none;
 }

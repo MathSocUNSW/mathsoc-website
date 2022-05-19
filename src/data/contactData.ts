@@ -3,4 +3,5 @@ export interface contactProps {
   lastname: string;
   email: string;
   message: string;
+  subject: string;
 }

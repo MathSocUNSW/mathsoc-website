@@ -16,16 +16,15 @@ import { socials } from "src/data/socialData";
 import { contactProps } from "src/data/contactData";
 
 const Contact: React.FC = () => {
-  // Gives useless escape error from eslint
-  //eslint-disable-next-line
-  const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   //Set alert display to none
   const [alertInfo, setAlert] = useState(<Alert style={{ display: "none" }} />);
   const [contactDetails, setContactDetails] = useState<contactProps>({
     firstname: "",
     lastname: "",
     email: "",
-    message: ""
+    message: "",
+    subject: ""
   });
 
   const handleChange = (event) => {
@@ -96,10 +95,6 @@ const Contact: React.FC = () => {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(contactDetails)
-      }).then((res) => {
-        if (res.status === 200) {
-          console.log("Response succeeded!");
-        }
       });
     }
   };
@@ -115,10 +110,10 @@ const Contact: React.FC = () => {
         <WholePageBox>
           <div className={styles.contactBody}>
             <div className={styles.contactForm}>
-              {alertInfo}
               <form onSubmit={handleSubmit}>
+                {alertInfo}
                 <div className={styles.contactName}>
-                  <div>
+                  <div style={{ width: "100%" }}>
                     <Typography variant="h6">First Name:</Typography>
                     <input
                       type="text"
@@ -127,7 +122,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                     />
                   </div>
-                  <div>
+                  <div style={{ width: "100%" }}>
                     <Typography variant="h6">Last Name:</Typography>
                     <input
                       type="text"
@@ -137,15 +132,27 @@ const Contact: React.FC = () => {
                     />
                   </div>
                 </div>
-                <Typography variant="h6">Email:</Typography>
-                <input
-                  type="text"
-                  className={styles.emailItem}
-                  name="email"
-                  onChange={handleChange}
-                />
-                <Typography variant="h6">Message:</Typography>
-                <div className={styles.messageBox}>
+                <div>
+                  <Typography variant="h6">Email:</Typography>
+                  <input
+                    type="text"
+                    className={styles.inputFullWidth}
+                    name="email"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div>
+                  <Typography variant="h6">Subject</Typography>
+                  <input
+                    type="text"
+                    className={styles.inputFullWidth}
+                    name="subject"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div></div>
+                <div>
+                  <Typography variant="h6">Message:</Typography>
                   <textarea
                     rows={5}
                     cols={50}
@@ -153,6 +160,8 @@ const Contact: React.FC = () => {
                     name="message"
                     onChange={handleChange}
                   />
+                </div>
+                <div className={styles.submitContainer}>
                   <button type="submit" className={styles.submitButton}>
                     Submit
                   </button>
