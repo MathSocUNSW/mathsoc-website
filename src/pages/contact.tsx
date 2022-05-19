@@ -150,7 +150,6 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                   />
                 </div>
-                <div></div>
                 <div>
                   <Typography variant="h6">Message:</Typography>
                   <textarea
