@@ -1,4 +1,4 @@
-export interface contactProps {
+export interface Contacts {
   firstname: string;
   lastname: string;
   email: string;

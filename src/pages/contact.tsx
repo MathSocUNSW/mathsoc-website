@@ -13,13 +13,14 @@ import styles from "src/styles/contact.module.scss";
 
 // Data
 import { socials } from "src/data/socialData";
-import { contactProps } from "src/data/contactData";
+import { Contacts } from "src/data/contactData";
 
 const Contact: React.FC = () => {
   const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
   //Set alert display to none
   const [alertInfo, setAlert] = useState(<Alert style={{ display: "none" }} />);
-  const [contactDetails, setContactDetails] = useState<contactProps>({
+  const [disableSubmit, setDisableSubmit] = useState(false);
+  const [contactDetails, setContactDetails] = useState<Contacts>({
     firstname: "",
     lastname: "",
     email: "",
@@ -27,7 +28,21 @@ const Contact: React.FC = () => {
     subject: ""
   });
 
-  const handleChange = (event) => {
+  const alertComponentValue = (text: string, type: any) => {
+    setAlert(
+      <Alert
+        severity={type}
+        variant="filled"
+        onClose={() => {
+          setAlert(<Alert style={{ display: "none" }} />);
+        }}
+      >
+        {text}
+      </Alert>
+    );
+  };
+
+  const handleChange = (event: any) => {
     event.preventDefault();
     const name = event.target.name;
     const value = event.target.value;
@@ -37,67 +52,39 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  async function handleSubmit(event: any) {
     event.preventDefault();
     if (!emailRegex.test(contactDetails.email)) {
-      setAlert(
-        <Alert
-          severity="error"
-          variant="filled"
-          onClose={() => {
-            setAlert(<Alert style={{ display: "none" }} />);
-          }}
-        >
-          Invalid Email
-        </Alert>
-      );
+      alertComponentValue("Invalid Email", "error");
     } else if (contactDetails.firstname === "" || contactDetails.lastname === "") {
-      setAlert(
-        <Alert
-          severity="error"
-          variant="filled"
-          onClose={() => {
-            setAlert(<Alert style={{ display: "none" }} />);
-          }}
-        >
-          Name not filled in
-        </Alert>
-      );
+      alertComponentValue("Name not filled in", "error");
     } else if (contactDetails.message === "") {
-      setAlert(
-        <Alert
-          severity="error"
-          variant="filled"
-          onClose={() => {
-            setAlert(<Alert style={{ display: "none" }} />);
-          }}
-        >
-          Message not filled in
-        </Alert>
-      );
+      alertComponentValue("Message not filled in", "error");
+    } else if (contactDetails.subject === "") {
+      alertComponentValue("Subject not filled in", "error");
     } else {
-      //Do something with the form
-      setAlert(
-        <Alert
-          severity="success"
-          variant="filled"
-          onClose={() => {
-            setAlert(<Alert style={{ display: "none" }} />);
-          }}
-        >
-          Form submitted
-        </Alert>
-      );
-      fetch("/api/mailer", {
-        method: "POST",
-        headers: {
-          Accept: "application/json, text/plain, */*",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(contactDetails)
-      });
+      //All requirements satisfied
+      try {
+        setDisableSubmit(true);
+        const response = await fetch("/api/mailer", {
+          method: "POST",
+          headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(contactDetails)
+        });
+        if (response.status == 200) {
+          alertComponentValue("Form submitted", "success");
+        } else if (response.status >= 400) {
+          alertComponentValue("Form could not be submitted", "error");
+        }
+      } catch (err: any) {
+        alertComponentValue(err.error, "error");
+      }
+      setDisableSubmit(false);
     }
-  };
+  }
 
   return (
     <section>
@@ -161,7 +148,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
                 <div className={styles.submitContainer}>
-                  <button type="submit" className={styles.submitButton}>
+                  <button type="submit" disabled={disableSubmit} className={styles.submitButton}>
                     Submit
                   </button>
                 </div>

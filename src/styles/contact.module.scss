@@ -151,6 +151,11 @@
   color: #4169e1;
 }
 
+.submitButton:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
 .inputItem:hover,
 .inputFullWidth:hover,
 .messageItem:hover,
