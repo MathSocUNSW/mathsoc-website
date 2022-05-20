@@ -1456,10 +1456,10 @@
     prop-types "^15.7.2"
     react-is "^17.0.2"
 
-"@netlify/functions@^0.11.0":
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/@netlify/functions/-/functions-0.11.1.tgz#52ce421cc6ecb7a35513fbe76ad4a65c94b0bef0"
-  integrity sha512-J2QUAYRblvTrl/cOYU2RNHdv/EYy4qnKQhds0aDNB560Y83wfpaMS3F7PKpHygGWrVuLRyevenIzsV9MaQrKlQ==
+"@netlify/functions@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@netlify/functions/-/functions-1.0.0.tgz#5b6c02fafc567033c93b15a080cc021e5f10f254"
+  integrity sha512-7fnJv3vr8uyyyOYPChwoec6MjzsCw1CoRUO2DhQ1BD6bOyJRlD4DUaOOGlMILB2LCT8P24p5LexEGx8AJb7xdA==
   dependencies:
     is-promise "^4.0.0"
 
