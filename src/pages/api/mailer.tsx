@@ -1,7 +1,8 @@
 "use strict";
 import nodemailer from "nodemailer";
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function (req: any, res: any) {
+export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",

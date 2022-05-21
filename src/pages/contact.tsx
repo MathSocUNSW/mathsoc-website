@@ -13,7 +13,7 @@ import styles from "src/styles/contact.module.scss";
 
 // Data
 import { socials } from "src/data/socialData";
-import { Contacts } from "src/data/contactData";
+import { Contacts, Severity } from "src/data/contactData";
 
 const Contact: React.FC = () => {
   const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
     subject: ""
   });
 
-  const alertComponentValue = (text: string, type: any) => {
+  const alertComponentValue = (text: string, type: Severity) => {
     setAlert(
       <Alert
         severity={type}

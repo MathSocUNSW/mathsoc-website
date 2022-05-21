@@ -5,3 +5,5 @@ export interface Contacts {
   message: string;
   subject: string;
 }
+
+export type Severity = "error" | "success" | "info" | "warning" | undefined;
