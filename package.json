@@ -4,7 +4,7 @@
   "main": "index.tsx",
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.18.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.5.1",
