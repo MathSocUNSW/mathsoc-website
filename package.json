@@ -35,7 +35,7 @@
     "prettier:write": "prettier --write 'src/**/*.{ts,tsx,scss}'"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "^4.0.0-rc.2",
+    "@netlify/plugin-nextjs": "^4.7.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@types/node": "^17.0.21",
