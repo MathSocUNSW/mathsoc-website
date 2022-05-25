@@ -25,7 +25,7 @@ const FormerTeamMainCard: React.FC<FormerTeamMainCardProps> = ({ execList, direc
     if (directors.length >= 2) {
       const lastDirector = directors.pop();
       const concatString = `${directors.join(", ")} & ${lastDirector}`;
-      dataList.push({ role: `${role} Director`, name: concatString });
+      dataList.push({ role: `${role} Directors`, name: concatString });
     } else {
       // Only 1 director exists
       dataList.push({ role: `${role} Director`, name: directors[0] });
