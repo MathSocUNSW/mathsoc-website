@@ -9,37 +9,25 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL_API_EMAIL,
-        pass: process.env.EMAIL_API_PASSWORD
+        user: process.env.CONTACT_EMAIL,
+        pass: process.env.CONTACT_PASSWORD
       }
     });
 
-    const textString =
-      "New contact form request from MathSoc website:" +
-      "\n" +
-      "First Name: " +
-      req.body.firstname +
-      "\n" +
-      "Last Name: " +
-      req.body.lastname +
-      "\n" +
-      "Email: " +
-      req.body.email +
-      "\n" +
-      "Message: \n" +
-      req.body.message +
-      "\n";
+    const textString = `Message from ${req.body.name} <${req.body.email}> via Mathsoc Website: ${req.body.message}`;
 
     // send mail with defined transport object
     const status = await transporter.sendMail({
-      from: process.env.EMAIL_API_EMAIL, // sender address
-      to: process.env.EMAIL_API_EMAIL, // list of receivers
+      from: process.env.CONTACT_EMAIL, // sender address
+      to: process.env.CONTACT_EMAIL, // list of receivers
       subject: req.body.subject, // Subject line
       text: textString, // html body
       replyTo: req.body.email
     });
     res.status(200).send("success");
-  } catch (error: any) {
-    res.status(500).send({ error: res });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      res.status(500).send("Message could not be sent");
+    }
   }
 }
