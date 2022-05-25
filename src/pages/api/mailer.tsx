@@ -27,7 +27,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     res.status(200).send("success");
   } catch (error: unknown) {
     if (error instanceof Error) {
-      res.status(500).send("Message could not be sent");
+      res.status(500).send(error.message);
     }
   }
 }
