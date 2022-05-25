@@ -14,7 +14,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       }
     });
 
-    const textString = `Message from ${req.body.name} <${req.body.email}> via Mathsoc Website: ${req.body.message}`;
+    const textString = `Message from ${req.body.name} <${req.body.email}> via Mathsoc Website: \n ${req.body.message}`;
 
     // send mail with defined transport object
     const status = await transporter.sendMail({
