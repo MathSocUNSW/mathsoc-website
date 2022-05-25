@@ -29,7 +29,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
   return (
     <ul className={styles.dropdown}>
       <div className={styles.parentBox}>
-        <img src="images/leftArrow.svg" className={styles.arrowLeft} onClick={closeDropdown} />
+        <img src="/images/leftArrow.svg" className={styles.arrowLeft} onClick={closeDropdown} />
         <Typography>{parentItem}</Typography>
       </div>
       {items.map((item) => (
