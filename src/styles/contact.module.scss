@@ -1,11 +1,22 @@
 @import "./variables.scss";
 
 // Even spacing between each section
-.contactBody > *:not(:last-child) {
+.contactBody {
   padding-bottom: 15px;
-  @media screen and (max-width: $sm) {
+  width: 63%;
+  div,
+  form {
+    padding-bottom: 1%;
+  }
+  @media screen and (max-width: $md) {
+    width: 98%;
     padding-left: 1%;
     padding-right: 1%;
+    div,
+    form {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
   }
 }
 
@@ -44,11 +55,11 @@
 .contactForm {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  padding-bottom: 2%;
+  width: 100%;
   @media screen and (max-width: $md) {
     flex-direction: column;
-    width: 100%;
+    width: auto;
+    padding: 2%;
   }
 }
 
@@ -57,19 +68,6 @@
   @media screen and (max-width: $sm) {
     display: flex;
     justify-content: center;
-  }
-}
-
-.contactName {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  gap: 8%;
-  @media screen and (max-width: $sm) {
-    flex-direction: column;
-    padding: 0px;
-    gap: 0px;
-    width: 100%;
   }
 }
 
@@ -91,11 +89,9 @@
   @include animate;
   border-radius: 15px;
   height: 30px;
-  width: 94%;
   padding-left: 3%;
   padding-right: 3%;
   @media screen and (max-width: $sm) {
-    padding: 0;
     text-align: center;
   }
 }
@@ -104,13 +100,11 @@
   @include animate;
   border-radius: 15px;
   height: 200px;
-  padding: 2%;
-  width: 96%;
+  padding: 3%;
   resize: none;
   font-family: sans-serif;
   @media screen and (max-width: $sm) {
     padding: 2%;
-    width: 92%;
   }
 }
 
