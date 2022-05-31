@@ -1360,10 +1360,10 @@
     prop-types "^15.7.2"
     react-is "^17.0.2"
 
-"@mui/icons-material@^5.5.1":
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.5.1.tgz#848a57972617411370775980cbc6990588d4aafb"
-  integrity sha512-40f68p5+Yhq3dCn3QYHqQt5RETPyR3AkDw+fma8PtcjqvZ+d+jF84kFmT6NqwA3he7TlwluEtkyAmPzUE4uPdA==
+"@mui/icons-material@^5.8.2":
+  version "5.8.2"
+  resolved "https://registry.yarnpkg.com/@mui/icons-material/-/icons-material-5.8.2.tgz#211ac2a041ece952749d39c3c26071226993be14"
+  integrity sha512-fP6KUCCZZjc2rdbMSmkNmBHDskLkmP0uCox57cbVXvomU6BOPrCxnr5YXsSsQrZB8fchx7hfH0bkAgvMZ5KM0Q==
   dependencies:
     "@babel/runtime" "^7.17.2"
 
