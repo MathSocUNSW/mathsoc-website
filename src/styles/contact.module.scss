@@ -1,23 +1,11 @@
 @import "./variables.scss";
 
-// Even spacing between each section
-.contactBody {
-  padding-bottom: 15px;
-  width: 63%;
-  div,
-  form {
-    padding-bottom: 1%;
-  }
-  @media screen and (max-width: $md) {
-    width: 98%;
-    padding-left: 1%;
-    padding-right: 1%;
-    div,
-    form {
-      padding-left: 2px;
-      padding-right: 2px;
-    }
-  }
+.contactPageBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.2rem;
+  margin-bottom: 2rem;
 }
 
 .socialContainer {
@@ -56,6 +44,11 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5%;
+  }
   @media screen and (max-width: $md) {
     flex-direction: column;
     width: auto;
@@ -64,18 +57,18 @@
 }
 
 .submitContainer {
-  padding-top: 2%;
-  @media screen and (max-width: $sm) {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  @media screen and (max-width: $md) {
     display: flex;
     justify-content: center;
   }
 }
 
-.submitContainer {
-  @media screen and (max-width: $md) {
-    display: flex;
-    justify-content: center;
-  }
+.submitItem {
+  width: 30%;
 }
 
 @mixin animate {
@@ -88,7 +81,7 @@
 .inputItem {
   @include animate;
   border-radius: 15px;
-  height: 30px;
+  height: 33px;
   padding-left: 3%;
   padding-right: 3%;
   @media screen and (max-width: $sm) {
@@ -112,6 +105,7 @@
   @include animate;
   background-color: #4169e1;
   color: white;
+  font-weight: 400;
   border-radius: 30px;
   height: 30px;
   width: 30%;

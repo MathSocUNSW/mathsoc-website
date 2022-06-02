@@ -1,11 +1,12 @@
 // Library Imports
 import React, { useState } from "react";
 import Head from "next/head";
-import { Typography, Alert } from "@mui/material";
+import { Typography, Alert, Button } from "@mui/material";
 
 // Component Imports
+import ContactPageBody from "components/ContactPageBody";
 import PageBody from "components/PageBody";
-import WholePageBox from "components/WholePageBox";
+import ContactPageBox from "components/ContactBox";
 import Hero from "components/Hero";
 
 // Styling
@@ -35,6 +36,7 @@ const Contact: React.FC = () => {
         onClose={() => {
           setAlert(<Alert style={{ display: "none" }} />);
         }}
+        className={styles.alertIcon}
       >
         {text}
       </Alert>
@@ -95,13 +97,13 @@ const Contact: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_skating.png" text="Contact Us" />
-      <PageBody>
-        <WholePageBox>
-          <div className={styles.contactBody}>
-            <form onSubmit={handleSubmit} className={styles.contactForm}>
-              {alertInfo}
+      <ContactPageBody>
+        <ContactPageBox>
+          {alertInfo}
+          <form onSubmit={handleSubmit} className={styles.contactForm}>
+            <div>
               <Typography variant="h6" component="label" htmlFor="contactName">
-                Name:
+                Name
               </Typography>
               <input
                 type="text"
@@ -110,8 +112,10 @@ const Contact: React.FC = () => {
                 className={styles.inputItem}
                 onChange={handleChange}
               />
+            </div>
+            <div>
               <Typography variant="h6" component="label" htmlFor="contactEmail">
-                Email:
+                Email
               </Typography>
               <input
                 type="text"
@@ -120,6 +124,8 @@ const Contact: React.FC = () => {
                 className={styles.inputItem}
                 onChange={handleChange}
               />
+            </div>
+            <div>
               <Typography variant="h6" component="label" htmlFor="contactSubject">
                 Subject
               </Typography>
@@ -130,8 +136,10 @@ const Contact: React.FC = () => {
                 id="contactSubject"
                 onChange={handleChange}
               />
+            </div>
+            <div>
               <Typography variant="h6" component="label" htmlFor="contactMessage">
-                Message:
+                Message
               </Typography>
               <textarea
                 rows={5}
@@ -141,65 +149,72 @@ const Contact: React.FC = () => {
                 id="contactMessage"
                 onChange={handleChange}
               />
-              <div className={styles.submitContainer}>
-                <button type="submit" disabled={disableSubmit} className={styles.submitButton}>
+            </div>
+            <div className={styles.submitContainer}>
+              <div className={styles.submitItem}>
+                <Button
+                  disabled={disableSubmit}
+                  variant="contained"
+                  type="submit"
+                  sx={{ borderRadius: 28 }}
+                >
                   Submit
-                </button>
+                </Button>
               </div>
-            </form>
-            <div className="stayConnectedSection">
-              <Typography variant="h4">Stay Connected</Typography>
-              <Typography variant="body1">
-                Follow us on social media to stay updated with upcoming events and opportunities!
-              </Typography>
-              <div className={styles.socialContainer}>
-                {socials.map(({ name, url, iconPath, altName }) => (
-                  <div key={name}>
+            </div>
+          </form>
+          <section className="stayConnectedSection">
+            <Typography variant="h4">Stay Connected</Typography>
+            <Typography variant="body1">
+              Follow us on social media to stay updated with upcoming events and opportunities!
+            </Typography>
+            <div className={styles.socialContainer}>
+              {socials.map(({ name, url, iconPath, altName }) => (
+                <div key={name}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialItem}
+                  >
+                    <img
+                      src={iconPath}
+                      alt={name}
+                      aria-label={name}
+                      className={styles.socialIcon}
+                    />
+                  </a>
+                  <Typography variant="body2" display="inline" noWrap={true} align="center">
                     <a
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={styles.socialItem}
+                      style={{
+                        color: "inherit",
+                        textDecoration: "none"
+                      }}
                     >
-                      <img
-                        src={iconPath}
-                        alt={name}
-                        aria-label={name}
-                        className={styles.socialIcon}
-                      />
+                      <b>{altName}</b>
                     </a>
-                    <Typography variant="body2" display="inline" noWrap={true} align="center">
-                      <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          color: "inherit",
-                          textDecoration: "none"
-                        }}
-                      >
-                        <b>{altName}</b>
-                      </a>
-                    </Typography>
-                  </div>
-                ))}
-              </div>
-              <div className="addressSection">
-                <Typography variant="h4">Address</Typography>
-                <Typography variant="body1">
-                  UNSW Mathematics Society
-                  <br />
-                  School of Mathematics and Statistics
-                  <br />
-                  University of New South Wales
-                  <br />
-                  Sydney, NSW 2052
-                </Typography>
-              </div>
+                  </Typography>
+                </div>
+              ))}
             </div>
-          </div>
-        </WholePageBox>
-      </PageBody>
+          </section>
+          <section className="addressSection">
+            <Typography variant="h4">Address</Typography>
+            <Typography variant="body1">
+              UNSW Mathematics Society
+              <br />
+              School of Mathematics and Statistics
+              <br />
+              University of New South Wales
+              <br />
+              Sydney, NSW 2052
+            </Typography>
+          </section>
+        </ContactPageBox>
+      </ContactPageBody>
     </section>
   );
 };
