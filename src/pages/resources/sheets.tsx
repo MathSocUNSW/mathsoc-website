@@ -13,10 +13,14 @@ import DocumentTile from "components/DocumentTile";
 import styles from "src/styles/revision.module.scss";
 
 // Data
-import { revisionSheetData } from "src/data/revisionSheetData";
+import { RevisionSheetTile } from "src/data/revisionSheetData";
 import { revisionSheetInfo } from "src/data/resourceData";
+import { fetchSubjectResources } from "src/lib/api";
+interface RevisionProps {
+  revisionSheetData: RevisionSheetTile[];
+}
 
-const Revision: React.FC = () => {
+const RevisionSheets: React.FC<RevisionProps> = ({ revisionSheetData }) => {
   return (
     <section>
       <Head>
@@ -60,4 +64,16 @@ const Revision: React.FC = () => {
   );
 };
 
-export default Revision;
+export const getStaticProps = async () => {
+  return {
+    props: {
+      revisionSheetData: (await fetchSubjectResources(/Cheat Sheet/i)).map((resource) => ({
+        courseCode: resource.courseCode,
+        courseTitle: resource.courseTitle,
+        path: resource.revisionLinks[0].groupLinks[0].path
+      }))
+    }
+  };
+};
+
+export default RevisionSheets;
