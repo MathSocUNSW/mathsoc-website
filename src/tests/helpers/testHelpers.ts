@@ -1,4 +1,4 @@
-import { groups } from "../../data/revisionData";
+import { Groups } from "../../data/revisionData";
 
 /**
  * Verifies that a tile displays the correct information
@@ -6,7 +6,7 @@ import { groups } from "../../data/revisionData";
 export const checkTilePage = (
   courseCode: string,
   courseTitle: string,
-  revisionData: groups[],
+  revisionData: Groups[],
   page: number,
   tile: HTMLElement,
   exploreButton: HTMLButtonElement

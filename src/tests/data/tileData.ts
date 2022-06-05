@@ -1,5 +1,5 @@
-import { groups } from "../../data/revisionData";
-export const revisionData: groups[] = [
+import { Groups } from "../../data/revisionData";
+export const revisionData: Groups[] = [
   {
     groupHeader: "a header",
     groupLinks: [
