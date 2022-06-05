@@ -79,8 +79,11 @@ export const fetchCompetitions = async (): Promise<Competition[]> => {
   });
 };
 
-const removeCodeAndTerm = (resourceTitle: string) => {
-  return resourceTitle.replace(/[A-Z]{4}[0-9]{4}(\/[0-9]{4})*|OLD|[[0-9]{4}[TS][1-3]/g, "").trim();
+const removeCodeAndTerm = (resourceTitle: string, type: RegExp) => {
+  return resourceTitle
+    .replace(/[A-Z]{4}[0-9]{4}(\/[0-9]{4})*|OLD|[[0-9]{4}[TS][1-3]/g, "")
+    .replace(type, "")
+    .trim();
 };
 
 export const fetchSubjectResources = async (type: RegExp): Promise<RevisionTile[]> => {
@@ -96,7 +99,7 @@ export const fetchSubjectResources = async (type: RegExp): Promise<RevisionTile[
             return {
               groupHeader: `${resource.fields.term} ${resource.fields.resourceType}`,
               groupLinks: resource.fields.resources.map((asset: any) => ({
-                name: removeCodeAndTerm(asset.fields.title),
+                name: removeCodeAndTerm(asset.fields.title, type),
                 path: asset.fields.file.url
               }))
             };
