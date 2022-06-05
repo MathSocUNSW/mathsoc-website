@@ -1,4 +1,3 @@
-/*TODO: messy structure...*/
 export interface RevisionTile {
   courseCode: string;
   courseTitle: string;
