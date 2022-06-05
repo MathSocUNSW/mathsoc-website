@@ -9,9 +9,9 @@ import TileSlide from "./TileSlide";
 import styles from "src/styles/Tile.module.scss";
 
 // Data
-import { revisionTile as tileProps } from "src/data/revisionData";
+import { RevisionTile as TileProps } from "src/data/revisionData";
 
-const Tile: React.FC<tileProps> = ({ courseCode, courseTitle, revisionLinks }) => {
+const Tile: React.FC<TileProps> = ({ courseCode, courseTitle, revisionLinks }) => {
   const [index, setIndex] = useState(-1);
 
   const element = revisionLinks[index];
