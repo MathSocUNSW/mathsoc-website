@@ -2,7 +2,7 @@ import { createClient } from "contentful";
 import { EventDetails } from "../data/eventData";
 import { Competition } from "../data/competitionData";
 import { Executive, PortfolioDetails } from "../data/portfolioData";
-import { Groups, Links, RevisionTile } from "src/data/revisionData";
+import { RevisionTile } from "src/data/revisionData";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID as string,
