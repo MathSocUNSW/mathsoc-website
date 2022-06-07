@@ -8,7 +8,7 @@ const DocumentTile: React.FC<SheetTileProps> = ({ path, courseCode, courseTitle 
     <a
       data-testid="document-tile"
       className={styles.noDecoration}
-      href={`https${path}`}
+      href={`https:${path}`}
       target="_blank"
       rel="noreferrer"
     >

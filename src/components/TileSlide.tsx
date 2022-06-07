@@ -16,7 +16,7 @@ const TileSlide: React.FC<TileSlideProps> = ({ groupHeader, groupLinks }) => {
       <ul className={styles.list}>
         {groupLinks.map((link, index) => (
           <li key={index}>
-            <Link href={`https${link.path}`}>
+            <Link href={`https:${link.path}`}>
               <a target="_blank">
                 <Typography variant="body2" style={{ fontSize: "1rem" }}>
                   {link.name}
