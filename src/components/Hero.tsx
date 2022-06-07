@@ -12,16 +12,7 @@ const Hero: React.FC<HeroProps> = ({ url, text }) => {
   return (
     <section className={styles.hero}>
       <div className={styles.imageContainer}>
-        <Image
-          src={url}
-          className={styles.image}
-          alt="banner"
-          layout="fill"
-          priority={true}
-          draggable="false"
-          quality={80}
-          key={text}
-        />
+        <img src={url} className={styles.image} alt="banner" draggable="false" key={text} />
       </div>
       <Container>
         <div className={styles.text}>

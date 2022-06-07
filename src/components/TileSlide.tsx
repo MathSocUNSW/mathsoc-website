@@ -7,7 +7,7 @@ import { Typography } from "@mui/material";
 import styles from "src/styles/TileSlide.module.scss";
 
 // Data
-import { Groups as TileSlideProps } from "src/data/revisionData";
+import { groups as TileSlideProps } from "src/data/revisionData";
 
 const TileSlide: React.FC<TileSlideProps> = ({ groupHeader, groupLinks }) => {
   return (
@@ -16,7 +16,7 @@ const TileSlide: React.FC<TileSlideProps> = ({ groupHeader, groupLinks }) => {
       <ul className={styles.list}>
         {groupLinks.map((link, index) => (
           <li key={index}>
-            <Link href={link.path}>
+            <Link href={`https${link.path}`}>
               <a target="_blank">
                 <Typography variant="body2" style={{ fontSize: "1rem" }}>
                   {link.name}
