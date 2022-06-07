@@ -13,15 +13,10 @@ import Tile from "components/Tile";
 import styles from "src/styles/examBank.module.scss";
 
 // Data
-import { RevisionTile } from "src/data/revisionData";
+import examBankData, { oldExamBankData } from "src/data/examBankData";
 import { examBankInfo } from "src/data/resourceData";
-import { fetchSubjectResources } from "src/lib/api";
 
-interface ExamBankProps {
-  examBankData: RevisionTile[];
-  oldExamBankData: RevisionTile[];
-}
-const ExamBank: React.FC<ExamBankProps> = ({ examBankData, oldExamBankData }) => {
+const ExamBank: React.FC = () => {
   return (
     <section>
       <Head>
@@ -97,26 +92,4 @@ const ExamBank: React.FC<ExamBankProps> = ({ examBankData, oldExamBankData }) =>
   );
 };
 
-export const getStaticProps = async () => {
-  const allExamBankData = await fetchSubjectResources(/Sample Paper/);
-  const examBankData = [...allExamBankData];
-  const oldExamBankData = [...allExamBankData];
-  for (let i = 0; i < examBankData.length; i++) {
-    examBankData[i] = { ...examBankData[i] };
-    oldExamBankData[i] = { ...oldExamBankData[i] };
-    examBankData[i].revisionLinks = examBankData[i].revisionLinks.filter(
-      (revisionLink) => !/OLD /.test(revisionLink.groupHeader)
-    );
-    oldExamBankData[i].revisionLinks = oldExamBankData[i].revisionLinks.filter((revisionLink) =>
-      /OLD /.test(revisionLink.groupHeader)
-    );
-  }
-
-  return {
-    props: {
-      examBankData: examBankData.filter((data) => data.revisionLinks.length > 0),
-      oldExamBankData: oldExamBankData.filter((data) => data.revisionLinks.length > 0)
-    }
-  };
-};
 export default ExamBank;
