@@ -2,7 +2,7 @@ import React from "react";
 import DescriptionOutlinedIcon from "@mui/icons-material/DescriptionOutlined";
 import styles from "../styles/DocumentTile.module.scss";
 import { Typography } from "@mui/material";
-import { RevisionSheetTile as SheetTileProps } from "src/data/revisionSheetData";
+import { revisionSheetTile as SheetTileProps } from "src/data/revisionSheetData";
 const DocumentTile: React.FC<SheetTileProps> = ({ path, courseCode, courseTitle }) => {
   return (
     <a

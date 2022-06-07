@@ -13,15 +13,10 @@ import Tile from "components/Tile";
 import styles from "src/styles/revision.module.scss";
 
 // Data
-import { RevisionTile } from "src/data/revisionData";
+import revisionData from "src/data/revisionData";
 import { revisionInfo } from "src/data/resourceData";
-import { fetchSubjectResources } from "src/lib/api";
 
-interface RevisionProps {
-  revisionData: RevisionTile[];
-}
-
-const Revision: React.FC<RevisionProps> = ({ revisionData }) => {
+const Revision: React.FC = () => {
   return (
     <section>
       <Head>
@@ -64,11 +59,4 @@ const Revision: React.FC<RevisionProps> = ({ revisionData }) => {
   );
 };
 
-export const getStaticProps = async () => {
-  return {
-    props: {
-      revisionData: await fetchSubjectResources(/Revision Seminar|Workshop/)
-    }
-  };
-};
 export default Revision;
