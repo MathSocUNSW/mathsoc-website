@@ -7,7 +7,7 @@ import { Typography } from "@mui/material";
 import styles from "src/styles/TileSlide.module.scss";
 
 // Data
-import { groups as TileSlideProps } from "src/data/revisionData";
+import { Groups as TileSlideProps } from "src/data/revisionData";
 
 const TileSlide: React.FC<TileSlideProps> = ({ groupHeader, groupLinks }) => {
   return (
