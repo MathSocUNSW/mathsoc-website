@@ -4,9 +4,9 @@ import Head from "next/head";
 import { Typography, Alert, Button } from "@mui/material";
 
 // Component Imports
-import ContactPageBody from "components/ContactPageBody";
+import WholePageBox from "components/WholePageBox";
 import PageBody from "components/PageBody";
-import ContactPageBox from "components/ContactBox";
+import BoxType from "components/BoxType";
 import Hero from "components/Hero";
 
 // Styling
@@ -97,124 +97,126 @@ const Contact: React.FC = () => {
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_skating.png" text="Contact Us" />
-      <ContactPageBody>
-        <ContactPageBox>
-          {alertInfo}
-          <form onSubmit={handleSubmit} className={styles.contactForm}>
-            <div>
-              <Typography variant="h6" component="label" htmlFor="contactName">
-                Name
-              </Typography>
-              <input
-                type="text"
-                name="name"
-                id="contactName"
-                className={styles.inputItem}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <Typography variant="h6" component="label" htmlFor="contactEmail">
-                Email
-              </Typography>
-              <input
-                type="text"
-                name="email"
-                id="contactEmail"
-                className={styles.inputItem}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <Typography variant="h6" component="label" htmlFor="contactSubject">
-                Subject
-              </Typography>
-              <input
-                type="text"
-                className={styles.inputItem}
-                name="subject"
-                id="contactSubject"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <Typography variant="h6" component="label" htmlFor="contactMessage">
-                Message
-              </Typography>
-              <textarea
-                rows={5}
-                cols={50}
-                className={styles.messageItem}
-                name="message"
-                id="contactMessage"
-                onChange={handleChange}
-              />
-            </div>
-            <div className={styles.submitContainer}>
-              <div className={styles.submitItem}>
-                <Button
-                  disabled={disableSubmit}
-                  variant="contained"
-                  type="submit"
-                  sx={{ borderRadius: 28 }}
-                >
-                  Submit
-                </Button>
+      <PageBody>
+        <div className={styles.contactContainer}>
+          <WholePageBox size={BoxType.HALF_WIDTH}>
+            {alertInfo}
+            <form onSubmit={handleSubmit} className={styles.contactForm}>
+              <div>
+                <Typography variant="h6" component="label" htmlFor="contactName">
+                  Name
+                </Typography>
+                <input
+                  type="text"
+                  name="name"
+                  id="contactName"
+                  className={styles.inputItem}
+                  onChange={handleChange}
+                />
               </div>
-            </div>
-          </form>
-          <section className="stayConnectedSection">
-            <Typography variant="h4">Stay Connected</Typography>
-            <Typography variant="body1">
-              Follow us on social media to stay updated with upcoming events and opportunities!
-            </Typography>
-            <div className={styles.socialContainer}>
-              {socials.map(({ name, url, iconPath, altName }) => (
-                <div key={name}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.socialItem}
+              <div>
+                <Typography variant="h6" component="label" htmlFor="contactEmail">
+                  Email
+                </Typography>
+                <input
+                  type="text"
+                  name="email"
+                  id="contactEmail"
+                  className={styles.inputItem}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <Typography variant="h6" component="label" htmlFor="contactSubject">
+                  Subject
+                </Typography>
+                <input
+                  type="text"
+                  className={styles.inputItem}
+                  name="subject"
+                  id="contactSubject"
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <Typography variant="h6" component="label" htmlFor="contactMessage">
+                  Message
+                </Typography>
+                <textarea
+                  rows={5}
+                  cols={50}
+                  className={styles.messageItem}
+                  name="message"
+                  id="contactMessage"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={styles.submitContainer}>
+                <div className={styles.submitItem}>
+                  <Button
+                    disabled={disableSubmit}
+                    variant="contained"
+                    type="submit"
+                    sx={{ borderRadius: 28 }}
                   >
-                    <img
-                      src={iconPath}
-                      alt={name}
-                      aria-label={name}
-                      className={styles.socialIcon}
-                    />
-                  </a>
-                  <Typography variant="body2" display="inline" noWrap={true} align="center">
+                    Submit
+                  </Button>
+                </div>
+              </div>
+            </form>
+            <section className="stayConnectedSection">
+              <Typography variant="h4">Stay Connected</Typography>
+              <Typography variant="body1">
+                Follow us on social media to stay updated with upcoming events and opportunities!
+              </Typography>
+              <div className={styles.socialContainer}>
+                {socials.map(({ name, url, iconPath, altName }) => (
+                  <div key={name}>
                     <a
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{
-                        color: "inherit",
-                        textDecoration: "none"
-                      }}
+                      className={styles.socialItem}
                     >
-                      <b>{altName}</b>
+                      <img
+                        src={iconPath}
+                        alt={name}
+                        aria-label={name}
+                        className={styles.socialIcon}
+                      />
                     </a>
-                  </Typography>
-                </div>
-              ))}
-            </div>
-          </section>
-          <section className="addressSection">
-            <Typography variant="h4">Address</Typography>
-            <Typography variant="body1">
-              UNSW Mathematics Society
-              <br />
-              School of Mathematics and Statistics
-              <br />
-              University of New South Wales
-              <br />
-              Sydney, NSW 2052
-            </Typography>
-          </section>
-        </ContactPageBox>
-      </ContactPageBody>
+                    <Typography variant="body2" display="inline" noWrap={true} align="center">
+                      <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: "inherit",
+                          textDecoration: "none"
+                        }}
+                      >
+                        <b>{altName}</b>
+                      </a>
+                    </Typography>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section className="addressSection">
+              <Typography variant="h4">Address</Typography>
+              <Typography variant="body1">
+                UNSW Mathematics Society
+                <br />
+                School of Mathematics and Statistics
+                <br />
+                University of New South Wales
+                <br />
+                Sydney, NSW 2052
+              </Typography>
+            </section>
+          </WholePageBox>
+        </div>
+      </PageBody>
     </section>
   );
 };

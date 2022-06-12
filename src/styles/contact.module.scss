@@ -1,11 +1,19 @@
 @import "./variables.scss";
 
-.contactPageBody {
+.contactContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 2.2rem;
-  margin-bottom: 2rem;
+  section,
+  form {
+    margin-bottom: 2%;
+  }
+  @media screen and (max-width: $md) {
+    section,
+    form {
+      padding-left: 2%;
+      padding-right: 2%;
+    }
+  }
 }
 
 .socialContainer {
