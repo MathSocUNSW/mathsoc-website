@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
     }));
   };
 
-  async function handleSubmit(event: React.SyntheticEvent) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!emailRegex.test(contactDetails.email)) {
       alertComponentValue("Invalid Email", "error");
@@ -77,6 +77,7 @@ const Contact: React.FC = () => {
         });
         if (response.status == 200) {
           alertComponentValue("Form submitted", "success");
+          event.target.reset();
         } else if (response.status >= 400) {
           alertComponentValue("Form could not be submitted", "error");
         }
