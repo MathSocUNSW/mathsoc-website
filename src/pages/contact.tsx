@@ -1,5 +1,5 @@
 // Library Imports
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import Head from "next/head";
 import { Typography, Alert, Button } from "@mui/material";
 
@@ -77,7 +77,12 @@ const Contact: React.FC = () => {
         });
         if (response.status == 200) {
           alertComponentValue("Form submitted", "success");
-          event.target.reset();
+          setContactDetails({
+            name: "",
+            email: "",
+            message: "",
+            subject: ""
+          });
         } else if (response.status >= 400) {
           alertComponentValue("Form could not be submitted", "error");
         }
@@ -112,6 +117,7 @@ const Contact: React.FC = () => {
                   name="name"
                   id="contactName"
                   className={styles.inputItem}
+                  value={contactDetails.name}
                   onChange={handleChange}
                 />
               </div>
@@ -124,6 +130,7 @@ const Contact: React.FC = () => {
                   name="email"
                   id="contactEmail"
                   className={styles.inputItem}
+                  value={contactDetails.email}
                   onChange={handleChange}
                 />
               </div>
@@ -136,6 +143,7 @@ const Contact: React.FC = () => {
                   className={styles.inputItem}
                   name="subject"
                   id="contactSubject"
+                  value={contactDetails.subject}
                   onChange={handleChange}
                 />
               </div>
@@ -148,6 +156,7 @@ const Contact: React.FC = () => {
                   cols={50}
                   className={styles.messageItem}
                   name="message"
+                  value={contactDetails.message}
                   id="contactMessage"
                   onChange={handleChange}
                 />
