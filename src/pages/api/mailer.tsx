@@ -9,7 +9,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       port: 587,
       secure: false, // true for 465, false for other ports
       auth: {
-        user: process.env.CONTACT_EMAIL,
+        user: process.env.CONTACT_EMAIL_SENDER,
         pass: process.env.CONTACT_PASSWORD
       }
     });
@@ -18,8 +18,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
 
     // send mail with defined transport object
     const status = await transporter.sendMail({
-      from: process.env.CONTACT_EMAIL, // sender address
-      to: process.env.CONTACT_EMAIL, // list of receivers
+      from: process.env.CONTACT_EMAIL_SENDER, // sender address
+      to: process.env.CONTACT_EMAIL_RECEIVER, // list of receivers
       subject: req.body.subject, // Subject line
       text: textString, // html body
       replyTo: req.body.email
