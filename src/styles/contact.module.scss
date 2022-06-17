@@ -1,8 +1,19 @@
 @import "./variables.scss";
 
-// Even spacing between each section
-.contactBody > *:not(:last-child) {
-  padding-bottom: 15px;
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  section,
+  form {
+    margin-bottom: 2%;
+  }
+  @media screen and (max-width: $md) {
+    section,
+    form {
+      padding-left: 2%;
+      padding-right: 2%;
+    }
+  }
 }
 
 .socialContainer {
@@ -16,7 +27,6 @@
     // outline: auto;
     width: 50%;
     display: flex;
-    align-items: center;
     margin-bottom: 8px;
   }
   @media screen and (max-width: $sm) {
@@ -36,4 +46,98 @@
 .socialIcon {
   width: 30px;
   height: 30px;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5%;
+  }
+  @media screen and (max-width: $md) {
+    flex-direction: column;
+    width: auto;
+    padding: 2%;
+  }
+}
+
+.submitContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  @media screen and (max-width: $md) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.submitItem {
+  width: 30%;
+}
+
+@mixin animate {
+  border: 1px solid #d8d8d8;
+  transition-timing-function: ease-in-out;
+  transition: 0.5s;
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.inputItem {
+  @include animate;
+  border-radius: 15px;
+  height: 33px;
+  padding-left: 3%;
+  padding-right: 3%;
+  @media screen and (max-width: $sm) {
+    text-align: center;
+  }
+}
+
+.messageItem {
+  @include animate;
+  border-radius: 15px;
+  height: 200px;
+  padding: 3%;
+  resize: none;
+  font-family: sans-serif;
+  @media screen and (max-width: $sm) {
+    padding: 2%;
+  }
+}
+
+.submitButton {
+  @include animate;
+  background-color: #4169e1;
+  color: white;
+  font-weight: 400;
+  border-radius: 30px;
+  height: 30px;
+  width: 30%;
+  border: 1px solid #4169e1;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.submitButton:hover {
+  background-color: white;
+  color: #4169e1;
+}
+
+.submitButton:disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.inputItem:hover,
+.inputFullWidth:hover,
+.messageItem:hover,
+.inputItem:focus,
+.emailItem:focus,
+.messageItem:focus {
+  border: 1px solid #69cd63;
+  outline: none;
 }
