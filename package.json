@@ -41,7 +41,7 @@
     "@types/react": "^17.0.37",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "contentful-management": "^8.1.0",
+    "contentful-management": "^10.11.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^12.1.0",
     "eslint-config-prettier": "^8.2.0",
