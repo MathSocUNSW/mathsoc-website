@@ -84,7 +84,7 @@ const pastTeamData: yearTeamData[] = [
         ]
       },
       {
-        role: "Social Events",
+        role: "Corporate Events",
         members: [
           "Alice Zhang",
           "Danni Chen",
@@ -95,7 +95,7 @@ const pastTeamData: yearTeamData[] = [
         ]
       },
       {
-        role: "Corporate Events",
+        role: "Social Events",
         members: [
           "Eva Lin",
           "Mehak Arya",
