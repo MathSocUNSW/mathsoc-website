@@ -21,24 +21,42 @@ const fetchContentType = async (contentType: string): Promise<any[]> => {
   }
   return content;
 };
+
+const fetchFBEventData = async (): Promise<any[]> => {
+  const url =
+    "https://graph.facebook.com/v14.0/unswmathsoc/events?fields=name%2Cid%2Cdescription%2Ccover%2Cplace%2Cstart_time%2Cend_time&access_token=" +
+    process.env.REACT_APP_FB_PAGE_TOKEN;
+  let eventData: any[] = [];
+  try {
+    const res = await fetch(url, {
+      method: "GET"
+    });
+    let resJSON = await res.json();
+    eventData = resJSON.data;
+  } catch (err: unknown) {
+    console.error(err);
+  }
+  return eventData;
+};
+
 /**
  * Fetch events.
  */
 export const fetchEvents = async (): Promise<EventDetails[]> => {
-  return (await fetchContentType("mathSocEvents"))
-    .filter((item) => {
-      // TODO: Figure out how to use typescript with contentful.
-      const obj = item as any;
-      return "eventImage" in obj.fields;
-    })
-    .map((item) => {
-      const obj = item as any;
-      return {
-        ...obj.fields,
-        eventImage: obj.fields.eventImage.fields.file.url,
-        imageDescription: obj.fields.eventImage.fields.description
-      };
-    });
+  const eventData: any[] = await fetchFBEventData();
+  return eventData.map((item) => {
+    const eventDetails: EventDetails = {
+      eventName: item.name,
+      eventLink: "https://www.facebook.com/events/" + item.id,
+      eventDescription: item.description,
+      eventImage: item.cover?.source,
+      imageDescription: item.name + " Promotional Image",
+      locationLabel: item.place?.name || null,
+      startTime: item.start_time,
+      endTime: item.end_time || item.start_time
+    };
+    return eventDetails;
+  });
 };
 
 export const fetchPortfolios = async (): Promise<PortfolioDetails[]> => {
