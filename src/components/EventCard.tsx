@@ -53,7 +53,7 @@ const EventCard: React.FC<EventCardProps> = ({
     <div data-testid="event-card" className={`${styles.card} ${className}`}>
       <div>
         <a href={eventLink} target="_blank" rel="noopener noreferrer">
-          <img src={`https://${eventImage}`} className={styles.topImage} alt={imageDescription} />
+          <img src={eventImage} className={styles.topImage} alt={imageDescription} />
         </a>
       </div>
       <div className={styles.content}>

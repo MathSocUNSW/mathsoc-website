@@ -45,7 +45,7 @@ const RecentEvents: React.FC<EventProps> = ({ events }) => {
             <div className={styles.cardContainer} key={index}>
               <a href={event.eventLink} target="_blank" rel="noopener noreferrer">
                 <img
-                  src={`https:${event.eventImage}`}
+                  src={event.eventImage}
                   className={styles.cardImage}
                   alt={event.imageDescription}
                 />
