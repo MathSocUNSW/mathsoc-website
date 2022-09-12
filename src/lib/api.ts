@@ -31,7 +31,7 @@ const fetchFBEventData = async (): Promise<any[]> => {
     const res = await fetch(url, {
       method: "GET"
     });
-    let resJSON = await res.json();
+    const resJSON = await res.json();
     eventData = resJSON.data;
   } catch (err: unknown) {
     console.error(err);

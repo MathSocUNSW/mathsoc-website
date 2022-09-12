@@ -31,6 +31,7 @@ jobs:
           touch .env
           echo CONTENTFUL_SPACE_ID=${{ secrets.CONTENTFUL_SPACE_ID }} >> .env
           echo CONTENTFUL_API_KEY=${{ secrets.CONTENTFUL_API_KEY }} >> .env
+          echo REACT_APP_FB_PAGE_TOKEN=${{ secrets.REACT_APP_FB_PAGE_TOKEN }} >> .env
       - name: Install dependencies
         run: yarn
       - name: Lint
