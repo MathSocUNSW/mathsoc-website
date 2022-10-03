@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/Strip.module.scss";
+const { motion } = require("framer-motion");
 
 // Data
 import { resourceDetails as stripProps } from "src/data/resourceData";
@@ -19,7 +20,16 @@ const Strip: React.FC<stripProps> = ({
   // determine if the title and icon should be flipped
   const titleFlip = titlePosition === "right";
   return (
-    <div className={styles.strip}>
+    <motion.div
+      className={styles.strip}
+      transition={{
+        duration: 1,
+        type: "easeOut"
+      }}
+      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <img src={backgroundImage} className={styles.background} alt={title} />
       <Link href={resourceLink}>
         <a>
@@ -31,7 +41,7 @@ const Strip: React.FC<stripProps> = ({
           </div>
         </a>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

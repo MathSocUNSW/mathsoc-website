@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/EventCard.module.scss";
+const { motion } = require("framer-motion");
 
 // Data
 import { EventDetails } from "src/data/eventData";
@@ -50,7 +51,17 @@ const EventCard: React.FC<EventCardProps> = ({
   };
 
   return (
-    <div data-testid="event-card" className={`${styles.card} ${className}`}>
+    <motion.div
+      data-testid="event-card"
+      className={`${styles.card} ${className}`}
+      transition={{
+        duration: 1,
+        type: "easeOut"
+      }}
+      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div>
         <a href={eventLink} target="_blank" rel="noopener noreferrer">
           <img src={eventImage} className={styles.topImage} alt={imageDescription} />
@@ -90,7 +101,7 @@ const EventCard: React.FC<EventCardProps> = ({
           </a>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -13,6 +13,7 @@
     "@netlify/functions": "^1.0.0",
     "@svgr/webpack": "^6.2.1",
     "contentful": "^9.1.6",
+    "framer-motion": "^7.5.0",
     "hamburger-react": "^2.5.0",
     "moment": "^2.29.2",
     "next": "^12.1.0",

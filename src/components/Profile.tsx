@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/Profile.module.scss";
+const { motion } = require("framer-motion");
 
 export interface ProfileProps {
   name: string;
@@ -17,7 +18,17 @@ const DEFAULT_PROFILE_IMAGE = "/images/team/blank_profile.png";
 
 const Profile: React.FC<ProfileProps> = ({ name, role, description, imagePath }) => {
   return (
-    <div className={styles.profile}>
+    <motion.div
+      className={styles.profile}
+      data-testid="tile"
+      transition={{
+        duration: 1,
+        type: "easeOut"
+      }}
+      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className="profileContent">
         <Typography variant="h4">{name}</Typography>
         <Typography variant="h6">{role}</Typography>
@@ -41,7 +52,7 @@ const Profile: React.FC<ProfileProps> = ({ name, role, description, imagePath })
           className={styles.personImage}
         ></img> */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

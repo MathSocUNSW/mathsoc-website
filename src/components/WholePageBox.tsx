@@ -4,6 +4,7 @@ import React from "react";
 // Styling
 import styles from "src/styles/WholePageBox.module.scss";
 import BoxType from "src/components/BoxType";
+const { motion } = require("framer-motion");
 
 interface WholePageBoxProps {
   children: React.ReactNode;
@@ -22,9 +23,18 @@ const WholePageBox: React.FC<WholePageBoxProps> = (props) => {
     size = styles.fullBoxBody;
   }
   return (
-    <div className={size}>
+    <motion.div
+      className={size}
+      transition={{
+        duration: 1,
+        type: "easeOut"
+      }}
+      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <section className={styles.content}>{props.children}</section>
-    </div>
+    </motion.div>
   );
 };
 

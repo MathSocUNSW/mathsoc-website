@@ -4,6 +4,8 @@ import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/ResourceHero.module.scss";
+import { Opacity } from "@mui/icons-material";
+const { motion } = require("framer-motion");
 
 interface ResourceHeroProps {
   url: string;
@@ -20,14 +22,24 @@ const ResourceHero: React.FC<ResourceHeroProps> = ({ url, text, icon, titlePosit
   };
 
   return (
-    <section className={styles.hero} style={bgImage}>
-      <div className={`${styles.title} ${titleFlip ? styles.flip : ""}`}>
-        <Typography variant="h1" align="center">
-          {text}
-        </Typography>
-      </div>
-      <img src={icon} className={styles.icon} alt="icon" draggable="false" />
-    </section>
+    <motion.div
+      transition={{
+        delay: 0.5,
+        x: { duration: 1 },
+        default: { ease: "linear" }
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
+      <section className={styles.hero} style={bgImage}>
+        <div className={`${styles.title} ${titleFlip ? styles.flip : ""}`}>
+          <Typography variant="h1" align="center">
+            {text}
+          </Typography>
+        </div>
+        <img src={icon} className={styles.icon} alt="icon" draggable="false" />
+      </section>
+    </motion.div>
   );
 };
 

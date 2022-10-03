@@ -7,6 +7,7 @@ import TileSlide from "./TileSlide";
 
 // Styling
 import styles from "src/styles/Tile.module.scss";
+const { motion } = require("framer-motion");
 
 // Data
 import { RevisionTile as TileProps } from "src/data/revisionData";
@@ -20,7 +21,17 @@ const Tile: React.FC<TileProps> = ({ courseCode, courseTitle, revisionLinks }) =
   );
   return (
     // TODO: entire first page is clickable?
-    <div data-testid="tile" className={styles.tile}>
+    <motion.div
+      data-testid="tile"
+      className={styles.tile}
+      transition={{
+        duration: 1,
+        type: "easeOut"
+      }}
+      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
       <div className={styles.tileContent}>
         <div className={styles.tileSlides}>
           {/* Front Slide */}
@@ -73,7 +84,7 @@ const Tile: React.FC<TileProps> = ({ courseCode, courseTitle, revisionLinks }) =
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
