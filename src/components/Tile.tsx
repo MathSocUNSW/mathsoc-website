@@ -7,7 +7,7 @@ import TileSlide from "./TileSlide";
 
 // Styling
 import styles from "src/styles/Tile.module.scss";
-const { motion } = require("framer-motion");
+const { motion } = require("framer-motion"); //eslint-disable-line
 
 // Data
 import { RevisionTile as TileProps } from "src/data/revisionData";

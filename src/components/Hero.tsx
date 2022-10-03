@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Typography } from "@mui/material";
 import styles from "src/styles/Hero.module.scss";
 import Image from "next/image";
-const { motion } = require("framer-motion");
+const { motion } = require("framer-motion"); //eslint-disable-line
 
 interface HeroProps {
   url: string;

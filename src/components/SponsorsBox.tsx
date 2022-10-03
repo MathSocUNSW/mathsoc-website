@@ -8,7 +8,6 @@ import styles from "src/styles/SponsorsBox.module.scss";
 // Data
 import { sponsor } from "src/data/sponsorsData";
 import SponsorsLogo from "./SponsorLogo";
-import { DisplaySettings } from "@mui/icons-material";
 
 const SponsorsBox: React.FC<sponsor> = ({ name, logoPath, websiteURL, description }) => {
   return (

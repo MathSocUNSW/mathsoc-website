@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/Strip.module.scss";
-const { motion } = require("framer-motion");
+const { motion } = require("framer-motion"); //eslint-disable-line
 
 // Data
 import { resourceDetails as stripProps } from "src/data/resourceData";

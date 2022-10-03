@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 
 // Styling
 import styles from "src/styles/EventCard.module.scss";
-const { motion } = require("framer-motion");
+const { motion } = require("framer-motion"); //eslint-disable-line
 
 // Data
 import { EventDetails } from "src/data/eventData";

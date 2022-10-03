@@ -4,7 +4,6 @@ import { Container } from "@mui/material";
 
 // Styling
 import styles from "src/styles/PageBody.module.scss";
-import { type } from "os";
 
 // Type Definitions
 interface PageBodyProps {

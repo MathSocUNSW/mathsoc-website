@@ -4,7 +4,7 @@ import React from "react";
 // Styling
 import styles from "src/styles/WholePageBox.module.scss";
 import BoxType from "src/components/BoxType";
-const { motion } = require("framer-motion");
+const { motion } = require("framer-motion"); //eslint-disable-line
 
 interface WholePageBoxProps {
   children: React.ReactNode;

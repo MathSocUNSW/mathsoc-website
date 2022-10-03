@@ -5,7 +5,7 @@ import { Typography } from "@mui/material";
 // Styling
 import styles from "src/styles/ResourceHero.module.scss";
 import { Opacity } from "@mui/icons-material";
-const { motion } = require("framer-motion");
+const { motion } = require("framer-motion"); //eslint-disable-line
 
 interface ResourceHeroProps {
   url: string;
