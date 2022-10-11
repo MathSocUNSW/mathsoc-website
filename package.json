@@ -7,7 +7,7 @@
     "@babel/core": "^7.0.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.5.1",
+    "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.5.3",
     "@mui/styles": "^5.8.0",
     "@netlify/functions": "^1.0.0",
