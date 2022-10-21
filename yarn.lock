@@ -2247,14 +2247,7 @@ axe-core@^4.3.5:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.4.2.tgz#dcf7fb6dea866166c3eab33d68208afe4d5f670c"
   integrity sha512-LVAaGp/wkkgYJcjmHsoKx4juT1aQvJyPcW09MLCjVTh3V2cc6PnyempiLMNH5iMdfIX/zdbjUx2KDjMLCTdPeA==
 
-axios@^0.26.0:
-  version "0.26.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.1.tgz#1ede41c51fcf51bbbd6fd43669caaa4f0495aaa9"
-  integrity sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==
-  dependencies:
-    follow-redirects "^1.14.8"
-
-axios@^0.27.0:
+axios@^0.27.0, axios@^0.27.1:
   version "0.27.2"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
   integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
@@ -2632,13 +2625,13 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
 
-contentful-management@^8.1.0:
-  version "8.3.0"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-8.3.0.tgz#37071542c634dc485cab922d643d26071d899b05"
-  integrity sha512-aQikT+Fpi0PZnX8RHIgz51VQd2dazNdY1X5jyysBbTlUxO6wfHuXqjbL12RLH5TbJOvvfNQsqVc44Rwszo5t3w==
+contentful-management@^10.18.2:
+  version "10.18.2"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-10.18.2.tgz#9c5fa453cd67ac6e3f0f9258db6810855d277da8"
+  integrity sha512-4QgK76ciGz5qF0UxQFJw1fWL3bI8UUCC+bAEyWNFb8mBGjy3SKRbi+lJbfPk0speM6/dcnBOI0aT6E2pN71uUg==
   dependencies:
     "@types/json-patch" "0.0.30"
-    axios "^0.26.0"
+    axios "^0.27.1"
     contentful-sdk-core "^7.0.1"
     fast-copy "^2.1.1"
     lodash.isplainobject "^4.0.6"
@@ -3486,7 +3479,7 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
-follow-redirects@^1.14.8, follow-redirects@^1.14.9:
+follow-redirects@^1.14.9:
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.15.0.tgz#06441868281c86d0dda4ad8bdaead2d02dca89d4"
   integrity sha512-aExlJShTV4qOUOL7yF1U5tvLCB0xQuudbf6toyYA0E/acBNw71mvjFTnLaRp50aQaYocMR0a/RMMBIHeZnGyjQ==
