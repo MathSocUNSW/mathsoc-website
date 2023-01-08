@@ -56,7 +56,7 @@ const navLinks: navLink[] = [
       { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: true },
       {
         name: "First Year Guide",
-        subRoute: "/files/resources/misc/First_Year_Guide_2021.pdf",
+        subRoute: "/files/resources/misc/First_Year_Guide_2023.pdf",
         useRelativeRoute: false
       },
       {
