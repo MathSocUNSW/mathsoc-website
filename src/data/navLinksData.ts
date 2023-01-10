@@ -28,7 +28,7 @@ const navLinks: navLink[] = [
       { name: "Join Us", subRoute: "/join", useRelativeRoute: true },
       {
         name: "Constitution",
-        subRoute: "/files/general/Constitution-and-GRPP-2021.pdf",
+        subRoute: "/files/general/Constitution-and-GRPP-2023.pdf",
         useRelativeRoute: false
       }
     ],
@@ -56,7 +56,7 @@ const navLinks: navLink[] = [
       { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: true },
       {
         name: "First Year Guide",
-        subRoute: "/files/resources/misc/First_Year_Guide_2023.pdf",
+        subRoute: "/files/resources/misc/First_Year_Guide_2021.pdf",
         useRelativeRoute: false
       },
       {
