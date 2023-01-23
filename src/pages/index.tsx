@@ -25,7 +25,7 @@ const Home: React.FC<EventProps> = ({ events }) => {
   return (
     <section>
       <Head>
-        <title>MathSoc</title>
+        <title>UNSW MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
       <Hero url="/images/hero/mathsoc_skating.png" text="Welcome to UNSW Mathematics Society" />
