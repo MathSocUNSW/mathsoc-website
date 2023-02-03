@@ -50,6 +50,99 @@ export interface yearTeamData {
 
 const pastTeamData: yearTeamData[] = [
   {
+    year: 2022,
+    execList: [
+      { name: "Merry Chu", role: "President" },
+      { name: "Katherine Bai", role: "Vice President" },
+      { name: "Daniel Kim", role: "Secretary" },
+      { name: "Abhi Khosla", role: "Treasurer" },
+      { name: "Brandon Liu", role: "Arc Delegate" }
+    ],
+    directorList: [
+      { role: "Education", directors: ["Andrew William", "Bruce Chen", "Jay Liang"] },
+      { role: "Social Events", directors: ["Kathy Nguyen"] },
+      { role: "Corporate Events", directors: ["Teya Murray"] },
+      { role: "IT", directors: ["Aaren Sriskandarajah", "Joanna Lin"] },
+      { role: "Marketing", directors: ["Catherine Lye", "Felix Cao", "Han Zhang"] },
+      { role: "Sponsorships", directors: ["Andrew Cheung"] },
+      { role: "Human Resources", directors: ["Justin Dong", "Sharon Zhong"] }
+    ],
+    subcommittee: [
+      {
+        role: "Education",
+        members: [
+          "Fred Yan",
+          "Gerald Huang",
+          "James Davidson",
+          "Jerry Kim",
+          "Lachlan Tobin",
+          "Michael Pogrebinsky",
+          "Noah Rubin",
+          "Ronald Chiang",
+          "Steve Jang"
+        ]
+      },
+      {
+        role: "Corporate Events",
+        members: [
+          "Claudia Shen",
+          "Gurnik Singh",
+          "Jaime Cheung",
+          "Manav Dodia"
+        ]
+      },
+      { role: "Sponsorships", 
+        members: [
+          "Anthony Kim", 
+          "Charlie Huang", 
+          "Elissa Luong", 
+          "Will Zeng"
+        ] 
+      },
+      { role: "Human Resources", 
+        members: [
+          "Audrey Tanama", 
+          "Brittany Li", 
+          "Chris Wu", 
+          "Daniel Khuu", 
+          "Julian Zheng-Lin", 
+          "Steven Chye"
+        ] 
+      },
+      {
+        role: "Social Events",
+        members: [
+          "Barclay Zhang",
+          "Carina Shen",
+          "Lok Yan Ng",
+          "Nicole Jiang",
+          "Teresa Lu",
+          "Wa'ddah El-Ardenli"
+        ]
+      },
+      {
+        role: "Marketing",
+        members: [
+          "Angela Lei", 
+          "Brian Lei", 
+          "Erin Shee", 
+          "Henrik Osterberg", 
+          "Joshua Cohen", 
+          "Kelly Pan", 
+          "Neal O'Brien", 
+          "Neil Nag"
+        ]
+      },
+      { role: "IT", 
+        members: [
+          "Anderson Pech", 
+          "Danielle Koo", 
+          "Derek Xu"
+        ] 
+      }
+    ]
+  },
+  {
     year: 2021,
     execList: [
       { name: "Grace Li", role: "President" },
