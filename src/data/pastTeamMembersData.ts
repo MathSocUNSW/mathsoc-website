@@ -84,30 +84,22 @@ const pastTeamData: yearTeamData[] = [
       },
       {
         role: "Corporate Events",
-        members: [
-          "Claudia Shen",
-          "Gurnik Singh",
-          "Jaime Cheung",
-          "Manav Dodia"
-        ]
+        members: ["Claudia Shen", "Gurnik Singh", "Jaime Cheung", "Manav Dodia"]
       },
-      { role: "Sponsorships", 
-        members: [
-          "Anthony Kim", 
-          "Charlie Huang", 
-          "Elissa Luong", 
-          "Will Zeng"
-        ] 
+      {
+        role: "Sponsorships",
+        members: ["Anthony Kim", "Charlie Huang", "Elissa Luong", "Will Zeng"]
       },
-      { role: "Human Resources", 
+      {
+        role: "Human Resources",
         members: [
-          "Audrey Tanama", 
-          "Brittany Li", 
-          "Chris Wu", 
-          "Daniel Khuu", 
-          "Julian Zheng-Lin", 
+          "Audrey Tanama",
+          "Brittany Li",
+          "Chris Wu",
+          "Daniel Khuu",
+          "Julian Zheng-Lin",
           "Steven Chye"
-        ] 
+        ]
       },
       {
         role: "Social Events",
@@ -123,23 +115,17 @@ const pastTeamData: yearTeamData[] = [
       {
         role: "Marketing",
         members: [
-          "Angela Lei", 
-          "Brian Lei", 
-          "Erin Shee", 
-          "Henrik Osterberg", 
-          "Joshua Cohen", 
-          "Kelly Pan", 
-          "Neal O'Brien", 
+          "Angela Lei",
+          "Brian Lei",
+          "Erin Shee",
+          "Henrik Osterberg",
+          "Joshua Cohen",
+          "Kelly Pan",
+          "Neal O'Brien",
           "Neil Nag"
         ]
       },
-      { role: "IT", 
-        members: [
-          "Anderson Pech", 
-          "Danielle Koo", 
-          "Derek Xu"
-        ] 
-      }
+      { role: "IT", members: ["Anderson Pech", "Danielle Koo", "Derek Xu"] }
     ]
   },
   {
