@@ -64,7 +64,7 @@ const pastTeamData: yearTeamData[] = [
       { role: "Corporate Events", directors: ["Teya Murray"] },
       { role: "IT", directors: ["Aaren Sriskandarajah", "Joanna Lin"] },
       { role: "Marketing", directors: ["Catherine Lye", "Felix Cao", "Han Zhang"] },
-      { role: "Sponsorships", directors: ["Andrew Cheung"] },
+      { role: "Sponsorships", directors: ["Andrew Cheung, Nancy Lu"] },
       { role: "Human Resources", directors: ["Justin Dong", "Sharon Zhong"] }
     ],
     subcommittee: [
