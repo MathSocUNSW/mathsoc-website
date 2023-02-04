@@ -18,14 +18,6 @@ const rawSponsorsData: sponsor[] = [
       "Arc is your student organisation at UNSW. From Clubs to Volunteering; Sport to Events; Wellness to Help; and heaps more, we make sure that your student experience is the best that it can be."
   },
   {
-    name: "Autumn Compass",
-    type: "events",
-    websiteURL: "https://www.autumncompass.com/home/",
-    logoPath: "/images/logos/autumn_compass_logo.png",
-    description:
-      "Autumn Compass is a proprietary trading firm developing clever algorithms to provide liquidity on financial markets across Asia-Pacific. Our objective is to efficiently facilitate the flow of capital between market participants and serve a leading role in exchange market making and capital formation."
-  },
-  {
     name: "Citadel Securities",
     type: "principal",
     websiteURL: "https://www.citadelsecurities.com/",
@@ -59,19 +51,35 @@ const rawSponsorsData: sponsor[] = [
   },
   {
     name: "Optiver",
-    type: "major",
+    type: "principal",
     websiteURL: "https://optiver.com/working-at-optiver/graduate-and-student/",
     logoPath: "/images/logos/optiver_logo.png",
     description:
       "Optiver is a leading global trading firm, powered by technological innovation. Simply put, we trade options and other financial instruments in 50+ exchanges to improve markets around the world. It's a unique business, with unique challenges. We're a quiet powerhouse of creative problem solving and collaboration. And while we built our successfor more than 35 years, we've deliberately forged a culture that gives our people the opportunity and support to help us make an impact every day. At Optiver, we do things a bit differently to most businesses. We operate without clients, taking risks and reaping the rewards ourselves. We play by our own rules and maintain an informal culture to keep it fun. We’re passionate about empowering individuals and creating diverse teams that thrive. Every person at Optiver should feel included, valued and respected because we believe our best work is done together. We're committed to making the world better every day. This commitment extends to our people, making their lives better through a range of initiatives, benefits and opportunities. We believe the best equipped go furthest."
   },
   {
-    name: "Quantium",
+    name: "Atlassian",
     type: "major",
-    websiteURL: "https://quantium.com/",
-    logoPath: "/images/logos/quantium_logo.png",
+    websiteURL: "https://www.atlassian.com/",
+    logoPath: "/images/logos/atlassian_logo.png",
     description:
-      "Quantium delivers breakthrough solutions in data and technology. We develop, analyse and monetise datasets, generate insights, create decision support tools and embed automated decision engines. We bring all this to bear in Q, which powers everything we do."
+      "Armed with a credit card and a dream, two college friends, Mike Cannon-Brookes and Scott Farquhar set out to create Atlassian. In 2002, they didn't know what kind of company Atlassian was going to be, but they knew exactly what it shouldn't be—an environment where they had to conform rather than be who they authentically are."
+  },
+  {
+    name: "DGL",
+    type: "principal",
+    websiteURL: "https://www.dglgroup.com/",
+    logoPath: "/images/logos/dgl_logo.png",
+    description:
+      "Operating in Australia, New Zealand and internationally, DGL Group offers an unparalleled end-to-end supply chain service, including  chemical and industrial formulation and manufacturing, warehousing and distribution, waste management and environmental solutions."
+  },
+  {
+    name: "Akuna Capital",
+    type: "major",
+    websiteURL: "https://akunacapital.com/",
+    logoPath: "/images/logos/akuna_capital_logo.png",
+    description:
+      "Akuna Capital is a proprietary trading firm specializing in derivatives market making and sophisticated modeling with a commitment to cutting-edge technology."
   },
   {
     name: "School of Mathematics and Statistics",
@@ -82,28 +90,12 @@ const rawSponsorsData: sponsor[] = [
       "UNSW Mathematics and Statistics is ranked number one in Australia for Mathematics (ARWU 2020, US News Global 2020, NTU Ranking 2020, CWTS Leiden Ranking 2020). Our research and teaching activities cover a broad spectrum of Applied Mathematics, Pure Mathematics and Statistics. The School has 90+ academic staff, including many research and postdoctoral fellows. Our research presence includes many seminars and visiting academics, and we teach several thousand students annually."
   },
   {
-    name: "Servian",
-    type: "principal",
-    websiteURL: "https://www.servian.com/",
-    logoPath: "/images/logos/servian_logo.png",
-    description:
-      "At Servian, we design, deliver and manage innovative data & analytics, digital, customer engagement and cloud solutions that help you sustain competitive advantage."
-  },
-  {
     name: "SIG Susquehanna",
     type: "principal",
     websiteURL: "https://sig.com/",
     logoPath: "/images/logos/sig_logo.png",
     description:
       "A global quantitative trading firm founded with an entrepreneurial mindset and a rigorous analytical approach to decision making. We commit our own capital to trade financial products around the world. Building virtually all of our own trading technology from scratch, we are leaders and innovators in high performance, low latency trading. Our traders, quants, developers, and systems engineers work side by side to develop and implement our trading strategies. Each individual brings their unique expertise every day to help us make optimal decisions in the global financial markets."
-  },
-  {
-    name: "VivCourt Trading",
-    type: "major",
-    websiteURL: "http://www.vivcourttrading.com.au/",
-    logoPath: "/images/logos/vivcourt_logo.png",
-    description:
-      "On the surface VivCourt Trading might look like your average financial trading firm.  But you just have to scratch the surface (or chat to anyone who works there!) to know it most definitely is not. VivCourt's founder, Rob Keldoulis, has taken the traditional corporate business model and flipped it on its head. He has challenged every aspect and come away with what he believes will evolve into the only sustainable corporate model of the future."
   }
 ];
 

@@ -10,6 +10,7 @@ import Hero from "components/Hero";
 import UpcomingEvents from "components/UpcomingEvents";
 import SponsorsList from "components/SponsorsList";
 import RecentEvents from "components/RecentEvents";
+import Button from "components/Button";
 
 // Styling
 import styles from "src/styles/home.module.scss";
@@ -25,10 +26,10 @@ const Home: React.FC<EventProps> = ({ events }) => {
   return (
     <section>
       <Head>
-        <title>MathSoc</title>
+        <title>UNSW Mathematics Society</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_skating.png" text="Welcome to UNSW Mathematics Society" />
+      <Hero url="/images/hero/mathsoc_hero.jpg" text="Welcome to UNSW Mathematics Society" />
       <PageBody>
         <div className={styles.intro}>
           <WholePageBox>
@@ -42,6 +43,11 @@ const Home: React.FC<EventProps> = ({ events }) => {
             </Typography>
           </WholePageBox>
         </div>
+        <Button
+          text={"First Year Guide"}
+          link={"https://www.unswmathsoc.org/files/resources/misc/mathsoc-firstyearguide.pdf"}
+          color={""}
+        />
         <UpcomingEvents events={events} />
         <RecentEvents events={events} />
         <SponsorsList />

@@ -56,7 +56,7 @@ const navLinks: navLink[] = [
       { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: true },
       {
         name: "First Year Guide",
-        subRoute: "/files/resources/misc/UNSW-MathSoc-2023-First-Year-Guide.pdf",
+        subRoute: "/files/resources/misc/mathsoc-firstyearguide.pdf",
         useRelativeRoute: false
       },
       {

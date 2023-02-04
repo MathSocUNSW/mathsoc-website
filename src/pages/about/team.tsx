@@ -40,7 +40,7 @@ const Team: React.FC<TeamProps> = ({ executives, portfolios }) => {
         <title>Meet the Team - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_team_2021.jpg" text="MathSoc Team 2022" />
+      <Hero url="/images/hero/mathsoc_team_2023.jpg" text="MathSoc Team 2023" />
       <PageBody>
         <div className={styles.flex}>
           <Typography variant="h2" align="center">
