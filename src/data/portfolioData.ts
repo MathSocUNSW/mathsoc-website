@@ -5,10 +5,12 @@ export interface Director {
 
 export type ExecutiveRole =
   | "President"
-  | "Vice President"
   | "Secretary"
   | "Treasurer"
-  | "Arc Delegate";
+  | "Vice President of Education"
+  | "Vice President of Operations"
+  | "Vice President of Activities"
+  | "Vice President of Careers"
 export interface Executive {
   role: ExecutiveRole;
   name: string;
@@ -17,13 +19,14 @@ export interface Executive {
 }
 export interface PortfolioDetails {
   name:
+    | "Academics"
     | "Education"
-    | "Events (Corporate)"
-    | "Events (Social)"
+    | "Careers"
+    | "Socials"
     | "Human Resources"
     | "IT"
     | "Marketing"
-    | "Sponsorships";
+    | "Creative";
   directors: Director[];
   subcommittee?: string[];
 }

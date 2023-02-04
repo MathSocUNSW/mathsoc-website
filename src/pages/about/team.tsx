@@ -20,10 +20,12 @@ import { Executive, ExecutiveRole, PortfolioDetails } from "src/data/portfolioDa
 
 const executiveRoles: ExecutiveRole[] = [
   "President",
-  "Vice President",
   "Secretary",
   "Treasurer",
-  "Arc Delegate"
+  "Vice President of Education",
+  "Vice President of Operations",
+  "Vice President of Activities",
+  "Vice President of Careers"
 ];
 interface TeamProps {
   executives: Executive[];
