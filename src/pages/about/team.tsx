@@ -77,9 +77,9 @@ const Team: React.FC<TeamProps> = ({ executives, portfolios }) => {
             <Typography variant="body1" align="center">
               If you’re looking to casually contribute to MathSoc, being a subcommittee member is
               probably right for you. Subcommittee members volunteer their time to work with our
-              directors in either the Education, Events, IT, Marketing or Sponsorship portfolios in
-              bringing fresh ideas to fruition. If you’re someone enthusiastic about MathSoc,
-              consider joining our subcommittee!
+              directors in either the Academic, Education, Careers, Socials, Human Resources, IT,
+              Marketing or Creative portfolios in bringing fresh ideas to fruition. If you’re
+              someone enthusiastic about MathSoc, consider joining our subcommittee!
             </Typography>
           </div>
           <section className={styles.cardsContainer}>
