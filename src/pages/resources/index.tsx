@@ -20,7 +20,7 @@ const Resources: React.FC = () => {
         <title>Resources - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_resources.png" text="Resources" />
+      <Hero url="/images/hero/mathsoc_resources.jpg" text="Resources" />
       <PageBody>
         <ul className={styles.resources}>
           {resourceInfo.map((resource, index) => (

@@ -20,10 +20,12 @@ import { Executive, ExecutiveRole, PortfolioDetails } from "src/data/portfolioDa
 
 const executiveRoles: ExecutiveRole[] = [
   "President",
-  "Vice President",
   "Secretary",
   "Treasurer",
-  "Arc Delegate"
+  "Vice President of Education",
+  "Vice President of Operations",
+  "Vice President of Activities",
+  "Vice President of Careers"
 ];
 interface TeamProps {
   executives: Executive[];
@@ -40,7 +42,7 @@ const Team: React.FC<TeamProps> = ({ executives, portfolios }) => {
         <title>Meet the Team - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_team_2021.jpg" text="MathSoc Team 2022" />
+      <Hero url="/images/hero/mathsoc_team_2023.jpg" text="MathSoc Team 2023" />
       <PageBody>
         <div className={styles.flex}>
           <Typography variant="h2" align="center">
@@ -75,9 +77,9 @@ const Team: React.FC<TeamProps> = ({ executives, portfolios }) => {
             <Typography variant="body1" align="center">
               If you’re looking to casually contribute to MathSoc, being a subcommittee member is
               probably right for you. Subcommittee members volunteer their time to work with our
-              directors in either the Education, Events, IT, Marketing or Sponsorship portfolios in
-              bringing fresh ideas to fruition. If you’re someone enthusiastic about MathSoc,
-              consider joining our subcommittee!
+              directors in either the Academic, Education, Careers, Socials, Human Resources, IT,
+              Marketing or Creative portfolios in bringing fresh ideas to fruition. If you’re
+              someone enthusiastic about MathSoc, consider joining our subcommittee!
             </Typography>
           </div>
           <section className={styles.cardsContainer}>

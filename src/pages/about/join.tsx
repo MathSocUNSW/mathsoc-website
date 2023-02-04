@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
         <title>Join Us - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_skating.png" text="Join Us" />
+      <Hero url="/images/hero/mathsoc_team_2023.jpg" text="Join Us" />
       <PageBody>
         <WholePageBox>
           <Typography variant="h4">Join Us</Typography>

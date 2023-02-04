@@ -102,7 +102,7 @@ const Contact: React.FC = () => {
         <title>Contact Us - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_skating.png" text="Contact Us" />
+      <Hero url="/images/hero/mathsoc_team_2023.jpg" text="Contact Us" />
       <PageBody>
         <div className={styles.contactContainer}>
           <WholePageBox size={BoxType.HALF_WIDTH}>

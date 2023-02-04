@@ -47,7 +47,7 @@ const Sponsors: React.FC = () => {
         <title>Sponsors - MathSoc</title>
         <meta name="keywords" content="mathsoc" />
       </Head>
-      <Hero url="/images/hero/mathsoc_sponsors.png" text="Sponsors" />
+      <Hero url="/images/hero/mathsoc_sponsors.jpg" text="Sponsors" />
       <PageBody>
         <div className={styles.sponsorsPg}>
           <WholePageBox>
