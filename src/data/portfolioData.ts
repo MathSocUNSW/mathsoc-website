@@ -10,7 +10,7 @@ export type ExecutiveRole =
   | "Vice President of Education"
   | "Vice President of Operations"
   | "Vice President of Activities"
-  | "Vice President of Careers"
+  | "Vice President of Careers";
 export interface Executive {
   role: ExecutiveRole;
   name: string;
