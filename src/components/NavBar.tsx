@@ -86,11 +86,7 @@ const NavBar: React.FC = () => {
             setActiveDropdown={setActiveDropdown}
             closeMenus={closeMenus}
           />
-          <a
-            href="https://unsw-mathematics-society.square.site/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://unswmathsoc.square.site/" target="_blank" rel="noopener noreferrer">
             <img
               src="/images/shop.svg"
               className={styles.shop}

@@ -56,7 +56,7 @@ export const twitchData: socialData = {
 
 export const storeData: socialData = {
   name: "Store",
-  url: "https://unsw-mathematics-society.square.site/",
+  url: "https://unswmathsoc.square.site/",
   iconPath: "/images/shop_dark.svg",
   altName: "MathSoc Store"
 };
