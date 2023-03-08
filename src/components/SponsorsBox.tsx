@@ -12,7 +12,7 @@ import SponsorsLogo from "./SponsorLogo";
 const SponsorsBox: React.FC<sponsor> = ({ name, logoPath, websiteURL, description }) => {
   return (
     <div className={styles.sponsorBox}>
-      <a href={websiteURL} target="_blank" rel="noopener noreferrer">
+      <a className={styles.logoLink} href={websiteURL} target="_blank" rel="noopener noreferrer">
         <SponsorsLogo logoPath={logoPath} name={name} />
       </a>
       <Typography variant="body1">{description}</Typography>
