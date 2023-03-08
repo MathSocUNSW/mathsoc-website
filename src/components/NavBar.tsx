@@ -87,7 +87,7 @@ const NavBar: React.FC = () => {
             closeMenus={closeMenus}
           />
           <a
-            href="https://unsw-mathematics-society.square.site/"
+            href="https://unswmathsoc.square.site/"
             target="_blank"
             rel="noopener noreferrer"
           >
