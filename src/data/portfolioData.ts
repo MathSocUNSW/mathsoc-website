@@ -5,6 +5,7 @@ export interface Director {
 
 export type ExecutiveRole =
   | "President"
+  | "Secretary & Vice President of Careers"
   | "Secretary"
   | "Treasurer"
   | "Vice President of Education"
