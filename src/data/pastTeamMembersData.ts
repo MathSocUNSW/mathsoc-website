@@ -3,6 +3,10 @@ export interface execPerson {
   role:
     | "President"
     | "Vice President"
+    | "Vice President of Activities"
+    | "Vice President of Careers"
+    | "Vice President of Education"
+    | "Vice President of Operations"
     | "Secretary"
     | "Treasurer"
     | "Arc Delegate"
@@ -12,12 +16,17 @@ export interface execPerson {
 
 export interface directorRole {
   role:
+    | "Academics"
+    | "Maths Outreach"
     | "Education"
     | "Corporate Events"
+    | "Socials"
+    | "Careers"
     | "Social Events"
     | "Human Resources"
     | "IT"
     | "Marketing"
+    | "Creative"
     | "Sponsorships"
     | "Events"
     | "Women's"
@@ -29,12 +38,17 @@ export interface directorRole {
 
 export interface subcommitteeData {
   role:
+    | "Academics"
+    | "Maths Outreach"
     | "Education"
     | "Corporate Events"
+    | "Socials"
+    | "Careers"
     | "Social Events"
     | "Human Resources"
     | "IT"
     | "Marketing"
+    | "Creative"
     | "Sponsorships"
     | "Events"
     | "General";
@@ -49,6 +63,109 @@ export interface yearTeamData {
 }
 
 const pastTeamData: yearTeamData[] = [
+  {
+    year: 2023,
+    execList: [
+      { name: "Daniel Kim", role: "President" },
+      { name: "Sharon Zhong", role: "Vice President of Activities" },
+      { name: "Nancy Lu", role: "Vice President of Careers" },
+      { name: "Bruce Chen", role: "Vice President of Education" },
+      { name: "Han Zhang", role: "Vice President of Operations" },
+      { name: "Aaren Sriskandarajah", role: "Secretary" },
+      { name: "Catherine Lye", role: "Treasurer" }
+    ],
+    directorList: [
+      { role: "Academics", directors: ["Lachlan Tobin", "Anne Chen", "Tim Leask"] },
+      { role: "Education", directors: ["Ronald Chiang", "Fred Yan"] },
+      { role: "Socials", directors: ["Lok Yan Ng", "Scott Liu"] },
+      { role: "Human Resources", directors: ["Julian Zheng", "Meghna Sunil"] },
+      { role: "Careers", directors: ["Nik Singh", "Palaash Rawat", "Jack Ting"] },
+      { role: "IT", directors: ["Eric Do", "Raiyan Ahmed"] },
+      { role: "Creative", directors: ["Kelly Pan"] },
+      { role: "Marketing", directors: ["Neal O'Brien", "Leon Kheang"] }
+    ],
+    subcommittee: [
+      {
+        role: "Academics",
+        members: [
+          "Aaron Hu",
+          "Chrisitan Albina",
+          "Jason Zhou",
+          "Marcus Ambler",
+          "Jessica Xu",
+          "Michael Pogrebinsky",
+          "Otto Ohis",
+          "Shuang Wu (William)"
+        ]
+      },
+      {
+        role: "Education",
+        members: [
+          "Gerald Huang",
+          "Isabella Bustos-McNeil",
+          "Jeremy Le",
+          "Matthew Bloomfield",
+          "Roger Yao",
+          "Skye Blair"
+        ]
+      },
+      {
+        role: "Careers",
+        members: [
+          "Andrew Cheung",
+          "Catherine Song",
+          "Eddison Liang",
+          "Emmanuel Aroney",
+          "Hiu Yeung (Jimmy) Chan",
+          "Jospeph Li",
+          "Nicholas Lam",
+          "Nusaibah Hasin Bari"
+        ]
+      },
+      {
+        role: "Human Resources",
+        members: ["Alice Lobo", "Borui Chen", "Caitlin Huang", "Ho Yeung Au", "Kaira Dumasia"]
+      },
+      {
+        role: "Socials",
+        members: [
+          "Edwin Tang",
+          "Hannah Wah Day",
+          "Phoebe Loh",
+          "William Zhang",
+          "Yash Barve",
+          "Yiren Guo"
+        ]
+      },
+      {
+        role: "Creative",
+        members: [
+          "Alex Won-Seok Shim",
+          "Arushi Mittal",
+          "Cindy Zhang",
+          "Lillian Lin",
+          "Neil Nag",
+          "Rachel Bai",
+          "Wujin (Daniel) Kim"
+        ]
+      },
+      {
+        role: "Marketing",
+        members: ["Daniel Cho", "Isaac Lee", "Josh Chen", "Lauren Selby", "Nikki Chen"]
+      },
+      {
+        role: "IT",
+        members: [
+          "Ashley Wong",
+          "Devam Jain",
+          "James Gunawam",
+          "Jeremy Tran",
+          "Martin Knezevic",
+          "Sarah Yan"
+        ]
+      }
+    ]
+  },
   {
     year: 2022,
     execList: [
