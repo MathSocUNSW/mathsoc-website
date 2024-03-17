@@ -20,6 +20,7 @@ import { Executive, ExecutiveRole, PortfolioDetails } from "src/data/portfolioDa
 
 const executiveRoles: ExecutiveRole[] = [
   "President",
+  "Secretary & Vice President of Careers",
   "Secretary",
   "Treasurer",
   "Vice President of Education",
