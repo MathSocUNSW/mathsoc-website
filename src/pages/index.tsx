@@ -43,11 +43,6 @@ const Home: React.FC<EventProps> = ({ events }) => {
             </Typography>
           </WholePageBox>
         </div>
-        <Button
-          text={"First Year Guide"}
-          link={"https://www.unswmathsoc.org/files/resources/misc/mathsoc-firstyearguide.pdf"}
-          color={""}
-        />
         <UpcomingEvents events={events} />
         <RecentEvents events={events} />
         <SponsorsList />
