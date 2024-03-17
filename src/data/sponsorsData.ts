@@ -19,7 +19,7 @@ const rawSponsorsData: sponsor[] = [
   },
   {
     name: "Citadel Securities",
-    type: "principal",
+    type: "major",
     websiteURL: "https://www.citadelsecurities.com/",
     logoPath: "/images/logos/citadel_securities_logo.png",
     description:
@@ -32,6 +32,14 @@ const rawSponsorsData: sponsor[] = [
     logoPath: "/images/logos/flow_traders_logo.png",
     description:
       "Flow Traders is a leading global financial technology-enabled liquidity provider in financial products, historically specialized in Exchange Traded Products (ETPs), now expanding into other asset classes. We are able to grow our organization further, thereby ensuring that our trading desks in Europe, the Americas and Asia provide liquidity across all major exchanges, globally, 24 hours a day. Founded in 2004, we continue to cultivate the entrepreneurial, innovative and team-oriented culture that has been with us since the beginning."
+  },
+  {
+    name: "Quantium",
+    type: "major",
+    websiteURL: "https://quantium.com/",
+    logoPath: "/images/logos/quantium_logo.png",
+    description:
+      "Quantium delivers breakthrough solutions in data and technology. We develop, analyse and monetise datasets, generate insights, create decision support tools and embed automated decision engines. We bring all this to bear in Q, which powers everything we do."
   },
   {
     name: "IMC",
@@ -58,30 +66,6 @@ const rawSponsorsData: sponsor[] = [
       "Optiver is a leading global trading firm, powered by technological innovation. Simply put, we trade options and other financial instruments in 50+ exchanges to improve markets around the world. It's a unique business, with unique challenges. We're a quiet powerhouse of creative problem solving and collaboration. And while we built our successfor more than 35 years, we've deliberately forged a culture that gives our people the opportunity and support to help us make an impact every day. At Optiver, we do things a bit differently to most businesses. We operate without clients, taking risks and reaping the rewards ourselves. We play by our own rules and maintain an informal culture to keep it fun. We’re passionate about empowering individuals and creating diverse teams that thrive. Every person at Optiver should feel included, valued and respected because we believe our best work is done together. We're committed to making the world better every day. This commitment extends to our people, making their lives better through a range of initiatives, benefits and opportunities. We believe the best equipped go furthest."
   },
   {
-    name: "Atlassian",
-    type: "major",
-    websiteURL: "https://www.atlassian.com/",
-    logoPath: "/images/logos/atlassian_logo.png",
-    description:
-      "Armed with a credit card and a dream, two college friends, Mike Cannon-Brookes and Scott Farquhar set out to create Atlassian. In 2002, they didn't know what kind of company Atlassian was going to be, but they knew exactly what it shouldn't be—an environment where they had to conform rather than be who they authentically are."
-  },
-  {
-    name: "DGL",
-    type: "principal",
-    websiteURL: "https://www.dglgroup.com/",
-    logoPath: "/images/logos/dgl_logo.png",
-    description:
-      "Operating in Australia, New Zealand and internationally, DGL Group offers an unparalleled end-to-end supply chain service, including  chemical and industrial formulation and manufacturing, warehousing and distribution, waste management and environmental solutions."
-  },
-  {
-    name: "Akuna Capital",
-    type: "major",
-    websiteURL: "https://akunacapital.com/",
-    logoPath: "/images/logos/akuna_capital_logo.png",
-    description:
-      "Akuna Capital is a proprietary trading firm specializing in derivatives market making and sophisticated modeling with a commitment to cutting-edge technology."
-  },
-  {
     name: "School of Mathematics and Statistics",
     type: "school",
     websiteURL: "https://www.maths.unsw.edu.au/",
@@ -91,7 +75,7 @@ const rawSponsorsData: sponsor[] = [
   },
   {
     name: "SIG Susquehanna",
-    type: "principal",
+    type: "major",
     websiteURL: "https://sig.com/",
     logoPath: "/images/logos/sig_logo.png",
     description:
