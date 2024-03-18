@@ -28,6 +28,18 @@ const executiveRoles: ExecutiveRole[] = [
   "Vice President of Activities",
   "Vice President of Careers"
 ];
+
+const portfolioList: string[] = [
+  "Academics",
+  "Maths Outreach",
+  "Careers",
+  "Socials",
+  "Human Resources",
+  "Marketing",
+  "Creative",
+  "IT"
+];
+
 interface TeamProps {
   executives: Executive[];
   portfolios: PortfolioDetails[];
@@ -36,6 +48,9 @@ interface TeamProps {
 const Team: React.FC<TeamProps> = ({ executives, portfolios }) => {
   executives.sort((a, b) =>
     executiveRoles.indexOf(a.role) < executiveRoles.indexOf(b.role) ? -1 : 1
+  );
+  portfolios.sort((a, b) =>
+    portfolioList.indexOf(a.name) < portfolioList.indexOf(b.name) ? -1 : 1
   );
   return (
     <section>
