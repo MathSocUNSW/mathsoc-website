@@ -21,6 +21,7 @@ export interface Executive {
 export interface PortfolioDetails {
   name:
     | "Academics"
+    | "Maths Outreach"
     | "Education"
     | "Careers"
     | "Socials"
