@@ -53,7 +53,6 @@ const navLinks: navLink[] = [
       { name: "MATLAB Guide", subRoute: "/matlab", useRelativeRoute: true },
       { name: "R Guide", subRoute: "/r", useRelativeRoute: true },
       { name: "Applications", subRoute: "/applications", useRelativeRoute: false },
-      { name: "Careers Advice", subRoute: "/careers", useRelativeRoute: true },
       {
         name: "First Year Guide",
         subRoute: "/files/resources/misc/mathsoc-firstyearguide.pdf",
