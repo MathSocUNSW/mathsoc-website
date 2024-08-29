@@ -40,30 +40,12 @@ const navLinks: navLink[] = [
     dropdown: [],
     mobileOnly: false
   },
-  // TODO: use resourceData
+
+  // You can actually just add an entire link and it will work (thanks alvin)
   {
     name: "Resources",
-    route: "/resources",
-    dropdown: [
-      { name: "Our Resources", subRoute: "/", useRelativeRoute: true },
-      { name: "First Year Exam Bank", subRoute: "/exam-bank", useRelativeRoute: true },
-      { name: "Revision Lectures", subRoute: "/revision", useRelativeRoute: true },
-      { name: "Revision Sheets", subRoute: "/sheets", useRelativeRoute: true },
-      { name: "LaTeX Guide", subRoute: "/latex", useRelativeRoute: true },
-      { name: "MATLAB Guide", subRoute: "/matlab", useRelativeRoute: true },
-      { name: "R Guide", subRoute: "/r", useRelativeRoute: true },
-      { name: "Applications", subRoute: "/applications", useRelativeRoute: false },
-      {
-        name: "First Year Guide",
-        subRoute: "/files/resources/misc/mathsoc-firstyearguide.pdf",
-        useRelativeRoute: false
-      },
-      {
-        name: "HSC Tips & Tricks",
-        subRoute: "/files/resources/misc/HSC-Tips-and-Tricks-Booklet-2019.pdf",
-        useRelativeRoute: false
-      }
-    ],
+    route: "https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96?usp=sharing",
+    dropdown: [],
     mobileOnly: false
   },
   {
