@@ -28,7 +28,7 @@ const navLinks: navLink[] = [
       { name: "Join Us", subRoute: "/join", useRelativeRoute: true },
       {
         name: "Constitution",
-        subRoute: "/files/general/Constitution-and-GRPP-2023.pdf",
+        subRoute: "/files/general/UNSW-Mathematics-Society-Constitution_2025.pdf",
         useRelativeRoute: false
       }
     ],
