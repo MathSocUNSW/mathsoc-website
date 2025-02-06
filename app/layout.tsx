@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin" ]});
 
 export const metadata: Metadata = {
-    title: "UNSW Mathematics Society",
-    description: "",
+    title: "UNSW MathSoc",
+    description: "The UNSW Mathematics Society",
 };
 
 export default function RootLayout({

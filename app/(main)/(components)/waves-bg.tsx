@@ -15,7 +15,7 @@ import React, { useEffect } from 'react';
       width: 100,
       hue: [11, 14],
       amplitude: 0.5,
-      background: true,
+      background: false,
       preload: true,
       speed: [0.004, 0.008],
       debug: false,

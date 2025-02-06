@@ -1,3 +1,4 @@
+import { Footer } from "./(components)/footer";
 import { Navbar } from "./(components)/navbar";
 
 const MainLayout = ({
@@ -11,6 +12,7 @@ const MainLayout = ({
             <main className="h-full">
                 {children}
             </main>
+            <Footer />
         </div>
     )
 }
