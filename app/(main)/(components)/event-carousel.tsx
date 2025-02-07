@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";                // Adjust path if needed
+import Autoplay from "embla-carousel-autoplay"
 
 // Skeleton loader for event cards
 const SkeletonCard = () => (
@@ -32,6 +33,9 @@ const SkeletonCard = () => (
 export default function EventCarousel() {
   const [events, setEvents] = useState<EventDetails[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
 
   useEffect(() => {
     (async () => {
@@ -48,10 +52,9 @@ export default function EventCarousel() {
 
   if (isLoading) {
     return (
-      <div className="container max-w-screen-xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <div className="w-screen overflow-visible py-8 relative">
         <Carousel opts={{ loop: true, slidesToScroll: 1 }}>
-          {/* Use flex and items-stretch to ensure all items match height */}
-          <CarouselContent className="flex items-stretch">
+          <CarouselContent className="flex items-stretch overflow-visible">
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem
                 key={index}
@@ -61,7 +64,6 @@ export default function EventCarousel() {
                   md:basis-1/2
                   lg:basis-1/3
                   xl:basis-1/4
-                  px-4
                   py-4
                   flex
                 "
@@ -71,10 +73,9 @@ export default function EventCarousel() {
             ))}
           </CarouselContent>
 
-          <div className="flex justify-between mt-4">
-            <CarouselPrevious className="mx-2" />
-            <CarouselNext className="mx-2" />
-          </div>
+          {/* Ensure buttons are inside Carousel but still absolutely positioned */}
+          <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10" />
+          <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10" />
         </Carousel>
       </div>
     );
@@ -93,10 +94,14 @@ export default function EventCarousel() {
   }
 
   return (
-    <div className="container max-w-screen-xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-      <Carousel opts={{ loop: true, slidesToScroll: 1 }}>
-        {/* Again, ensure we use items-stretch here */}
-        <CarouselContent className="flex items-stretch">
+    <div className="w-screen overflow-visible py-8 relative">
+      <Carousel
+        plugins={[plugin.current]}
+        opts={{ loop: true, slidesToScroll: 1 }}
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current?.play}
+      >
+        <CarouselContent className="flex items-stretch overflow-visible">
           {futureEvents.map((event, index) => (
             <CarouselItem
               key={index}
@@ -106,7 +111,6 @@ export default function EventCarousel() {
                 md:basis-1/2
                 lg:basis-1/3
                 xl:basis-1/4
-                px-4
                 py-4
                 flex
               "
@@ -154,10 +158,9 @@ export default function EventCarousel() {
           ))}
         </CarouselContent>
 
-        <div className="flex justify-between mt-4">
-          <CarouselPrevious className="mx-2" />
-          <CarouselNext className="mx-2" />
-        </div>
+        {/* Ensure buttons are inside Carousel but still absolutely positioned */}
+        <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10" />
+        <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10" />
       </Carousel>
     </div>
   );
