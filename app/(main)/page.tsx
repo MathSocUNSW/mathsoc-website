@@ -236,6 +236,12 @@ export default function Home() {
               tier: "minor",
               link: "https://www.flowtraders.com/",
             },
+            {
+              name: "UNSW School of Mathematics and Statistics",
+              src: "/images/logos/unswmaths_white.png",
+              tier: "minor",
+              link: "https://www.unsw.edu.au/science/our-schools/maths",
+            }
           ].map((sponsor, index) => {
             let width, height;
             switch (sponsor.tier) {
