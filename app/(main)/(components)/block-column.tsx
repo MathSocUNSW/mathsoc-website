@@ -21,7 +21,7 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
   buttonLink,
 }) => {
   return (
-    <div className="flex items-center justify-center min-h-screen px-4 sm:px-8 md:px-12 py-16 sm:py-24">
+    <div className="flex items-center justify-center px-4 sm:px-8 md:px-12 py-8 sm:py-12">
       <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-5xl">
         {image && imagePosition === "left" && (
           <div className="w-full md:w-1/2 rounded-lg overflow-hidden">
@@ -40,7 +40,6 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
           <h1 className="text-3xl font-bold text-white mb-6">{heading}</h1>
           <p className="text-white text-lg mb-6">{content}</p>
 
-          {/* Conditionally Render shadcn Button */}
           {buttonText && buttonLink && (
             <Link href={buttonLink} passHref>
               <Button className="mt-6 w-full sm:w-auto px-6 py-3 rounded-full text-lg">

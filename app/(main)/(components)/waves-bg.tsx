@@ -9,8 +9,8 @@ import React, { useEffect } from 'react';
   (window as any).Waves = function (holder: string, options: any) {
     const Waves: any = this;
     Waves.options = extend(options || {}, {
-      resize: false,
-      rotation: 45,
+      resize: true,
+      rotation: 45, // Default rotation value
       waves: 5,
       width: 100,
       hue: [11, 14],
@@ -96,7 +96,7 @@ import React, { useEffect } from 'react';
     const Waves = this;
     const ctx = Waves.ctx;
     const gradient = Waves.ctx.createLinearGradient(0, 0, 0, Waves.height);
-    gradient.addColorStop(0, '#000');
+    gradient.addColorStop(0, '#020817');
     gradient.addColorStop(1, Waves.color);
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, Waves.width, Waves.height);
@@ -168,7 +168,7 @@ import React, { useEffect } from 'react';
     const radius3 = radius / 3;
     const x = Waves.centerX;
     const y = Waves.centerY;
-    const rotation = dtr(Waves.options.rotation);
+    const rotation = dtr(Waves.options.rotation); // Rotation is now controlled by the prop
     const amplitude = Waves.options.amplitude;
     const debug = Waves.options.debug;
     const Lines = Wave.Lines;
@@ -264,16 +264,17 @@ import React, { useEffect } from 'react';
   }
 })();
 
-const Wave: React.FC<{ containerId?: string }> = ({ containerId = "wave-holder" }) => {
+const Wave: React.FC<{ containerId?: string, rotation?: number }> = ({ containerId = "wave-holder", rotation = 45 }) => {
   useEffect(() => {
     const Waves = (window as any).Waves;
     if (!Waves) return;
     const waves = new Waves(`#${containerId}`, {
       waves: 3,
       width: 200,
+      rotation: rotation,  // Pass rotation here
     });
     waves.animate();
-  }, [containerId]);
+  }, [containerId, rotation]);
 
   return (
     <div
