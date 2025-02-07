@@ -67,7 +67,14 @@ export default function Home() {
   return (
     <div className="relative w-full">
       {/* HERO SECTION */}
-      <div className="relative w-full h-screen flex items-center justify-center px-6 sm:px-12 lg:px-16">
+      <motion.section
+        // Fade + slide up as it enters the viewport
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full h-screen flex items-center justify-center px-6 sm:px-12 lg:px-16"
+      >
         {/* First Wave */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -119,20 +126,32 @@ export default function Home() {
             </Link>
           </div>
         </motion.div>
-      </div>
+      </motion.section>
 
       {/* COMMUNITY SECTION */}
-      <div className="relative w-full py-8 sm:py-12 flex justify-center px-6 sm:px-12 lg:px-16">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full py-8 sm:py-12 flex justify-center px-6 sm:px-12 lg:px-16"
+      >
         <BlockColumn
           heading="Building Community, Careers, and Academic Excellence"
           content="UNSW Mathematics Society (MathSoc) is the constituent society of the UNSW School of Mathematics and Statistics, with membership open to anyone with an interest in mathematics. We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 3000 members, we are one of the largest societies at UNSW."
           image="/images/photos/bod.webp"
           imagePosition="right"
         />
-      </div>
+      </motion.section>
 
       {/* EVENTS SECTION */}
-      <div className="relative w-full min-h-[500px] py-16 sm:py-20 flex flex-col items-center px-6 sm:px-12 lg:px-16">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full min-h-[500px] py-16 sm:py-20 flex flex-col items-center px-6 sm:px-12 lg:px-16"
+      >
         <div className="w-full flex justify-center py-12 z-10">
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl w-full">
             {stats.map(({ icon: Icon, value, label }, index) => (
@@ -149,10 +168,16 @@ export default function Home() {
         <h2 className="text-4xl font-bold text-center mb-8 z-10">Upcoming Events</h2>
         <Wave containerId="holder2" rotation={135} />
         <EventCarousel />
-      </div>
+      </motion.section>
 
       {/* SPONSORED BY SECTION */}
-      <div className="relative w-full flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-16">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-16"
+      >
         <h2 className="text-3xl font-bold text-center">Sponsored By</h2>
         <motion.div
           className="
@@ -215,7 +240,7 @@ export default function Home() {
             let width, height;
             switch (sponsor.tier) {
               case "principal":
-                width = 500; // Larger size
+                width = 500; 
                 height = 150;
                 break;
               case "major":
@@ -249,10 +274,16 @@ export default function Home() {
             );
           })}
         </motion.div>
-      </div>
+      </motion.section>
 
       {/* CTA SECTION */}
-      <div className="relative w-full min-h-[400px] flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-20">
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full min-h-[400px] flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-20"
+      >
         <Wave containerId="holder3" />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -279,7 +310,7 @@ export default function Home() {
             </Link>
           </SymbolExplosion>
         </motion.div>
-      </div>
+      </motion.section>
     </div>
   );
 }
