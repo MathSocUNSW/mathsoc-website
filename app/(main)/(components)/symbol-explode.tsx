@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const MATH_SYMBOLS = ["+", "-", "×", "÷", "∫", "Σ", "∞", "√", "∂", "π", "μ"];
 
-function SymbolExplosion({ children }) {
+function SymbolExplosion({ children, explosionDelay = 1250 }) {
   const [particles, setParticles] = useState([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasExplodedOnView, setHasExplodedOnView] = useState(false);
@@ -39,7 +39,7 @@ function SymbolExplosion({ children }) {
 
   // ------------------------------------------
   // Explode *once* when first scrolled into view,
-  // with a delay of 2 seconds.
+  // with a customizable delay.
   // ------------------------------------------
   useEffect(() => {
     const node = containerRef.current;
@@ -49,27 +49,23 @@ function SymbolExplosion({ children }) {
       (entries) => {
         const [entry] = entries;
         if (entry.isIntersecting && !hasExplodedOnView) {
-          // Delay the explosion by 2 seconds
           setTimeout(() => {
             handleExplosion();
             setHasExplodedOnView(true);
 
-            // If we only want a single explosion per mount,
-            // unobserve the element so it doesn't trigger again
+            // Stop observing after first explosion
             observer.unobserve(node);
-          }, 1250);
+          }, explosionDelay);
         }
       },
-      {
-        threshold: 0.1,
-      }
+      { threshold: 0.1 }
     );
 
     observer.observe(node);
     return () => {
       observer.disconnect();
     };
-  }, [hasExplodedOnView]);
+  }, [hasExplodedOnView, explosionDelay]);
 
   return (
     <div

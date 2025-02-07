@@ -64,11 +64,26 @@ const Counter = ({ target }) => {
 };
 
 export default function Home() {
+  const fullText = "Solving Today. Defining Tomorrow.";
+  const [typedText, setTypedText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const typingSpeed = 50; // Speed in milliseconds per letter
+
+  useEffect(() => {
+    if (currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setTypedText((prev) => prev + fullText[currentIndex]);
+        setCurrentIndex((prevIndex) => prevIndex + 1);
+      }, typingSpeed);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, fullText]);
+  
   return (
     <div className="relative w-full">
       {/* HERO SECTION */}
       <motion.section
-        // Fade + slide up as it enters the viewport
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -85,18 +100,32 @@ export default function Home() {
           <Wave containerId="holder1" rotation={45} />
         </motion.div>
 
-        {/* Hero Content (e.g., Title and Buttons) */}
+        {/* Hero Content (Typing Animation) */}
         <motion.div
-          className="relative flex flex-col sm:flex-row items-center max-w-6xl w-full mx-auto px-6 sm:px-12 lg:px-16"
+          className="relative flex flex-col sm:flex-row items-center max-w-6xl w-full mx-auto px-6 sm:px-12 lg:px-16 text-center sm:text-left"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
         >
-          <h1 className="text-white text-5xl sm:text-6xl font-bold max-w-lg text-center sm:text-left">
-            Solving Today. Defining Tomorrow.
-          </h1>
-          <div className="flex gap-4 mt-6 sm:mt-0 sm:ml-8">
-            <SymbolExplosion>
+          <motion.h1
+            className="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-lg text-wrap"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+          >
+            {typedText}
+            {currentIndex < fullText.length && (
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ repeat: Infinity, duration: 0.8 }}
+              >
+                |
+              </motion.span>
+            )}
+          </motion.h1>
+
+          <div className="flex flex-wrap gap-4 mt-6 sm:mt-0 sm:ml-8 justify-center sm:justify-start">
+            <SymbolExplosion explosionDelay={2500}>
               <Link
                 href="https://member.arc.unsw.edu.au/members/s/clubdetail?clubid=0016F0000371VyZQAU"
                 passHref
@@ -104,7 +133,7 @@ export default function Home() {
                 <Button
                   variant="default"
                   className="
-                    px-6 py-3 rounded-full text-lg 
+                    w-full sm:w-auto px-6 py-3 rounded-full text-lg 
                     hover:bg-gray-400 
                     transition-transform hover:scale-105 active:scale-95
                   "
@@ -117,7 +146,7 @@ export default function Home() {
               <Button
                 variant="secondary"
                 className="
-                  px-6 py-3 rounded-full text-lg
+                  w-full sm:w-auto px-6 py-3 rounded-full text-lg
                   transition-transform hover:scale-105 active:scale-95
                 "
               >
@@ -126,6 +155,7 @@ export default function Home() {
             </Link>
           </div>
         </motion.div>
+
       </motion.section>
 
       {/* COMMUNITY SECTION */}
@@ -303,7 +333,7 @@ export default function Home() {
           <p className="text-lg text-gray-200 mt-12 text-center">
             Interact with a community of students passionate about mathematics and problem-solving through career, social, and academic events.
           </p>
-          <SymbolExplosion>
+          <SymbolExplosion explosionDelay={1000}>
             <Link href="/contact" passHref>
               <Button
                 variant="default"
