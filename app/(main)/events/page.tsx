@@ -14,7 +14,7 @@ const Events: React.FC = async () => {
       </div>
 
       {/* Render the event carousel */}
-      <EventCarousel events={events} />
+      <EventCarousel />
     </section>
   );
 };

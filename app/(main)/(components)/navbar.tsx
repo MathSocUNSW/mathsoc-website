@@ -80,12 +80,12 @@ export const Navbar = () => {
                                 priority
                             />
                         </Link>
-                        <Link href="/about" className="hover:underline">About</Link>
-                        <Link href="/events" className="hover:underline">Events</Link>
-                        <Link href="https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96" className="hover:underline">Resources</Link>
-                        <Link href="/sponsors" className="hover:underline">Sponsors</Link>
-                        <Link href="/contact-us" className="hover:underline">Contact Us</Link>
-                        <Link href="https://unswmathsoc.square.site/" className="hover:underline">
+                        <Link href="/about" className="hover:text-[#2390c6]">About</Link>
+                        <Link href="/events" className="hover:text-[#2390c6]">Events</Link>
+                        <Link href="https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96" className="hover:text-[#2390c6]">Resources</Link>
+                        <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
+                        <Link href="/contact-us" className="hover:text-[#2390c6]">Contact Us</Link>
+                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6]">
                             <ShoppingBag />
                         </Link>
                     </div>

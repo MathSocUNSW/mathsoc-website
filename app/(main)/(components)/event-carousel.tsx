@@ -1,18 +1,60 @@
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
-import { EventDetails } from "../(data)/evenData"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+"use client";
 
-interface EventCarouselProps {
-  events: EventDetails[];
-}
+import React, { useEffect, useState } from "react";
+import { EventDetails } from "../(data)/evenData"; // Adjust path
+import { fetchEvents } from "../../../lib/api";   // Adjust path to your API fetch
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";                // Adjust path if needed
 
-const EventCarousel: React.FC<EventCarouselProps> = ({ events }) => {
-  // Filter events to include only those in the future
-  const futureEvents = events.filter(event => new Date(event.startTime).getTime() > Date.now());
+export default function EventCarousel() {
+  // Local state for events and loading indicator
+  const [events, setEvents] = useState<EventDetails[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch events on component mount (client-side)
+  useEffect(() => {
+    (async () => {
+      try {
+        const data = await fetchEvents();
+        setEvents(data);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
+  // Loading state
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center py-8">
+        <p className="text-white text-lg">Loading events...</p>
+      </div>
+    );
+  }
+
+  // Filter events for only those in the future
+  const futureEvents = events.filter(
+    (event) => new Date(event.startTime).getTime() > Date.now()
+  );
+
+  // If no future events, show a message
+  if (futureEvents.length === 0) {
+    return (
+      <div className="flex justify-center items-center py-8">
+        <p className="text-white text-lg">No upcoming events found.</p>
+      </div>
+    );
+  }
 
   return (
-    <div className="w-full py-8 px-48">
+    <div className="w-full py-8 px-12">
       <Carousel
         opts={{
           loop: true,
@@ -21,16 +63,21 @@ const EventCarousel: React.FC<EventCarouselProps> = ({ events }) => {
       >
         <CarouselContent>
           {futureEvents.map((event, index) => (
-            <CarouselItem className="basis-1/3 px-2" key={index}> {/* Adjusted basis and added px-2 for reduced spacing */}
+            <CarouselItem key={index} className="basis-1/3 px-6">
               <div className="flex justify-center">
                 <div className="max-w-xs rounded-lg shadow-lg bg-white overflow-hidden">
+                  {/* Event Image */}
                   <img
                     src={event.eventImage}
                     alt={event.imageDescription}
                     className="w-full h-56 object-cover rounded-t-lg"
                   />
+
+                  {/* Card Body */}
                   <div className="p-6">
-                    <h3 className="text-xl text-black font-semibold mb-2">{event.eventName}</h3>
+                    <h3 className="text-xl text-black font-semibold mb-2">
+                      {event.eventName}
+                    </h3>
                     <p className="text-sm text-gray-600 mb-2">
                       {event.locationLabel || "Location not specified"}
                     </p>
@@ -52,18 +99,12 @@ const EventCarousel: React.FC<EventCarouselProps> = ({ events }) => {
           ))}
         </CarouselContent>
 
-        <div className="flex justify-between mt-4"> {/* Added flex container for better button alignment */}
-          <CarouselPrevious className="mx-2"> {/* Reduced margin between buttons */}
-            <ArrowLeft className="h-4 w-4" />
-          </CarouselPrevious>
-
-          <CarouselNext className="mx-2"> {/* Reduced margin between buttons */}
-            <ArrowRight className="h-4 w-4" />
-          </CarouselNext>
+        {/* Next/Previous buttons */}
+        <div className="flex justify-between mt-4">
+          <CarouselPrevious className="mx-2" />
+          <CarouselNext className="mx-2" />
         </div>
       </Carousel>
     </div>
   );
 }
-
-export default EventCarousel;

@@ -10,30 +10,30 @@ export const Footer = () => {
                 <div className="mb-4 md:mb-0 w-full md:w-auto md:flex-1">
                     <h4 className="text-lg font-bold mb-2">Quick Links</h4>
                     <nav className="flex flex-col space-y-2">
-                        <Link href="/about" className="hover:underline">About</Link>
-                        <Link href="/events" className="hover:underline">Events</Link>
-                        <Link href="/resources" className="hover:underline">Resources</Link>
-                        <Link href="/sponsors" className="hover:underline">Sponsors</Link>
-                        <Link href="/contact-us" className="hover:underline">Contact Us</Link>
+                        <Link href="/about" className="hover:text-[#2390c6]">About</Link>
+                        <Link href="/events" className="hover:text-[#2390c6]">Events</Link>
+                        <Link href="/resources" className="hover:text-[#2390c6]">Resources</Link>
+                        <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
+                        <Link href="/contact-us" className="hover:text-[#2390c6]">Contact Us</Link>
                     </nav>
                 </div>
                 <div className="mb-4 md:mb-0">
                     <h4 className="text-lg font-bold mb-2">Follow Us</h4>
                     <div className="flex space-x-4">
                         <a href="https://www.facebook.com/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                            <FaFacebook className="h-6 w-6 hover:text-gray-400" />
+                            <FaFacebook className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
                         <a href="https://www.instagram.com/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                            <FaInstagram className="h-6 w-6 hover:text-gray-400" />
+                            <FaInstagram className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
                         <a href="https://www.tiktok.com/@unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                            <FaTiktok className="h-6 w-6 hover:text-gray-400" />
+                            <FaTiktok className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
                         <a href="https://discord.com/invite/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                            <FaDiscord className="h-6 w-6 hover:text-gray-400" />
+                            <FaDiscord className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
                         <a href="https://www.linkedin.com/company/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                            <FaLinkedin className="h-6 w-6 hover:text-gray-400" />
+                            <FaLinkedin className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
                     </div>
                 </div>

@@ -264,20 +264,20 @@ import React, { useEffect } from 'react';
   }
 })();
 
-const Wave: React.FC = () => {
+const Wave: React.FC<{ containerId?: string }> = ({ containerId = "wave-holder" }) => {
   useEffect(() => {
     const Waves = (window as any).Waves;
     if (!Waves) return;
-    const waves = new Waves('#holder', {
+    const waves = new Waves(`#${containerId}`, {
       waves: 3,
       width: 200,
     });
     waves.animate();
-  }, []);
+  }, [containerId]);
 
   return (
     <div
-      id="holder"
+      id={containerId}
       style={{
         position: 'absolute',
         top: 0,
