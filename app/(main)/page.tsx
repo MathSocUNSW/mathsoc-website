@@ -299,7 +299,7 @@ export default function Home() {
           className="relative z-10 text-center max-w-3xl"
         >
           <h2 className="text-4xl font-bold text-white">Partner with Us</h2>
-          <p className="text-lg text-gray-200 mt-4 text-center">
+          <p className="text-lg text-gray-200 mt-12 text-center">
             Interact with a community of students passionate about mathematics and problem-solving through career, social, and academic events.
           </p>
           <SymbolExplosion>
@@ -307,7 +307,7 @@ export default function Home() {
               <Button
                 variant="default"
                 className="
-                  mt-6 px-8 py-3 rounded-full text-lg
+                  mt-12 px-8 py-3 rounded-full text-lg
                   transition-transform hover:scale-105 active:scale-95
                 "
               >
