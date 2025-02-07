@@ -187,6 +187,7 @@ export default function Home() {
             gap-8
             justify-center
             items-center
+            mb-20
           "
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
