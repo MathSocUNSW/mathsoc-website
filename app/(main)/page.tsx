@@ -138,7 +138,7 @@ export default function Home() {
       >
         <BlockColumn
           heading="Building Community, Careers, and Academic Excellence"
-          content="UNSW Mathematics Society (MathSoc) is the constituent society of the UNSW School of Mathematics and Statistics, with membership open to anyone with an interest in mathematics. We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 3000 members, we are one of the largest societies at UNSW."
+          content="UNSW Mathematics Society (MathSoc) is the constituent society of the UNSW School of Mathematics and Statistics, with membership open to anyone with an interest in mathematics. We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
           image="/images/photos/bod.webp"
           imagePosition="right"
         />
@@ -165,7 +165,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <h2 className="text-4xl font-bold text-center mb-8 z-10">Upcoming Events</h2>
+        <h2 className="text-4xl font-bold text-center mt-32 mb-8 z-10">Upcoming Events</h2>
         <Wave containerId="holder2" rotation={135} />
         <EventCarousel />
       </motion.section>

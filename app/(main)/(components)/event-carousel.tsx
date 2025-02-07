@@ -13,13 +13,13 @@ import {
 
 // Skeleton loader for event cards
 const SkeletonCard = () => (
-  <div className="flex justify-center">
-    <div className="w-full max-w-xs rounded-lg shadow-lg bg-white overflow-hidden animate-pulse">
-      {/* Event Image Skeleton */}
-      <div className="w-full h-56 bg-gray-300 rounded-t-lg"></div>
+  <div className="flex justify-center h-full">
+    <div className="w-full max-w-md h-full rounded-lg shadow-lg bg-white overflow-hidden animate-pulse flex flex-col">
+      {/* Event Image Skeleton (fixed height for consistency) */}
+      <div className="w-full h-48 bg-gray-300"></div>
 
-      {/* Card Body Skeleton */}
-      <div className="p-6 space-y-4">
+      {/* Card Body Skeleton fills the remaining space */}
+      <div className="p-6 flex-grow space-y-4">
         <div className="h-4 bg-gray-300 rounded w-3/4"></div>
         <div className="h-3 bg-gray-300 rounded w-1/2"></div>
         <div className="h-3 bg-gray-300 rounded w-1/3"></div>
@@ -30,11 +30,9 @@ const SkeletonCard = () => (
 );
 
 export default function EventCarousel() {
-  // Local state for events and loading
   const [events, setEvents] = useState<EventDetails[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch events on mount (client-side)
   useEffect(() => {
     (async () => {
       try {
@@ -48,23 +46,24 @@ export default function EventCarousel() {
     })();
   }, []);
 
-  // Loading state
   if (isLoading) {
     return (
       <div className="container max-w-screen-xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
         <Carousel opts={{ loop: true, slidesToScroll: 1 }}>
-          <CarouselContent>
+          {/* Use flex and items-stretch to ensure all items match height */}
+          <CarouselContent className="flex items-stretch">
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem
                 key={index}
                 className="
                   w-full
-                  sm:basis-1/2
-                  md:basis-1/3
-                  lg:basis-1/4
-                  xl:basis-1/5
+                  sm:basis-1/1
+                  md:basis-1/2
+                  lg:basis-1/3
+                  xl:basis-1/4
                   px-4
                   py-4
+                  flex
                 "
               >
                 <SkeletonCard />
@@ -72,7 +71,6 @@ export default function EventCarousel() {
             ))}
           </CarouselContent>
 
-          {/* Next/Previous buttons */}
           <div className="flex justify-between mt-4">
             <CarouselPrevious className="mx-2" />
             <CarouselNext className="mx-2" />
@@ -82,12 +80,10 @@ export default function EventCarousel() {
     );
   }
 
-  // Filter future events
   const futureEvents = events.filter(
     (event) => new Date(event.startTime).getTime() > Date.now()
   );
 
-  // If no future events, show a message
   if (futureEvents.length === 0) {
     return (
       <div className="flex justify-center items-center py-8">
@@ -99,18 +95,20 @@ export default function EventCarousel() {
   return (
     <div className="container max-w-screen-xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       <Carousel opts={{ loop: true, slidesToScroll: 1 }}>
-        <CarouselContent>
+        {/* Again, ensure we use items-stretch here */}
+        <CarouselContent className="flex items-stretch">
           {futureEvents.map((event, index) => (
             <CarouselItem
               key={index}
               className="
                 w-full
-                sm:basis-1/2
-                md:basis-1/3
-                lg:basis-1/4
-                xl:basis-1/5
+                sm:basis-1/1
+                md:basis-1/2
+                lg:basis-1/3
+                xl:basis-1/4
                 px-4
                 py-4
+                flex
               "
             >
               <a
@@ -124,18 +122,22 @@ export default function EventCarousel() {
                   hover:scale-105
                   active:scale-95
                   cursor-pointer
+                  w-full
                 "
               >
-                <div className="w-full max-w-xs mx-auto rounded-lg shadow-lg bg-white overflow-hidden">
-                  {/* Event Image */}
-                  <img
-                    src={event.eventImage}
-                    alt={event.imageDescription}
-                    className="w-full h-auto object-cover rounded-t-lg"
-                  />
+                {/* Card container with full height & flex layout */}
+                <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg bg-white overflow-hidden flex flex-col">
+                  {/* Event Image (fixed height for uniformity) */}
+                  <div className="relative w-full h-48">
+                    <img
+                      src={event.eventImage}
+                      alt={event.imageDescription}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  </div>
 
-                  {/* Card Body */}
-                  <div className="p-6">
+                  {/* Card body expands to fill remaining space */}
+                  <div className="p-6 flex-grow flex flex-col">
                     <h3 className="text-xl text-black font-semibold mb-2">
                       {event.eventName}
                     </h3>
@@ -152,7 +154,6 @@ export default function EventCarousel() {
           ))}
         </CarouselContent>
 
-        {/* Next/Previous buttons */}
         <div className="flex justify-between mt-4">
           <CarouselPrevious className="mx-2" />
           <CarouselNext className="mx-2" />
