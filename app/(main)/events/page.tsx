@@ -9,11 +9,11 @@ import Wave from "../(components)/waves-bg"; // Import the Wave component
 
 const Events: React.FC = () => {
   const [events, setEvents] = useState<EventDetails[]>([]);
-  const [containerHeight, setContainerHeight] = useState(1000); // Default height to prevent 0px issue
+  const [containerHeight, setContainerHeight] = useState(1000); // Default height
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Fetch events when the component mounts
   useEffect(() => {
-    // Fetch events and update state
     const loadEvents = async () => {
       const fetchedEvents = await fetchEvents();
       setEvents(fetchedEvents);
@@ -21,22 +21,27 @@ const Events: React.FC = () => {
     loadEvents();
   }, []);
 
+  // ResizeObserver to dynamically track height changes
   useEffect(() => {
     const updateHeight = () => {
       if (containerRef.current) {
         const newHeight = containerRef.current.scrollHeight;
+        console.log("Updated Page Height:", newHeight);
         setContainerHeight(newHeight);
       }
     };
 
-    // Observe size changes instead of just content changes
+    // Observe the container's height changes
     const resizeObserver = new ResizeObserver(updateHeight);
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current);
     }
 
+    // Initial update when events are populated
+    setTimeout(updateHeight, 0);
+
     return () => resizeObserver.disconnect();
-  }, [events]); // Recalculate when events load
+  }, [events]); // Runs whenever events change
 
   return (
     <section ref={containerRef} className="relative w-full min-h-screen">
