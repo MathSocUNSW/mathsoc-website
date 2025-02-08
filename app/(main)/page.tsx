@@ -100,6 +100,7 @@ export default function Home() {
           <Wave containerId="holder1" rotation={45} />
         </motion.div>
 
+        {/* TODO FIX THE SPACING ON THE TEXT SUCH THAT SOLVING TODAY IS ON ONE LINE AND DEFINING TOMORROW IS ON THE OTHER */}
         {/* Hero Content (Typing Animation) */}
         <motion.div
           className="relative flex flex-col sm:flex-row items-center max-w-6xl w-full mx-auto px-6 sm:px-12 lg:px-16 text-center sm:text-left"
@@ -108,7 +109,7 @@ export default function Home() {
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
         >
           <motion.h1
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-bold max-w-lg text-wrap"
+            className="text-white text-2xl text-center sm:text-5xl md:text-4xl font-bold max-w-lg text-wrap"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
@@ -168,7 +169,7 @@ export default function Home() {
       >
         <BlockColumn
           heading="Building Community, Careers, and Academic Excellence"
-          content="UNSW Mathematics Society (MathSoc) is the constituent society of the UNSW School of Mathematics and Statistics, with membership open to anyone with an interest in mathematics. We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
+          content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
           image="/images/photos/bod.webp"
           imagePosition="right"
         />
@@ -182,6 +183,7 @@ export default function Home() {
         viewport={{ once: true }}
         className="relative w-full min-h-[500px] py-16 sm:py-20 flex flex-col items-center px-6 sm:px-12 lg:px-16"
       >
+        <h2 className="text-2xl font-bold z-10 text-center">Our Impact in Numbers</h2>
         <div className="w-full flex justify-center py-12 z-10">
           <div className="flex flex-wrap justify-center gap-12 max-w-4xl w-full">
             {stats.map(({ icon: Icon, value, label }, index) => (
@@ -190,7 +192,7 @@ export default function Home() {
                 <p className="text-3xl font-bold mt-2">
                   <Counter target={value} />
                 </p>
-                <p className="text-gray-700 text-lg">{label}</p>
+                <p className="text-white text-lg">{label}</p>
               </div>
             ))}
           </div>

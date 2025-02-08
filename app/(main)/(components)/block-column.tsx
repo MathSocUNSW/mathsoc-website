@@ -37,8 +37,8 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
         )}
 
         <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl font-bold text-white mb-6">{heading}</h1>
-          <p className="text-white text-lg mb-6">{content}</p>
+          <h1 className="text-3xl font-bold text-center text-white mb-6">{heading}</h1>
+          <p className="text-white text-center text-xl mb-6">{content}</p>
 
           {buttonText && buttonLink && (
             <Link href={buttonLink} passHref>
