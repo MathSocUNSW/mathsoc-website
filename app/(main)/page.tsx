@@ -63,23 +63,7 @@ const Counter = ({ target }) => {
   return <span ref={counterRef}>{count.toLocaleString()}+</span>;
 };
 
-export default function Home() {
-  const fullText = "Solving Today. Defining Tomorrow.";
-  const [typedText, setTypedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const typingSpeed = 50; // Speed in milliseconds per letter
-
-  useEffect(() => {
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setTypedText((prev) => prev + fullText[currentIndex]);
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, typingSpeed);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText]);
-  
+export default function Home() {  
   return (
     <div className="relative w-full">
     {/* HERO SECTION */}
@@ -119,7 +103,7 @@ export default function Home() {
 
           {/* Buttons Positioned Below Text */}
           <div className="flex flex-wrap gap-4 mt-6 justify-center">
-            <SymbolExplosion explosionDelay={2500}>
+            <SymbolExplosion explosionDelay={1250}>
               <Link
                 href="https://member.arc.unsw.edu.au/members/s/clubdetail?clubid=0016F0000371VyZQAU"
                 passHref

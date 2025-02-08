@@ -6,7 +6,7 @@ import { fetchEvents } from "../../../lib/api";   // Adjust path to your API fet
 
 // Skeleton loader for event cards
 const SkeletonCard = () => (
-  <div className="w-full max-w-md h-full rounded-lg shadow-lg bg-white overflow-hidden animate-pulse flex flex-col">
+  <div className="w-full max-w-md h-full rounded-lg shadow-lg bg-gray-700 opacity-90 ite overflow-hidden animate-pulse flex flex-col">
     <div className="w-full h-48 bg-gray-300"></div>
     <div className="p-6 flex-grow space-y-4">
       <div className="h-4 bg-gray-300 rounded w-3/4"></div>
@@ -65,7 +65,7 @@ export default function PastEventsGrid() {
         {pastEvents.map((event, index) => (
           <div
             key={index}
-            className="w-full max-w-md mx-auto rounded-lg shadow-lg bg-white overflow-hidden flex flex-col transform transition-transform hover:scale-105 active:scale-95"
+            className="w-full max-w-md mx-auto rounded-lg shadow-lg bg-gray-700 opacity-90 overflow-hidden flex flex-col transform transition-transform hover:scale-105 active:scale-95"
           >
             <div className="relative w-full h-48">
               <img
@@ -75,13 +75,13 @@ export default function PastEventsGrid() {
               />
             </div>
             <div className="p-6 flex-grow flex flex-col">
-              <h3 className="text-xl text-black font-semibold mb-2">
+              <h3 className="text-xl text-white font-semibold mb-2">
                 {event.eventName}
               </h3>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className="text-sm text-white mb-2">
                 {event.locationLabel || "Location not specified"}
               </p>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-white">
                 {new Date(event.startTime).toLocaleString()}
               </p>
             </div>

@@ -130,7 +130,7 @@ export default function EventCarousel() {
                 "
               >
                 {/* Card container with full height & flex layout */}
-                <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg bg-black overflow-hidden flex flex-col">
+                <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg opacity-90 bg-gray-700 overflow-hidden flex flex-col">
                   {/* Event Image (fixed height for uniformity) */}
                   <div className="relative w-full h-48">
                     <img
@@ -145,10 +145,10 @@ export default function EventCarousel() {
                     <h3 className="text-xl text-white font-semibold mb-2">
                       {event.eventName}
                     </h3>
-                    <p className="text-sm text-gray-600 mb-2">
+                    <p className="text-sm text-white mb-2">
                       {event.locationLabel || "Location not specified"}
                     </p>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-sm text-white">
                       {new Date(event.startTime).toLocaleString()}
                     </p>
                   </div>
