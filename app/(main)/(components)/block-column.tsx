@@ -21,8 +21,12 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
   buttonLink,
 }) => {
   return (
-    <div className="flex items-center justify-center px-4 sm:px-8 md:px-12 py-8 sm:py-12">
-      <div className="flex flex-col md:flex-row items-center gap-12 w-full max-w-5xl">
+    <div className="flex items-center justify-center px-2 sm:px-4 md:px-6 py-8 sm:py-12">
+      <div
+        className={`flex w-full max-w-5xl items-center gap-12 ${
+          image ? "flex-col md:flex-row" : "flex-col text-center w-full"
+        }`}
+      >
         {image && imagePosition === "left" && (
           <div className="w-full md:w-1/2 rounded-lg overflow-hidden">
             <div className="relative w-full h-[300px] rounded-lg overflow-hidden">
@@ -36,9 +40,9 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
           </div>
         )}
 
-        <div className="w-full md:w-1/2 text-center md:text-left">
-          <h1 className="text-3xl font-bold text-center text-white mb-6">{heading}</h1>
-          <p className="text-white text-center text-xl mb-6">{content}</p>
+        <div className={`w-full ${image ? "md:w-1/2 text-left" : "text-center w-full"}`}>
+          <h1 className="text-3xl font-bold text-white mb-6">{heading}</h1>
+          <p className="text-white text-xl mb-6">{content}</p>
 
           {buttonText && buttonLink && (
             <Link href={buttonLink} passHref>

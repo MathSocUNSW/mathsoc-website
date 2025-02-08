@@ -63,32 +63,16 @@ const Counter = ({ target }) => {
   return <span ref={counterRef}>{count.toLocaleString()}+</span>;
 };
 
-export default function Home() {
-  const fullText = "Solving Today. Defining Tomorrow.";
-  const [typedText, setTypedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const typingSpeed = 50; // Speed in milliseconds per letter
-
-  useEffect(() => {
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setTypedText((prev) => prev + fullText[currentIndex]);
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, typingSpeed);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, fullText]);
-  
+export default function Home() {  
   return (
     <div className="relative w-full">
-      {/* HERO SECTION */}
-      <motion.section
+    {/* HERO SECTION */}
+    <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="relative w-full h-screen flex items-center justify-center px-6 sm:px-12 lg:px-16"
+        className="relative w-full h-screen flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16"
       >
         {/* First Wave */}
         <motion.div
@@ -100,33 +84,26 @@ export default function Home() {
           <Wave containerId="holder1" rotation={45} />
         </motion.div>
 
-        {/* TODO FIX THE SPACING ON THE TEXT SUCH THAT SOLVING TODAY IS ON ONE LINE AND DEFINING TOMORROW IS ON THE OTHER */}
-        {/* Hero Content (Typing Animation) */}
+        {/* Hero Content */}
         <motion.div
-          className="relative flex flex-col sm:flex-row items-center max-w-6xl w-full mx-auto px-6 sm:px-12 lg:px-16 text-center sm:text-left"
+          className="relative flex flex-col items-center text-center max-w-3xl"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
         >
           <motion.h1
-            className="text-white text-2xl text-center sm:text-5xl md:text-4xl font-bold max-w-lg text-wrap"
+            className="text-white text-4xl sm:text-5xl font-bold leading-tight"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
           >
-            {typedText}
-            {currentIndex < fullText.length && (
-              <motion.span
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ repeat: Infinity, duration: 0.8 }}
-              >
-                |
-              </motion.span>
-            )}
+            <span className="block">Solving Today.</span>
+            <span className="block">Defining Tomorrow.</span>
           </motion.h1>
 
-          <div className="flex flex-wrap gap-4 mt-6 sm:mt-0 sm:ml-8 justify-center sm:justify-start">
-            <SymbolExplosion explosionDelay={2500}>
+          {/* Buttons Positioned Below Text */}
+          <div className="flex flex-wrap gap-4 mt-6 justify-center">
+            <SymbolExplosion explosionDelay={1250}>
               <Link
                 href="https://member.arc.unsw.edu.au/members/s/clubdetail?clubid=0016F0000371VyZQAU"
                 passHref
@@ -156,7 +133,6 @@ export default function Home() {
             </Link>
           </div>
         </motion.div>
-
       </motion.section>
 
       {/* COMMUNITY SECTION */}
