@@ -1,11 +1,17 @@
-import EventsClient from "../(components)/event-client";
+import EventsClient from "./EventsClient";
 import { fetchEvents } from "../../../lib/api";
 import { EventDetails } from "../(data)/evenData";
 
-const Events: React.FC = async () => {
-  const events: EventDetails[] = await fetchEvents(); // Fetch on the server
+const Events = async () => {
+  let events: EventDetails[] = [];
 
-  return <EventsClient events={events} />; // Pass data to client component
+  try {
+    events = await fetchEvents(); // Fetch data ONCE
+  } catch (error) {
+    console.error("Error fetching events:", error);
+  }
+
+  return <EventsClient events={events} />;
 };
 
 export default Events;
