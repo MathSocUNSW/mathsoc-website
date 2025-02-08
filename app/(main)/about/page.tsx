@@ -100,6 +100,8 @@ const About: React.FC = () => {
           content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
           image="/images/photos/bod.webp"
           imagePosition="left"
+          buttonLink="/UNSW-Mathematics-Society-Constitution_2025.pdf"
+          buttonText="Constitution"
         />
         </div>
 
