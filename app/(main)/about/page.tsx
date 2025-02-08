@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Wave from "../(components)/waves-bg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,7 +15,6 @@ const About: React.FC = () => {
     "Marketing", "Creative", "Information Technology"
   ];
 
-  // Updated team members data
   const teamsData = {
     [2025]: {
       "Executives": [
@@ -27,8 +27,8 @@ const About: React.FC = () => {
       ],
       "Academics": [
         { name: "Yufan Han", role: "Academics Director", photo: "/images/yufan.jpg" },
-        { name: "Rashid Abuzarov", role: "Acadmics Director", photo: "/images/rashid.jpg" },
-        { name: "Oscar Wellard", role: "Acadmics Director", photo: "/images/wellard.jpg" }
+        { name: "Rashid Abuzarov", role: "Academics Director", photo: "/images/rashid.jpg" },
+        { name: "Oscar Wellard", role: "Academics Director", photo: "/images/wellard.jpg" }
       ],
       "Outreach": [
         { name: "Isabella Bustos-McNeil", role: "Outreach Director", photo: "/images/isabella.jpg" },
@@ -37,7 +37,7 @@ const About: React.FC = () => {
       ],
       "Careers": [
         { name: "Archit Aggarwal", role: "Careers Director", photo: "/images/archit.jpg" },
-        { name: "Sarah Zhong", role: "Careeres Director", photo: "/images/sarah.jpg" },
+        { name: "Sarah Zhong", role: "Careers Director", photo: "/images/sarah.jpg" },
         { name: "Tony Wang", role: "Careers Director", photo: "/images/tony.jpg" }
       ],
       "Socials": [
@@ -67,50 +67,33 @@ const About: React.FC = () => {
   };
 
   return (
-    <section>
-      {/* Hero Section */}
-      <div className="relative w-full h-[60vh]">
-        <video 
+    <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+      <motion.div className="relative w-full h-[60vh]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
+      <video 
           src="/videos/event-video.mp4" 
           autoPlay muted loop
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <h1 className="text-4xl font-bold text-white">About Us</h1>
+          <motion.h1 className="text-4xl font-bold text-white" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>About Us</motion.h1>
         </div>
-      </div>
+      </motion.div>
 
-      {/* Background Wave Effect */}
       <div className="relative">
         <Wave containerId="about-wave" rotation={0} />
 
-        {/* Section Title */}
-        <div className="text-center pt-14 pb-6 relative z-10">
+        <motion.div className="text-center pt-14 pb-6 relative z-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
           <h1 className="text-4xl font-bold">Who We Are</h1>
           <p className="text-xl mt-2 max-w-3xl mx-auto">
-            We are a passionate community dedicated to fostering knowledge, 
-            collaboration, and innovation. Our goal is to bring people together 
-            through impactful experiences and meaningful engagements.
+            We are a passionate community dedicated to fostering knowledge, collaboration, and innovation.
           </p>
-        </div>
-
-        {/* Mission Section */}
-        <div className="text-center pt-10 pb-12 relative z-10">
-          <h1 className="text-4xl font-bold">Our Mission</h1>
-          <p className="text-xl mt-2 max-w-3xl mx-auto">
-            Our mission is to create opportunities for learning, growth, and 
-            connection. Through events, projects, and initiatives, we strive 
-            to empower individuals and drive progress in our field.
-          </p>
-        </div>
+        </motion.div>
       </div>
 
-      {/* Meet the Team Section */}
-      <div className="text-center pt-14 pb-6">
+      <motion.div className="text-center pt-14 pb-6" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
         <h1 className="text-4xl font-bold">Meet the Team</h1>
-      </div>
+      </motion.div>
 
-      {/* Year Selector Dropdown */}
       <div className="flex justify-center pb-6">
         <select 
           value={year} 
@@ -119,17 +102,12 @@ const About: React.FC = () => {
         >
           {[...Array(5)].map((_, index) => {
             const pastYear = new Date().getFullYear() - index;
-            return (
-              <option key={pastYear} value={pastYear}>
-                {pastYear}
-              </option>
-            );
+            return <option key={pastYear} value={pastYear}>{pastYear}</option>;
           })}
         </select>
       </div>
 
-      {/* Portfolio Filters */}
-      <div className="flex justify-center gap-4 flex-wrap pb-6">
+      <motion.div className="flex justify-center gap-4 flex-wrap pb-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
         {portfolios.map((portfolio) => (
           <Button 
             key={portfolio} 
@@ -140,34 +118,33 @@ const About: React.FC = () => {
             {portfolio}
           </Button>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Team Members Grid */}
-        {/* Team Members Grid */}
-        <div className="flex flex-wrap justify-center gap-6 px-6 pb-12">
+      <motion.div className="flex flex-wrap justify-center gap-6 px-6 pb-12" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut", staggerChildren: 0.2 }} viewport={{ once: true }}>
         {teamsData[year]?.[selectedPortfolio]?.map((member) => (
-            <Card key={member.name} className="shadow-lg w-[300px]">
-            <CardContent className="p-4 flex flex-col items-center">
+          <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+            <Card className="shadow-lg w-[300px]">
+              <CardContent className="p-4 flex flex-col items-center">
                 {member.photo ? (
-                <img
+                  <img
                     src={member.photo}
                     alt={member.name}
                     className="w-32 h-32 object-cover rounded-full"
                     onError={(e) => (e.currentTarget.src = "/images/placeholder.png")}
-                />
+                  />
                 ) : (
-                <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">
+                  <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">
                     {member.name}
-                </div>
+                  </div>
                 )}
                 <h2 className="text-lg font-semibold mt-4">{member.name}</h2>
                 <p className="text-sm text-gray-500">{member.role}</p>
-            </CardContent>
+              </CardContent>
             </Card>
+          </motion.div>
         ))}
-        </div>
-
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
