@@ -54,7 +54,7 @@ export const Navbar = () => {
             <div className="flex items-center justify-between px-4 py-3 xl:px-48 md:px-10">
                 
                 {/* Mobile Logo (Hidden on Large Screens) */}
-                <div className="xl:hidden flex items-center">
+                <div className="xl:hidden flex items-center z-[100]">
                     <Link href="/">
                         <Image
                             src="/images/mathsoc-logo-longform.svg"
@@ -112,18 +112,6 @@ export const Navbar = () => {
                         transition={{ type: "spring", stiffness: 260, damping: 30 }}
                         className="fixed inset-0 w-full h-screen bg-[#011a38] text-white flex flex-col items-center justify-center space-y-8 text-2xl font-semibold z-50"
                     >
-                        {/* Logo at the top of the mobile dropdown */}
-                        <Link href="/" className="absolute top-6 left-1/2 transform -translate-x-1/2">
-                            <Image
-                                src="/images/mathsoc-logo-longform.svg"
-                                alt="MathSoc Logo"
-                                width={150}
-                                height={50}
-                                className="h-10 w-auto invert"
-                                priority
-                            />
-                        </Link>
-
                         {/* Close Button */}
                         <button 
                             className="absolute top-6 right-6 text-gray-300 hover:text-gray-100"
