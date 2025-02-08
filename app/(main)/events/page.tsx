@@ -8,18 +8,23 @@ import PastEventsGrid from "../(components)/past-events-tile";
 import Wave from "../(components)/waves-bg"; // Import the Wave component
 
 const Events: React.FC = () => {
-  const [events, setEvents] = useState<EventDetails[]>([]);
+  const [events, setEvents] = useState<EventDetails[] | null>(null);
   const [containerHeight, setContainerHeight] = useState(1000); // Default height
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Fetch events when the component mounts
+  // Fetch events once when the component mounts
   useEffect(() => {
     const loadEvents = async () => {
-      const fetchedEvents = await fetchEvents();
-      setEvents(fetchedEvents);
+      try {
+        const fetchedEvents = await fetchEvents();
+        setEvents(fetchedEvents);
+      } catch (error) {
+        console.error("Error fetching events:", error);
+      }
     };
+
     loadEvents();
-  }, []);
+  }, []); // Empty dependency array ensures it runs only once
 
   // ResizeObserver to dynamically track height changes
   useEffect(() => {
@@ -41,7 +46,7 @@ const Events: React.FC = () => {
     setTimeout(updateHeight, 0);
 
     return () => resizeObserver.disconnect();
-  }, [events]); // Runs whenever events change
+  }, [events]); // Runs only when events are first fetched
 
   return (
     <section ref={containerRef} className="relative w-full min-h-screen">
@@ -73,13 +78,13 @@ const Events: React.FC = () => {
           <h1 className="text-4xl font-bold">Upcoming Events</h1>
           <p className="text-xl mt-2">Stay updated with the latest happenings!</p>
         </div>
-        <EventCarousel />
+        {events ? <EventCarousel /> : <p className="text-center text-gray-400">Loading events...</p>}
 
         <div className="text-center pb-12 pt-4">
           <h1 className="text-4xl font-bold">Past Events</h1>
           <p className="text-xl mt-2">Revisiting some of our best moments</p>
         </div>
-        <PastEventsGrid />
+        {events ? <PastEventsGrid /> : <p className="text-center text-gray-400">Loading past events...</p>}
       </div>
     </section>
   );
