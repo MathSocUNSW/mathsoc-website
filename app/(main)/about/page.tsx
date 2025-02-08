@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Wave from "../(components)/waves-bg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { BlockColumn } from "../(components)/block-column";
 
 const About: React.FC = () => {
   const [selectedPortfolio, setSelectedPortfolio] = useState("Executives");
@@ -82,12 +83,27 @@ const About: React.FC = () => {
       <div className="relative">
         <Wave containerId="about-wave" rotation={0} />
 
-        <motion.div className="text-center pt-14 pb-6 relative z-10" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
-          <h1 className="text-4xl font-bold">Who We Are</h1>
-          <p className="text-xl mt-2 max-w-3xl mx-auto">
-            We are a passionate community dedicated to fostering knowledge, collaboration, and innovation.
-          </p>
-        </motion.div>
+        <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full py-8 sm:py-12 flex justify-center px-6 sm:px-12 lg:px-16"
+      >
+        <div className="flex flex-col items-center">
+        <BlockColumn
+          heading="Building Community, Careers, and Academic Excellence"
+          content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
+        />
+        <BlockColumn
+          heading="Building Community, Careers, and Academic Excellence"
+          content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
+          image="/images/photos/bod.webp"
+          imagePosition="left"
+        />
+        </div>
+
+      </motion.section>
       </div>
 
       <motion.div className="text-center pt-14 pb-6" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>

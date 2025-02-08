@@ -1,15 +1,20 @@
-import EventsClient from "./EventsClient";
+import { cache } from "react";
+import EventsClient from "../(components)/event-client";
 import { fetchEvents } from "../../../lib/api";
 import { EventDetails } from "../(data)/evenData";
 
-const Events = async () => {
-  let events: EventDetails[] = [];
-
+// Cache the API request to prevent excessive calls
+const getCachedEvents = cache(async () => {
   try {
-    events = await fetchEvents(); // Fetch data ONCE
+    return await fetchEvents();
   } catch (error) {
     console.error("Error fetching events:", error);
+    return [];
   }
+});
+
+const Events = async () => {
+  const events: EventDetails[] = await getCachedEvents(); // Cached request
 
   return <EventsClient events={events} />;
 };

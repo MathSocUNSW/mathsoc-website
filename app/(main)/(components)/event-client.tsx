@@ -1,6 +1,7 @@
-"use client"; // Required for framer-motion
+"use client";
 
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 import EventCarousel from "../../(main)/(components)/event-carousel";
 import PastEventsGrid from "../(components)/past-events-tile";
 import Wave from "../(components)/waves-bg";
@@ -8,7 +9,7 @@ import { EventDetails } from "../(data)/evenData";
 
 const fadeInVariant = {
   hidden: { opacity: 0, scale: 1, y: 0 },
-  visible: { opacity: 1, scale: 1, y:-20, transition: { duration: 0.6, ease: "easeOut" } }
+  visible: { opacity: 1, scale: 1, y: -20, transition: { duration: 0.6, ease: "easeOut" } }
 };
 
 interface EventsClientProps {
@@ -16,6 +17,9 @@ interface EventsClientProps {
 }
 
 const EventsClient: React.FC<EventsClientProps> = ({ events }) => {
+  // Prevent re-renders by memoizing the event data
+  const memoizedEvents = useMemo(() => events, [events]);
+
   return (
     <motion.section initial="hidden" animate="visible" variants={fadeInVariant}>
       {/* Hero Section */}
