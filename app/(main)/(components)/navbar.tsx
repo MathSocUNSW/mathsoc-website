@@ -11,49 +11,51 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
-    const [scrolled, setScrolled] = useState(false); // Track if scrolled
+    const [scrolled, setScrolled] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Handle scrolling behavior
+    // Detect if screen is mobile-sized (< 768px)
     useEffect(() => {
+        const checkScreenWidth = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+
+        checkScreenWidth(); // Run on mount
+        window.addEventListener("resize", checkScreenWidth);
+        return () => window.removeEventListener("resize", checkScreenWidth);
+    }, []);
+
+    // Handle scrolling behavior (only for desktop)
+    useEffect(() => {
+        if (isMobile) return; // Disable scroll-hide on mobile
+
         const handleScroll = () => {
             const currentScrollPos = window.pageYOffset;
 
-            // If the user is scrolling down, hide the navbar
             if (currentScrollPos > prevScrollPos && visible) {
-                setVisible(false);
+                setVisible(false); // Hide on scroll down
             } else if (currentScrollPos < prevScrollPos) {
-                // If scrolling up, show the navbar
-                setVisible(true);
+                setVisible(true); // Show on scroll up
             }
 
-            // Update the previous scroll position
             setPrevScrollPos(currentScrollPos);
-
-            // If scrolled down past 50px, set scrolled to true, else false
-            if (currentScrollPos > 50) {
-                setScrolled(true); // Add background when scrolled down
-            } else {
-                setScrolled(false); // Remove background when at the top
-            }
+            setScrolled(currentScrollPos > 50);
         };
 
         window.addEventListener("scroll", handleScroll);
-
-        // Cleanup the event listener on component unmount
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [prevScrollPos, visible]);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [prevScrollPos, visible, isMobile]);
 
     return (
         <motion.nav
-            className={`z-50 fixed top-0 w-full min-h-[60px] text-white transition-all duration-300 ${scrolled && visible ? 'bg-[#011a38]' : 'bg-transparent'}`}
-            animate={{ y: visible ? 0 : "-100%" }}
+            className={`z-50 fixed top-0 w-full min-h-[60px] text-white transition-all duration-300 
+            ${isMobile ? "bg-[#011a38]" : scrolled ? "bg-[#011a38]" : "bg-transparent"}`}
+            animate={{ y: isMobile || visible ? 0 : "-100%" }} // Only hide on scroll for desktop
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
             <div className="flex items-center justify-between px-4 py-3 xl:px-48 md:px-10">
                 
-                {/* Mobile Logo (Hidden on Large Screens) */}
+                {/* Mobile Logo */}
                 <div className="xl:hidden flex items-center z-[100]">
                     <Link href="/">
                         <Image
@@ -67,7 +69,7 @@ export const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* Large Screen Nav */}
+                {/* Desktop Nav */}
                 <div className="hidden md:flex md:flex-1 md:justify-end xl:justify-center items-center space-x-6">
                     <div className="flex items-center space-x-12 xl:space-x-24">
                         <Link href="/" className="hidden xl:block min-w-[150px]">
@@ -102,7 +104,7 @@ export const Navbar = () => {
                 </Button>
             </div>
 
-            {/* Full-Screen Mobile Dropdown with Proper Height */}
+            {/* Mobile Dropdown */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div

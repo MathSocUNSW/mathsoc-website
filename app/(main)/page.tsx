@@ -160,7 +160,7 @@ export default function Home() {
             {stats.map(({ icon: Icon, value, label }, index) => (
               <div key={index} className="flex flex-col items-center">
                 <Icon size={40} className="text-blue-600" />
-                <p className="text-4xl font-bold mt-2">
+                <p className="text-4xl font-bold mt-2 w-[100px] text-center font-mono">
                   <Counter target={value} />
                 </p>
                 <p className="text-white text-lg">{label}</p>
