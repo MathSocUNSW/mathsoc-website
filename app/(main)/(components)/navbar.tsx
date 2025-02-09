@@ -71,7 +71,7 @@ export const Navbar = () => {
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex md:flex-1 md:justify-end xl:justify-center items-center space-x-6">
-                    <div className="flex items-center space-x-12 xl:space-x-24">
+                    <div className="flex items-center space-x-6 xl:space-x-12 flex-nowrap">
                         <Link href="/" className="hidden xl:block min-w-[150px]">
                             <Image
                                 src="/images/mathsoc-logo-longform.svg"
