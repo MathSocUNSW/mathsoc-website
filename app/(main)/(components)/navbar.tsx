@@ -12,52 +12,45 @@ export const Navbar = () => {
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
     const [scrolled, setScrolled] = useState(false);
-    const [isSticky, setIsSticky] = useState(true); // New state to manage sticky behavior
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Check screen width and disable sticky navbar on mobile
+    // Detect if screen is mobile-sized (< 768px)
     useEffect(() => {
         const checkScreenWidth = () => {
-            setIsSticky(window.innerWidth >= 768); // Enable sticky navbar only if screen width is >= 768px (md breakpoint)
+            setIsMobile(window.innerWidth < 768);
         };
 
         checkScreenWidth(); // Run on mount
         window.addEventListener("resize", checkScreenWidth);
-
         return () => window.removeEventListener("resize", checkScreenWidth);
     }, []);
 
-    // Handle scrolling behavior
+    // Handle scrolling behavior (only for desktop)
     useEffect(() => {
-        if (!isSticky) return; // Disable scrolling behavior on mobile
+        if (isMobile) return; // Disable scroll-hide on mobile
 
         const handleScroll = () => {
             const currentScrollPos = window.pageYOffset;
 
             if (currentScrollPos > prevScrollPos && visible) {
-                setVisible(false);
+                setVisible(false); // Hide on scroll down
             } else if (currentScrollPos < prevScrollPos) {
-                setVisible(true);
+                setVisible(true); // Show on scroll up
             }
 
             setPrevScrollPos(currentScrollPos);
-
-            if (currentScrollPos > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            setScrolled(currentScrollPos > 50);
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [prevScrollPos, visible, isSticky]);
+    }, [prevScrollPos, visible, isMobile]);
 
     return (
         <motion.nav
-            className={`z-50 w-full min-h-[60px] text-white transition-all duration-300 
-                ${isSticky ? "fixed top-0" : "relative"} 
-                ${scrolled && visible ? "bg-[#011a38]" : "bg-transparent"}`}
-            animate={{ y: visible || !isSticky ? 0 : "-100%" }}
+            className={`z-50 fixed top-0 w-full min-h-[60px] text-white transition-all duration-300 
+                ${scrolled ? "bg-[#011a38]" : "bg-transparent"}`}
+            animate={{ y: isMobile || visible ? 0 : "-100%" }} // Only hide on scroll for desktop
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
             <div className="flex items-center justify-between px-4 py-3 xl:px-48 md:px-10">
