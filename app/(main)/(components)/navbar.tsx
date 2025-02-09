@@ -123,7 +123,7 @@ export const Navbar = () => {
                         </button>
 
                         {/* Navigation Links */}
-                        {["About Us", "Events", "Resources", "Sponsors", "Careers", "Contact Us"].map((text) => (
+                        {["About Us", "Events", "Resources", "Sponsors", "Contact Us"].map((text) => (
                             <Link
                                 key={text}
                                 className="py-2 text-white hover:underline"
