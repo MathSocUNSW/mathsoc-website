@@ -1,118 +1,170 @@
-import Image from 'next/image';
+"use client";
 
-const Sponsors: React.FC = async () => {
+import { motion } from "framer-motion";
+import Wave from "../(components)/waves-bg";
+import { BlockColumn } from "../(components)/block-column";
+import Image from "next/image";
+import Link from "next/link";
 
+
+const Sponsors: React.FC = () => {
   return (
-    <section>
-      <section className="py-10 px-6">
-        
-        {/* Section Title */}
-        <div className="text-center py-16">
-          <h1 className="text-4xl font-bold">Sponsors</h1>
+    <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+      {/* Hero Section */}
+      <motion.div className="relative w-full h-[50vh] flex items-center justify-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
+        {/* <video 
+          src="/videos/event-video.mp4" 
+          autoPlay muted loop
+          className="w-full h-full object-cover"
+        /> */}
+        <Image
+          src="/images/photos/sponsors.jpg"
+          alt="sponsors"
+          className="w-full h-full object-cover"
+          width={5181}
+          height={3454}
+        />
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <motion.h1 className="text-4xl p-2 font-bold text-white text-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
+            Sponsorships That Count
+          </motion.h1>
         </div>
+      </motion.div>
+      
+      <div className="relative">
+        <Wave containerId="sponsors-wave" rotation={0} />
 
-      </section>
-
-      {/* Description */}
-      <section className="bg-slate-600 py-6 px-6 mb-20">
-        <h2 className="text-2xl text-white font-bold mb-4">Our Sponsors</h2>
-        <p className="py-4">
-          At MathSoc, we’re passionate about empowering the next generation of problem solvers, analysts, and innovators. Mathematics is at the core of countless industries, from finance and technology to engineering and data science, and we strive to connect our members with the opportunities that will help them thrive.
-        </p>
-
-        <p className="py-4">
-          Our goals wouldn’t be possible without the support of our industry partners who help us provide endless opportunities for our members to explore their future pathways and unleash their true potential.
-        </p>
-
-        <p className="py-4">
-          Interested in partnering with us? Get in touch at <b>sponsorships.unswmathsoc@gmail.com</b>
-        </p>
-      </section>
-
-      {/* Sponsors */}
-      <section className="py-6 px-6 mb-20">
-        <h2 className="text-4xl text-center font-bold mb-20">Our Sponsors</h2>
-        <div className="flex flex-col items-center space-y-8 mb-20">
-          <a href="https://www.janestreet.com/" target="_blank" rel="noopener noreferrer">
-            <Image
-              className="w-96 transition-transform hover:scale-105"
-              src="/images/logos/jane_street_logo.png"
-              alt="Jane Street logo"
-              width={384} // Define width in pixels
-              height={384} // Define height in pixels
+        <motion.section
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="relative w-full py-8 flex justify-center px-6 sm:px-12 lg:px-16"
+        >
+          <div className="flex flex-col items-center">
+            <BlockColumn
+              heading="Helping us multiply opportunities, divide costs, and add value to our community."
+              content="At MathSoc, we’re passionate about empowering the next generation of problem solvers, analysts, and innovators. Mathematics is at the core of countless industries, from finance and technology to engineering and data science. Our goals wouldn’t be possible without the support of our industry partners who help us provide opportunities for our members to explore their future pathways. Interested in partnering with us? Get in touch at sponsorships.unswmathsoc@gmail.com"
+              buttonLink="mailto:sponsorships.unswmathsoc@gmail.com"
+              buttonText="Contact Us"
             />
-          </a>
-        </div>
+          </div>
+        </motion.section>
+      </div>
+      
+      {/* SPONSORED BY SECTION */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative w-full flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-16"
+      >
+        <h2 className="text-3xl font-bold text-center">Sponsored By</h2>
+        <motion.div
+          className="
+            mt-8 
+            flex
+            flex-wrap
+            gap-8
+            justify-center
+            items-center
+            mb-20
+          "
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
+          {[
+            {
+              name: "UNSW School of Mathematics and Statistics",
+              src: "/images/logos/unswmaths_white.png",
+              tier: "principal",
+              link: "https://www.unsw.edu.au/science/our-schools/maths",
+            },
+            {
+              name: "Jane Street",
+              src: "/images/logos/jane_street_white.png",
+              tier: "principal",
+              link: "https://www.janestreet.com/",
+            },
+            {
+              name: "IMC",
+              src: "/images/logos/imc_logo.png",
+              tier: "major",
+              link: "https://www.imc.com/",
+            },
+            {
+              name: "Optiver",
+              src: "/images/logos/optiver_white.png",
+              tier: "major",
+              link: "https://www.optiver.com/",
+            },
+            {
+              name: "Quantium",
+              src: "/images/logos/quantium_white.png",
+              tier: "major",
+              link: "https://www.quantium.com/",
+            },
+            {
+              name: "Citadel Securities",
+              src: "/images/logos/citadel_securities_white.png",
+              tier: "major",
+              link: "https://www.citadelsecurities.com/",
+            },
+            {
+              name: "Aurora Energy Research",
+              src: "/images/logos/aurora_white.png",
+              tier: "minor",
+              link: "https://auroraer.com/",
+            },
+            {
+              name: "Flow Traders",
+              src: "/images/logos/flow_traders_white.png",
+              tier: "affiliate",
+              link: "https://www.flowtraders.com/",
+            },
+          ].map((sponsor, index) => {
+            let width, height;
+            switch (sponsor.tier) {
+              case "principal":
+                width = 500; 
+                height = 150;
+                break;
+              case "major":
+                width = 350;
+                height = 120;
+                break;
+              case "affiliate":
+                width = 280;
+                height = 100;
+                break;
+              default:
+                width = 280;
+                height = 100;
+            }
 
-        <div className="flex flex-row justify-center items-center space-x-8 mb-20">
-          <a href="https://www.optiver.com/" target="_blank" rel="noopener noreferrer">
-            <Image
-              className="transition-transform hover:scale-105"
-              src="/images/logos/optiver_logo.png"
-              alt="Optiver logo"
-              width={384}
-              height={384}
-            />
-          </a>
-
-          <a href="https://www.imc.com/" target="_blank" rel="noopener noreferrer">
-            <Image
-              className="transition-transform hover:scale-105"
-              src="/images/logos/imc_logo.png"
-              alt="IMC logo"
-              width={384}
-              height={384}
-            />
-          </a>
-        </div>
-
-        <div className="flex flex-row justify-center items-center space-x-8 mb-20">
-          <a href="https://www.quantium.com/" target="_blank" rel="noopener noreferrer">
-            <Image
-              className="transition-transform hover:scale-105"
-              src="/images/logos/quantium_logo.webp"
-              alt="Quantium logo"
-              width={384}
-              height={384}
-            />
-          </a>
-
-          <a href="https://www.citadelsecurities.com/" target="_blank" rel="noopener noreferrer">
-            <Image
-              className="transition-transform hover:scale-105"
-              src="/images/logos/citadel_securities_logo.webp"
-              alt="Citadel logo"
-              width={384}
-              height={384}
-            />
-          </a>
-        </div>
-
-        <div className="flex flex-row justify-center items-center space-x-8 mb-20">
-          <a href="https://www.flowtraders.com/" target="_blank" rel="noopener noreferrer">
-            <Image
-              className="transition-transform hover:scale-105"
-              src="/images/logos/flow_traders_logo.webp"
-              alt="Flow Traders logo"
-              width={384}
-              height={384}
-            />
-          </a>
-
-          <a href="https://www.auroraenergy.com.au/" target="_blank" rel="noopener noreferrer">
-            <Image
-              className="transition-transform hover:scale-105"
-              src="/images/logos/aurora_logo.webp"
-              alt="Aurora logo"
-              width={384}
-              height={384}
-            />
-          </a>
-        </div>
-      </section>
-
-
-    </section>
+            return (
+              <div
+                key={index}
+                className="flex justify-center transition-transform hover:scale-105 active:scale-95"
+              >
+                <Link href={sponsor.link} target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src={sponsor.src}
+                    alt={sponsor.name}
+                    width={width}
+                    height={height}
+                    className="object-contain p-1 cursor-pointer"
+                  />
+                </Link>
+              </div>
+            );
+          })}
+        </motion.div>
+      </motion.section>
+    </motion.section>
   );
 };
 

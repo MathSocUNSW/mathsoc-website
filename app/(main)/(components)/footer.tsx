@@ -9,8 +9,8 @@ export const Footer = () => {
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center px-4">
                 <div className="mb-4 md:mb-0 w-full md:w-auto md:flex-1">
                     <h4 className="text-lg font-bold mb-2">Quick Links</h4>
-                    <nav className="flex flex-col space-y-2">
-                        <Link href="/about" className="hover:text-[#2390c6]">About</Link>
+                    <nav className="flex flex-row space-x-4">
+                        <Link href="/about-us" className="hover:text-[#2390c6]">About Us</Link>
                         <Link href="/events" className="hover:text-[#2390c6]">Events</Link>
                         <Link href="/resources" className="hover:text-[#2390c6]">Resources</Link>
                         <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
@@ -18,7 +18,7 @@ export const Footer = () => {
                     </nav>
                 </div>
                 <div className="mb-4 md:mb-0">
-                    <h4 className="text-lg font-bold mb-2">Follow Us</h4>
+                    <h4 className="text-lg font-bold mb-2 text-right">Follow Us</h4>
                     <div className="flex space-x-4">
                         <a href="https://www.facebook.com/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <FaFacebook className="h-6 w-6 hover:text-[#2390c6]" />
@@ -29,10 +29,10 @@ export const Footer = () => {
                         <a href="https://www.tiktok.com/@unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                             <FaTiktok className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
-                        <a href="https://discord.com/invite/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                        <a href="https://discord.gg/9Cx2JHwY" target="_blank" rel="noopener noreferrer" aria-label="Discord">
                             <FaDiscord className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
-                        <a href="https://www.linkedin.com/company/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <a href="https://au.linkedin.com/company/unsw-mathematics-society" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                             <FaLinkedin className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
                     </div>

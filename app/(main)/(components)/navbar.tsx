@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu as MenuIcon, X, ShoppingBag } from "lucide-react";
+import { Menu as MenuIcon, X, ShoppingBasket } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
@@ -80,13 +80,14 @@ export const Navbar = () => {
                                 priority
                             />
                         </Link>
-                        <Link href="/about" className="hover:text-[#2390c6]">About</Link>
+                        <Link href="/about-us" className="hover:text-[#2390c6]">About Us</Link>
                         <Link href="/events" className="hover:text-[#2390c6]">Events</Link>
                         <Link href="https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96" className="hover:text-[#2390c6]">Resources</Link>
                         <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
                         <Link href="/contact-us" className="text-center hover:text-[#2390c6]">Contact Us</Link>
-                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6]">
-                            <ShoppingBag />
+                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
+                            Merch
+                            <ShoppingBasket className="ml-2" />
                         </Link>
                     </div>
                 </div>
@@ -121,7 +122,7 @@ export const Navbar = () => {
                         </button>
 
                         {/* Navigation Links */}
-                        {["About", "Events", "Resources", "Sponsors", "Careers", "Contact Us"].map((text) => (
+                        {["About Us", "Events", "Resources", "Sponsors", "Careers", "Contact Us"].map((text) => (
                             <Link
                                 key={text}
                                 className="py-2 text-white hover:underline"
@@ -131,6 +132,10 @@ export const Navbar = () => {
                                 {text}
                             </Link>
                         ))}
+                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
+                            Merch
+                            <ShoppingBasket className="ml-2 mt-1" />
+                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>

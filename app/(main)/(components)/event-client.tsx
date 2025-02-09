@@ -5,6 +5,7 @@ import EventCarousel from "../../(main)/(components)/event-carousel";
 import PastEventsGrid from "../(components)/past-events-tile";
 import Wave from "../(components)/waves-bg";
 import { EventDetails } from "../(data)/evenData";
+import Image from "next/image";
 
 const fadeInVariant = {
   hidden: { opacity: 0, scale: 1, y: 0 },
@@ -22,10 +23,17 @@ const EventsClient: React.FC<EventsClientProps> = () => {
     <motion.section initial="hidden" animate="visible" variants={fadeInVariant}>
       {/* Hero Section */}
       <div className="relative w-full h-[60vh]">
-        <video 
+        {/* <video 
           src="/videos/event-video.mp4" 
           autoPlay muted loop
           className="w-full h-full object-cover"
+        /> */}
+        <Image
+          src="/images/photos/events.jpg"
+          alt="events"
+          className="w-full h-full object-cover"
+          width={5181}
+          height={3454}
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <h1 className="text-4xl font-bold text-white">See What&apos;s On</h1>

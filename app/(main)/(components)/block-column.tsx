@@ -41,7 +41,7 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
         )}
 
         <div className={`w-full ${image ? "md:w-1/2 text-left" : "text-center w-full"}`}>
-          <h1 className="text-3xl font-bold text-white mb-6">{heading}</h1>
+          <h1 className="text-2xl font-bold text-white mb-6">{heading}</h1>
           <p className="text-white text-xl mb-6">{content}</p>
 
           {buttonText && buttonLink && (

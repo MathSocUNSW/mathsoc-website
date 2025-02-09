@@ -86,7 +86,7 @@ export default function Home() {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <Wave containerId="holder1" rotation={45} />
+          <Wave containerId="holder1" rotation={140} />
         </motion.div>
 
         {/* Hero Content */}
@@ -125,7 +125,7 @@ export default function Home() {
                 </Button>
               </Link>
             </SymbolExplosion>
-            <Link href="/about" passHref>
+            <Link href="https://www.canva.com/design/DAGar-qYVz4/CZoQ33tJJvTKM-ncnVAhcw/view?utm_content=DAGar-qYVz4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1527c04958#1" passHref>
               <Button
                 variant="secondary"
                 className="
@@ -133,7 +133,7 @@ export default function Home() {
                   transition-transform hover:scale-105 active:scale-95
                 "
               >
-                Learn More
+                First Year Guide!
               </Button>
             </Link>
           </div>
@@ -146,16 +146,30 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="relative w-full py-8 sm:py-12 flex justify-center px-6 sm:px-12 lg:px-16"
+        className="relative w-full flex flex-col flex justify-center px-6 sm:px-12 lg:px-16"
       >
         <BlockColumn
           heading="Building Community, Careers, and Academic Excellence"
           content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
-          image="/images/photos/bod.webp"
+          image="/images/photos/bod.jpg"
           imagePosition="right"
         />
+        <h2 className="text-2xl font-bold mt-12 z-10 text-center">Our Impact in Numbers</h2>
+        <div className="w-full flex justify-center py-16 z-10">
+          <div className="flex flex-wrap justify-center gap-12 max-w-4xl w-full">
+            {stats.map(({ icon: Icon, value, label }, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <Icon size={40} className="text-blue-600" />
+                <p className="text-4xl font-bold mt-2">
+                  <Counter target={value} />
+                </p>
+                <p className="text-white text-lg">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </motion.section>
-
+      {/* fix padding between these 2 sections later */}
       {/* EVENTS SECTION */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
@@ -164,21 +178,7 @@ export default function Home() {
         viewport={{ once: true }}
         className="relative w-full min-h-[500px] py-16 sm:py-20 flex flex-col items-center px-6 sm:px-12 lg:px-16"
       >
-        <h2 className="text-2xl font-bold z-10 text-center">Our Impact in Numbers</h2>
-        <div className="w-full flex justify-center py-12 z-10">
-          <div className="flex flex-wrap justify-center gap-12 max-w-4xl w-full">
-            {stats.map(({ icon: Icon, value, label }, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <Icon size={40} className="text-blue-600" />
-                <p className="text-3xl font-bold mt-2">
-                  <Counter target={value} />
-                </p>
-                <p className="text-white text-lg">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <h2 className="text-4xl font-bold text-center mt-32 mb-8 z-10">Upcoming Events</h2>
+        <h2 className="text-4xl font-bold text-center mt-16 mb-8 z-10">Upcoming Events</h2>
         <Wave containerId="holder2" rotation={135} />
         <EventCarousel />
       </motion.section>
@@ -189,7 +189,7 @@ export default function Home() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="relative w-full flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-16"
+        className="relative w-full mt-24 flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-16"
       >
         <h2 className="text-3xl font-bold text-center">Sponsored By</h2>
         <motion.div
@@ -209,6 +209,12 @@ export default function Home() {
         >
           {[
             {
+              name: "UNSW School of Mathematics and Statistics",
+              src: "/images/logos/unswmaths_white.png",
+              tier: "principal",
+              link: "https://www.unsw.edu.au/science/our-schools/maths",
+            },
+            {
               name: "Jane Street",
               src: "/images/logos/jane_street_white.png",
               tier: "principal",
@@ -217,7 +223,7 @@ export default function Home() {
             {
               name: "IMC",
               src: "/images/logos/imc_logo.png",
-              tier: "principal",
+              tier: "major",
               link: "https://www.imc.com/",
             },
             {
@@ -247,15 +253,9 @@ export default function Home() {
             {
               name: "Flow Traders",
               src: "/images/logos/flow_traders_white.png",
-              tier: "minor",
+              tier: "affiliate",
               link: "https://www.flowtraders.com/",
             },
-            {
-              name: "UNSW School of Mathematics and Statistics",
-              src: "/images/logos/unswmaths_white.png",
-              tier: "minor",
-              link: "https://www.unsw.edu.au/science/our-schools/maths",
-            }
           ].map((sponsor, index) => {
             let width, height;
             switch (sponsor.tier) {
@@ -267,7 +267,7 @@ export default function Home() {
                 width = 350;
                 height = 120;
                 break;
-              case "minor":
+              case "affiliate":
                 width = 280;
                 height = 100;
                 break;
@@ -317,7 +317,7 @@ export default function Home() {
             Interact with a community of students passionate about mathematics and problem-solving through career, social, and academic events.
           </p>
           <SymbolExplosion explosionDelay={1000}>
-            <Link href="/contact" passHref>
+            <Link href="/contact-us" passHref>
               <Button
                 variant="default"
                 className="
