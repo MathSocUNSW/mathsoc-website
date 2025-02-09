@@ -25,13 +25,12 @@ export const Navbar = () => {
         return () => window.removeEventListener("resize", checkScreenWidth);
     }, []);
 
-    // Handle scrolling behavior (only for desktop)
+    // Handle scroll position
     useEffect(() => {
-        if (isMobile) return; // Disable scroll-hide on mobile
-
         const handleScroll = () => {
             const currentScrollPos = window.pageYOffset;
 
+            // Handle the navbar visibility based on scroll direction
             if (currentScrollPos > prevScrollPos && visible) {
                 setVisible(false); // Hide on scroll down
             } else if (currentScrollPos < prevScrollPos) {
@@ -39,17 +38,17 @@ export const Navbar = () => {
             }
 
             setPrevScrollPos(currentScrollPos);
-            setScrolled(currentScrollPos > 50);
+            setScrolled(currentScrollPos > 50); // Change navbar color after 50px scroll
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, [prevScrollPos, visible, isMobile]);
+    }, [prevScrollPos, visible]);
 
     return (
         <motion.nav
             className={`z-50 fixed top-0 w-full min-h-[60px] text-white transition-all duration-300 
-            ${isMobile ? "bg-[#011a38]" : scrolled ? "bg-[#011a38]" : "bg-transparent"}`}
+            ${isMobile ? (window.pageYOffset === 0 ? "bg-transparent" : "bg-[#011a38]") : scrolled ? "bg-[#011a38]" : "bg-transparent"}`}
             animate={{ y: isMobile || visible ? 0 : "-100%" }} // Only hide on scroll for desktop
             transition={{ type: "tween", duration: 0.15, ease: "easeInOut" }}
         >
@@ -123,16 +122,11 @@ export const Navbar = () => {
                         </button>
 
                         {/* Navigation Links */}
-                        {["About Us", "Events", "Resources", "Sponsors", "Contact Us"].map((text) => (
-                            <Link
-                                key={text}
-                                className="py-2 text-white hover:underline"
-                                href={`/${text.toLowerCase().replace(" ", "-")}`}
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {text}
-                            </Link>
-                        ))}
+                        <Link href="/about-us" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>About Us</Link>
+                        <Link href="/events" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Events</Link>
+                        <Link href="https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Resources</Link>
+                        <Link href="/sponsors" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Sponsors</Link>
+                        <Link href="/contact-us" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Contact Us</Link>
                         <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
                             Shop
                         </Link>
