@@ -41,6 +41,18 @@ export default function EventCarousel() {
     (async () => {
       try {
         const data = await fetchEvents();
+  
+        // Preload images using the native browser Image object
+        const preloadImages = data.map((event) => {
+          return new Promise<void>((resolve, reject) => {
+            const img = new window.Image();
+            img.src = event.eventImage;
+            img.onload = () => resolve();
+            img.onerror = () => reject();
+          });
+        });
+  
+        await Promise.all(preloadImages);
         setEvents(data);
       } catch (error) {
         console.error("Error fetching events:", error);
@@ -49,6 +61,7 @@ export default function EventCarousel() {
       }
     })();
   }, []);
+  
 
   if (isLoading) {
     return (
@@ -135,7 +148,8 @@ export default function EventCarousel() {
                     alt={event.imageDescription}
                     layout="fill"
                     objectFit="cover"
-                    className="absolute inset-0"
+                    className="absolute inset-0 transition-opacity duration-500 opacity-0"
+                    onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
                   />
                 </div>
                 <div className="p-6 flex-grow flex flex-col">

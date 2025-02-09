@@ -51,13 +51,13 @@ export const Navbar = () => {
             className={`z-50 fixed top-0 w-full min-h-[60px] text-white transition-all duration-300 
             ${isMobile ? "bg-[#011a38]" : scrolled ? "bg-[#011a38]" : "bg-transparent"}`}
             animate={{ y: isMobile || visible ? 0 : "-100%" }} // Only hide on scroll for desktop
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            transition={{ type: "tween", duration: 0.15, ease: "easeInOut" }}
         >
             <div className="flex items-center justify-between px-4 py-3 xl:px-48 md:px-10">
                 
                 {/* Mobile Logo */}
                 <div className="xl:hidden flex items-center z-[100]">
-                    <Link href="/">
+                    <Link href="/" onClick={() => setIsOpen(false)}>
                         <Image
                             src="/images/mathsoc-logo-longform.svg"
                             alt="MathSoc Logo"

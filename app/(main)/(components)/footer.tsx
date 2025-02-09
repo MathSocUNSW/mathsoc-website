@@ -18,7 +18,7 @@ export const Footer = () => {
                     </nav>
                 </div>
                 <div className="mb-4 md:mb-0">
-                    <h4 className="text-lg font-bold mb-2 text-right">Follow Us</h4>
+                    <h4 className="text-lg font-bold mb-2 text-left md:text-right">Follow Us</h4>
                     <div className="flex space-x-4">
                         <a href="https://www.facebook.com/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <FaFacebook className="h-6 w-6 hover:text-[#2390c6]" />
