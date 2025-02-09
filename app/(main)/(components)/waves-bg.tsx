@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 /**
  * Type-safe options for the Waves class.
@@ -232,10 +232,24 @@ class WavesClass {
 }
 
 const Wave: React.FC<{ containerId?: string; rotation?: number }> = ({ containerId = "wave-holder", rotation = 45 }) => {
+  const wavesInstance = useRef<WavesClass | null>(null);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const wavesInstance = new WavesClass(`#${containerId}`, { rotation });
-    wavesInstance.animate();
+
+    // Ensure there's no existing instance before creating a new one
+    if (!wavesInstance.current) {
+      wavesInstance.current = new WavesClass(`#${containerId}`, { rotation });
+      wavesInstance.current.animate();
+    }
+
+    // Cleanup function: Removes event listeners and clears instance
+    return () => {
+      if (wavesInstance.current) {
+        window.removeEventListener("resize", wavesInstance.current.resize.bind(wavesInstance.current));
+        wavesInstance.current = null;
+      }
+    };
   }, [containerId, rotation]);
 
   return <div id={containerId} style={{ position: "absolute", width: "100%", height: "100%", overflow: "hidden" }} />;
