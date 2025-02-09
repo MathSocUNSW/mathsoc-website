@@ -42,18 +42,18 @@ export default function EventCarousel() {
       try {
         const data = await fetchEvents();
   
-        // Preload images using the native browser Image object
-        const preloadImages = data.map((event) => {
-          return new Promise<void>((resolve, reject) => {
+        // Preload all images before setting state
+        const preloadImages = data.map((event) =>
+          new Promise<void>((resolve, reject) => {
             const img = new window.Image();
             img.src = event.eventImage;
             img.onload = () => resolve();
             img.onerror = () => reject();
-          });
-        });
+          })
+        );
   
         await Promise.all(preloadImages);
-        setEvents(data);
+        setEvents(data); // Now the carousel will show all images instantly
       } catch (error) {
         console.error("Error fetching events:", error);
       } finally {
@@ -62,7 +62,6 @@ export default function EventCarousel() {
     })();
   }, []);
   
-
   if (isLoading) {
     return (
       <div className="w-screen overflow-visible py-8 relative">
@@ -148,6 +147,8 @@ export default function EventCarousel() {
                     alt={event.imageDescription}
                     layout="fill"
                     objectFit="cover"
+                    loading="eager"
+                    priority={index < 3}
                     className="absolute inset-0 transition-opacity duration-500 opacity-0"
                     onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
                   />
