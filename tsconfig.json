@@ -1,45 +1,27 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "module": "esnext",
-    "target": "es5",
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ],
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
-    "baseUrl": "./",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "node",
-    "downlevelIteration": true,
-    "paths": {
-      "components/*": [
-        "src/components/*"
-      ]
-    },
     "skipLibCheck": true,
     "strict": true,
-    "alwaysStrict": true,
-    "noImplicitAny": false,
-    "noImplicitThis": true,
-    "strictBindCallApply": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
-    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"]
+    }
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

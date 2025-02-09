@@ -1,9 +1,0 @@
-@import "./variables.scss";
-
-.intro {
-  padding: 0 8%;
-
-  @media only screen and (max-device-width: $mobile) {
-    padding: 0 3%;
-  }
-}
