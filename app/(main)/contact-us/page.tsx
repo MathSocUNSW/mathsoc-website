@@ -6,6 +6,11 @@ import Wave from "../(components)/waves-bg";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } }
+};
+
 const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
@@ -44,17 +49,39 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <section className="relative flex flex-col items-center py-10 px-6">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, ease: "easeOut" }} className="absolute inset-0">
+    <motion.section 
+      className="relative flex flex-col items-center py-10 px-6"
+      initial="hidden"
+      animate="visible"
+    >
+      {/* Background Animation */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0"
+      >
         <Wave containerId="holder1" rotation={45} />
       </motion.div>
 
-      <div className="text-center py-16 relative z-10">
+      {/* Heading Animation */}
+      <motion.div 
+        className="text-center py-16 relative z-10"
+        variants={fadeInUp}
+      >
         <h1 className="text-4xl font-bold">Contact Us</h1>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-col items-center space-y-8 min-h-[80vh] w-full max-w-4xl relative z-10">
-        <form className="shadow-md bg-gray-700 opacity-90 rounded px-8 pt-6 pb-8 w-full" onSubmit={handleSubmit}>
+      <motion.div 
+        className="flex flex-col items-center space-y-8 min-h-[80vh] w-full max-w-4xl relative z-10"
+        variants={fadeInUp}
+      >
+        {/* Form Animation */}
+        <motion.form 
+          className="shadow-md bg-gray-700 opacity-90 rounded px-8 pt-6 pb-8 w-full"
+          onSubmit={handleSubmit}
+          variants={fadeInUp}
+        >
           <div className="mb-4">
             <label className="block text-white text-sm mb-2">Name / Company</label>
             <input id="name" type="text" placeholder="Name / Company" value={formData.name} onChange={handleChange} className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
@@ -83,9 +110,13 @@ const ContactUs: React.FC = () => {
               {loading ? "Sending..." : "Submit"}
             </Button>
           </div>
-        </form>
+        </motion.form>
 
-        <div className="bg-gray-700 opacity-90 shadow-md rounded p-6 text-white text-center w-full">
+        {/* Social Media Section */}
+        <motion.div 
+          className="bg-gray-700 opacity-90 shadow-md rounded p-6 text-white text-center w-full"
+          variants={fadeInUp}
+        >
           <h2 className="text-2xl font-bold mb-4">Stay Connected</h2>
           <p className="mb-4">Follow us on social media to stay updated with upcoming events and opportunities!</p>
           <div className="flex justify-center space-x-6 text-2xl">
@@ -96,9 +127,9 @@ const ContactUs: React.FC = () => {
             <a href="https://discord.gg/9Cx2JHwY" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800"><FaDiscord /></a>
             <a href="mailto:hello@unswmathsoc.org" className="text-white hover:text-gray-800"><FaEnvelope /></a>
           </div>
-        </div>
-      </div>
-    </section>
+        </motion.div>
+      </motion.div>
+    </motion.section>
   );
 };
 

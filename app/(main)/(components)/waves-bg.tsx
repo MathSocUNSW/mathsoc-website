@@ -103,7 +103,7 @@ class WavesClass {
   public radius = 0;
   public centerX = 0;
   public centerY = 0;
-  public color = "rgba(49, 61, 124, 0.3)";
+  public color = "rgba(0, 0, 255, 0.27)";
 
   constructor(holder: string, userOptions: Partial<WavesOptions>) {
     this.options = { ...defaultWavesOptions, ...userOptions };
