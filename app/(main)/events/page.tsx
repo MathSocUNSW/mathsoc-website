@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { cache } from "react";
 import EventsClient from "../(components)/event-client";
 import { fetchEvents } from "../../../lib/api";

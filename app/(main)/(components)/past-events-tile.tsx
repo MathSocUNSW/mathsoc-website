@@ -1,9 +1,9 @@
-// @ts-nocheck
 "use client";
 
 import React, { useEffect, useState } from "react";
 import { EventDetails } from "../(data)/evenData"; // Adjust path if needed
 import { fetchEvents } from "../../../lib/api";   // Adjust path to your API fetch
+import Image from "next/image";
 
 // Skeleton loader for event cards
 const SkeletonCard = () => (
@@ -59,31 +59,33 @@ export default function PastEventsGrid() {
   return (
     <div className="p-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {pastEvents.map((event, index) => (
-          <div
-            key={index}
-            className="w-full max-w-md mx-auto rounded-lg shadow-lg bg-gray-700 opacity-90 overflow-hidden flex flex-col transform transition-transform hover:scale-105 active:scale-95"
-          >
-            <div className="relative w-full h-48">
-              <img
-                src={event.eventImage}
-                alt={event.imageDescription}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-            <div className="p-6 flex-grow flex flex-col">
-              <h3 className="text-xl text-white font-semibold mb-2">
-                {event.eventName}
-              </h3>
-              <p className="text-sm text-white mb-2">
-                {event.locationLabel || "Location not specified"}
-              </p>
-              <p className="text-sm text-white">
-                {new Date(event.startTime).toLocaleString()}
-              </p>
-            </div>
+      {pastEvents.map((event, index) => (
+        <div
+          key={index}
+          className="w-full max-w-md mx-auto rounded-lg shadow-lg bg-gray-700 opacity-90 overflow-hidden flex flex-col transform transition-transform hover:scale-105 active:scale-95"
+        >
+          <div className="relative w-full h-48">
+            <Image
+              src={event.eventImage}
+              alt={event.imageDescription}
+              layout="fill"
+              objectFit="cover"
+              className="absolute inset-0"
+            />
           </div>
-        ))}
+          <div className="p-6 flex-grow flex flex-col">
+            <h3 className="text-xl text-white font-semibold mb-2">
+              {event.eventName}
+            </h3>
+            <p className="text-sm text-white mb-2">
+              {event.locationLabel || "Location not specified"}
+            </p>
+            <p className="text-sm text-white">
+              {new Date(event.startTime).toLocaleString()}
+            </p>
+          </div>
+        </div>
+      ))}
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { motion } from "framer-motion";
@@ -20,7 +19,12 @@ const stats = [
   { icon: Calendar, value: 75, label: "events held last year" },
 ];
 
-const Counter = ({ target }) => {
+interface CounterProps {
+  target: number; // Explicitly define target as a number
+}
+
+
+const Counter : React.FC<CounterProps> = ({ target }) => {
   const [count, setCount] = useState(0);
   const [start, setStart] = useState(false);
   const counterRef = useRef(null);

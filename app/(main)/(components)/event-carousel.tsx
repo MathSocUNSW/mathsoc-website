@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -12,6 +11,7 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
 
 // Skeleton loader for event cards
 const SkeletonCard = () => (
@@ -98,59 +98,62 @@ export default function EventCarousel() {
         plugins={[plugin.current]}
         opts={{ loop: true, slidesToScroll: 1 }}
         onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current?.play}
+        onMouseLeave={() => plugin.current?.play()}
       >
         <CarouselContent className="flex items-stretch overflow-visible">
-          {futureEvents.map((event, index) => (
-            <CarouselItem
-              key={index}
+        {futureEvents.map((event, index) => (
+          <CarouselItem
+            key={index}
+            className="
+              w-full
+              sm:basis-1/1
+              md:basis-1/2
+              lg:basis-1/3
+              xl:basis-1/4
+              py-4
+              flex
+            "
+          >
+            <a
+              href={event.eventLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="
+                block
+                transform
+                transition-transform
+                hover:scale-105
+                active:scale-95
+                cursor-pointer
                 w-full
-                sm:basis-1/1
-                md:basis-1/2
-                lg:basis-1/3
-                xl:basis-1/4
-                py-4
-                flex
               "
             >
-              <a
-                href={event.eventLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  block
-                  transform
-                  transition-transform
-                  hover:scale-105
-                  active:scale-95
-                  cursor-pointer
-                  w-full
-                "
-              >
-                <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg opacity-90 bg-gray-700 overflow-hidden flex flex-col">
-                  <div className="relative w-full h-48">
-                    <img
-                      src={event.eventImage}
-                      alt={event.imageDescription}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-xl text-white font-semibold mb-2">
-                      {event.eventName}
-                    </h3>
-                    <p className="text-sm text-white mb-2">
-                      {event.locationLabel || "Location not specified"}
-                    </p>
-                    <p className="text-sm text-white">
-                      {new Date(event.startTime).toLocaleString()}
-                    </p>
-                  </div>
+              <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg opacity-90 bg-gray-700 overflow-hidden flex flex-col">
+                <div className="relative w-full h-48">
+                  <Image
+                    src={event.eventImage}
+                    alt={event.imageDescription}
+                    layout="fill"
+                    objectFit="cover"
+                    className="absolute inset-0"
+                  />
                 </div>
-              </a>
-            </CarouselItem>
-          ))}
+                <div className="p-6 flex-grow flex flex-col">
+                  <h3 className="text-xl text-white font-semibold mb-2">
+                    {event.eventName}
+                  </h3>
+                  <p className="text-sm text-white mb-2">
+                    {event.locationLabel || "Location not specified"}
+                  </p>
+                  <p className="text-sm text-white">
+                    {new Date(event.startTime).toLocaleString()}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </CarouselItem>
+        ))}
+
         </CarouselContent>
 
         <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10" />

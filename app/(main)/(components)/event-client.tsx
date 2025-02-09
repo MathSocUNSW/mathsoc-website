@@ -1,8 +1,6 @@
-// @ts-nocheck
 "use client";
 
 import { motion } from "framer-motion";
-import { useMemo } from "react";
 import EventCarousel from "../../(main)/(components)/event-carousel";
 import PastEventsGrid from "../(components)/past-events-tile";
 import Wave from "../(components)/waves-bg";
@@ -17,9 +15,8 @@ interface EventsClientProps {
   events: EventDetails[];
 }
 
-const EventsClient: React.FC<EventsClientProps> = ({ events }) => {
+const EventsClient: React.FC<EventsClientProps> = () => {
   // Prevent re-renders by memoizing the event data
-  const memoizedEvents = useMemo(() => events, [events]);
 
   return (
     <motion.section initial="hidden" animate="visible" variants={fadeInVariant}>
@@ -31,7 +28,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ events }) => {
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <h1 className="text-4xl font-bold text-white">See What's On</h1>
+          <h1 className="text-4xl font-bold text-white">See What&apos;s On</h1>
         </div>
       </div>
 

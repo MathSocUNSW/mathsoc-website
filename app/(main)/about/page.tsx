@@ -1,4 +1,3 @@
-// @ts-nocheck
 "use client";
 
 import { useState } from "react";
@@ -7,19 +6,62 @@ import Wave from "../(components)/waves-bg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BlockColumn } from "../(components)/block-column";
+import Image from "next/image";
 
+interface Member {
+  name: string;
+  role: string;
+  photo: string;
+}
 
+interface TeamsData {
+  [year: string]: {
+    [portfolio: string]: Member[];
+  };
+}
+
+const TeamMemberCard: React.FC<{ member: Member }> = ({ member }) => {
+  const [imageSrc, setImageSrc] = useState(member.photo);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+    >
+      <Card className="shadow-lg w-[300px]">
+        <CardContent className="p-4 flex flex-col items-center">
+          <div className="w-32 h-32 relative">
+            <Image
+              src={imageSrc}
+              alt={member.name}
+              width={128}
+              height={128}
+              className="w-32 h-32 object-cover rounded-full"
+              unoptimized // If the images are from an unsupported domain
+              onError={() => setImageSrc("/images/placeholder.png")} // Fallback if image fails
+            />
+          </div>
+          <h2 className="text-lg font-semibold mt-4">{member.name}</h2>
+          <p className="text-sm text-gray-500">{member.role}</p>
+        </CardContent>
+      </Card>
+    </motion.div>
+  );
+};
 
 const About: React.FC = () => {
   const [selectedPortfolio, setSelectedPortfolio] = useState("Executives");
   const [year, setYear] = useState(new Date().getFullYear());
+  
 
   const portfolios = [
     "Executives", "Academics", "Outreach", "Careers", "Socials", "Human Resources", 
     "Marketing", "Creative", "Information Technology"
   ];
 
-  const teamsData = {
+  const teamsData : TeamsData = {
     [2025]: {
       "Executives": [
         { name: "Kelly Pan", role: "President", photo: "/images/kelly.jpg" },
@@ -142,27 +184,8 @@ const About: React.FC = () => {
       </motion.div>
 
       <motion.div className="flex flex-wrap justify-center gap-6 px-6 pb-12" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut", staggerChildren: 0.2 }} viewport={{ once: true }}>
-        {teamsData[year]?.[selectedPortfolio]?.map((member) => (
-          <motion.div key={member.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} viewport={{ once: true }}>
-            <Card className="shadow-lg w-[300px]">
-              <CardContent className="p-4 flex flex-col items-center">
-                {member.photo ? (
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-32 h-32 object-cover rounded-full"
-                    onError={(e) => (e.currentTarget.src = "/images/placeholder.png")}
-                  />
-                ) : (
-                  <div className="w-32 h-32 bg-gray-300 rounded-full flex items-center justify-center text-gray-600">
-                    {member.name}
-                  </div>
-                )}
-                <h2 className="text-lg font-semibold mt-4">{member.name}</h2>
-                <p className="text-sm text-gray-500">{member.role}</p>
-              </CardContent>
-            </Card>
-          </motion.div>
+        {teamsData[String(year)]?.[selectedPortfolio]?.map((member) => (
+          <TeamMemberCard key={member.name} member={member} />
         ))}
       </motion.div>
     </motion.section>

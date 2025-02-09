@@ -1,7 +1,6 @@
-// @ts-nocheck
 "use client";
 
-import { FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"; // Importing TikTok and Discord icons from react-icons
+import { FaDiscord, FaFacebook, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa"; 
 import Link from "next/link";
 
 export const Footer = () => {

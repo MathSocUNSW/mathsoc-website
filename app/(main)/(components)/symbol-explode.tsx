@@ -1,13 +1,25 @@
-// @ts-nocheck
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const MATH_SYMBOLS = ["+", "-", "×", "÷", "∫", "Σ", "∞", "√", "∂", "π", "μ"];
 
-function SymbolExplosion({ children, explosionDelay = 1250 }) {
-  const [particles, setParticles] = useState([]);
+// Define the type for particles
+interface Particle {
+  id: string;
+  symbol: string;
+  deltaX: number;
+  deltaY: number;
+}
+
+interface SymbolExplosionProps {
+  children: ReactNode;
+  explosionDelay?: number;
+}
+
+const SymbolExplosion: React.FC<SymbolExplosionProps> = ({ children, explosionDelay = 1250 }) => {
+  const [particles, setParticles] = useState<Particle[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasExplodedOnView, setHasExplodedOnView] = useState(false);
 
@@ -15,7 +27,7 @@ function SymbolExplosion({ children, explosionDelay = 1250 }) {
   // The shared explosion function
   // ------------------------------------------
   const handleExplosion = () => {
-    const newParticles = [];
+    const newParticles: Particle[] = [];
     for (let i = 0; i < 24; i++) {
       newParticles.push({
         id: crypto.randomUUID(),
@@ -105,6 +117,6 @@ function SymbolExplosion({ children, explosionDelay = 1250 }) {
       </AnimatePresence>
     </div>
   );
-}
+};
 
 export default SymbolExplosion;

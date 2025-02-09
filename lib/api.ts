@@ -1,10 +1,17 @@
-// app/lib/api.ts (or wherever this file lives)
-// If this file is used by a Client Component ("use client"), you MUST use NEXT_PUBLIC_...
-// If it’s purely server code, you can omit NEXT_PUBLIC_ and do FB_API_TOKEN instead.
-
 import { EventDetails } from "../app/(main)/(data)/evenData";
 
-const fetchFBEventData = async (): Promise<any[]> => {
+// Define the expected structure of a Facebook event response
+interface FBEvent {
+  id: string;
+  name: string;
+  description?: string;
+  cover?: { source: string };
+  place?: { name: string };
+  start_time: string;
+  end_time?: string;
+}
+
+const fetchFBEventData = async (): Promise<FBEvent[]> => {
   // Check the token
   const token = process.env.NEXT_PUBLIC_FB_API_TOKEN;  
   console.log("Facebook API Token:", token);
@@ -30,7 +37,7 @@ const fetchFBEventData = async (): Promise<any[]> => {
     }
 
     console.log("Fetched data:", resJSON);
-    return resJSON.data || [];
+    return resJSON.data as FBEvent[]; // Explicitly cast response data to `FBEvent[]`
   } catch (err) {
     console.error("Error during API call:", err);
     return [];
@@ -38,13 +45,13 @@ const fetchFBEventData = async (): Promise<any[]> => {
 };
 
 export const fetchEvents = async (): Promise<EventDetails[]> => {
-  const eventData: any[] = await fetchFBEventData();
+  const eventData: FBEvent[] = await fetchFBEventData();
   return eventData.map((item) => ({
     eventName: item.name,
-    eventLink: "https://www.facebook.com/events/" + item.id,
+    eventLink: `https://www.facebook.com/events/${item.id}`,
     eventDescription: item.description || "No description available.",
     eventImage: item.cover?.source || "/images/default-event-image.jpg",
-    imageDescription: item.name + " Promotional Image",
+    imageDescription: `${item.name} Promotional Image`,
     locationLabel: item.place?.name || "Location not specified",
     startTime: item.start_time,
     endTime: item.end_time || item.start_time,

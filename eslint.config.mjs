@@ -11,6 +11,15 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off", // Disable the require() rule for TypeScript files
+    },
+  },
+  {
+    ignores: ["node_modules/**", ".next/**", "app/(main)/(components)/waves-bg.tsx"], // Ignore Next.js build files and dependencies
+  },
 ];
 
 export default eslintConfig;
