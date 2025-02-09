@@ -18,7 +18,7 @@ const eslintConfig = [
     },
   },
   {
-    ignores: ["node_modules/**", ".next/**", "app/(main)/(components)/waves-bg.tsx"], // Ignore Next.js build files and dependencies
+    ignores: ["node_modules/**", ".next/**"], // Ignore Next.js build files and dependencies
   },
 ];
 

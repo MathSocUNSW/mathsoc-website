@@ -137,16 +137,22 @@ const About: React.FC = () => {
       >
         <div className="flex flex-col items-center">
         <BlockColumn
-          heading="Building Community, Careers, and Academic Excellence"
-          content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
+          heading="Who We Are"
+          content="The UNSW Mathematics Society (MathSoc) is the constituent society of the School of Mathematics and Statistics, open to anyone with an interest in mathematics. We support students by fostering a strong community, providing career insights, and developing academic resources."
+          buttonLink="/UNSW-Mathematics-Society-Constitution_2025.pdf"
+          buttonText="Our Constitution"
         />
         <BlockColumn
-          heading="Building Community, Careers, and Academic Excellence"
-          content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
-          image="/images/photos/bod.webp"
+          heading="Our Aims"
+          content="We aim to enhance the sense of community among maths students, connecting like-minded individuals and fostering collaboration. Our initiatives inform students about academic and career opportunities while providing support for their studies and a platform to discuss mathematics."
+          image="/images/photos/image2.webp"
           imagePosition="left"
-          buttonLink="/UNSW-Mathematics-Society-Constitution_2025.pdf"
-          buttonText="Constitution"
+        />
+        <BlockColumn
+          heading="Our Events"
+          content="We host academic events like revision seminars, workshops, and competitions to support students in their learning. Our career-focused events include resume and interview workshops, Q&A sessions, and an industry mentoring program. Socially, we bring students together through peer mentoring, BBQs, trivia and games nights, movie nights, formal balls, and pub crawls."
+          image="/images/photos/image3.webp"
+          imagePosition="right"
         />
         </div>
 
