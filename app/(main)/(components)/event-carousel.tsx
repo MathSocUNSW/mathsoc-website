@@ -156,8 +156,8 @@ export default function EventCarousel() {
 
         </CarouselContent>
 
-        <CarouselPrevious className="absolute xl:ml-8  left-2 top-1/2 transform -translate-y-1/2 z-10" />
-        <CarouselNext className="absolute xl:mr-8 right-2 top-1/2 transform -translate-y-1/2 z-10" />
+        <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10" />
+        <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10" />
       </Carousel>
     </div>
   );

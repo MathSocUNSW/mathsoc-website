@@ -49,7 +49,7 @@ export const Navbar = () => {
     return (
         <motion.nav
             className={`z-50 fixed top-0 w-full min-h-[60px] text-white transition-all duration-300 
-                ${scrolled ? "bg-[#011a38]" : "bg-transparent"}`}
+            ${isMobile ? "bg-[#011a38]" : scrolled ? "bg-[#011a38]" : "bg-transparent"}`}
             animate={{ y: isMobile || visible ? 0 : "-100%" }} // Only hide on scroll for desktop
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
