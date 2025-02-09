@@ -12,7 +12,7 @@ export const Footer = () => {
                     <nav className="flex flex-row space-x-4">
                         <Link href="/about-us" className="hover:text-[#2390c6]">About Us</Link>
                         <Link href="/events" className="hover:text-[#2390c6]">Events</Link>
-                        <Link href="/resources" className="hover:text-[#2390c6]">Resources</Link>
+                        <Link href="https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96" className="hover:text-[#2390c6]">Resources</Link>
                         <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
                         <Link href="/contact-us" className="hover:text-[#2390c6]">Contact Us</Link>
                     </nav>
