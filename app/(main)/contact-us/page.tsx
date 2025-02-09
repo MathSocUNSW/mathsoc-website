@@ -1,4 +1,4 @@
-// packages
+import Image from 'next/image';
 
 const ContactUs: React.FC = async () => {
 
@@ -64,11 +64,18 @@ const ContactUs: React.FC = async () => {
           </div>
         </form>
 
-        {/* Image */}
-        <img 
-          src="/images/photos/mupy_glasses.png" 
-          alt="Mupy image" 
-          className="w-64 sm:w-80 rounded-lg shadow-md"
+        {/* Image Mupy*/}
+        <Image
+          src="/images/photos/mupy_glasses.png"
+          alt="Mupy image"
+          className="rounded-lg shadow-md"
+          width={256}
+          height={256}
+          sizes="(max-width: 640px) 256px, 320px"
+          style={{
+            width: 'auto',
+            height: 'auto',
+          }}
         />
       </div>
 

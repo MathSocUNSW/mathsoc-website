@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Sponsors: React.FC = async () => {
 
   return (
@@ -32,64 +34,78 @@ const Sponsors: React.FC = async () => {
         <h2 className="text-4xl text-center font-bold mb-20">Our Sponsors</h2>
         <div className="flex flex-col items-center space-y-8 mb-20">
           <a href="https://www.janestreet.com/" target="_blank" rel="noopener noreferrer">
-            <img
+            <Image
               className="w-96 transition-transform hover:scale-105"
               src="/images/logos/jane_street_logo.png"
-              alt="jane street logo"
+              alt="Jane Street logo"
+              width={384} // Define width in pixels
+              height={384} // Define height in pixels
             />
           </a>
         </div>
 
         <div className="flex flex-row justify-center items-center space-x-8 mb-20">
           <a href="https://www.optiver.com/" target="_blank" rel="noopener noreferrer">
-            <img
-              className="w-96 transition-transform hover:scale-105"
+            <Image
+              className="transition-transform hover:scale-105"
               src="/images/logos/optiver_logo.png"
-              alt="optiver logo"
+              alt="Optiver logo"
+              width={384}
+              height={384}
             />
           </a>
 
           <a href="https://www.imc.com/" target="_blank" rel="noopener noreferrer">
-            <img
-              className="w-96 transition-transform hover:scale-105"
+            <Image
+              className="transition-transform hover:scale-105"
               src="/images/logos/imc_logo.png"
-              alt="imc logo"
+              alt="IMC logo"
+              width={384}
+              height={384}
             />
           </a>
         </div>
 
         <div className="flex flex-row justify-center items-center space-x-8 mb-20">
           <a href="https://www.quantium.com/" target="_blank" rel="noopener noreferrer">
-            <img
-              className="w-96 transition-transform hover:scale-105"
+            <Image
+              className="transition-transform hover:scale-105"
               src="/images/logos/quantium_logo.webp"
-              alt="quantium logo"
+              alt="Quantium logo"
+              width={384}
+              height={384}
             />
           </a>
 
           <a href="https://www.citadelsecurities.com/" target="_blank" rel="noopener noreferrer">
-            <img
-              className="w-96 transition-transform hover:scale-105"
+            <Image
+              className="transition-transform hover:scale-105"
               src="/images/logos/citadel_securities_logo.webp"
-              alt="citadel logo"
+              alt="Citadel logo"
+              width={384}
+              height={384}
             />
           </a>
         </div>
 
         <div className="flex flex-row justify-center items-center space-x-8 mb-20">
           <a href="https://www.flowtraders.com/" target="_blank" rel="noopener noreferrer">
-            <img
-              className="w-96 transition-transform hover:scale-105"
+            <Image
+              className="transition-transform hover:scale-105"
               src="/images/logos/flow_traders_logo.webp"
-              alt="flow traders logo"
+              alt="Flow Traders logo"
+              width={384}
+              height={384}
             />
           </a>
 
           <a href="https://www.auroraenergy.com.au/" target="_blank" rel="noopener noreferrer">
-            <img
-              className="w-96 transition-transform hover:scale-105"
+            <Image
+              className="transition-transform hover:scale-105"
               src="/images/logos/aurora_logo.webp"
-              alt="aurora logo"
+              alt="Aurora logo"
+              width={384}
+              height={384}
             />
           </a>
         </div>
