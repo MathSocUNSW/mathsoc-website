@@ -53,7 +53,8 @@ const TeamMemberCard: React.FC<{ member: Member }> = ({ member }) => {
 
 const About: React.FC = () => {
   const [selectedPortfolio, setSelectedPortfolio] = useState("Executives");
-  const [year, setYear] = useState(new Date().getFullYear());
+  // const [year, setYear] = useState(new Date().getFullYear());
+  const [year] = useState(new Date().getFullYear());
   
 
   const portfolios = [
@@ -172,7 +173,7 @@ const About: React.FC = () => {
         <h1 className="text-4xl font-bold">Meet the Team</h1>
       </motion.div>
 
-      <div className="flex justify-center pb-6">
+      {/* <div className="flex justify-center pb-6">
         <select 
           value={year} 
           onChange={(e) => setYear(Number(e.target.value))} 
@@ -183,7 +184,7 @@ const About: React.FC = () => {
             return <option key={pastYear} value={pastYear}>{pastYear}</option>;
           })}
         </select>
-      </div>
+      </div> */}
 
       <motion.div className="flex justify-center gap-4 flex-wrap pb-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
         {portfolios.map((portfolio) => (
