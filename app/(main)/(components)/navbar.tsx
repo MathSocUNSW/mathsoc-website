@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu as MenuIcon, X, ShoppingBasket } from "lucide-react";
+import { Menu as MenuIcon, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
@@ -86,8 +86,7 @@ export const Navbar = () => {
                         <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
                         <Link href="/contact-us" className="text-center hover:text-[#2390c6]">Contact Us</Link>
                         <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
-                            Merch
-                            <ShoppingBasket className="ml-2" />
+                            Shop
                         </Link>
                     </div>
                 </div>
@@ -133,8 +132,7 @@ export const Navbar = () => {
                             </Link>
                         ))}
                         <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
-                            Merch
-                            <ShoppingBasket className="ml-2 mt-1" />
+                            Shop
                         </Link>
                     </motion.div>
                 )}
