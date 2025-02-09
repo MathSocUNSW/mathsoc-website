@@ -11,49 +11,58 @@ export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
-    const [scrolled, setScrolled] = useState(false); // Track if scrolled
+    const [scrolled, setScrolled] = useState(false);
+    const [isSticky, setIsSticky] = useState(true); // New state to manage sticky behavior
+
+    // Check screen width and disable sticky navbar on mobile
+    useEffect(() => {
+        const checkScreenWidth = () => {
+            setIsSticky(window.innerWidth >= 768); // Enable sticky navbar only if screen width is >= 768px (md breakpoint)
+        };
+
+        checkScreenWidth(); // Run on mount
+        window.addEventListener("resize", checkScreenWidth);
+
+        return () => window.removeEventListener("resize", checkScreenWidth);
+    }, []);
 
     // Handle scrolling behavior
     useEffect(() => {
+        if (!isSticky) return; // Disable scrolling behavior on mobile
+
         const handleScroll = () => {
             const currentScrollPos = window.pageYOffset;
 
-            // If the user is scrolling down, hide the navbar
             if (currentScrollPos > prevScrollPos && visible) {
                 setVisible(false);
             } else if (currentScrollPos < prevScrollPos) {
-                // If scrolling up, show the navbar
                 setVisible(true);
             }
 
-            // Update the previous scroll position
             setPrevScrollPos(currentScrollPos);
 
-            // If scrolled down past 50px, set scrolled to true, else false
             if (currentScrollPos > 50) {
-                setScrolled(true); // Add background when scrolled down
+                setScrolled(true);
             } else {
-                setScrolled(false); // Remove background when at the top
+                setScrolled(false);
             }
         };
 
         window.addEventListener("scroll", handleScroll);
-
-        // Cleanup the event listener on component unmount
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [prevScrollPos, visible]);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, [prevScrollPos, visible, isSticky]);
 
     return (
         <motion.nav
-            className={`z-50 fixed top-0 w-full min-h-[60px] text-white transition-all duration-300 ${scrolled && visible ? 'bg-[#011a38]' : 'bg-transparent'}`}
-            animate={{ y: visible ? 0 : "-100%" }}
+            className={`z-50 w-full min-h-[60px] text-white transition-all duration-300 
+                ${isSticky ? "fixed top-0" : "relative"} 
+                ${scrolled && visible ? "bg-[#011a38]" : "bg-transparent"}`}
+            animate={{ y: visible || !isSticky ? 0 : "-100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
         >
             <div className="flex items-center justify-between px-4 py-3 xl:px-48 md:px-10">
                 
-                {/* Mobile Logo (Hidden on Large Screens) */}
+                {/* Mobile Logo */}
                 <div className="xl:hidden flex items-center z-[100]">
                     <Link href="/">
                         <Image
@@ -67,7 +76,7 @@ export const Navbar = () => {
                     </Link>
                 </div>
 
-                {/* Large Screen Nav */}
+                {/* Desktop Nav */}
                 <div className="hidden md:flex md:flex-1 md:justify-end xl:justify-center items-center space-x-6">
                     <div className="flex items-center space-x-12 xl:space-x-24">
                         <Link href="/" className="hidden xl:block min-w-[150px]">
@@ -102,7 +111,7 @@ export const Navbar = () => {
                 </Button>
             </div>
 
-            {/* Full-Screen Mobile Dropdown with Proper Height */}
+            {/* Mobile Dropdown */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
