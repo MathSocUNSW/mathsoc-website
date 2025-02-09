@@ -23,9 +23,9 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <div>
             <Head>
-                {events.length > 0 && (
-                    <link rel="preload" as="image" href={events[0].eventImage} />
-                )}
+                {events.map((event, index) => (
+                    <link key={index} rel="preload" as="image" href={event.eventImage} />
+                ))}
             </Head>
             <Navbar />
             <main className="h-full">{children}</main>
