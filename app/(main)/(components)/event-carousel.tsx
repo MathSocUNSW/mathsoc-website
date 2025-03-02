@@ -66,7 +66,7 @@ export default function EventCarousel() {
     return (
       <div className="w-screen overflow-visible py-8 relative">
         <Carousel opts={{ loop: true, slidesToScroll: 1 }}>
-          <CarouselContent className="flex items-stretch overflow-visible">
+          <CarouselContent className="flex items-stretch overflow-visible justify-center">
             {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem
                 key={index}
@@ -110,65 +110,68 @@ export default function EventCarousel() {
         plugins={[plugin.current]}
         opts={{ loop: true, slidesToScroll: 1 }}
         onMouseEnter={plugin.current.stop}
-        onMouseLeave={() => plugin.current?.play()}
+        onMouseLeave={() => plugin.current?.play}
       >
-        <CarouselContent className="flex items-stretch overflow-visible">
-        {futureEvents.map((event, index) => (
-          <CarouselItem
-            key={index}
-            className="
-              w-full
-              sm:basis-1/1
-              md:basis-1/2
-              lg:basis-1/3
-              xl:basis-1/4
-              py-4
-              flex
-            "
-          >
-            <a
-              href={event.eventLink}
-              target="_blank"
-              rel="noopener noreferrer"
+        <CarouselContent
+          className={`flex items-stretch overflow-visible ${
+            futureEvents.length < 4 ? "justify-center" : ""
+          }`}
+        >
+          {futureEvents.map((event, index) => (
+            <CarouselItem
+              key={index}
               className="
-                block
-                transform
-                transition-transform
-                hover:scale-105
-                active:scale-95
-                cursor-pointer
                 w-full
+                sm:basis-1/1
+                md:basis-1/2
+                lg:basis-1/3
+                xl:basis-1/4
+                py-4
+                flex
               "
             >
-              <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg opacity-90 bg-gray-700 overflow-hidden flex flex-col">
-                <div className="relative w-full h-48">
-                  <Image
-                    src={event.eventImage}
-                    alt={event.imageDescription}
-                    layout="fill"
-                    objectFit="cover"
-                    loading="eager"
-                    priority={index < 3}
-                    className="absolute inset-0 transition-opacity duration-500 opacity-0"
-                    onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
-                  />
+              <a
+                href={event.eventLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="
+                  block
+                  transform
+                  transition-transform
+                  hover:scale-105
+                  active:scale-95
+                  cursor-pointer
+                  w-full
+                "
+              >
+                <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg opacity-90 bg-gray-700 overflow-hidden flex flex-col">
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={event.eventImage}
+                      alt={event.imageDescription}
+                      layout="fill"
+                      objectFit="cover"
+                      loading="eager"
+                      priority={index < 3}
+                      className="absolute inset-0 transition-opacity duration-500 opacity-0"
+                      onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
+                    />
+                  </div>
+                  <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-xl text-white font-semibold mb-2">
+                      {event.eventName}
+                    </h3>
+                    <p className="text-sm text-white mb-2">
+                      {event.locationLabel || "Location not specified"}
+                    </p>
+                    <p className="text-sm text-white">
+                      {new Date(event.startTime).toLocaleString()}
+                    </p>
+                  </div>
                 </div>
-                <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="text-xl text-white font-semibold mb-2">
-                    {event.eventName}
-                  </h3>
-                  <p className="text-sm text-white mb-2">
-                    {event.locationLabel || "Location not specified"}
-                  </p>
-                  <p className="text-sm text-white">
-                    {new Date(event.startTime).toLocaleString()}
-                  </p>
-                </div>
-              </div>
-            </a>
-          </CarouselItem>
-        ))}
-
+              </a>
+            </CarouselItem>
+          ))}
         </CarouselContent>
 
         <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10" />
