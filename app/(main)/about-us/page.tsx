@@ -76,7 +76,7 @@ const About: React.FC = () => {
       "Academics": [
         { name: "Yufan Han", role: "Academics Director", photo: "/images/yufan.jpg" },
         { name: "Rashid Abuzarov", role: "Academics Director", photo: "/images/rashid.jpg" },
-        { name: "Oscar Wellard", role: "Academics Director", photo: "/images/wellard.jpg" }
+        { name: "Max Leo", role: "Academics Director", photo: "/images/max.jpg" }
       ],
       "Outreach": [
         { name: "Isabella Bustos-McNeil", role: "Outreach Director", photo: "/images/isabella.jpg" },
