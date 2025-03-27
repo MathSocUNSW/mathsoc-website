@@ -89,9 +89,9 @@ const About: React.FC = () => {
         { name: "Tony Wang", role: "Careers Director", photo: "/images/tony.jpg" }
       ],
       "Socials": [
-        { name: "Alina Jin", role: "Socials Director", photo: "/images/alina.jpg" },
         { name: "Aamir Khan", role: "Socials Director", photo: "/images/aamir.jpg" },
-        { name: "Michael Liu", role: "Socials Director", photo: "/images/michael.jpg" }
+        { name: "Michael Liu", role: "Socials Director", photo: "/images/michael.jpg" },
+        { name: "Yash Barve", role: "Socials Director", photo: "/images/yash.jpg" }
       ],
       "Human Resources": [
         { name: "Nelson Luo", role: "Human Resources Director", photo: "/images/nelson.jpg" }
