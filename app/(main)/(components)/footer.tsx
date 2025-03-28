@@ -29,7 +29,7 @@ export const Footer = () => {
                         <a href="https://www.tiktok.com/@unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                             <FaTiktok className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
-                        <a href="https://discord.gg/9Cx2JHwY" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                        <a href="https://discord.gg/Q6qfdJwPm8" target="_blank" rel="noopener noreferrer" aria-label="Discord">
                             <FaDiscord className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
                         <a href="https://au.linkedin.com/company/unsw-mathematics-society" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
