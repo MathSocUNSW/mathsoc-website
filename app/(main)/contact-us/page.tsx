@@ -124,7 +124,7 @@ const ContactUs: React.FC = () => {
             <a href="https://au.linkedin.com/company/unsw-mathematics-society" target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:text-blue-900"><FaLinkedin /></a>
             <a href="https://www.instagram.com/unswmathsoc" target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-800"><FaInstagram /></a>
             <a href="https://www.youtube.com/UNSWMathSocStreams" target="_blank" rel="noopener noreferrer" className="text-red-600 hover:text-red-800"><FaYoutube /></a>
-            <a href="https://discord.gg/9Cx2JHwY" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800"><FaDiscord /></a>
+            <a href="https://discord.gg/Q6qfdJwPm8" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800"><FaDiscord /></a>
             <a href="mailto:hello@unswmathsoc.org" className="text-white hover:text-gray-800"><FaEnvelope /></a>
           </div>
         </motion.div>
