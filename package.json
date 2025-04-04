@@ -19,10 +19,10 @@
     "framer-motion": "^12.4.0",
     "lucide": "^0.474.0",
     "lucide-react": "^0.474.0",
-    "next": "15.2.3",
+    "next": "^15.2.4",
     "nodemailer": "^6.10.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-icons": "^5.4.0",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"

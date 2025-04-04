@@ -65,50 +65,50 @@ const About: React.FC = () => {
   const teamsData : TeamsData = {
     [2025]: {
       "Executives": [
-        { name: "Kelly Pan", role: "President", photo: "/images/kelly.jpg" },
-        { name: "Neil Nag", role: "Secretary & Grievance Officer", photo: "/images/neil.jpg" },
-        { name: "James Hu", role: "Treasurer & Arc Delegate", photo: "/images/james.jpg" },
-        { name: "Aryan Lal", role: "Vice President of Activities", photo: "/images/aryan.jpg" },
-        { name: "Thao Peli Nghiem Xuan", role: "Vice President of Development", photo: "/images/peli.jpg" },
-        { name: "David Jin", role: "Vice President of Education", photo: "/images/david.jpg" },
-        { name: "Lauren Selby", role: "Vice President of Operations", photo: "/images/lauren.jpg" },
+        { name: "Kelly Pan", role: "President", photo: "/images/headshots/kelly.jpg" },
+        { name: "Neil Nag", role: "Secretary & Grievance Officer", photo: "/images/headshots/neil.jpg" },
+        { name: "James Hu", role: "Treasurer & Arc Delegate", photo: "/images/headshots/james.jpg" },
+        { name: "Aryan Lal", role: "Vice President of Activities", photo: "/images/headshots/aryan.jpg" },
+        { name: "Thao Peli Nghiem Xuan", role: "Vice President of Development", photo: "/images/headshots/peli.jpg" },
+        { name: "David Jin", role: "Vice President of Education", photo: "/images/headshots/david.jpg" },
+        { name: "Lauren Selby", role: "Vice President of Operations", photo: "/images/headshots/lauren.jpg" },
       ],
       "Academics": [
-        { name: "Yufan Han", role: "Academics Director", photo: "/images/yufan.jpg" },
-        { name: "Rashid Abuzarov", role: "Academics Director", photo: "/images/rashid.jpg" },
-        { name: "Max Leo", role: "Academics Director", photo: "/images/max.jpg" }
+        { name: "Yufan Han", role: "Academics Director", photo: "/images/headshots/yufan.jpg" },
+        { name: "Rashid Abuzarov", role: "Academics Director", photo: "/images/headshots/rashid.jpg" },
+        { name: "Max Leo", role: "Academics Director", photo: "/images/headshots/max.jpg" }
       ],
       "Outreach": [
-        { name: "Isabella Bustos-McNeil", role: "Outreach Director", photo: "/images/isabella.jpg" },
-        { name: "Jasmine Chong-White", role: "Outreach Director", photo: "/images/jasmine.jpg" },
-        { name: "Eric Chen Hong", role: "Outreach Director", photo: "/images/hong.jpg" }
+        { name: "Isabella Bustos-McNeil", role: "Outreach Director", photo: "/images/headshots/isabella.jpg" },
+        { name: "Jasmine Chong-White", role: "Outreach Director", photo: "/images/headshots/jasmine.jpg" },
+        { name: "Eric Chen Hong", role: "Outreach Director", photo: "/images/headshots/hong.jpg" }
       ],
       "Careers": [
-        { name: "Archit Aggarwal", role: "Careers Director", photo: "/images/archit.jpg" },
-        { name: "Sarah Zhong", role: "Careers Director", photo: "/images/sarah.jpg" },
-        { name: "Tony Wang", role: "Careers Director", photo: "/images/tony.jpg" }
+        { name: "Archit Aggarwal", role: "Careers Director", photo: "/images/headshots/archit.jpg" },
+        { name: "Sarah Zhong", role: "Careers Director", photo: "/images/headshots/sarah.jpg" },
+        { name: "Tony Wang", role: "Careers Director", photo: "/images/headshots/tony.jpg" }
       ],
       "Socials": [
-        { name: "Aamir Khan", role: "Socials Director", photo: "/images/aamir.jpg" },
-        { name: "Michael Liu", role: "Socials Director", photo: "/images/michael.jpg" },
-        { name: "Yash Barve", role: "Socials Director", photo: "/images/yash.jpg" }
+        { name: "Aamir Khan", role: "Socials Director", photo: "/images/headshots/aamir.jpg" },
+        { name: "Michael Liu", role: "Socials Director", photo: "/images/headshots/michael.jpg" },
+        { name: "Yash Barve", role: "Socials Director", photo: "/images/headshots/yash.jpg" }
       ],
       "Human Resources": [
-        { name: "Nelson Luo", role: "Human Resources Director", photo: "/images/nelson.jpg" }
+        { name: "Nelson Luo", role: "Human Resources Director", photo: "/images/headshots/nelson.jpg" }
       ],
       "Marketing": [
-        { name: "Shuly Chang", role: "Marketing Director", photo: "/images/shuly.jpg" },
-        { name: "Oscar Deng", role: "Marketing Director", photo: "/images/deng.jpg" },
-        { name: "Linyi Sun", role: "Marketing Director", photo: "/images/linyi.jpg" }
+        { name: "Shuly Chang", role: "Marketing Director", photo: "/images/headshots/shuly.jpg" },
+        { name: "Oscar Deng", role: "Marketing Director", photo: "/images/headshots/deng.jpg" },
+        { name: "Linyi Sun", role: "Marketing Director", photo: "/images/headshots/linyi.jpg" }
       ],
       "Creative": [
-        { name: "Rachel Zhao", role: "Creative Director", photo: "/images/rachel.jpg" },
-        { name: "Alan Feng", role: "Creative Director", photo: "/images/alan.jpg" },
-        { name: "Justin Cao", role: "Creative Director", photo: "/images/justin.jpg" }
+        { name: "Rachel Zhao", role: "Creative Director", photo: "/images/headshots/rachel.jpg" },
+        { name: "Alan Feng", role: "Creative Director", photo: "/images/headshots/alan.jpg" },
+        { name: "Justin Cao", role: "Creative Director", photo: "/images/headshots/justin.jpg" }
       ],
       "Information Technology": [
-        { name: "Eric Do", role: "IT Director", photo: "/images/do.jpg" },
-        { name: "John Wu", role: "IT Director", photo: "/images/john.jpg" }
+        { name: "Eric Do", role: "IT Director", photo: "/images/headshots/do.jpg" },
+        { name: "John Wu", role: "IT Director", photo: "/images/headshots/john.jpg" }
       ]
     }
   };
