@@ -5,11 +5,11 @@ import Link from "next/link";
 
 export const Footer = () => {
     return (
-        <footer className="bg-[#011a38] text-white py-8">
-            <div className="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-center px-4">
-                <div className="mb-4 md:mb-0 w-full md:w-auto md:flex-1">
+        <footer className="bg-[#011a38] text-white py-8 px-4">
+            <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
                     <h4 className="text-lg font-bold mb-2">Quick Links</h4>
-                    <nav className="flex flex-row space-x-4">
+                    <nav className="flex flex-wrap gap-x-4 gap-y-2">
                         <Link href="/about-us" className="hover:text-[#2390c6]">About Us</Link>
                         <Link href="/events" className="hover:text-[#2390c6]">Events</Link>
                         <Link href="https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96" className="hover:text-[#2390c6]">Resources</Link>
@@ -17,9 +17,9 @@ export const Footer = () => {
                         <Link href="/contact-us" className="hover:text-[#2390c6]">Contact Us</Link>
                     </nav>
                 </div>
-                <div className="mb-4 md:mb-0">
-                    <h4 className="text-lg font-bold mb-2 text-left md:text-right">Follow Us</h4>
-                    <div className="flex space-x-4">
+                <div className="md:text-right">
+                    <h4 className="text-lg font-bold mb-2">Follow Us</h4>
+                    <div className="flex justify-start md:justify-end gap-4">
                         <a href="https://www.facebook.com/unswmathsoc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <FaFacebook className="h-6 w-6 hover:text-[#2390c6]" />
                         </a>
@@ -38,11 +38,11 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="t-8 pt-4 text-center text-sm">
-                &copy; {new Date().getFullYear()} UNSW Mathematics Society. All rights reserved.
-            </div>
-            <div className="mt-4 text-center text-sm px-4">
-                <p>Proudly supported by Arc UNSW</p>
+            
+            {/* Footer Bottom */}
+            <div className="pt-6 mt-6 border-t border-white/20 text-center text-sm">
+                <p>&copy; {new Date().getFullYear()} UNSW Mathematics Society. All rights reserved.</p>
+                <p className="mt-2">Proudly supported by Arc UNSW</p>
             </div>
         </footer>
     );
