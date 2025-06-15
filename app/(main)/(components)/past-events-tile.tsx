@@ -60,8 +60,11 @@ export default function PastEventsGrid() {
     <div className="p-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {pastEvents.map((event, index) => (
-        <div
+        <a
           key={index}
+          href={event.eventLink}
+          target="_blank"
+          rel="noopener noreferrer"
           className="w-full max-w-md mx-auto rounded-lg shadow-lg bg-gray-700 opacity-90 overflow-hidden flex flex-col transform transition-transform hover:scale-105 active:scale-95"
         >
           <div className="relative w-full h-48">
@@ -84,7 +87,7 @@ export default function PastEventsGrid() {
               {new Date(event.startTime).toLocaleString()}
             </p>
           </div>
-        </div>
+        </a>
       ))}
       </div>
     </div>
