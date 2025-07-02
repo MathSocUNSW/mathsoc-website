@@ -17,11 +17,11 @@ const Sponsors: React.FC = () => {
   
   //effect for sponsor card descriptions
   useEffect(() => {
-    sponsorDescRefs.current.forEach((sponsor, index) => {
+    sponsorDescRefs.current.forEach((sponsor) => {
       if (!sponsor) {
         return;
       }
-      
+
       gsap.fromTo(sponsor, { opacity: 0, y: 50 }, {
         opacity: 1,
         y: 0,
