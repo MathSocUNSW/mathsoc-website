@@ -21,7 +21,7 @@ const Sponsors: React.FC = () => {
       if (!sponsor) {
         return;
       }
-      const isReversed = index % 2 === 1;
+      
       gsap.fromTo(sponsor, { opacity: 0, y: 50 }, {
         opacity: 1,
         y: 0,
