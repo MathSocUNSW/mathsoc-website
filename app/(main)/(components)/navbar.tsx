@@ -124,7 +124,7 @@ export const Navbar = () => {
                         {/* Navigation Links */}
                         <Link href="/about-us" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>About Us</Link>
                         <Link href="/events" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Events</Link>
-                        <Link href="https://drive.google.com/drive/folders/1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Resources</Link>
+                        <Link href="/resources" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Resources</Link>
                         <Link href="/sponsors" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Sponsors</Link>
                         <Link href="/contact-us" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Contact Us</Link>
                         <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
