@@ -228,7 +228,7 @@ const Resources: React.FC = () => {
     );
   }
 
-  // Filtering based on search query
+  // Filtering folders based on search query
   const filteredFolders = folders
     .map((folder) => {
       const matchedSubfolders = folder.subfolders
