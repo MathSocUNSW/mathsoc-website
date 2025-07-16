@@ -305,13 +305,6 @@ const Resources: React.FC = () => {
             onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
           />
         </div>
-        <Button
-          variant="outline"
-          className="bg-[#333e59] border-[#556080] text-white hover:bg-[#272f45] h-12 px-6"
-        >
-          <Filter className="w-4 h-4 mr-2" />
-          Filter
-        </Button>
       </div>
 
       {/* All resource folders */}
