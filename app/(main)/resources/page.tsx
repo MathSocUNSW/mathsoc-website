@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Wave from "../(components)/waves-bg";
 import {
   Collapsible,
@@ -21,6 +21,8 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import SymbolExplosion from "../(components)/symbol-explode";
+import Image from "next/image";
 
 interface DriveFile {
   id: string;
@@ -145,7 +147,7 @@ const Resources: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="min-h-[100vh]"
+        className="h-[100vh]"
       >
         {/* Wave background underneath navbar */}
         <div className="relative">
@@ -162,7 +164,6 @@ const Resources: React.FC = () => {
           </motion.section>
         </div>
 
-        {/* Resources, description and loading */}
         <motion.div
           className="text-center px-8 py-6"
           initial={{ opacity: 0, y: 20 }}
@@ -177,7 +178,34 @@ const Resources: React.FC = () => {
             ligula pellentesque malesuada.{" "}
           </p>
 
-          <p className="text-lg text-gray-300 mt-4">Loading resources...</p>
+          <div className="flex flex-col items-center space-y-8 pt-24">
+            <div className="relative">
+              <motion.div
+                className="w-32 h-32 border-4 border-transparent border-t-blue-600 rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              />
+
+              <motion.div
+                className="absolute inset-0 flex items-center justify-center"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <Image
+                  src="/images/mathsoc-logo.svg"
+                  alt="MathSoc Logo"
+                  width={150}
+                  height={50}
+                  className="h-10 w-auto invert"
+                  priority
+                />
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </motion.section>
     );
