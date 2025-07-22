@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Wave from "../(components)/waves-bg";
 import {
   Collapsible,
@@ -13,7 +13,6 @@ import {
   ChevronDown,
   Download,
   FileText,
-  Filter,
   Folder,
   Search,
   SquareArrowOutUpRight,
@@ -121,6 +120,10 @@ const Resources: React.FC = () => {
       }
 
       setFolders(folderStructure);
+      localStorage.setItem(
+        "mathsoc_resources",
+        JSON.stringify(folderStructure)
+      );
     } catch (error) {
       console.error("Error building folder structure:", error);
       setError("Failed to load resources. Please try again later.");
@@ -137,7 +140,15 @@ const Resources: React.FC = () => {
   };
 
   useEffect(() => {
-    buildFolderStructure();
+    const cached = localStorage.getItem("mathsoc_resources");
+
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      setFolders(parsed);
+      setLoading(false);
+    } else {
+      buildFolderStructure();
+    }
   }, []);
 
   // Loading page
@@ -165,7 +176,7 @@ const Resources: React.FC = () => {
         </div>
 
         <motion.div
-          className="text-center px-8 py-6"
+          className="text-center px-24 py-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -173,38 +184,52 @@ const Resources: React.FC = () => {
         >
           <h1 className="text-4xl font-bold pb-2">Resources</h1>
           <p className="text-sm font-normal text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-            vitae posuere massa. Proin vel ante tellus. Curabitur in orci id
-            ligula pellentesque malesuada.{" "}
+            Explore a curated collection of resources to support your studies.
+            Find past exam papers, revision lecture recordings and summary
+            sheets, and helpful guides on LaTeX, R, and more.
           </p>
 
-          <div className="flex flex-col items-center space-y-8 pt-24">
+          <div className="flex flex-col items-center space-y-12 pt-24">
             <div className="relative">
-              <motion.div
-                className="w-32 h-32 border-4 border-transparent border-t-blue-600 rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              />
-
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <Image
-                  src="/images/mathsoc-logo.svg"
-                  alt="MathSoc Logo"
-                  width={150}
-                  height={50}
-                  className="h-10 w-auto invert"
-                  priority
+              <SymbolExplosion explosionDelay={0} constantExplosion={true}>
+                <motion.div
+                  className="w-32 h-32 border-4 border-slate-500 border-t-blue-600 bg-[#020817] rounded-full"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 />
-              </motion.div>
+
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Image
+                    src="/images/mathsoc-logo.svg"
+                    alt="MathSoc Logo"
+                    width={150}
+                    height={50}
+                    className="h-10 w-auto invert"
+                    priority
+                  />
+                </motion.div>
+              </SymbolExplosion>
             </div>
+
+            <motion.p
+              className="text-xl font-medium"
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              Loading Resources...
+            </motion.p>
           </div>
         </motion.div>
       </motion.section>
@@ -308,7 +333,7 @@ const Resources: React.FC = () => {
 
       {/* Resources and description */}
       <motion.div
-        className="text-center px-8 py-6"
+        className="text-center px-24 py-6"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -316,9 +341,9 @@ const Resources: React.FC = () => {
       >
         <h1 className="text-4xl font-bold pb-2">Resources</h1>
         <p className="text-sm font-normal text-gray-400">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae
-          posuere massa. Proin vel ante tellus. Curabitur in orci id ligula
-          pellentesque malesuada.{" "}
+          Explore a curated collection of resources to support your studies.
+          Find past exam papers, revision lecture recordings and summary sheets,
+          and helpful guides on LaTeX, R, and more.
         </p>
       </motion.div>
 

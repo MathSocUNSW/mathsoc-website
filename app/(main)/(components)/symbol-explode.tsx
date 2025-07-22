@@ -16,9 +16,14 @@ interface Particle {
 interface SymbolExplosionProps {
   children: ReactNode;
   explosionDelay?: number;
+  constantExplosion?: boolean;
 }
 
-const SymbolExplosion: React.FC<SymbolExplosionProps> = ({ children, explosionDelay = 1250 }) => {
+const SymbolExplosion: React.FC<SymbolExplosionProps> = ({
+  children,
+  explosionDelay = 1250,
+  constantExplosion = false,
+}) => {
   const [particles, setParticles] = useState<Particle[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [hasExplodedOnView, setHasExplodedOnView] = useState(false);
@@ -49,6 +54,19 @@ const SymbolExplosion: React.FC<SymbolExplosionProps> = ({ children, explosionDe
   const handleMouseLeave = () => {
     setParticles([]);
   };
+
+  // ------------------------------------------
+  // Constant explosion loop
+  // ------------------------------------------
+  useEffect(() => {
+    if (!constantExplosion) return;
+
+    const interval = setInterval(() => {
+      handleExplosion();
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, [constantExplosion]);
 
   // ------------------------------------------
   // Explode *once* when first scrolled into view,
