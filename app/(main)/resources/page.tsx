@@ -55,10 +55,29 @@ const Resources: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
+  const getLastModifiedTime = async (folderId: string) => {
+    try {
+      const res = await fetch(
+        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(modifiedTime)`
+      );
+      const data = await res.json();
+      const modifiedTimes: string[] = [];
+
+      data.files?.forEach((file: any) => {
+        modifiedTimes.push(file.modifiedTime);
+      });
+
+      return modifiedTimes;
+    } catch (error) {
+      console.error("Error fetching last modified time:", error);
+      return [];
+    }
+  };
+
   const getFolderContents = async (folderId: string): Promise<any[]> => {
     try {
       const res = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(id,name,mimeType,parents,webViewLink,webContentLink)`
+        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(id,name,mimeType,parents,webViewLink,webContentLink,modifiedTime)`
       );
 
       const data = await res.json();
@@ -140,15 +159,36 @@ const Resources: React.FC = () => {
   };
 
   useEffect(() => {
-    const cached = localStorage.getItem("mathsoc_resources");
+    const fetchAndCompareLastModifiedTimes = async () => {
+      try {
+        const lastModifiedTimes = await getLastModifiedTime(ROOT_FOLDER_ID);
+        const cachedLastModifiedTime = localStorage.getItem("lastModifiedTime");
+        const cachedResources = localStorage.getItem("mathsoc_resources");
 
-    if (cached) {
-      const parsed = JSON.parse(cached);
-      setFolders(parsed);
-      setLoading(false);
-    } else {
-      buildFolderStructure();
-    }
+        // If times differ or no cached resources then update folder structure,
+        // else use cached resources
+        if (
+          !cachedLastModifiedTime ||
+          cachedLastModifiedTime !== JSON.stringify(lastModifiedTimes) ||
+          !cachedResources
+        ) {
+          await buildFolderStructure();
+          localStorage.setItem(
+            "lastModifiedTime",
+            JSON.stringify(lastModifiedTimes)
+          );
+        } else {
+          const parsed = JSON.parse(cachedResources);
+          setFolders(parsed);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error("Error comparing last modified times:", error);
+        await buildFolderStructure();
+      }
+    };
+
+    fetchAndCompareLastModifiedTimes();
   }, []);
 
   // Loading page
@@ -284,6 +324,8 @@ const Resources: React.FC = () => {
   // Filtering folders based on search query
   const filteredFolders = folders
     .map((folder) => {
+      const folderMatches = folder.name.toLowerCase().includes(searchQuery);
+
       const matchedSubfolders = folder.subfolders
         .map((sub) => ({
           ...sub,
@@ -296,9 +338,16 @@ const Resources: React.FC = () => {
             sub.name.toLowerCase().includes(searchQuery) || sub.files.length > 0
         );
 
-      const folderMatches = folder.name.toLowerCase().includes(searchQuery);
+      // If the folder matches, include all its subfolders
+      if (folderMatches) {
+        return {
+          ...folder,
+          subfolders: folder.subfolders,
+        };
+      }
 
-      if (folderMatches || matchedSubfolders.length > 0) {
+      // If the folder doesn't match, only include matched subfolders
+      if (matchedSubfolders.length > 0) {
         return {
           ...folder,
           subfolders: matchedSubfolders,
@@ -425,10 +474,23 @@ const Resources: React.FC = () => {
                               className="bg-[#272F45] border-[#556080] rounded-lg"
                             >
                               {/* Subfolder name */}
-                              <CardHeader className="py-5 bg-[#1F2537] rounded-t-lg">
+                              <CardHeader className="flex flex-row justify-between py-5 bg-[#1F2537] rounded-t-lg">
                                 <CardTitle className="text-white text-lg flex items-center space-x-2">
                                   <span>{subfolder.name}</span>
                                 </CardTitle>
+                                <Button
+                                  size="sm"
+                                  variant="ghost"
+                                  className="text-white hover:bg-[#333e59] p-2"
+                                  onClick={() =>
+                                    window.open(
+                                      `https://drive.google.com/drive/folders/${subfolder.id}`,
+                                      "_blank"
+                                    )
+                                  }
+                                >
+                                  <SquareArrowOutUpRight className="w-4 h-4" />
+                                </Button>
                               </CardHeader>
 
                               {/* Subfolder content */}
