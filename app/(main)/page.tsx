@@ -110,7 +110,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-4 mt-6 justify-center">
             <SymbolExplosion explosionDelay={1250}>
               <Link
-                href="https://member.arc.unsw.edu.au/members/s/clubdetail?clubid=0016F0000371VyZQAU"
+                href="https://campus.hellorubric.com/?s=12600"
                 passHref
               >
                 <Button
