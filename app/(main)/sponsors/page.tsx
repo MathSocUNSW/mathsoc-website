@@ -149,6 +149,8 @@ const Sponsors: React.FC = () => {
 
 export default Sponsors;
 
+// Currently "tier" has no use on the page
+
 const sponsors = [
   {
     name: "UNSW School of Mathematics and Statistics",
@@ -179,13 +181,6 @@ const sponsors = [
     desc: "As a leading proprietary trading firm, Optiver works to make markets more efficient, transparent and stable for all. We have close to 2,000 employees in offices around the world, united in their commitment to providing liquidity, competitive pricing and reliable risk management."
   },
   {
-    name: "Quantium",
-    src: "/images/logos/quantium_white.png",
-    tier: "major",
-    link: "https://www.quantium.com/",
-    desc: "Founded in 2002, Quantium is a global leader in Data Science and Artificial Intelligence. With over 1,100 team members across 14 locations worldwide, we help organisations maximise the potential of their data and solve some of their most pressing challenges."
-  },
-  {
     name: "Citadel Securities",
     src: "/images/logos/citadel_securities_white.png",
     tier: "major",
@@ -193,17 +188,24 @@ const sponsors = [
     desc: "We provide liquidity to ensure institutions and retail investors can trade what they want, when they want—in all market conditions around the world. We constantly look to improve how markets work. Determined to drive change, we envision and execute a range of ambitious initiatives that could only happen here."
   },
   {
-    name: "Aurora Energy Research",
-    src: "/images/logos/aurora_white.png",
-    tier: "minor",
-    link: "https://auroraer.com/",
-    desc: "Aurora partners with leading finance, energy, utility, and development organisations to deliver critical insights that drive investment, strategy, and policy decisions across global energy markets."
-  },
-  {
     name: "Flow Traders",
     src: "/images/logos/flow_traders_white.png",
     tier: "affiliate",
     link: "https://www.flowtraders.com/",
     desc: "We strive to bring greater transparency and efficiency to financial markets. We operate in highly competitive industry, as a global liquidity provider and market maker. We continuously provide stable liquidity, actively invest in the financial ecosystem, develop innovative technologies, and foster both our team and strategic partnerships."
+  },
+  {
+    name: "Taylor Fry",
+    src: "/images/logos/taylor_fry_logo.png",
+    tier: "major",
+    link: "https://taylorfry.com.au/",
+    desc: "Taylor Fry is a leading independent consultancy specializing in actuarial, analytics, and statistical advice for both government and business sectors. Established in 1999 and headquartered in Sydney, Australia, the firm employs a diverse team of creative problem solvers—including mathematicians, physicists, and computer scientists—to help clients make evidence-based, data-informed decisions. Their work spans a wide range of critical areas, such as general insurance, health and aged care, climate resilience, and social policy, often resulting in significant impacts on government policy and community outcomes."
+  },
+  {
+    name: "GradIQ",
+    src: "/images/logos/GradIQ_logo.png",
+    tier: "major",
+    link: "https://www.gradiq.com.au/",
+    desc: "GradIQ is an Australian-based interview preparation platform and academy dedicated to helping students and graduates secure high-stakes roles in quantitative trading. Specializing in the recruitment processes of elite firms like Optiver, IMC, and Jane Street, they provide a blend of 1:1 mentorship, technical mock interviews, and a 'pay-on-success' model. Their program focuses on bridging the gap between university studies and the rigorous technical demands of the quant industry, offering resources that cover everything from CV optimization to advanced mental math and probability assessments."
   },
 ]
