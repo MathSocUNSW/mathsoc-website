@@ -233,10 +233,10 @@ export default function Home() {
               link: "https://www.optiver.com/",
             },
             {
-              name: "Quantium",
-              src: "/images/logos/quantium_white.png",
+              name: "GradIQ",
+              src: "/images/logos/GradIQ_logo.png",
               tier: "major",
-              link: "https://www.quantium.com/",
+              link: "https://www.gradiq.com.au/",
             },
             {
               name: "Citadel Securities",
@@ -245,10 +245,10 @@ export default function Home() {
               link: "https://www.citadelsecurities.com/",
             },
             {
-              name: "Aurora Energy Research",
-              src: "/images/logos/aurora_white.png",
+              name: "Taylor Fry",
+              src: "/images/logos/taylor_fry_logo.png",
               tier: "minor",
-              link: "https://auroraer.com/",
+              link: "https://www.taylorfry.com.au/",
             },
             {
               name: "Flow Traders",
