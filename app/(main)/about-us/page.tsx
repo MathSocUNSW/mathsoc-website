@@ -122,7 +122,7 @@ const About: React.FC = () => {
           className="w-full h-full object-cover"
         /> */}
         <Image
-          src="/images/photos/execs.jpg"
+          src="/images/photos/execs_2026.jpg"
           alt="execs"
           className="w-full h-full object-cover"
           width={5181}
