@@ -63,7 +63,7 @@ const About: React.FC = () => {
   ];
 
   const teamsData : TeamsData = {
-    [2026]: {
+    [year]: {
       "Executives": [
         { name: "Michael Liu", role: "President", photo: "/images/headshots/kelly.jpg" },
         { name: "Jia Jie Sheng", role: "Secretary & Grievance Officer", photo: "/images/headshots/neil.jpg" },
