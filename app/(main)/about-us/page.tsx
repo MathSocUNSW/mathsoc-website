@@ -63,52 +63,53 @@ const About: React.FC = () => {
   ];
 
   const teamsData : TeamsData = {
-    [2025]: {
+    [2026]: {
       "Executives": [
-        { name: "Kelly Pan", role: "President", photo: "/images/headshots/kelly.jpg" },
-        { name: "Neil Nag", role: "Secretary & Grievance Officer", photo: "/images/headshots/neil.jpg" },
-        { name: "James Hu", role: "Treasurer & Arc Delegate", photo: "/images/headshots/james.jpg" },
-        { name: "Aryan Lal", role: "Vice President of Activities", photo: "/images/headshots/aryan.jpg" },
-        { name: "Thao Peli Nghiem Xuan", role: "Vice President of Development", photo: "/images/headshots/peli.jpg" },
-        { name: "David Jin", role: "Vice President of Education", photo: "/images/headshots/david.jpg" },
-        { name: "Lauren Selby", role: "Vice President of Operations", photo: "/images/headshots/lauren.jpg" },
+        { name: "Michael Liu", role: "President", photo: "/images/headshots/kelly.jpg" },
+        { name: "Jia Jie Sheng", role: "Secretary & Grievance Officer", photo: "/images/headshots/neil.jpg" },
+        { name: "Jasmine Chong-White", role: "Treasurer & Arc Delegate", photo: "/images/headshots/james.jpg" },
+        { name: "Lori Ieong", role: "Vice President of Activities", photo: "/images/headshots/aryan.jpg" },
+        { name: "Archit Aggarwal", role: "Vice President of Development", photo: "/images/headshots/peli.jpg" },
+        { name: "Yufan Han", role: "Vice President of Education", photo: "/images/headshots/david.jpg" },
+        { name: "Justin Cao", role: "Vice President of Operations", photo: "/images/headshots/lauren.jpg" },
       ],
       "Academics": [
-        { name: "Yufan Han", role: "Academics Director", photo: "/images/headshots/yufan.jpg" },
-        { name: "Rashid Abuzarov", role: "Academics Director", photo: "/images/headshots/rashid.jpg" },
-        { name: "Max Leo", role: "Academics Director", photo: "/images/headshots/max.jpg" }
+        { name: "Jenny Weng", role: "Academics Director", photo: "/images/headshots/yufan.jpg" },
+        { name: "Thomas Liao", role: "Academics Director", photo: "/images/headshots/rashid.jpg" },
+        { name: "Jimmy Sun", role: "Academics Director", photo: "/images/headshots/max.jpg" }
       ],
       "Outreach": [
-        { name: "Isabella Bustos-McNeil", role: "Outreach Director", photo: "/images/headshots/isabella.jpg" },
-        { name: "Jasmine Chong-White", role: "Outreach Director", photo: "/images/headshots/jasmine.jpg" },
-        { name: "Eric Chen Hong", role: "Outreach Director", photo: "/images/headshots/hong.jpg" }
+        { name: "Ahmed Alani", role: "Outreach Director", photo: "/images/headshots/isabella.jpg" },
+        { name: "Anvesha Kaleliva", role: "Outreach Director", photo: "/images/headshots/jasmine.jpg" },
+        { name: "Sarah Talsania", role: "Outreach Director", photo: "/images/headshots/hong.jpg" }
       ],
       "Careers": [
-        { name: "Archit Aggarwal", role: "Careers Director", photo: "/images/headshots/archit.jpg" },
-        { name: "Sarah Zhong", role: "Careers Director", photo: "/images/headshots/sarah.jpg" },
-        { name: "Tony Wang", role: "Careers Director", photo: "/images/headshots/tony.jpg" }
+        { name: "Kerry Mo", role: "Careers Director", photo: "/images/headshots/archit.jpg" },
+        { name: "Dhruva Kidambi", role: "Careers Director", photo: "/images/headshots/sarah.jpg" },
+        { name: "William Chang", role: "Careers Director", photo: "/images/headshots/tony.jpg" }
       ],
       "Socials": [
-        { name: "Aamir Khan", role: "Socials Director", photo: "/images/headshots/aamir.jpg" },
-        { name: "Michael Liu", role: "Socials Director", photo: "/images/headshots/michael.jpg" },
-        { name: "Yash Barve", role: "Socials Director", photo: "/images/headshots/yash.jpg" }
+        { name: "Lily Yang", role: "Socials Director", photo: "/images/headshots/aamir.jpg" },
+        { name: "Mina Woo", role: "Socials Director", photo: "/images/headshots/michael.jpg" },
+        { name: "Marcel Hambali", role: "Socials Director", photo: "/images/headshots/yash.jpg" }
       ],
       "Human Resources": [
-        { name: "Nelson Luo", role: "Human Resources Director", photo: "/images/headshots/nelson.jpg" }
+        { name: "Euan Choi", role: "Human Resources Director", photo: "/images/headshots/nelson.jpg" },
+        { name: "Manhishtha Bucktowar", role: "Human Resources Director", photo: "/images/headshots/nelson.jpg" }
       ],
       "Marketing": [
-        { name: "Shuly Chang", role: "Marketing Director", photo: "/images/headshots/shuly.jpg" },
-        { name: "Oscar Deng", role: "Marketing Director", photo: "/images/headshots/deng.jpg" },
-        { name: "Linyi Sun", role: "Marketing Director", photo: "/images/headshots/linyi.jpg" }
+        { name: "Jade Nguyen", role: "Marketing Director", photo: "/images/headshots/shuly.jpg" },
+        { name: "Jason Lin", role: "Marketing Director", photo: "/images/headshots/deng.jpg" },
+        { name: "Charlie Jiang", role: "Marketing Director", photo: "/images/headshots/linyi.jpg" }
       ],
       "Creative": [
-        { name: "Rachel Zhao", role: "Creative Director", photo: "/images/headshots/rachel.jpg" },
-        { name: "Alan Feng", role: "Creative Director", photo: "/images/headshots/alan.jpg" },
-        { name: "Justin Cao", role: "Creative Director", photo: "/images/headshots/justin.jpg" }
+        { name: "Parsa Shaghaghi", role: "Creative Director", photo: "/images/headshots/rachel.jpg" },
+        { name: "Siobhan Thou", role: "Creative Director", photo: "/images/headshots/alan.jpg" },
+        { name: "Jasmine So", role: "Creative Director", photo: "/images/headshots/justin.jpg" }
       ],
       "Information Technology": [
-        { name: "Eric Do", role: "IT Director", photo: "/images/headshots/do.jpg" },
-        { name: "John Wu", role: "IT Director", photo: "/images/headshots/john.jpg" }
+        { name: "Regan Benedetti", role: "IT Director", photo: "/images/headshots/do.jpg" },
+        { name: "Khang Nguyen", role: "IT Director", photo: "/images/headshots/john.jpg" }
       ]
     }
   };
