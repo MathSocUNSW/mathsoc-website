@@ -281,6 +281,9 @@ const About: React.FC = () => {
     }
   };
 
+  const subcommitteeMembers =
+    teamsData[String(year)]?.[selectedPortfolio]?.subcommittee ?? [];
+
   return (
     <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
       <motion.div className="relative w-full h-[60vh]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
@@ -366,11 +369,39 @@ const About: React.FC = () => {
         ))}
       </motion.div>
 
-      <motion.div className="flex flex-wrap justify-center gap-6 px-6 pb-12" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut", staggerChildren: 0.2 }} viewport={{ once: true }}>
+      <motion.div
+        className="flex flex-wrap justify-center gap-6 px-6 pb-3 sm:pb-4"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut", staggerChildren: 0.2 }}
+        viewport={{ once: true }}
+      >
         {teamsData[String(year)]?.[selectedPortfolio]?.leadership.map((member) => (
           <TeamMemberCard key={member.name} member={member} />
         ))}
       </motion.div>
+
+      {subcommitteeMembers.length > 0 && (
+        <motion.section
+          key={`${year}-${selectedPortfolio}`}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="relative w-full flex justify-center px-2 sm:px-4 md:px-6 pt-5 pb-12 sm:pb-16"
+        >
+          <div className="flex w-full max-w-5xl flex-col items-center text-center">
+            <h2 className="text-2xl font-bold mb-6">Subcommittee Members</h2>
+            <div className="grid w-full max-w-3xl grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-2 text-lg text-foreground/75">
+              {subcommitteeMembers.map((member) => (
+                <p key={member.name} className="break-words">
+                  {member.name}
+                </p>
+              ))}
+            </div>
+          </div>
+        </motion.section>
+      )}
     </motion.section>
   );
 };
