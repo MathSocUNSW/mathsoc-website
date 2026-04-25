@@ -92,7 +92,7 @@ const About: React.FC = () => {
           { name: "Jasmine Chong-White", role: "Treasurer & Arc Delegate", photo: "none.jpg" },
           { name: "Lori Ieong", role: "Vice President of Activities", photo: "none.jpg" },
           { name: "Archit Aggarwal", role: "Vice President of Development", photo: "none.jpg" },
-          { name: "Yufan Han", role: "Vice President of Education", photo: "yufan.jpg" },
+          { name: "Yufan Han", role: "Vice President of Education", photo: "/images/headshots/yufan.jpg" },
           { name: "Justin Cao", role: "Vice President of Operations", photo: "none.jpg" },
         ],
       },
@@ -154,7 +154,7 @@ const About: React.FC = () => {
       "Information Technology": {
         directors: [
           { name: "Regan Benedetti", role: "IT Director", photo: "/images/headshots/regan.jpg" },
-          { name: "Khang Nguyen", role: "IT Director", photo: "khang.jpg" }
+          { name: "Khang Nguyen", role: "IT Director", photo: "/images/headshots/khang.jpg" }
         ],
         subcommittee: ["Eric Wong", "Xiayan Ma", "Cheng Hao Li", "Jasmine Hui", "Stella Zhou", "Christine Chen"],
       },
