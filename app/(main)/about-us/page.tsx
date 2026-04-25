@@ -61,8 +61,7 @@ const TeamMemberCard: React.FC<{ member: Leadership }> = ({ member }) => {
 const About: React.FC = () => {
   const [selectedPortfolio, setSelectedPortfolio] = useState("Executives");
   // const [year, setYear] = useState(new Date().getFullYear());
-  // const [year] = useState(new Date().getFullYear());
-  const [year] = useState(2026); // for now, before i put all the data in
+  const [year] = useState(new Date().getFullYear());
   
 
   const portfolios = [
