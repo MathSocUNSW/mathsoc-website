@@ -89,7 +89,7 @@ const About: React.FC = () => {
         directors: [
           { name: "Michael Liu", role: "President", photo: "/images/headshots/michael.jpg" },
           { name: "Jia Jie Sheng", role: "Secretary & Grievance Officer", photo: "none.jpg" },
-          { name: "Jasmine Chong-White", role: "Treasurer & Arc Delegate", photo: "none.jpg" },
+          { name: "Jasmine Chong-White", role: "Treasurer & Arc Delegate", photo: "/images/headshots/jasmine_cw.jpg" },
           { name: "Lori Ieong", role: "Vice President of Activities", photo: "none.jpg" },
           { name: "Archit Aggarwal", role: "Vice President of Development", photo: "none.jpg" },
           { name: "Yufan Han", role: "Vice President of Education", photo: "/images/headshots/yufan.jpg" },
