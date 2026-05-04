@@ -56,101 +56,6 @@ const Resources: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const getLastModifiedTime = async (folderId: string) => {
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(modifiedTime)`
-      );
-      const data = await res.json();
-      const modifiedTimes: string[] = [];
-
-      data.files?.forEach((file: DriveFile) => {
-        modifiedTimes.push(file.modifiedTime);
-      });
-
-      return modifiedTimes;
-    } catch (error) {
-      console.error("Error fetching last modified time:", error);
-      return [];
-    }
-  };
-
-  const getFolderContents = async (folderId: string): Promise<DriveFile[]> => {
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(id,name,mimeType,parents,webViewLink,webContentLink,modifiedTime)`
-      );
-
-      const data = await res.json();
-      return data.files;
-    } catch (error) {
-      console.error("Error fetching folder content:", error);
-      return [];
-    }
-  };
-
-  const buildFolderStructure = async () => {
-    try {
-      // Get all folders
-      const topLevelItems = await getFolderContents(ROOT_FOLDER_ID);
-      const topLevelFolders = topLevelItems.filter(
-        (item) => item.mimeType === FOLDER_MIME_TYPE
-      );
-      const folderStructure: DriveFolder[] = [];
-
-      // For each folder, get its subfolders and files
-      for (const folder of topLevelFolders) {
-        const subfolderItems = await getFolderContents(folder.id);
-        const subfolders: Subfolder[] = [];
-        const subfolderList = subfolderItems.filter(
-          (item) => item.mimeType === FOLDER_MIME_TYPE
-        );
-
-        // Add each file into subfolders
-        for (const subfolder of subfolderList) {
-          const subfolderContents = await getFolderContents(subfolder.id);
-          // Get all elements that are not of type folder (files)
-          const files = subfolderContents.filter(
-            (item) => item.mimeType !== FOLDER_MIME_TYPE
-          );
-
-          subfolders.push({
-            id: subfolder.id,
-            name: subfolder.name,
-            files: files,
-          });
-        }
-
-        const directFiles = subfolderItems.filter(
-          (item) => item.mimeType !== FOLDER_MIME_TYPE
-        );
-        if (directFiles.length > 0) {
-          subfolders.unshift({
-            id: `${folder.id}_direct`,
-            name: "Subfolder",
-            files: directFiles,
-          });
-        }
-
-        folderStructure.push({
-          id: folder.id,
-          name: folder.name,
-          subfolders: subfolders,
-        });
-      }
-
-      setFolders(folderStructure);
-      localStorage.setItem(
-        "mathsoc_resources",
-        JSON.stringify(folderStructure)
-      );
-    } catch (error) {
-      console.error("Error building folder structure:", error);
-      setError("Failed to load resources. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const toggleFolder = (folderId: string) => {
     setOpenFolders((prev) => ({
@@ -160,36 +65,26 @@ const Resources: React.FC = () => {
   };
 
   useEffect(() => {
-    const fetchAndCompareLastModifiedTimes = async () => {
+    const loadResources = async () => {
       try {
-        const lastModifiedTimes = await getLastModifiedTime(ROOT_FOLDER_ID);
-        const cachedLastModifiedTime = localStorage.getItem("lastModifiedTime");
-        const cachedResources = localStorage.getItem("mathsoc_resources");
-
-        // If times differ or no cached resources then update folder structure,
-        // else use cached resources
-        if (
-          !cachedLastModifiedTime ||
-          cachedLastModifiedTime !== JSON.stringify(lastModifiedTimes) ||
-          !cachedResources
-        ) {
-          await buildFolderStructure();
-          localStorage.setItem(
-            "lastModifiedTime",
-            JSON.stringify(lastModifiedTimes)
-          );
-        } else {
-          const parsed = JSON.parse(cachedResources);
-          setFolders(parsed);
-          setLoading(false);
+        const res = await fetch('/api/drive-resources');
+        if (!res.ok) {
+          throw new Error("Failed to fetch from server");
         }
+        const data = await res.json();
+        setFolders(data);
+        localStorage.removeItem("mathsoc_resources"); // cleaning up localstorage, can remove after a while
+        localStorage.removeItem("lastModifiedTime");
+        localStorage.removeItem("resource_cache_timestamp");
       } catch (error) {
-        console.error("Error comparing last modified times:", error);
-        await buildFolderStructure();
+        console.error("Error loading resources: ", error);
+        setError("Failed to load resources. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchAndCompareLastModifiedTimes();
+    loadResources();
   }, []);
 
   // Loading page
