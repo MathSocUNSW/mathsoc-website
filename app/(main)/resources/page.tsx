@@ -56,25 +56,6 @@ const Resources: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const getLastModifiedTime = async (folderId: string) => {
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(modifiedTime)`
-      );
-      const data = await res.json();
-      const modifiedTimes: string[] = [];
-
-      data.files?.forEach((file: DriveFile) => {
-        modifiedTimes.push(file.modifiedTime);
-      });
-
-      return modifiedTimes;
-    } catch (error) {
-      console.error("Error fetching last modified time:", error);
-      return [];
-    }
-  };
-
   const getFolderContents = async (folderId: string): Promise<DriveFile[]> => {
     try {
       const res = await fetch(
@@ -160,36 +141,30 @@ const Resources: React.FC = () => {
   };
 
   useEffect(() => {
-    const fetchAndCompareLastModifiedTimes = async () => {
+    const loadResources = async () => {
       try {
-        const lastModifiedTimes = await getLastModifiedTime(ROOT_FOLDER_ID);
-        const cachedLastModifiedTime = localStorage.getItem("lastModifiedTime");
+        const cachedTimestamp = localStorage.getItem("resource_cache_timestamp");
         const cachedResources = localStorage.getItem("mathsoc_resources");
+        const now = Date.now();
 
-        // If times differ or no cached resources then update folder structure,
-        // else use cached resources
-        if (
-          !cachedLastModifiedTime ||
-          cachedLastModifiedTime !== JSON.stringify(lastModifiedTimes) ||
-          !cachedResources
-        ) {
-          await buildFolderStructure();
-          localStorage.setItem(
-            "lastModifiedTime",
-            JSON.stringify(lastModifiedTimes)
-          );
-        } else {
+        const CACHE_TTL = 1000 * 60 * 60; // 1 hr currently
+
+        // If cached resources that haven't expired, load. else fetch
+        if (cachedResources && cachedTimestamp && (now - parseInt(cachedTimestamp)) < CACHE_TTL) {
           const parsed = JSON.parse(cachedResources);
           setFolders(parsed);
           setLoading(false);
+        } else {
+          await buildFolderStructure();
+          localStorage.setItem("resource_cache_timestamp", now.toString());
         }
       } catch (error) {
-        console.error("Error comparing last modified times:", error);
+        console.error("Error loading resources: ", error);
         await buildFolderStructure();
       }
     };
 
-    fetchAndCompareLastModifiedTimes();
+    loadResources();
   }, []);
 
   // Loading page
