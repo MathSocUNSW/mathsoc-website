@@ -88,18 +88,18 @@ const About: React.FC = () => {
       "Executives": {
         directors: [
           { name: "Michael Liu", role: "President", photo: "/images/headshots/michael.jpg" },
-          { name: "Jia Jie Sheng", role: "Secretary & Grievance Officer", photo: "none.jpg" },
+          { name: "Jia Jie Sheng", role: "Secretary & Grievance Officer", photo: "/images/headshots/jiajie.jpg" },
           { name: "Jasmine Chong-White", role: "Treasurer & Arc Delegate", photo: "/images/headshots/jasmine_cw.jpg" },
-          { name: "Lori Ieong", role: "Vice President of Activities", photo: "none.jpg" },
-          { name: "Archit Aggarwal", role: "Vice President of Development", photo: "none.jpg" },
+          { name: "Lori Ieong", role: "Vice President of Activities", photo: "/images/headshots/lori.jpg" },
+          { name: "Archit Aggarwal", role: "Vice President of Development", photo: "/images/headshots/archit.jpg" },
           { name: "Yufan Han", role: "Vice President of Education", photo: "/images/headshots/yufan.jpg" },
-          { name: "Justin Cao", role: "Vice President of Operations", photo: "none.jpg" },
+          { name: "Justin Cao", role: "Vice President of Operations", photo: "/images/headshots/justin.jpg" },
         ],
       },
       "Academics": {
         directors: [
           { name: "Jenny Weng", role: "Academics Director", photo: "/images/headshots/jenny.jpg" },
-          { name: "Thomas Liao", role: "Academics Director", photo: "none.jpg" },
+          { name: "Thomas Liao", role: "Academics Director", photo: "/images/headshots/thomas.jpg" },
           { name: "Jimmy Sun", role: "Academics Director", photo: "/images/headshots/jimmy.jpg" }
         ],
         subcommittee: ["Angela Wang", "Qiyang Ning", "Justin Gu", "Conrad Liu", "Zayden Hassan", "Alex Xie", "Daniel Seo", "Yue Wing"],
@@ -107,31 +107,31 @@ const About: React.FC = () => {
       "Outreach": {
         directors: [
           { name: "Ahmed Alani", role: "Outreach Director", photo: "/images/headshots/ahmed.jpg" },
-          { name: "Anvesha Kaleliva", role: "Outreach Director", photo: "none.jpg" },
+          { name: "Anvesha Kaleliva", role: "Outreach Director", photo: "/images/headshots/anvesha.jpg" },
           { name: "Sarah Talsania", role: "Outreach Director", photo: "/images/headshots/sarah.jpg" }
         ],
         subcommittee: ["Maria Keis", "Shruti Lakra", "Orchid Ye", "Owen Wang", "James Law", "Yunwoo Kim"],
       },
       "Careers": {
         directors: [
-          { name: "Kerry Mo", role: "Careers Director", photo: "none.jpg" },
-          { name: "Dhruva Kidambi", role: "Careers Director", photo: "none.jpg" },
-          { name: "William Chang", role: "Careers Director", photo: "none.jpg" }
+          { name: "Kerry Mo", role: "Careers Director", photo: "/images/headshots/kerry.jpg" },
+          { name: "Dhruva Kidambi", role: "Careers Director", photo: "/images/headshots/dhruva.jpg" },
+          { name: "William Chang", role: "Careers Director", photo: "/images/headshots/will.jpg" }
         ],
         subcommittee: ["Patrick Cassidy", "Cindy Tang", "Brian Zhao", "Henry Wang", "Sophie Chen", "Anaya Limaye"], 
       },
       "Socials": {
         directors: [
           { name: "Lily Yang", role: "Socials Director", photo: "/images/headshots/lily.jpg" },
-          { name: "Mina Woo", role: "Socials Director", photo: "none.jpg" },
-          { name: "Marcel Hambali", role: "Socials Director", photo: "none.jpg" }
+          { name: "Mina Woo", role: "Socials Director", photo: "/images/headshots/mina.jpg" },
+          { name: "Marcel Hambali", role: "Socials Director", photo: "/images/headshots/marcel.jpg" }
         ],
         subcommittee: ["Janindu W", "Alice Li", "Stephy Wu", "Anthony Law", "Annice Ip", "Kevin Lee"],
       },
       "Human Resources": {
         directors: [
           { name: "Euan Choi", role: "Human Resources Director", photo: "/images/headshots/euan.jpg" },
-          { name: "Manhishtha Bucktowar", role: "Human Resources Director", photo: "none.jpg" }
+          { name: "Manhishtha Bucktowar", role: "Human Resources Director", photo: "/images/headshots/manhishtha.jpg" }
         ],
         subcommittee: ["Scarlett Jang", "Olivia Noga-Piekarska", "Elaine Huang", "Ryan Guo", "Brianna Loiacono", "James Tu Nguyen"],
       },
@@ -145,9 +145,9 @@ const About: React.FC = () => {
       },
       "Creative": {
         directors: [
-          { name: "Parsa Shaghaghi", role: "Creative Director", photo: "/images/headshots/rachel.jpg" },
-          { name: "Siobhan Thou", role: "Creative Director", photo: "/images/headshots/alan.jpg" },
-          { name: "Jasmine So", role: "Creative Director", photo: "/images/headshots/justin.jpg" }
+          { name: "Parsa Shaghaghi", role: "Creative Director", photo: "/images/headshots/parsa.jpg" },
+          { name: "Siobhan Thou", role: "Creative Director", photo: "/images/headshots/siobhan.jpg" },
+          { name: "Jasmine So", role: "Creative Director", photo: "/images/headshots/jasmine_s.jpg" }
         ],
         subcommittee: ["James Tan", "Bryan Deng", "Matthew Purdon", "Changke Zou", "Parsa Rahmanseresht", "Melanie Sun"],
       },
