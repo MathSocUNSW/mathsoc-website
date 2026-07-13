@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube, FaDiscord, FaEnvelope } from "react-icons/fa";
 import Wave from "../(components)/waves-bg";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 1, ease: "easeOut" } }
 };

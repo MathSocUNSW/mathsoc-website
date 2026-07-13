@@ -14,9 +14,14 @@ interface Member {
   photo: string;
 }
 
+interface PortfolioData {
+  directors: Member[];
+  subcommittee?: string[];
+}
+
 interface TeamsData {
   [year: string]: {
-    [portfolio: string]: Member[];
+    [portfolio: string]: PortfolioData;
   };
 }
 
@@ -51,6 +56,22 @@ const TeamMemberCard: React.FC<{ member: Member }> = ({ member }) => {
   );
 };
 
+const SubcommitteeCard: React.FC<{ name: string; portfolio: string }> = ({ name, portfolio }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+    viewport={{ once: true }}
+  >
+    <Card className="shadow-lg w-[200px]">
+      <CardContent className="p-4 flex flex-col items-center justify-center h-[88px]">
+        <h2 className="text-sm font-semibold text-center line-clamp-2 leading-tight">{name}</h2>
+        <p className="text-xs text-gray-500 text-center mt-1">{portfolio} Subcommittee Member</p>
+      </CardContent>
+    </Card>
+  </motion.div>
+);
+
 const About: React.FC = () => {
   const [selectedPortfolio, setSelectedPortfolio] = useState("Executives");
   // const [year, setYear] = useState(new Date().getFullYear());
@@ -62,54 +83,81 @@ const About: React.FC = () => {
     "Marketing", "Creative", "Information Technology"
   ];
 
-  const teamsData : TeamsData = {
-    [2025]: {
-      "Executives": [
-        { name: "Kelly Pan", role: "President", photo: "/images/headshots/kelly.jpg" },
-        { name: "Neil Nag", role: "Secretary & Grievance Officer", photo: "/images/headshots/neil.jpg" },
-        { name: "James Hu", role: "Treasurer & Arc Delegate", photo: "/images/headshots/james.jpg" },
-        { name: "Aryan Lal", role: "Vice President of Activities", photo: "/images/headshots/aryan.jpg" },
-        { name: "Thao Peli Nghiem Xuan", role: "Vice President of Development", photo: "/images/headshots/peli.jpg" },
-        { name: "David Jin", role: "Vice President of Education", photo: "/images/headshots/david.jpg" },
-        { name: "Lauren Selby", role: "Vice President of Operations", photo: "/images/headshots/lauren.jpg" },
-      ],
-      "Academics": [
-        { name: "Yufan Han", role: "Academics Director", photo: "/images/headshots/yufan.jpg" },
-        { name: "Rashid Abuzarov", role: "Academics Director", photo: "/images/headshots/rashid.jpg" },
-        { name: "Max Leo", role: "Academics Director", photo: "/images/headshots/max.jpg" }
-      ],
-      "Outreach": [
-        { name: "Isabella Bustos-McNeil", role: "Outreach Director", photo: "/images/headshots/isabella.jpg" },
-        { name: "Jasmine Chong-White", role: "Outreach Director", photo: "/images/headshots/jasmine.jpg" },
-        { name: "Eric Chen Hong", role: "Outreach Director", photo: "/images/headshots/hong.jpg" }
-      ],
-      "Careers": [
-        { name: "Archit Aggarwal", role: "Careers Director", photo: "/images/headshots/archit.jpg" },
-        { name: "Sarah Zhong", role: "Careers Director", photo: "/images/headshots/sarah.jpg" },
-        { name: "Tony Wang", role: "Careers Director", photo: "/images/headshots/tony.jpg" }
-      ],
-      "Socials": [
-        { name: "Aamir Khan", role: "Socials Director", photo: "/images/headshots/aamir.jpg" },
-        { name: "Michael Liu", role: "Socials Director", photo: "/images/headshots/michael.jpg" },
-        { name: "Yash Barve", role: "Socials Director", photo: "/images/headshots/yash.jpg" }
-      ],
-      "Human Resources": [
-        { name: "Nelson Luo", role: "Human Resources Director", photo: "/images/headshots/nelson.jpg" }
-      ],
-      "Marketing": [
-        { name: "Shuly Chang", role: "Marketing Director", photo: "/images/headshots/shuly.jpg" },
-        { name: "Oscar Deng", role: "Marketing Director", photo: "/images/headshots/deng.jpg" },
-        { name: "Linyi Sun", role: "Marketing Director", photo: "/images/headshots/linyi.jpg" }
-      ],
-      "Creative": [
-        { name: "Rachel Zhao", role: "Creative Director", photo: "/images/headshots/rachel.jpg" },
-        { name: "Alan Feng", role: "Creative Director", photo: "/images/headshots/alan.jpg" },
-        { name: "Justin Cao", role: "Creative Director", photo: "/images/headshots/justin.jpg" }
-      ],
-      "Information Technology": [
-        { name: "Eric Do", role: "IT Director", photo: "/images/headshots/do.jpg" },
-        { name: "John Wu", role: "IT Director", photo: "/images/headshots/john.jpg" }
-      ]
+  const teamsData: TeamsData = {
+    [year]: {
+      "Executives": {
+        directors: [
+          { name: "Michael Liu", role: "President", photo: "/images/headshots/michael.jpg" },
+          { name: "Jia Jie Sheng", role: "Secretary & Grievance Officer", photo: "/images/headshots/jiajie.jpg" },
+          { name: "Jasmine Chong-White", role: "Treasurer & Arc Delegate", photo: "/images/headshots/jasmine_cw.jpg" },
+          { name: "Lori Ieong", role: "Vice President of Activities", photo: "/images/headshots/lori.jpg" },
+          { name: "Archit Aggarwal", role: "Vice President of Development", photo: "/images/headshots/archit.jpg" },
+          { name: "Yufan Han", role: "Vice President of Education", photo: "/images/headshots/yufan.jpg" },
+          { name: "Justin Cao", role: "Vice President of Operations", photo: "/images/headshots/justin.jpg" },
+        ],
+      },
+      "Academics": {
+        directors: [
+          { name: "Jenny Weng", role: "Academics Director", photo: "/images/headshots/jenny.jpg" },
+          { name: "Thomas Liao", role: "Academics Director", photo: "/images/headshots/thomas.jpg" },
+          { name: "Jimmy Sun", role: "Academics Director", photo: "/images/headshots/jimmy.jpg" }
+        ],
+        subcommittee: ["Angela Wang", "Qiyang Ning", "Justin Gu", "Conrad Liu", "Zayden Hassan", "Alex Xie", "Daniel Seo", "Yue Wing"],
+      },
+      "Outreach": {
+        directors: [
+          { name: "Ahmed Alani", role: "Outreach Director", photo: "/images/headshots/ahmed.jpg" },
+          { name: "Anvesha Kaleliva", role: "Outreach Director", photo: "/images/headshots/anvesha.jpg" },
+          { name: "Sarah Talsania", role: "Outreach Director", photo: "/images/headshots/sarah.jpg" }
+        ],
+        subcommittee: ["Maria Keis", "Shruti Lakra", "Orchid Ye", "Owen Wang", "James Law", "Yunwoo Kim"],
+      },
+      "Careers": {
+        directors: [
+          { name: "Kerry Mo", role: "Careers Director", photo: "/images/headshots/kerry.jpg" },
+          { name: "Dhruva Kidambi", role: "Careers Director", photo: "/images/headshots/dhruva.jpg" },
+          { name: "William Chang", role: "Careers Director", photo: "/images/headshots/will.jpg" }
+        ],
+        subcommittee: ["Patrick Cassidy", "Cindy Tang", "Brian Zhao", "Henry Wang", "Sophie Chen", "Anaya Limaye"], 
+      },
+      "Socials": {
+        directors: [
+          { name: "Lily Yang", role: "Socials Director", photo: "/images/headshots/lily.jpg" },
+          { name: "Mina Woo", role: "Socials Director", photo: "/images/headshots/mina.jpg" },
+          { name: "Marcel Hambali", role: "Socials Director", photo: "/images/headshots/marcel.jpg" }
+        ],
+        subcommittee: ["Janindu W", "Alice Li", "Stephy Wu", "Anthony Law", "Annice Ip", "Kevin Lee"],
+      },
+      "Human Resources": {
+        directors: [
+          { name: "Euan Choi", role: "Human Resources Director", photo: "/images/headshots/euan.jpg" },
+          { name: "Manhishtha Bucktowar", role: "Human Resources Director", photo: "/images/headshots/manhishtha.jpg" }
+        ],
+        subcommittee: ["Scarlett Jang", "Olivia Noga-Piekarska", "Elaine Huang", "Ryan Guo", "Brianna Loiacono", "James Tu Nguyen"],
+      },
+      "Marketing": {
+        directors: [
+          { name: "Jade Nguyen", role: "Marketing Director", photo: "/images/headshots/jade.jpg" },
+          { name: "Jason Lin", role: "Marketing Director", photo: "/images/headshots/jason.jpg" },
+          { name: "Charlie Jiang", role: "Marketing Director", photo: "/images/headshots/charlie.jpg" }
+        ],
+        subcommittee: ["Gavriana Lianti", "Araf Provat", "Lyra Xi", "Chelsea Chen", "Joseph Kim", "Jireh Choi", "Julia Chia"],
+      },
+      "Creative": {
+        directors: [
+          { name: "Parsa Shaghaghi", role: "Creative Director", photo: "/images/headshots/parsa.jpg" },
+          { name: "Siobhan Thou", role: "Creative Director", photo: "/images/headshots/siobhan.jpg" },
+          { name: "Jasmine So", role: "Creative Director", photo: "/images/headshots/jasmine_s.jpg" }
+        ],
+        subcommittee: ["James Tan", "Bryan Deng", "Matthew Purdon", "Changke Zou", "Parsa Rahmanseresht", "Melanie Sun"],
+      },
+      "Information Technology": {
+        directors: [
+          { name: "Regan Benedetti", role: "IT Director", photo: "/images/headshots/regan.jpg" },
+          { name: "Khang Nguyen", role: "IT Director", photo: "/images/headshots/khang.jpg" }
+        ],
+        subcommittee: ["Eric Wong", "Xiayan Ma", "Cheng Hao Li", "Jasmine Hui", "Stella Zhou", "Christine Chen"],
+      },
     }
   };
 
@@ -198,10 +246,26 @@ const About: React.FC = () => {
         ))}
       </motion.div>
 
-      <motion.div className="flex flex-wrap justify-center gap-6 px-6 pb-12" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut", staggerChildren: 0.2 }} viewport={{ once: true }}>
-        {teamsData[String(year)]?.[selectedPortfolio]?.map((member) => (
-          <TeamMemberCard key={member.name} member={member} />
-        ))}
+      <motion.div className="flex flex-col items-center px-6 pb-12 gap-8" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}>
+        {/* Director cards — with headshots */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {teamsData[String(year)]?.[selectedPortfolio]?.directors?.map((member) => (
+            <TeamMemberCard key={member.name} member={member} />
+          ))}
+        </div>
+
+        {/* Subcommittee — compact cards, names only, hidden for Executives */}
+        {selectedPortfolio !== "Executives" && (() => {
+          const subcom = teamsData[String(year)]?.[selectedPortfolio]?.subcommittee;
+          if (!subcom || subcom.length === 0) return null;
+          return (
+            <div className="flex flex-wrap justify-center gap-4">
+              {subcom.map((name) => (
+                <SubcommitteeCard key={name} name={name} portfolio={selectedPortfolio} />
+              ))}
+            </div>
+          );
+        })()}
       </motion.div>
     </motion.section>
   );
