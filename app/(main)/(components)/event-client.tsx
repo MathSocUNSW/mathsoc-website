@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import EventCarousel from "../../(main)/(components)/event-carousel";
 import PastEventsGrid from "../(components)/past-events-tile";
 import Wave from "../(components)/waves-bg";
 import { EventDetails } from "../(data)/evenData";
 import Image from "next/image";
 
-const fadeInVariant = {
+const fadeInVariant: Variants = {
   hidden: { opacity: 0, scale: 1, y: 0 },
   visible: { opacity: 1, scale: 1, y: -20, transition: { duration: 0.6, ease: "easeOut" } }
 };
