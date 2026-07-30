@@ -192,6 +192,7 @@ const About: React.FC = () => {
   };
 
   const activeData = teamsData[String(year)]?.[selectedPortfolio];
+  const arrowButtonClasses = "shrink-0 rounded-full p-2 border border-gray-300 hover:bg-[#004aad] hover:text-white hover:border-[#004aad] transition-colors duration-200";
 
   return (
     <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
@@ -264,20 +265,50 @@ const About: React.FC = () => {
           })}
         </select>
       </div> */}
+      
+      {/* Portfolio selector: full button row + side arrows on desktop, single current-portfolio button + side arrows on mobile */}
+      <motion.div className="flex items-center justify-center gap-3 pb-6 px-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+        <button
+          onClick={() => stepPortfolio(-1)}
+          aria-label="Previous portfolio"
+          className={arrowButtonClasses}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
-      <motion.div className="flex justify-center gap-4 flex-wrap pb-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
-        {portfolios.map((portfolio) => (
+        {/* Desktop / tablet: show every portfolio as its own button */}
+        <div className="hidden md:flex flex-wrap justify-center gap-4">
+          {portfolios.map((portfolio) => (
+            <Button
+              key={portfolio}
+              variant="secondary"
+              onClick={() => changePortfolio(portfolio)}
+              className={`px-4 py-2 ${selectedPortfolio === portfolio ? "bg-[#004aad]" : ""}`}
+            >
+              {portfolio}
+            </Button>
+          ))}
+        </div>
+
+        {/* Mobile: show only the currently selected portfolio */}
+        <div className="flex md:hidden">
           <Button
-            key={portfolio}
             variant="secondary"
-            onClick={() => changePortfolio(portfolio)}
-            className={`px-4 py-2 ${selectedPortfolio === portfolio ? "bg-[#004aad]" : ""}`}
+            className="px-4 py-2 bg-[#004aad] min-w-[180px] text-center"
           >
-            {portfolio}
+            {selectedPortfolio}
           </Button>
-        ))}
-      </motion.div>
+        </div>
 
+        <button
+          onClick={() => stepPortfolio(1)}
+          aria-label="Next portfolio"
+          className={arrowButtonClasses}
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </motion.div>
+      
       <div className="relative overflow-hidden px-6 pb-12 min-h-[520px] sm:min-h-[600px] md:min-h-[520px]">
         <AnimatePresence mode="popLayout" custom={direction} initial={false}>
           <motion.div
@@ -291,29 +322,11 @@ const About: React.FC = () => {
             className="flex flex-col items-center gap-8" // CHANGED: this element is now top-aligned inside a fixed-height parent, so any leftover space falls to the bottom automatically
           >
             {/* Director cards — with headshots */}
-            <div className="w-full flex items-center justify-center gap-4">
-              <button
-                onClick={() => stepPortfolio(-1)}
-                aria-label="Previous portfolio"
-                className="shrink-0 rounded-full p-2 border border-gray-300 hover:bg-[#004aad] hover:text-white hover:border-[#004aad] transition-colors duration-200"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
               <div className="flex flex-wrap justify-center gap-6">
                 {activeData?.directors?.map((member) => (
                   <TeamMemberCard key={member.name} member={member} />
                 ))}
               </div>
-
-              <button
-                onClick={() => stepPortfolio(1)}
-                aria-label="Next portfolio"
-                className="shrink-0 rounded-full p-2 border border-gray-300 hover:bg-[#004aad] hover:text-white hover:border-[#004aad] transition-colors duration-200"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
 
             {/* Subcommittee — compact cards, names only, hidden for Executives */}
             {selectedPortfolio !== "Executives" && activeData?.subcommittee && activeData.subcommittee.length > 0 && (
