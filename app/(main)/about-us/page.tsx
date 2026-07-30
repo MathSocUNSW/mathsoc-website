@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Wave from "../(components)/waves-bg";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -72,16 +73,33 @@ const SubcommitteeCard: React.FC<{ name: string; portfolio: string }> = ({ name,
   </motion.div>
 );
 
+const slideVariants = {
+  enter: (direction: number) => ({
+    x: direction >= 0 ? 60 : -60,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction >= 0 ? -60 : 60,
+    opacity: 0,
+  }),
+};
+
 const About: React.FC = () => {
   const [selectedPortfolio, setSelectedPortfolio] = useState("Executives");
   // const [year, setYear] = useState(new Date().getFullYear());
   const [year] = useState(new Date().getFullYear());
   
-
   const portfolios = [
     "Executives", "Academics", "Outreach", "Careers", "Socials", "Human Resources", 
     "Marketing", "Creative", "Information Technology"
   ];
+
+  const [direction, setDirection] = useState(0);
+  const currentIndex = portfolios.indexOf(selectedPortfolio);
 
   const teamsData: TeamsData = {
     [year]: {
@@ -161,6 +179,21 @@ const About: React.FC = () => {
     }
   };
 
+  const changePortfolio = (portfolio: string) => {
+    const newIndex = portfolios.indexOf(portfolio);
+    setDirection(newIndex > currentIndex ? 1 : newIndex < currentIndex ? -1 : 0);
+    setSelectedPortfolio(portfolio);
+  };
+
+  const stepPortfolio = (step: 1 | -1) => {
+    const newIndex = (currentIndex + step + portfolios.length) % portfolios.length;
+    setDirection(step);
+    setSelectedPortfolio(portfolios[newIndex]);
+  };
+
+  const activeData = teamsData[String(year)]?.[selectedPortfolio];
+  const arrowButtonClasses = "shrink-0 rounded-full p-2 border border-gray-300 hover:bg-[#004aad] hover:text-white hover:border-[#004aad] transition-colors duration-200";
+
   return (
     <motion.section initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
       <motion.div className="relative w-full h-[60vh]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5 }}>
@@ -232,41 +265,80 @@ const About: React.FC = () => {
           })}
         </select>
       </div> */}
+      
+      {/* Portfolio selector: full button row + side arrows on desktop, single current-portfolio button + side arrows on mobile */}
+      <motion.div className="flex items-center justify-center gap-3 pb-6 px-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
+        <button
+          onClick={() => stepPortfolio(-1)}
+          aria-label="Previous portfolio"
+          className={arrowButtonClasses}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
-      <motion.div className="flex justify-center gap-4 flex-wrap pb-6" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
-        {portfolios.map((portfolio) => (
-          <Button 
-            key={portfolio} 
-            variant="secondary"
-            onClick={() => setSelectedPortfolio(portfolio)}
-            className={`px-4 py-2 ${selectedPortfolio === portfolio ? "bg-[#004aad]" : ""}`}
-          >
-            {portfolio}
-          </Button>
-        ))}
-      </motion.div>
-
-      <motion.div className="flex flex-col items-center px-6 pb-12 gap-8" initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: "easeOut" }} viewport={{ once: true }}>
-        {/* Director cards — with headshots */}
-        <div className="flex flex-wrap justify-center gap-6">
-          {teamsData[String(year)]?.[selectedPortfolio]?.directors?.map((member) => (
-            <TeamMemberCard key={member.name} member={member} />
+        {/* Desktop / tablet: show every portfolio as its own button */}
+        <div className="hidden md:flex flex-wrap justify-center gap-4">
+          {portfolios.map((portfolio) => (
+            <Button
+              key={portfolio}
+              variant="secondary"
+              onClick={() => changePortfolio(portfolio)}
+              className={`px-4 py-2 ${selectedPortfolio === portfolio ? "bg-[#004aad]" : ""}`}
+            >
+              {portfolio}
+            </Button>
           ))}
         </div>
 
-        {/* Subcommittee — compact cards, names only, hidden for Executives */}
-        {selectedPortfolio !== "Executives" && (() => {
-          const subcom = teamsData[String(year)]?.[selectedPortfolio]?.subcommittee;
-          if (!subcom || subcom.length === 0) return null;
-          return (
-            <div className="flex flex-wrap justify-center gap-4">
-              {subcom.map((name) => (
-                <SubcommitteeCard key={name} name={name} portfolio={selectedPortfolio} />
-              ))}
-            </div>
-          );
-        })()}
+        {/* Mobile: show only the currently selected portfolio */}
+        <div className="flex md:hidden">
+          <Button
+            variant="secondary"
+            className="px-4 py-2 bg-[#004aad] min-w-[180px] text-center"
+          >
+            {selectedPortfolio}
+          </Button>
+        </div>
+
+        <button
+          onClick={() => stepPortfolio(1)}
+          aria-label="Next portfolio"
+          className={arrowButtonClasses}
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </motion.div>
+      
+      <div className="relative overflow-hidden px-6 pb-12 min-h-[520px] sm:min-h-[600px] md:min-h-[520px]">
+        <AnimatePresence mode="popLayout" custom={direction} initial={false}>
+          <motion.div
+            key={selectedPortfolio}
+            custom={direction}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="flex flex-col items-center gap-8" // CHANGED: this element is now top-aligned inside a fixed-height parent, so any leftover space falls to the bottom automatically
+          >
+            {/* Director cards — with headshots */}
+              <div className="flex flex-wrap justify-center gap-6">
+                {activeData?.directors?.map((member) => (
+                  <TeamMemberCard key={member.name} member={member} />
+                ))}
+              </div>
+
+            {/* Subcommittee — compact cards, names only, hidden for Executives */}
+            {selectedPortfolio !== "Executives" && activeData?.subcommittee && activeData.subcommittee.length > 0 && (
+              <div className="flex flex-wrap justify-center gap-4">
+                {activeData.subcommittee.map((name) => (
+                  <SubcommitteeCard key={name} name={name} portfolio={selectedPortfolio} />
+                ))}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </motion.section>
   );
 };
