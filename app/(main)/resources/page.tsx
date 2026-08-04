@@ -456,17 +456,20 @@ const Resources: React.FC = () => {
                                                     title={file.name
                                                       .replaceAll("_", " ")
                                                       .replaceAll("-", " ")
-                                                      .replace(".pdf", "")}
+                                                      .replace(/\.pdf$/i, "")}
                                                   >
                                                     {file.name
-                                                      .replaceAll("_", "/")
+                                                      .replaceAll("_", " ")
                                                       .replaceAll("-", " ")
-                                                      .replace(".pdf", "")
+                                                      .replace(/\.pdf$/i, "")
                                                       .replaceAll(
-                                                        `${subfolder.name}`,
+                                                        `${subfolder.name}/`,
                                                         ""
                                                       )
-                                                      .replaceAll("/", " ")}
+                                                      .replaceAll(
+                                                        `${subfolder.name} `,
+                                                        ""
+                                                      )}
                                                   </span>
                                                 </div>
 
