@@ -1,76 +1,200 @@
 import { NextResponse } from 'next/server';
 
 const FOLDER_MIME_TYPE = "application/vnd.google-apps.folder";
+const SHORTCUT_MIME_TYPE = "application/vnd.google-apps.shortcut";
 const ROOT_FOLDER_ID = "1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96";
+const MAX_DEPTH = 10;
 
-async function getFolderContents(folderId: string) {
-  const res = await fetch(
-    `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.GOOGLE_DRIVE_API_KEY}&fields=files(id,name,mimeType,parents,webViewLink,webContentLink,modifiedTime)`,
-    {
-      next: { revalidate: 3600 } // 1 hr cache
+type DriveItem = {
+  id: string;
+  name: string;
+  mimeType: string;
+  parents?: string[];
+  webViewLink?: string;
+  webContentLink?: string;
+  modifiedTime?: string;
+  shortcutDetails?: {
+    targetId?: string;
+    targetMimeType?: string;
+  };
+};
+
+async function getFolderContents(folderId: string): Promise<DriveItem[]> {
+  const files: DriveItem[] = [];
+  let pageToken: string | undefined;
+
+  do {
+    const params = new URLSearchParams({
+      q: `'${folderId}' in parents and trashed = false`,
+      key:
+        process.env.GOOGLE_DRIVE_API_KEY ||
+        process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY ||
+        "",
+      fields:
+        "nextPageToken,files(id,name,mimeType,parents,webViewLink,webContentLink,modifiedTime,shortcutDetails)",
+      pageSize: "1000",
+    });
+    if (pageToken) params.set("pageToken", pageToken);
+
+    const res = await fetch(
+      `https://www.googleapis.com/drive/v3/files?${params.toString()}`,
+      {
+        next: { revalidate: 3600 }, // 1 hr cache
+      }
+    );
+
+    if (!res.ok) {
+      console.error("Google Drive API Error:", await res.text());
+      return files;
     }
-  );
 
-  if (!res.ok) {
-    console.error("Google Drive API Error:", await res.text());
-    return [];
+    const data = await res.json();
+    files.push(...(data.files || []));
+    pageToken = data.nextPageToken;
+  } while (pageToken);
+
+  return files;
+}
+
+/** Recursively collect all non-folder files under a folder, prefixing nested paths. */
+async function collectFilesRecursive(
+  folderId: string,
+  prefix = "",
+  depth = 0
+): Promise<DriveItem[]> {
+  if (depth > MAX_DEPTH) return [];
+
+  const items = await getFolderContents(folderId);
+  const files: DriveItem[] = [];
+  const nestedFolderJobs: Promise<DriveItem[]>[] = [];
+
+  for (const item of items) {
+    const isFolder = item.mimeType === FOLDER_MIME_TYPE;
+    const isFolderShortcut =
+      item.mimeType === SHORTCUT_MIME_TYPE &&
+      item.shortcutDetails?.targetMimeType === FOLDER_MIME_TYPE &&
+      item.shortcutDetails?.targetId;
+
+    if (isFolder || isFolderShortcut) {
+      const targetId = isFolderShortcut
+        ? item.shortcutDetails!.targetId!
+        : item.id;
+      nestedFolderJobs.push(
+        collectFilesRecursive(targetId, `${prefix}${item.name}/`, depth + 1)
+      );
+      continue;
+    }
+
+    // Shortcut to a file — surface the target so open/download still work
+    if (
+      item.mimeType === SHORTCUT_MIME_TYPE &&
+      item.shortcutDetails?.targetId
+    ) {
+      files.push({
+        ...item,
+        id: item.shortcutDetails.targetId,
+        mimeType: item.shortcutDetails.targetMimeType || item.mimeType,
+        name: prefix ? `${prefix}${item.name}` : item.name,
+      });
+      continue;
+    }
+
+    files.push({
+      ...item,
+      name: prefix ? `${prefix}${item.name}` : item.name,
+    });
   }
 
-  const data = await res.json();
-  return data.files || [];
+  const nestedFiles = await Promise.all(nestedFolderJobs);
+  return files.concat(...nestedFiles);
 }
 
 export async function GET() {
   try {
     const topLevelItems = await getFolderContents(ROOT_FOLDER_ID);
     const topLevelFolders = topLevelItems.filter(
-      (item: any) => item.mimeType === FOLDER_MIME_TYPE
+      (item) => item.mimeType === FOLDER_MIME_TYPE
     );
 
-    const folderPromises = topLevelFolders.map(async (folder: any) => {
+    const folderPromises = topLevelFolders.map(async (folder) => {
       const subfolderItems = await getFolderContents(folder.id);
       const subfolderList = subfolderItems.filter(
-        (item: any) => item.mimeType === FOLDER_MIME_TYPE
+        (item) => item.mimeType === FOLDER_MIME_TYPE
       );
 
-      const subfolderPromises = subfolderList.map(async (subfolder: any) => {
-        const subfolderContents = await getFolderContents(subfolder.id);
-        const files = subfolderContents.filter(
-          (item: any) => item.mimeType !== FOLDER_MIME_TYPE
-        );
+      const subfolderPromises = subfolderList.map(async (subfolder) => {
+        const files = await collectFilesRecursive(subfolder.id);
         return {
           id: subfolder.id,
           name: subfolder.name,
-          files: files,
+          files,
         };
       });
 
       const subfolders = await Promise.all(subfolderPromises);
 
       const directFiles = subfolderItems.filter(
-        (item: any) => item.mimeType !== FOLDER_MIME_TYPE
+        (item) => item.mimeType !== FOLDER_MIME_TYPE
       );
 
       if (directFiles.length > 0) {
-        subfolders.unshift({
-          id: `${folder.id}_direct`,
-          name: "Subfolder",
-          files: directFiles,
-        });
+        // Also recurse any folder-shortcuts sitting next to direct files
+        const resolvedDirect = await Promise.all(
+          directFiles.map(async (item) => {
+            const isFolderShortcut =
+              item.mimeType === SHORTCUT_MIME_TYPE &&
+              item.shortcutDetails?.targetMimeType === FOLDER_MIME_TYPE &&
+              item.shortcutDetails?.targetId;
+
+            if (isFolderShortcut) {
+              return collectFilesRecursive(
+                item.shortcutDetails!.targetId!,
+                `${item.name}/`
+              );
+            }
+
+            if (
+              item.mimeType === SHORTCUT_MIME_TYPE &&
+              item.shortcutDetails?.targetId
+            ) {
+              return [
+                {
+                  ...item,
+                  id: item.shortcutDetails.targetId,
+                  mimeType:
+                    item.shortcutDetails.targetMimeType || item.mimeType,
+                },
+              ];
+            }
+
+            return [item];
+          })
+        );
+
+        const flattenedDirect = resolvedDirect.flat();
+        if (flattenedDirect.length > 0) {
+          subfolders.unshift({
+            id: `${folder.id}_direct`,
+            name: "Subfolder",
+            files: flattenedDirect,
+          });
+        }
       }
 
       return {
         id: folder.id,
         name: folder.name,
-        subfolders: subfolders,
+        subfolders,
       };
     });
 
     const folderStructure = await Promise.all(folderPromises);
     return NextResponse.json(folderStructure);
-
   } catch (error) {
     console.error("Error building drive structure:", error);
-    return NextResponse.json({ error: "Failed to fetch resources" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Failed to fetch resources" },
+      { status: 500 }
+    );
   }
 }
