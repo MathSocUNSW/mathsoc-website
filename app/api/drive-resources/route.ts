@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 const FOLDER_MIME_TYPE = "application/vnd.google-apps.folder";
 const SHORTCUT_MIME_TYPE = "application/vnd.google-apps.shortcut";
@@ -17,6 +17,13 @@ type DriveItem = {
     targetId?: string;
     targetMimeType?: string;
   };
+};
+
+type FolderNode = {
+  id: string;
+  name: string;
+  files: DriveItem[];
+  folders: FolderNode[];
 };
 
 async function getFolderContents(folderId: string): Promise<DriveItem[]> {
@@ -56,17 +63,19 @@ async function getFolderContents(folderId: string): Promise<DriveItem[]> {
   return files;
 }
 
-/** Recursively collect all non-folder files under a folder, prefixing nested paths. */
-async function collectFilesRecursive(
+/** Build a nested folder tree (no path prefixes on file names). */
+async function buildFolderTree(
   folderId: string,
-  prefix = "",
+  folderName: string,
   depth = 0
-): Promise<DriveItem[]> {
-  if (depth > MAX_DEPTH) return [];
+): Promise<FolderNode> {
+  if (depth > MAX_DEPTH) {
+    return { id: folderId, name: folderName, files: [], folders: [] };
+  }
 
   const items = await getFolderContents(folderId);
   const files: DriveItem[] = [];
-  const nestedFolderJobs: Promise<DriveItem[]>[] = [];
+  const nestedFolderJobs: Promise<FolderNode>[] = [];
 
   for (const item of items) {
     const isFolder = item.mimeType === FOLDER_MIME_TYPE;
@@ -79,13 +88,10 @@ async function collectFilesRecursive(
       const targetId = isFolderShortcut
         ? item.shortcutDetails!.targetId!
         : item.id;
-      nestedFolderJobs.push(
-        collectFilesRecursive(targetId, `${prefix}${item.name}/`, depth + 1)
-      );
+      nestedFolderJobs.push(buildFolderTree(targetId, item.name, depth + 1));
       continue;
     }
 
-    // Shortcut to a file — surface the target so open/download still work
     if (
       item.mimeType === SHORTCUT_MIME_TYPE &&
       item.shortcutDetails?.targetId
@@ -94,19 +100,18 @@ async function collectFilesRecursive(
         ...item,
         id: item.shortcutDetails.targetId,
         mimeType: item.shortcutDetails.targetMimeType || item.mimeType,
-        name: prefix ? `${prefix}${item.name}` : item.name,
       });
       continue;
     }
 
-    files.push({
-      ...item,
-      name: prefix ? `${prefix}${item.name}` : item.name,
-    });
+    files.push(item);
   }
 
-  const nestedFiles = await Promise.all(nestedFolderJobs);
-  return files.concat(...nestedFiles);
+  const folders = await Promise.all(nestedFolderJobs);
+  folders.sort((a, b) => a.name.localeCompare(b.name));
+  files.sort((a, b) => a.name.localeCompare(b.name));
+
+  return { id: folderId, name: folderName, files, folders };
 }
 
 export async function GET() {
@@ -122,61 +127,61 @@ export async function GET() {
         (item) => item.mimeType === FOLDER_MIME_TYPE
       );
 
-      const subfolderPromises = subfolderList.map(async (subfolder) => {
-        const files = await collectFilesRecursive(subfolder.id);
-        return {
-          id: subfolder.id,
-          name: subfolder.name,
-          files,
-        };
-      });
+      // Real child folders → Subfolder cards (with nested folders preserved)
+      const subfolders = await Promise.all(
+        subfolderList.map((subfolder) =>
+          buildFolderTree(subfolder.id, subfolder.name)
+        )
+      );
 
-      const subfolders = await Promise.all(subfolderPromises);
-
-      const directFiles = subfolderItems.filter(
+      // Files / folder-shortcuts sitting directly under the top-level section
+      const directItems = subfolderItems.filter(
         (item) => item.mimeType !== FOLDER_MIME_TYPE
       );
 
-      if (directFiles.length > 0) {
-        // Also recurse any folder-shortcuts sitting next to direct files
-        const resolvedDirect = await Promise.all(
-          directFiles.map(async (item) => {
-            const isFolderShortcut =
-              item.mimeType === SHORTCUT_MIME_TYPE &&
-              item.shortcutDetails?.targetMimeType === FOLDER_MIME_TYPE &&
-              item.shortcutDetails?.targetId;
+      if (directItems.length > 0) {
+        const directFiles: DriveItem[] = [];
+        const nestedFolderJobs: Promise<FolderNode>[] = [];
 
-            if (isFolderShortcut) {
-              return collectFilesRecursive(
-                item.shortcutDetails!.targetId!,
-                `${item.name}/`
-              );
-            }
+        for (const item of directItems) {
+          const isFolderShortcut =
+            item.mimeType === SHORTCUT_MIME_TYPE &&
+            item.shortcutDetails?.targetMimeType === FOLDER_MIME_TYPE &&
+            item.shortcutDetails?.targetId;
 
-            if (
-              item.mimeType === SHORTCUT_MIME_TYPE &&
-              item.shortcutDetails?.targetId
-            ) {
-              return [
-                {
-                  ...item,
-                  id: item.shortcutDetails.targetId,
-                  mimeType:
-                    item.shortcutDetails.targetMimeType || item.mimeType,
-                },
-              ];
-            }
+          if (isFolderShortcut) {
+            nestedFolderJobs.push(
+              buildFolderTree(item.shortcutDetails!.targetId!, item.name, 1)
+            );
+            continue;
+          }
 
-            return [item];
-          })
-        );
+          if (
+            item.mimeType === SHORTCUT_MIME_TYPE &&
+            item.shortcutDetails?.targetId
+          ) {
+            directFiles.push({
+              ...item,
+              id: item.shortcutDetails.targetId,
+              mimeType:
+                item.shortcutDetails.targetMimeType || item.mimeType,
+            });
+            continue;
+          }
 
-        const flattenedDirect = resolvedDirect.flat();
-        if (flattenedDirect.length > 0) {
+          directFiles.push(item);
+        }
+
+        const nestedFolders = await Promise.all(nestedFolderJobs);
+
+        if (directFiles.length > 0 || nestedFolders.length > 0) {
+          nestedFolders.sort((a, b) => a.name.localeCompare(b.name));
+          directFiles.sort((a, b) => a.name.localeCompare(b.name));
           subfolders.unshift({
             id: `${folder.id}_direct`,
             name: "Subfolder",
-            files: flattenedDirect,
+            files: directFiles,
+            folders: nestedFolders,
           });
         }
       }
