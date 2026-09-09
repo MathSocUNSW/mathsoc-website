@@ -36,6 +36,7 @@ interface Subfolder {
   id: string;
   name: string;
   files: DriveFile[];
+  folders?: Subfolder[];
 }
 
 interface DriveFolder {
@@ -44,8 +45,249 @@ interface DriveFolder {
   subfolders: Subfolder[];
 }
 
-const FOLDER_MIME_TYPE = "application/vnd.google-apps.folder";
-const ROOT_FOLDER_ID = "1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96";
+function countFiles(node: Subfolder): number {
+  const nested = node.folders ?? [];
+  return (
+    (node.files?.length ?? 0) +
+    nested.reduce((sum, folder) => sum + countFiles(folder), 0)
+  );
+}
+
+function formatFileName(name: string, subfolderName: string): string {
+  return name
+    .replaceAll("_", " ")
+    .replaceAll("-", " ")
+    .replace(/\.pdf$/i, "")
+    .replaceAll(`${subfolderName}/`, "")
+    .replaceAll(`${subfolderName} `, "");
+}
+
+function filterSubfolder(
+  subfolder: Subfolder,
+  query: string
+): Subfolder | null {
+  if (!query) return subfolder;
+
+  const nameMatches = subfolder.name.toLowerCase().includes(query);
+  if (nameMatches) return subfolder;
+
+  const matchedFiles = (subfolder.files ?? []).filter((file) =>
+    file.name.toLowerCase().includes(query)
+  );
+  const matchedFolders = (subfolder.folders ?? [])
+    .map((folder) => filterSubfolder(folder, query))
+    .filter((folder): folder is Subfolder => folder !== null);
+
+  if (matchedFiles.length === 0 && matchedFolders.length === 0) {
+    return null;
+  }
+
+  return {
+    ...subfolder,
+    files: matchedFiles,
+    folders: matchedFolders,
+  };
+}
+
+function FileRow({
+  file,
+  subfolderName,
+}: {
+  file: DriveFile;
+  subfolderName: string;
+}) {
+  return (
+    <div className="flex items-center justify-between bg-[#556080] rounded-lg p-2 md:p-3">
+      <div className="flex items-center space-x-2 flex-1 min-w-0">
+        <span
+          className="text-white text-xs md:text-sm truncate"
+          title={formatFileName(file.name, subfolderName)}
+        >
+          {formatFileName(file.name, subfolderName)}
+        </span>
+      </div>
+
+      <div className="flex space-x-1 ml-2">
+        {file.webViewLink && (
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-white hover:bg-[#333e59] p-1 md:p-2"
+            onClick={() => window.open(file.webViewLink, "_blank")}
+          >
+            <SquareArrowOutUpRight className="w-4 h-4" />
+          </Button>
+        )}
+        {file.webContentLink && (
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-white hover:bg-[#333e59] p-1 md:p-2"
+            onClick={() => window.open(file.webContentLink, "_blank")}
+          >
+            <Download className="w-4 h-4" />
+          </Button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Nested folder shown as a clickable box that expands to reveal its contents. */
+function NestedFolderBox({
+  folder,
+  subfolderName,
+}: {
+  folder: Subfolder;
+  subfolderName: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const nestedFolders = [...(folder.folders ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const files = [...(folder.files ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const resourceCount = countFiles(folder);
+
+  return (
+    <Collapsible
+      open={open}
+      onOpenChange={setOpen}
+      className="rounded-lg bg-[#556080] overflow-hidden"
+    >
+      <CollapsibleTrigger asChild>
+        <Button
+          variant="ghost"
+          className="w-full justify-between hover:bg-[#4a5670] text-white h-auto px-2 md:px-3 py-2 md:py-3 rounded-none"
+        >
+          <div className="flex items-center space-x-2 min-w-0">
+            <Folder className="w-4 h-4 shrink-0" />
+            <span className="text-xs md:text-sm truncate">{folder.name}</span>
+            <Badge
+              variant="secondary"
+              className="bg-[#2b52c8] text-white text-[10px] md:text-xs shrink-0"
+            >
+              {resourceCount}
+            </Badge>
+          </div>
+          <motion.div
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="shrink-0 ml-2"
+          >
+            <ChevronDown className="w-4 h-4" />
+          </motion.div>
+        </Button>
+      </CollapsibleTrigger>
+
+      <CollapsibleContent>
+        <div className="space-y-2 px-2 pb-2 pt-1">
+          {nestedFolders.map((child) => (
+            <NestedFolderBox
+              key={child.id}
+              folder={child}
+              subfolderName={subfolderName}
+            />
+          ))}
+          {files.map((file) => (
+            <FileRow
+              key={file.id}
+              file={file}
+              subfolderName={subfolderName}
+            />
+          ))}
+          {nestedFolders.length === 0 && files.length === 0 && (
+            <div className="text-gray-300 text-xs text-center py-2">
+              No files found in this folder
+            </div>
+          )}
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
+
+/** Original Subfolder card; nested folders appear as expandable boxes. */
+function SubfolderCard({ subfolder }: { subfolder: Subfolder }) {
+  const nestedFolders = [...(subfolder.folders ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const files = [...(subfolder.files ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const totalResources = countFiles(subfolder);
+  const isEmpty = nestedFolders.length === 0 && files.length === 0;
+
+  return (
+    <Card className="bg-[#272F45] border-[#556080] rounded-lg">
+      {/* Subfolder name */}
+      <CardHeader className="flex flex-row justify-between py-2 md:py-5 bg-[#1F2537] rounded-t-lg px-4 xl:px-6">
+        <CardTitle className="text-white text-sm md:text-lg flex items-center space-x-2">
+          <span>{subfolder.name}</span>
+        </CardTitle>
+        <div className="flex space-x-1 pb-1 md:pb-0">
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-white hover:bg-[#333e59] p-2"
+            onClick={() =>
+              window.open(
+                `https://drive.google.com/drive/folders/${
+                  subfolder.id.endsWith("_direct")
+                    ? subfolder.id.replace(/_direct$/, "")
+                    : subfolder.id
+                }`,
+                "_blank"
+              )
+            }
+          >
+            <SquareArrowOutUpRight className="w-4 h-4" />
+          </Button>
+        </div>
+      </CardHeader>
+
+      {/* Subfolder content */}
+      <CardContent className="pt-4 px-4 xl:px-6">
+        {/* Number of resources */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-white font-medium text-sm md:text-base">
+            Files
+          </span>
+          <Badge
+            variant="secondary"
+            className="bg-[#2b52c8] text-white text-xs"
+          >
+            {totalResources} Resource{totalResources !== 1 ? "s" : ""}
+          </Badge>
+        </div>
+
+        {/* Nested folders (expandable boxes) + files */}
+        <div className="space-y-2 max-h-60 overflow-y-auto">
+          {nestedFolders.map((folder) => (
+            <NestedFolderBox
+              key={folder.id}
+              folder={folder}
+              subfolderName={subfolder.name}
+            />
+          ))}
+          {files.map((file) => (
+            <FileRow
+              key={file.id}
+              file={file}
+              subfolderName={subfolder.name}
+            />
+          ))}
+          {isEmpty && (
+            <div className="text-gray-400 text-sm text-center py-4">
+              No files found in this folder
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 const Resources: React.FC = () => {
   const [folders, setFolders] = useState<DriveFolder[]>([]);
@@ -55,7 +297,6 @@ const Resources: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-
 
   const toggleFolder = (folderId: string) => {
     setOpenFolders((prev) => ({
@@ -67,7 +308,7 @@ const Resources: React.FC = () => {
   useEffect(() => {
     const loadResources = async () => {
       try {
-        const res = await fetch('/api/drive-resources');
+        const res = await fetch("/api/drive-resources");
         if (!res.ok) {
           throw new Error("Failed to fetch from server");
         }
@@ -234,16 +475,8 @@ const Resources: React.FC = () => {
       const folderMatches = folder.name.toLowerCase().includes(searchQuery);
 
       const matchedSubfolders = folder.subfolders
-        .map((sub) => ({
-          ...sub,
-          files: sub.files.filter((file) =>
-            file.name.toLowerCase().includes(searchQuery)
-          ),
-        }))
-        .filter(
-          (sub) =>
-            sub.name.toLowerCase().includes(searchQuery) || sub.files.length > 0
-        );
+        .map((sub) => filterSubfolder(sub, searchQuery))
+        .filter((sub): sub is Subfolder => sub !== null);
 
       // If the folder matches, include all its subfolders
       if (folderMatches) {
@@ -383,7 +616,7 @@ const Resources: React.FC = () => {
                               .sort((a, b) => a.name.localeCompare(b.name))
                               .map((subfolder, index) => (
                                 <motion.div
-                                  key={subfolder.id}
+                                  key={`${subfolder.id}-${searchQuery}`}
                                   initial={{ opacity: 0, y: 20 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{
@@ -392,130 +625,7 @@ const Resources: React.FC = () => {
                                     ease: "easeOut",
                                   }}
                                 >
-                                  <Card
-                                    key={subfolder.id}
-                                    className="bg-[#272F45] border-[#556080] rounded-lg"
-                                  >
-                                    {/* Subfolder name */}
-                                    <CardHeader className="flex flex-row justify-between py-2 md:py-5 bg-[#1F2537] rounded-t-lg px-4 xl:px-6">
-                                      <CardTitle className="text-white text-sm md:text-lg flex items-center space-x-2">
-                                        <span>{subfolder.name}</span>
-                                      </CardTitle>
-                                      <div className="flex space-x-1 pb-1 md:pb-0">
-                                        <Button
-                                          size="sm"
-                                          variant="ghost"
-                                          className="text-white hover:bg-[#333e59] p-2"
-                                          onClick={() =>
-                                            window.open(
-                                              `https://drive.google.com/drive/folders/${subfolder.id}`,
-                                              "_blank"
-                                            )
-                                          }
-                                        >
-                                          <SquareArrowOutUpRight className="w-4 h-4" />
-                                        </Button>
-                                      </div>
-                                    </CardHeader>
-
-                                    {/* Subfolder content */}
-                                    <CardContent className="pt-4 px-4 xl:px-6">
-                                      {/* Number of resources */}
-                                      <div className="flex items-center justify-between mb-4">
-                                        <span className="text-white font-medium text-sm md:text-base">
-                                          Files
-                                        </span>
-                                        <Badge
-                                          variant="secondary"
-                                          className="bg-[#2b52c8] text-white text-xs"
-                                        >
-                                          {subfolder.files.length} Resource
-                                          {subfolder.files.length !== 1
-                                            ? "s"
-                                            : ""}
-                                        </Badge>
-                                      </div>
-
-                                      {/* Subfolder files */}
-                                      <div className="space-y-2 max-h-60 overflow-y-auto">
-                                        {/* Each file */}
-                                        {subfolder.files.length > 0 ? (
-                                          subfolder.files
-                                            .sort((a, b) =>
-                                              a.name.localeCompare(b.name)
-                                            )
-                                            .map((file) => (
-                                              <div
-                                                key={file.id}
-                                                className="flex items-center justify-between bg-[#556080] rounded-lg p-2 md:p-3"
-                                              >
-                                                <div className="flex items-center space-x-2 flex-1 min-w-0">
-                                                  {/* File name */}
-                                                  <span
-                                                    className="text-white text-xs md:text-sm truncate"
-                                                    title={file.name
-                                                      .replaceAll("_", " ")
-                                                      .replaceAll("-", " ")
-                                                      .replace(/\.pdf$/i, "")}
-                                                  >
-                                                    {file.name
-                                                      .replaceAll("_", " ")
-                                                      .replaceAll("-", " ")
-                                                      .replace(/\.pdf$/i, "")
-                                                      .replaceAll(
-                                                        `${subfolder.name}/`,
-                                                        ""
-                                                      )
-                                                      .replaceAll(
-                                                        `${subfolder.name} `,
-                                                        ""
-                                                      )}
-                                                  </span>
-                                                </div>
-
-                                                {/* Open and download buttons */}
-                                                <div className="flex space-x-1 ml-2">
-                                                  {file.webViewLink && (
-                                                    <Button
-                                                      size="sm"
-                                                      variant="ghost"
-                                                      className="text-white hover:bg-[#333e59] p-1 md:p-2"
-                                                      onClick={() =>
-                                                        window.open(
-                                                          file.webViewLink,
-                                                          "_blank"
-                                                        )
-                                                      }
-                                                    >
-                                                      <SquareArrowOutUpRight className="w-4 h-4" />
-                                                    </Button>
-                                                  )}
-                                                  {file.webContentLink && (
-                                                    <Button
-                                                      size="sm"
-                                                      variant="ghost"
-                                                      className="text-white hover:bg-[#333e59] p-1 md:p-2"
-                                                      onClick={() =>
-                                                        window.open(
-                                                          file.webContentLink,
-                                                          "_blank"
-                                                        )
-                                                      }
-                                                    >
-                                                      <Download className="w-4 h-4" />
-                                                    </Button>
-                                                  )}
-                                                </div>
-                                              </div>
-                                            ))
-                                        ) : (
-                                          <div className="text-gray-400 text-sm text-center py-4">
-                                            No files found in this folder
-                                          </div>
-                                        )}
-                                      </div>
-                                    </CardContent>
-                                  </Card>
+                                  <SubfolderCard subfolder={subfolder} />
                                 </motion.div>
                               ))}
                           </div>
