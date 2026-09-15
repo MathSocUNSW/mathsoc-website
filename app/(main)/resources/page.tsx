@@ -53,6 +53,35 @@ function countFiles(node: Subfolder): number {
   );
 }
 
+function pruneEmptySubfolder(subfolder: Subfolder): Subfolder | null {
+  const folders = (subfolder.folders ?? [])
+    .map(pruneEmptySubfolder)
+    .filter((folder): folder is Subfolder => folder !== null);
+  const files = subfolder.files ?? [];
+
+  if (files.length === 0 && folders.length === 0) {
+    return null;
+  }
+
+  return { ...subfolder, files, folders };
+}
+
+function pruneEmptyFolders(folders: DriveFolder[]): DriveFolder[] {
+  return folders
+    .map((folder) => {
+      const subfolders = folder.subfolders
+        .map(pruneEmptySubfolder)
+        .filter((subfolder): subfolder is Subfolder => subfolder !== null);
+
+      if (subfolders.length === 0) {
+        return null;
+      }
+
+      return { ...folder, subfolders };
+    })
+    .filter((folder): folder is DriveFolder => folder !== null);
+}
+
 function formatFileName(name: string, subfolderName: string): string {
   return name
     .replaceAll("_", " ")
@@ -313,7 +342,7 @@ const Resources: React.FC = () => {
           throw new Error("Failed to fetch from server");
         }
         const data = await res.json();
-        setFolders(data);
+        setFolders(Array.isArray(data) ? pruneEmptyFolders(data) : []);
         localStorage.removeItem("mathsoc_resources"); // cleaning up localstorage, can remove after a while
         localStorage.removeItem("lastModifiedTime");
         localStorage.removeItem("resource_cache_timestamp");
