@@ -26,7 +26,16 @@ type FolderNode = {
   folders: FolderNode[];
 };
 
-async function getFolderContents(folderId: string): Promise<DriveItem[]> {
+type FolderContentsResult = {
+  files: DriveItem[];
+  accessible: boolean;
+};
+
+function isFolderEmpty(node: FolderNode): boolean {
+  return node.files.length === 0 && node.folders.length === 0;
+}
+
+async function getFolderContents(folderId: string): Promise<FolderContentsResult> {
   const files: DriveItem[] = [];
   let pageToken: string | undefined;
 
@@ -52,7 +61,7 @@ async function getFolderContents(folderId: string): Promise<DriveItem[]> {
 
     if (!res.ok) {
       console.error("Google Drive API Error:", await res.text());
-      return files;
+      return { files: [], accessible: false };
     }
 
     const data = await res.json();
@@ -60,7 +69,7 @@ async function getFolderContents(folderId: string): Promise<DriveItem[]> {
     pageToken = data.nextPageToken;
   } while (pageToken);
 
-  return files;
+  return { files, accessible: true };
 }
 
 /** Build a nested folder tree (no path prefixes on file names). */
@@ -68,14 +77,18 @@ async function buildFolderTree(
   folderId: string,
   folderName: string,
   depth = 0
-): Promise<FolderNode> {
+): Promise<FolderNode | null> {
   if (depth > MAX_DEPTH) {
     return { id: folderId, name: folderName, files: [], folders: [] };
   }
 
-  const items = await getFolderContents(folderId);
+  const { files: items, accessible } = await getFolderContents(folderId);
+  if (!accessible) {
+    return null;
+  }
+
   const files: DriveItem[] = [];
-  const nestedFolderJobs: Promise<FolderNode>[] = [];
+  const nestedFolderJobs: Promise<FolderNode | null>[] = [];
 
   for (const item of items) {
     const isFolder = item.mimeType === FOLDER_MIME_TYPE;
@@ -107,32 +120,60 @@ async function buildFolderTree(
     files.push(item);
   }
 
-  const folders = await Promise.all(nestedFolderJobs);
+  const folders = (await Promise.all(nestedFolderJobs)).filter(
+    (folder): folder is FolderNode => folder !== null && !isFolderEmpty(folder)
+  );
   folders.sort((a, b) => a.name.localeCompare(b.name));
   files.sort((a, b) => a.name.localeCompare(b.name));
 
-  return { id: folderId, name: folderName, files, folders };
+  const node = { id: folderId, name: folderName, files, folders };
+  return isFolderEmpty(node) ? null : node;
 }
 
 export async function GET() {
   try {
-    const topLevelItems = await getFolderContents(ROOT_FOLDER_ID);
+    const { files: topLevelItems, accessible: rootAccessible } =
+      await getFolderContents(ROOT_FOLDER_ID);
+
+    if (!rootAccessible) {
+      return NextResponse.json(
+        { error: "Failed to fetch resources" },
+        { status: 500 }
+      );
+    }
+
     const topLevelFolders = topLevelItems.filter(
-      (item) => item.mimeType === FOLDER_MIME_TYPE
+      (item) =>
+        item.mimeType === FOLDER_MIME_TYPE ||
+        (item.mimeType === SHORTCUT_MIME_TYPE &&
+          item.shortcutDetails?.targetMimeType === FOLDER_MIME_TYPE &&
+          item.shortcutDetails?.targetId)
     );
 
     const folderPromises = topLevelFolders.map(async (folder) => {
-      const subfolderItems = await getFolderContents(folder.id);
+      const folderId =
+        folder.mimeType === SHORTCUT_MIME_TYPE
+          ? folder.shortcutDetails!.targetId!
+          : folder.id;
+      const { files: subfolderItems, accessible } =
+        await getFolderContents(folderId);
+
+      if (!accessible) {
+        return null;
+      }
+
       const subfolderList = subfolderItems.filter(
         (item) => item.mimeType === FOLDER_MIME_TYPE
       );
 
       // Real child folders → Subfolder cards (with nested folders preserved)
-      const subfolders = await Promise.all(
-        subfolderList.map((subfolder) =>
-          buildFolderTree(subfolder.id, subfolder.name)
+      const builtSubfolders = (
+        await Promise.all(
+          subfolderList.map((subfolder) =>
+            buildFolderTree(subfolder.id, subfolder.name)
+          )
         )
-      );
+      ).filter((subfolder): subfolder is FolderNode => subfolder !== null);
 
       // Files / folder-shortcuts sitting directly under the top-level section
       const directItems = subfolderItems.filter(
@@ -141,7 +182,7 @@ export async function GET() {
 
       if (directItems.length > 0) {
         const directFiles: DriveItem[] = [];
-        const nestedFolderJobs: Promise<FolderNode>[] = [];
+        const nestedFolderJobs: Promise<FolderNode | null>[] = [];
 
         for (const item of directItems) {
           const isFolderShortcut =
@@ -172,13 +213,15 @@ export async function GET() {
           directFiles.push(item);
         }
 
-        const nestedFolders = await Promise.all(nestedFolderJobs);
+        const nestedFolders = (await Promise.all(nestedFolderJobs)).filter(
+          (nested): nested is FolderNode => nested !== null
+        );
 
         if (directFiles.length > 0 || nestedFolders.length > 0) {
           nestedFolders.sort((a, b) => a.name.localeCompare(b.name));
           directFiles.sort((a, b) => a.name.localeCompare(b.name));
-          subfolders.unshift({
-            id: `${folder.id}_direct`,
+          builtSubfolders.unshift({
+            id: `${folderId}_direct`,
             name: "Subfolder",
             files: directFiles,
             folders: nestedFolders,
@@ -186,14 +229,20 @@ export async function GET() {
         }
       }
 
+      if (builtSubfolders.length === 0) {
+        return null;
+      }
+
       return {
-        id: folder.id,
+        id: folderId,
         name: folder.name,
-        subfolders,
+        subfolders: builtSubfolders,
       };
     });
 
-    const folderStructure = await Promise.all(folderPromises);
+    const folderStructure = (await Promise.all(folderPromises)).filter(
+      (folder): folder is NonNullable<typeof folder> => folder !== null
+    );
     return NextResponse.json(folderStructure);
   } catch (error) {
     console.error("Error building drive structure:", error);
