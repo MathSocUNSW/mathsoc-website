@@ -36,6 +36,7 @@ interface Subfolder {
   id: string;
   name: string;
   files: DriveFile[];
+  folders?: Subfolder[];
 }
 
 interface DriveFolder {
@@ -44,8 +45,278 @@ interface DriveFolder {
   subfolders: Subfolder[];
 }
 
-const FOLDER_MIME_TYPE = "application/vnd.google-apps.folder";
-const ROOT_FOLDER_ID = "1v7WrVhAzZxtIhkEXeDMUiaoKF8jHkV96";
+function countFiles(node: Subfolder): number {
+  const nested = node.folders ?? [];
+  return (
+    (node.files?.length ?? 0) +
+    nested.reduce((sum, folder) => sum + countFiles(folder), 0)
+  );
+}
+
+function pruneEmptySubfolder(subfolder: Subfolder): Subfolder | null {
+  const folders = (subfolder.folders ?? [])
+    .map(pruneEmptySubfolder)
+    .filter((folder): folder is Subfolder => folder !== null);
+  const files = subfolder.files ?? [];
+
+  if (files.length === 0 && folders.length === 0) {
+    return null;
+  }
+
+  return { ...subfolder, files, folders };
+}
+
+function pruneEmptyFolders(folders: DriveFolder[]): DriveFolder[] {
+  return folders
+    .map((folder) => {
+      const subfolders = folder.subfolders
+        .map(pruneEmptySubfolder)
+        .filter((subfolder): subfolder is Subfolder => subfolder !== null);
+
+      if (subfolders.length === 0) {
+        return null;
+      }
+
+      return { ...folder, subfolders };
+    })
+    .filter((folder): folder is DriveFolder => folder !== null);
+}
+
+function formatFileName(name: string, subfolderName: string): string {
+  return name
+    .replaceAll("_", " ")
+    .replaceAll("-", " ")
+    .replace(/\.pdf$/i, "")
+    .replaceAll(`${subfolderName}/`, "")
+    .replaceAll(`${subfolderName} `, "");
+}
+
+function filterSubfolder(
+  subfolder: Subfolder,
+  query: string
+): Subfolder | null {
+  if (!query) return subfolder;
+
+  const nameMatches = subfolder.name.toLowerCase().includes(query);
+  if (nameMatches) return subfolder;
+
+  const matchedFiles = (subfolder.files ?? []).filter((file) =>
+    file.name.toLowerCase().includes(query)
+  );
+  const matchedFolders = (subfolder.folders ?? [])
+    .map((folder) => filterSubfolder(folder, query))
+    .filter((folder): folder is Subfolder => folder !== null);
+
+  if (matchedFiles.length === 0 && matchedFolders.length === 0) {
+    return null;
+  }
+
+  return {
+    ...subfolder,
+    files: matchedFiles,
+    folders: matchedFolders,
+  };
+}
+
+function FileRow({
+  file,
+  subfolderName,
+}: {
+  file: DriveFile;
+  subfolderName: string;
+}) {
+  return (
+    <div className="flex items-center justify-between bg-[#556080] rounded-lg p-2 md:p-3">
+      <div className="flex items-center space-x-2 flex-1 min-w-0">
+        <span
+          className="text-white text-xs md:text-sm truncate"
+          title={formatFileName(file.name, subfolderName)}
+        >
+          {formatFileName(file.name, subfolderName)}
+        </span>
+      </div>
+
+      <div className="flex space-x-1 ml-2">
+        {file.webViewLink && (
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-white hover:bg-[#333e59] p-1 md:p-2"
+            onClick={() => window.open(file.webViewLink, "_blank")}
+          >
+            <SquareArrowOutUpRight className="w-4 h-4" />
+          </Button>
+        )}
+        {file.webContentLink && (
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-white hover:bg-[#333e59] p-1 md:p-2"
+            onClick={() => window.open(file.webContentLink, "_blank")}
+          >
+            <Download className="w-4 h-4" />
+          </Button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/** Nested folder shown as a clickable box that expands to reveal its contents. */
+function NestedFolderBox({
+  folder,
+  subfolderName,
+}: {
+  folder: Subfolder;
+  subfolderName: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const nestedFolders = [...(folder.folders ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const files = [...(folder.files ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const resourceCount = countFiles(folder);
+
+  return (
+    <Collapsible
+      open={open}
+      onOpenChange={setOpen}
+      className="rounded-lg bg-[#556080] overflow-hidden"
+    >
+      <CollapsibleTrigger asChild>
+        <Button
+          variant="ghost"
+          className="w-full justify-between hover:bg-[#4a5670] text-white h-auto px-2 md:px-3 py-2 md:py-3 rounded-none"
+        >
+          <div className="flex items-center space-x-2 min-w-0">
+            <Folder className="w-4 h-4 shrink-0" />
+            <span className="text-xs md:text-sm truncate">{folder.name}</span>
+            <Badge
+              variant="secondary"
+              className="bg-[#2b52c8] text-white text-[10px] md:text-xs shrink-0"
+            >
+              {resourceCount}
+            </Badge>
+          </div>
+          <motion.div
+            animate={{ rotate: open ? 180 : 0 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+            className="shrink-0 ml-2"
+          >
+            <ChevronDown className="w-4 h-4" />
+          </motion.div>
+        </Button>
+      </CollapsibleTrigger>
+
+      <CollapsibleContent>
+        <div className="space-y-2 px-2 pb-2 pt-1">
+          {nestedFolders.map((child) => (
+            <NestedFolderBox
+              key={child.id}
+              folder={child}
+              subfolderName={subfolderName}
+            />
+          ))}
+          {files.map((file) => (
+            <FileRow
+              key={file.id}
+              file={file}
+              subfolderName={subfolderName}
+            />
+          ))}
+          {nestedFolders.length === 0 && files.length === 0 && (
+            <div className="text-gray-300 text-xs text-center py-2">
+              No files found in this folder
+            </div>
+          )}
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}
+
+/** Original Subfolder card; nested folders appear as expandable boxes. */
+function SubfolderCard({ subfolder }: { subfolder: Subfolder }) {
+  const nestedFolders = [...(subfolder.folders ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const files = [...(subfolder.files ?? [])].sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+  const totalResources = countFiles(subfolder);
+  const isEmpty = nestedFolders.length === 0 && files.length === 0;
+
+  return (
+    <Card className="bg-[#272F45] border-[#556080] rounded-lg">
+      {/* Subfolder name */}
+      <CardHeader className="flex flex-row justify-between py-2 md:py-5 bg-[#1F2537] rounded-t-lg px-4 xl:px-6">
+        <CardTitle className="text-white text-sm md:text-lg flex items-center space-x-2">
+          <span>{subfolder.name}</span>
+        </CardTitle>
+        <div className="flex space-x-1 pb-1 md:pb-0">
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-white hover:bg-[#333e59] p-2"
+            onClick={() =>
+              window.open(
+                `https://drive.google.com/drive/folders/${
+                  subfolder.id.endsWith("_direct")
+                    ? subfolder.id.replace(/_direct$/, "")
+                    : subfolder.id
+                }`,
+                "_blank"
+              )
+            }
+          >
+            <SquareArrowOutUpRight className="w-4 h-4" />
+          </Button>
+        </div>
+      </CardHeader>
+
+      {/* Subfolder content */}
+      <CardContent className="pt-4 px-4 xl:px-6">
+        {/* Number of resources */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-white font-medium text-sm md:text-base">
+            Files
+          </span>
+          <Badge
+            variant="secondary"
+            className="bg-[#2b52c8] text-white text-xs"
+          >
+            {totalResources} Resource{totalResources !== 1 ? "s" : ""}
+          </Badge>
+        </div>
+
+        {/* Nested folders (expandable boxes) + files */}
+        <div className="space-y-2 max-h-60 overflow-y-auto">
+          {nestedFolders.map((folder) => (
+            <NestedFolderBox
+              key={folder.id}
+              folder={folder}
+              subfolderName={subfolder.name}
+            />
+          ))}
+          {files.map((file) => (
+            <FileRow
+              key={file.id}
+              file={file}
+              subfolderName={subfolder.name}
+            />
+          ))}
+          {isEmpty && (
+            <div className="text-gray-400 text-sm text-center py-4">
+              No files found in this folder
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
 
 const Resources: React.FC = () => {
   const [folders, setFolders] = useState<DriveFolder[]>([]);
@@ -56,102 +327,6 @@ const Resources: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const getLastModifiedTime = async (folderId: string) => {
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(modifiedTime)`
-      );
-      const data = await res.json();
-      const modifiedTimes: string[] = [];
-
-      data.files?.forEach((file: DriveFile) => {
-        modifiedTimes.push(file.modifiedTime);
-      });
-
-      return modifiedTimes;
-    } catch (error) {
-      console.error("Error fetching last modified time:", error);
-      return [];
-    }
-  };
-
-  const getFolderContents = async (folderId: string): Promise<DriveFile[]> => {
-    try {
-      const res = await fetch(
-        `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${process.env.NEXT_PUBLIC_GOOGLE_DRIVE_API_KEY}&fields=files(id,name,mimeType,parents,webViewLink,webContentLink,modifiedTime)`
-      );
-
-      const data = await res.json();
-      return data.files;
-    } catch (error) {
-      console.error("Error fetching folder content:", error);
-      return [];
-    }
-  };
-
-  const buildFolderStructure = async () => {
-    try {
-      // Get all folders
-      const topLevelItems = await getFolderContents(ROOT_FOLDER_ID);
-      const topLevelFolders = topLevelItems.filter(
-        (item) => item.mimeType === FOLDER_MIME_TYPE
-      );
-      const folderStructure: DriveFolder[] = [];
-
-      // For each folder, get its subfolders and files
-      for (const folder of topLevelFolders) {
-        const subfolderItems = await getFolderContents(folder.id);
-        const subfolders: Subfolder[] = [];
-        const subfolderList = subfolderItems.filter(
-          (item) => item.mimeType === FOLDER_MIME_TYPE
-        );
-
-        // Add each file into subfolders
-        for (const subfolder of subfolderList) {
-          const subfolderContents = await getFolderContents(subfolder.id);
-          // Get all elements that are not of type folder (files)
-          const files = subfolderContents.filter(
-            (item) => item.mimeType !== FOLDER_MIME_TYPE
-          );
-
-          subfolders.push({
-            id: subfolder.id,
-            name: subfolder.name,
-            files: files,
-          });
-        }
-
-        const directFiles = subfolderItems.filter(
-          (item) => item.mimeType !== FOLDER_MIME_TYPE
-        );
-        if (directFiles.length > 0) {
-          subfolders.unshift({
-            id: `${folder.id}_direct`,
-            name: "Subfolder",
-            files: directFiles,
-          });
-        }
-
-        folderStructure.push({
-          id: folder.id,
-          name: folder.name,
-          subfolders: subfolders,
-        });
-      }
-
-      setFolders(folderStructure);
-      localStorage.setItem(
-        "mathsoc_resources",
-        JSON.stringify(folderStructure)
-      );
-    } catch (error) {
-      console.error("Error building folder structure:", error);
-      setError("Failed to load resources. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const toggleFolder = (folderId: string) => {
     setOpenFolders((prev) => ({
       ...prev,
@@ -160,36 +335,26 @@ const Resources: React.FC = () => {
   };
 
   useEffect(() => {
-    const fetchAndCompareLastModifiedTimes = async () => {
+    const loadResources = async () => {
       try {
-        const lastModifiedTimes = await getLastModifiedTime(ROOT_FOLDER_ID);
-        const cachedLastModifiedTime = localStorage.getItem("lastModifiedTime");
-        const cachedResources = localStorage.getItem("mathsoc_resources");
-
-        // If times differ or no cached resources then update folder structure,
-        // else use cached resources
-        if (
-          !cachedLastModifiedTime ||
-          cachedLastModifiedTime !== JSON.stringify(lastModifiedTimes) ||
-          !cachedResources
-        ) {
-          await buildFolderStructure();
-          localStorage.setItem(
-            "lastModifiedTime",
-            JSON.stringify(lastModifiedTimes)
-          );
-        } else {
-          const parsed = JSON.parse(cachedResources);
-          setFolders(parsed);
-          setLoading(false);
+        const res = await fetch("/api/drive-resources");
+        if (!res.ok) {
+          throw new Error("Failed to fetch from server");
         }
+        const data = await res.json();
+        setFolders(Array.isArray(data) ? pruneEmptyFolders(data) : []);
+        localStorage.removeItem("mathsoc_resources"); // cleaning up localstorage, can remove after a while
+        localStorage.removeItem("lastModifiedTime");
+        localStorage.removeItem("resource_cache_timestamp");
       } catch (error) {
-        console.error("Error comparing last modified times:", error);
-        await buildFolderStructure();
+        console.error("Error loading resources: ", error);
+        setError("Failed to load resources. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchAndCompareLastModifiedTimes();
+    loadResources();
   }, []);
 
   // Loading page
@@ -339,16 +504,8 @@ const Resources: React.FC = () => {
       const folderMatches = folder.name.toLowerCase().includes(searchQuery);
 
       const matchedSubfolders = folder.subfolders
-        .map((sub) => ({
-          ...sub,
-          files: sub.files.filter((file) =>
-            file.name.toLowerCase().includes(searchQuery)
-          ),
-        }))
-        .filter(
-          (sub) =>
-            sub.name.toLowerCase().includes(searchQuery) || sub.files.length > 0
-        );
+        .map((sub) => filterSubfolder(sub, searchQuery))
+        .filter((sub): sub is Subfolder => sub !== null);
 
       // If the folder matches, include all its subfolders
       if (folderMatches) {
@@ -488,7 +645,7 @@ const Resources: React.FC = () => {
                               .sort((a, b) => a.name.localeCompare(b.name))
                               .map((subfolder, index) => (
                                 <motion.div
-                                  key={subfolder.id}
+                                  key={`${subfolder.id}-${searchQuery}`}
                                   initial={{ opacity: 0, y: 20 }}
                                   animate={{ opacity: 1, y: 0 }}
                                   transition={{
@@ -497,127 +654,7 @@ const Resources: React.FC = () => {
                                     ease: "easeOut",
                                   }}
                                 >
-                                  <Card
-                                    key={subfolder.id}
-                                    className="bg-[#272F45] border-[#556080] rounded-lg"
-                                  >
-                                    {/* Subfolder name */}
-                                    <CardHeader className="flex flex-row justify-between py-2 md:py-5 bg-[#1F2537] rounded-t-lg px-4 xl:px-6">
-                                      <CardTitle className="text-white text-sm md:text-lg flex items-center space-x-2">
-                                        <span>{subfolder.name}</span>
-                                      </CardTitle>
-                                      <div className="flex space-x-1 pb-1 md:pb-0">
-                                        <Button
-                                          size="sm"
-                                          variant="ghost"
-                                          className="text-white hover:bg-[#333e59] p-2"
-                                          onClick={() =>
-                                            window.open(
-                                              `https://drive.google.com/drive/folders/${subfolder.id}`,
-                                              "_blank"
-                                            )
-                                          }
-                                        >
-                                          <SquareArrowOutUpRight className="w-4 h-4" />
-                                        </Button>
-                                      </div>
-                                    </CardHeader>
-
-                                    {/* Subfolder content */}
-                                    <CardContent className="pt-4 px-4 xl:px-6">
-                                      {/* Number of resources */}
-                                      <div className="flex items-center justify-between mb-4">
-                                        <span className="text-white font-medium text-sm md:text-base">
-                                          Files
-                                        </span>
-                                        <Badge
-                                          variant="secondary"
-                                          className="bg-[#2b52c8] text-white text-xs"
-                                        >
-                                          {subfolder.files.length} Resource
-                                          {subfolder.files.length !== 1
-                                            ? "s"
-                                            : ""}
-                                        </Badge>
-                                      </div>
-
-                                      {/* Subfolder files */}
-                                      <div className="space-y-2 max-h-60 overflow-y-auto">
-                                        {/* Each file */}
-                                        {subfolder.files.length > 0 ? (
-                                          subfolder.files
-                                            .sort((a, b) =>
-                                              a.name.localeCompare(b.name)
-                                            )
-                                            .map((file) => (
-                                              <div
-                                                key={file.id}
-                                                className="flex items-center justify-between bg-[#556080] rounded-lg p-2 md:p-3"
-                                              >
-                                                <div className="flex items-center space-x-2 flex-1 min-w-0">
-                                                  {/* File name */}
-                                                  <span
-                                                    className="text-white text-xs md:text-sm truncate"
-                                                    title={file.name
-                                                      .replaceAll("_", " ")
-                                                      .replaceAll("-", " ")
-                                                      .replace(".pdf", "")}
-                                                  >
-                                                    {file.name
-                                                      .replaceAll("_", "/")
-                                                      .replaceAll("-", " ")
-                                                      .replace(".pdf", "")
-                                                      .replaceAll(
-                                                        `${subfolder.name}`,
-                                                        ""
-                                                      )
-                                                      .replaceAll("/", " ")}
-                                                  </span>
-                                                </div>
-
-                                                {/* Open and download buttons */}
-                                                <div className="flex space-x-1 ml-2">
-                                                  {file.webViewLink && (
-                                                    <Button
-                                                      size="sm"
-                                                      variant="ghost"
-                                                      className="text-white hover:bg-[#333e59] p-1 md:p-2"
-                                                      onClick={() =>
-                                                        window.open(
-                                                          file.webViewLink,
-                                                          "_blank"
-                                                        )
-                                                      }
-                                                    >
-                                                      <SquareArrowOutUpRight className="w-4 h-4" />
-                                                    </Button>
-                                                  )}
-                                                  {file.webContentLink && (
-                                                    <Button
-                                                      size="sm"
-                                                      variant="ghost"
-                                                      className="text-white hover:bg-[#333e59] p-1 md:p-2"
-                                                      onClick={() =>
-                                                        window.open(
-                                                          file.webContentLink,
-                                                          "_blank"
-                                                        )
-                                                      }
-                                                    >
-                                                      <Download className="w-4 h-4" />
-                                                    </Button>
-                                                  )}
-                                                </div>
-                                              </div>
-                                            ))
-                                        ) : (
-                                          <div className="text-gray-400 text-sm text-center py-4">
-                                            No files found in this folder
-                                          </div>
-                                        )}
-                                      </div>
-                                    </CardContent>
-                                  </Card>
+                                  <SubfolderCard subfolder={subfolder} />
                                 </motion.div>
                               ))}
                           </div>

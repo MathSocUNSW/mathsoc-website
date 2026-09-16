@@ -86,9 +86,8 @@ export const Navbar = () => {
                         <Link href="/resources" className="hover:text-[#2390c6]">Resources</Link>
                         <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
                         <Link href="/contact-us" className="text-center hover:text-[#2390c6]">Contact Us</Link>
-                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
-                            Shop
-                        </Link>
+                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">Shop</Link>
+                        <Link href="https://academics.unswmathsoc.org/" className="hover:text-[#2390c6] flex flex-row">Academics Portal</Link>
                     </div>
                 </div>
 
@@ -127,9 +126,8 @@ export const Navbar = () => {
                         <Link href="/resources" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Resources</Link>
                         <Link href="/sponsors" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Sponsors</Link>
                         <Link href="/contact-us" className="py-2 text-white hover:underline" onClick={() => setIsOpen(false)}>Contact Us</Link>
-                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">
-                            Shop
-                        </Link>
+                        <Link href="https://unswmathsoc.square.site/" className="hover:text-[#2390c6] flex flex-row">Shop</Link>
+                        <Link href="https://academics.unswmathsoc.org/" className="hover:text-[#2390c6] flex flex-row">Academics Portal</Link>
                     </motion.div>
                 )}
             </AnimatePresence>
