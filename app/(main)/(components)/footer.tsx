@@ -13,6 +13,7 @@ export const Footer = () => {
                         <Link href="/about-us" className="hover:text-[#2390c6]">About Us</Link>
                         <Link href="/events" className="hover:text-[#2390c6]">Events</Link>
                         <Link href="/resources" className="hover:text-[#2390c6]">Resources</Link>
+                        <Link href="/projects" className="hover:text-[#2390c6]">Projects</Link>
                         <Link href="/sponsors" className="hover:text-[#2390c6]">Sponsors</Link>
                         <Link href="/contact-us" className="hover:text-[#2390c6]">Contact Us</Link>
                     </nav>

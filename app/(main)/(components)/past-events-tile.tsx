@@ -71,9 +71,9 @@ export default function PastEventsGrid() {
             <Image
               src={event.eventImage}
               alt={event.imageDescription}
-              layout="fill"
-              objectFit="cover"
-              className="absolute inset-0"
+              fill
+              sizes="(max-width: 768px) 100vw, 448px"
+              className="object-cover"
             />
           </div>
           <div className="p-6 flex-grow flex flex-col">

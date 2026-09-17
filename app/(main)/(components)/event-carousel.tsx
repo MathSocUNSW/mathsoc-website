@@ -149,11 +149,11 @@ export default function EventCarousel() {
                     <Image
                       src={event.eventImage}
                       alt={event.imageDescription}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 448px"
                       loading="eager"
                       priority={index < 3}
-                      className="absolute inset-0 transition-opacity duration-500 opacity-0"
+                      className="object-cover transition-opacity duration-500 opacity-0"
                       onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
                     />
                   </div>

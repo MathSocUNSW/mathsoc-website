@@ -42,3 +42,6 @@ next-env.d.ts
 
 # prettier
 .prettierignore
+
+# for the future vibe-coders
+.claude

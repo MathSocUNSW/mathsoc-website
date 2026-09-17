@@ -125,6 +125,7 @@ const Sponsors: React.FC = () => {
                         src={sponsor.src}
                         alt={sponsor.name}
                         fill
+                        sizes="250px"
                         className="object-contain"
                       />
                     </div>

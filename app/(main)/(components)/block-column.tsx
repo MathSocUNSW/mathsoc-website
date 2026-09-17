@@ -34,6 +34,7 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
                 src={image}
                 alt={heading}
                 fill
+                sizes="(max-width: 768px) 100vw, 512px"
                 className="object-cover w-full h-full"
               />
             </div>
@@ -60,6 +61,7 @@ export const BlockColumn: React.FC<BlockColumnProps> = ({
                 src={image}
                 alt={heading}
                 fill
+                sizes="(max-width: 768px) 100vw, 512px"
                 className="object-cover w-full h-full"
               />
             </div>
