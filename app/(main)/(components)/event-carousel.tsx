@@ -12,10 +12,12 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
+// Adjusting for mobile
+const CENTRE_WHEN_FITS = ["", "justify-center", "md:justify-center", "lg:justify-center", "xl:justify-center"];
+
 export default function EventCarousel({ events }: { events: EventDetails[] }) {
   const plugin = React.useRef(
-    // Pauses while hovered or dragged and resumes afterwards; does nothing when all events fit on screen
-    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   const futureEvents = events.filter(
@@ -38,7 +40,7 @@ export default function EventCarousel({ events }: { events: EventDetails[] }) {
       >
         <CarouselContent
           className={`flex items-stretch overflow-visible ${
-            futureEvents.length < 4 ? "justify-center" : ""
+            CENTRE_WHEN_FITS[futureEvents.length] ?? ""
           }`}
         >
           {futureEvents.map((event, index) => (
@@ -46,7 +48,6 @@ export default function EventCarousel({ events }: { events: EventDetails[] }) {
               key={index}
               className="
                 w-full
-                sm:basis-1/1
                 md:basis-1/2
                 lg:basis-1/3
                 xl:basis-1/4
