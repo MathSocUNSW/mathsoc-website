@@ -23,7 +23,7 @@ const fetchFBEventData = async (): Promise<FBEvent[]> => {
   const url = `https://graph.facebook.com/v16.0/unswmathsoc/events?fields=name,id,description,cover,place,start_time,end_time&access_token=${token}`;
   
   try {
-    const res = await fetch(url, { method: "GET" });
+    const res = await fetch(url, { method: "GET", next: { revalidate: 3600 } }); // 1 hr cache
     if (!res.ok) {
       console.error("Facebook API HTTP error:", res.status, res.statusText);
       return [];

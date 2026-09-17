@@ -16,9 +16,7 @@ interface EventsClientProps {
   events: EventDetails[];
 }
 
-const EventsClient: React.FC<EventsClientProps> = () => {
-  // Prevent re-renders by memoizing the event data
-
+const EventsClient: React.FC<EventsClientProps> = ({ events }) => {
   return (
     <motion.section initial="hidden" animate="visible" variants={fadeInVariant}>
       {/* Hero Section */}
@@ -58,7 +56,7 @@ const EventsClient: React.FC<EventsClientProps> = () => {
           <p className="text-xl mt-2">Stay updated with the latest happenings!</p>
         </motion.div>
 
-        <EventCarousel />
+        <EventCarousel events={events} />
 
         {/* Past Events Section */}
         <motion.div 
@@ -72,7 +70,7 @@ const EventsClient: React.FC<EventsClientProps> = () => {
           <p className="text-xl mt-2">Revisiting some of our best moments</p>
         </motion.div>
 
-        <PastEventsGrid />
+        <PastEventsGrid events={events} />
       </div>
     </motion.section>
   );

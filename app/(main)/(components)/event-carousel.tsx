@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { EventDetails } from "../(data)/evenData";
-import { fetchEvents } from "../../../lib/api";
+import React from "react";
+import { EventDetails, formatEventTime } from "../(data)/evenData";
 import {
   Carousel,
   CarouselContent,
@@ -13,84 +12,10 @@ import {
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 
-// Skeleton loader for event cards
-const SkeletonCard = () => (
-  <div className="block w-full transform cursor-pointer">
-    <div className="w-full max-w-md h-full mx-auto rounded-lg shadow-lg opacity-90 bg-gray-700 overflow-hidden flex flex-col animate-pulse">
-      {/* Event Image Skeleton */}
-      <div className="relative w-full h-48 bg-gray-500"></div>
-
-      {/* Card body skeleton */}
-      <div className="p-6 flex-grow flex flex-col space-y-3">
-        <div className="h-6 bg-gray-500 rounded w-3/4"></div>
-        <div className="h-4 bg-gray-500 rounded w-1/2"></div>
-        <div className="h-4 bg-gray-500 rounded w-2/3"></div>
-      </div>
-    </div>
-  </div>
-);
-
-export default function EventCarousel() {
-  const [events, setEvents] = useState<EventDetails[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+export default function EventCarousel({ events }: { events: EventDetails[] }) {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await fetchEvents();
-  
-        // Preload all images before setting state
-        const preloadImages = data.map((event) =>
-          new Promise<void>((resolve, reject) => {
-            const img = new window.Image();
-            img.src = event.eventImage;
-            img.onload = () => resolve();
-            img.onerror = () => reject();
-          })
-        );
-  
-        await Promise.all(preloadImages);
-        setEvents(data); // Now the carousel will show all images instantly
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
-  
-  if (isLoading) {
-    return (
-      <div className="w-screen overflow-visible py-8 relative">
-        <Carousel opts={{ loop: true, slidesToScroll: 1 }}>
-          <CarouselContent className="flex items-stretch overflow-visible justify-center">
-            {Array.from({ length: 5 }).map((_, index) => (
-              <CarouselItem
-                key={index}
-                className="
-                  w-full
-                  sm:basis-1/1
-                  md:basis-1/2
-                  lg:basis-1/3
-                  xl:basis-1/4
-                  py-4
-                  flex
-                "
-              >
-                <SkeletonCard />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-
-          <CarouselPrevious className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10" />
-          <CarouselNext className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10" />
-        </Carousel>
-      </div>
-    );
-  }
 
   const futureEvents = events.filter(
     (event) => new Date(event.startTime).getTime() > Date.now()
@@ -151,8 +76,6 @@ export default function EventCarousel() {
                       alt={event.imageDescription}
                       fill
                       sizes="(max-width: 768px) 100vw, 448px"
-                      loading="eager"
-                      priority={index < 3}
                       className="object-cover transition-opacity duration-500 opacity-0"
                       onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
                     />
@@ -165,7 +88,7 @@ export default function EventCarousel() {
                       {event.locationLabel || "Location not specified"}
                     </p>
                     <p className="text-sm text-white">
-                      {new Date(event.startTime).toLocaleString()}
+                      {formatEventTime(event.startTime)}
                     </p>
                   </div>
                 </div>

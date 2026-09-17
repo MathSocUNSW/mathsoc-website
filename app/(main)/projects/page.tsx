@@ -94,6 +94,7 @@ const Projects = () => {
           className="w-full h-full object-cover"
           width={5181}
           height={3454}
+          sizes="100vw"
           priority
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">

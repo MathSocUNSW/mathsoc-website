@@ -104,6 +104,9 @@ class WavesClass {
   public centerX = 0;
   public centerY = 0;
   public color = "rgba(0, 0, 255, 0.27)";
+  private frameId: number | null = null;
+  private observer: IntersectionObserver;
+  private onResize = () => this.resize();
 
   constructor(holder: string, userOptions: Partial<WavesOptions>) {
     this.options = { ...defaultWavesOptions, ...userOptions };
@@ -116,9 +119,14 @@ class WavesClass {
     this.resize();
     this.init();
     if (this.options.resize) {
-      window.addEventListener("resize", this.resize.bind(this));
+      window.addEventListener("resize", this.onResize);
     }
-    this.animate();
+    // Only animate while the waves are on screen
+    this.observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) this.start();
+      else this.stop();
+    });
+    this.observer.observe(this.holder);
   }
 
   public init() {
@@ -127,9 +135,25 @@ class WavesClass {
     }
   }
 
-  public animate() {
+  public animate = () => {
     this.render();
-    requestAnimationFrame(this.animate.bind(this));
+    this.frameId = requestAnimationFrame(this.animate);
+  };
+
+  public start() {
+    if (this.frameId === null) this.frameId = requestAnimationFrame(this.animate);
+  }
+
+  public stop() {
+    if (this.frameId !== null) cancelAnimationFrame(this.frameId);
+    this.frameId = null;
+  }
+
+  public destroy() {
+    this.stop();
+    this.observer.disconnect();
+    window.removeEventListener("resize", this.onResize);
+    this.canvas.remove();
   }
 
   public render() {
@@ -156,13 +180,15 @@ const Wave: React.FC<{ containerId?: string; rotation?: number }> = ({ container
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       if (!wavesInstance.current) {
         wavesInstance.current = new WavesClass(`#${containerId}`, { rotation });
       }
     }, 100);
 
     return () => {
+      clearTimeout(timeout);
+      wavesInstance.current?.destroy();
       wavesInstance.current = null;
     };
   }, [containerId, rotation]);

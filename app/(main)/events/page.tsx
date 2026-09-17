@@ -3,6 +3,9 @@ import EventsClient from "../(components)/event-client";
 import { fetchEvents } from "../../../lib/api";
 import { EventDetails } from "../(data)/evenData";
 
+// Re-fetch Facebook events at most once an hour
+export const revalidate = 3600;
+
 // Cache the API request to prevent excessive calls
 const getCachedEvents = cache(async () => {
   try {
