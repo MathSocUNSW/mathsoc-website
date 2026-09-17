@@ -151,7 +151,7 @@ export default function Home() {
         <BlockColumn
           heading="Building Community, Careers, and Academic Excellence"
           content="We support students by enhancing the sense of community amongst mathematics students, informing students of career opportunities, and providing academic forums and resources for students. With over 5000 members, we are one of the largest societies at UNSW."
-          image="/images/photos/bod.jpg"
+          image="/images/photos/bod2026.png"
           imagePosition="right"
         />
         <h2 className="text-2xl font-bold mt-12 z-10 text-center">Our Impact in Numbers</h2>
