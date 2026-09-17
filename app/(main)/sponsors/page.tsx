@@ -69,6 +69,8 @@ const Sponsors: React.FC = () => {
           className="w-full h-full object-cover"
           width={5181}
           height={3454}
+          sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <motion.h1 className="text-4xl p-2 font-bold text-white text-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
