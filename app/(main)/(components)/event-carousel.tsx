@@ -14,7 +14,8 @@ import Image from "next/image";
 
 export default function EventCarousel({ events }: { events: EventDetails[] }) {
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    // Pauses while hovered or dragged and resumes afterwards; does nothing when all events fit on screen
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   const futureEvents = events.filter(
@@ -34,8 +35,6 @@ export default function EventCarousel({ events }: { events: EventDetails[] }) {
       <Carousel
         plugins={[plugin.current]}
         opts={{ loop: true, slidesToScroll: 1 }}
-        onMouseEnter={plugin.current.stop}
-        onMouseLeave={() => plugin.current.play()}
       >
         <CarouselContent
           className={`flex items-stretch overflow-visible ${
