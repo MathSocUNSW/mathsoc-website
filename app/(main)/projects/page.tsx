@@ -12,12 +12,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 interface Project {
   title: string;
   description: string;
-  href: string;
   icon: LucideIcon;
-  comingSoon?: boolean;
+  // Omit until the project is live; the card then shows "Coming Soon"
+  href?: string;
 }
 
-// TODO: replace the "#" placeholders once Quant Minigames and Lab Test Practice are live
 const projects: Project[] = [
   {
     title: "MathSoc Weekly Puzzles",
@@ -28,22 +27,32 @@ const projects: Project[] = [
   {
     title: "Quant Minigames",
     description: "Quick-fire mental maths and probability games to prepare you for quant trading interviews.",
-    href: "#",
     icon: TrendingUp,
-    comingSoon: true,
   },
   {
     title: "Lab Test Practice",
     description: "Practise for your course lab tests with questions modelled on the real thing.",
-    href: "#",
     icon: FlaskConical,
-    comingSoon: true,
   },
 ];
 
+// Live projects open in a new tab; unreleased ones render without a link or hover effects
+const ProjectLink: React.FC<{ href?: string; children: React.ReactNode }> = ({ href, children }) =>
+  href ? (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block h-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2390c6]"
+    >
+      {children}
+    </Link>
+  ) : (
+    <div className="h-full">{children}</div>
+  );
+
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
-  const { title, description, href, icon: Icon, comingSoon } = project;
-  const isExternal = href.startsWith("http");
+  const { title, description, href, icon: Icon } = project;
 
   return (
     <motion.div
@@ -53,18 +62,13 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       viewport={{ once: true }}
       className="h-full"
     >
-      <Link
-        href={href}
-        target={isExternal ? "_blank" : undefined}
-        rel={isExternal ? "noopener noreferrer" : undefined}
-        className="group block h-full rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2390c6]"
-      >
+      <ProjectLink href={href}>
         <Card className="h-full flex flex-col bg-[#272F45] border-[#556080] rounded-lg transition-all duration-300 group-hover:-translate-y-1 group-hover:border-[#2390c6] group-hover:shadow-lg group-hover:shadow-[#004aad]/30">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 bg-[#1F2537] rounded-t-lg px-6 py-5">
             <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#004aad] text-white">
               <Icon className="w-6 h-6" />
             </div>
-            {comingSoon ? (
+            {!href ? (
               <Badge variant="secondary" className="bg-[#333e59] text-[#9ca3af] text-xs">
                 Coming Soon
               </Badge>
@@ -79,7 +83,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
             <p className="text-[#cbd5e1] text-base">{description}</p>
           </CardContent>
         </Card>
-      </Link>
+      </ProjectLink>
     </motion.div>
   );
 };
@@ -105,7 +109,7 @@ const Projects = () => {
       </motion.div>
 
       <div className="relative">
-        <Wave containerId="projects-wave" rotation={0} />
+        <Wave rotation={0} />
 
         <motion.section
           initial={{ opacity: 0, y: 50 }}

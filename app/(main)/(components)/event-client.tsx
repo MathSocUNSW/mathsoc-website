@@ -42,7 +42,7 @@ const EventsClient: React.FC<EventsClientProps> = ({ events }) => {
 
       {/* Background Wave Effect */}
       <div className="relative">
-        <Wave containerId="events-wave" rotation={135} />
+        <Wave rotation={135} />
 
         {/* Upcoming Events Section */}
         <motion.div 

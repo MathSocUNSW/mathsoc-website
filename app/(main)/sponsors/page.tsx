@@ -80,7 +80,7 @@ const Sponsors: React.FC = () => {
       </motion.div>
       
       <div className="relative">
-        <Wave containerId="sponsors-wave" rotation={0} />
+        <Wave rotation={0} />
 
         <motion.section
           initial={{ opacity: 0, y: 50 }}

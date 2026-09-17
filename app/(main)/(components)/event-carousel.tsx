@@ -35,7 +35,7 @@ export default function EventCarousel({ events }: { events: EventDetails[] }) {
         plugins={[plugin.current]}
         opts={{ loop: true, slidesToScroll: 1 }}
         onMouseEnter={plugin.current.stop}
-        onMouseLeave={() => plugin.current?.play}
+        onMouseLeave={() => plugin.current.play()}
       >
         <CarouselContent
           className={`flex items-stretch overflow-visible ${

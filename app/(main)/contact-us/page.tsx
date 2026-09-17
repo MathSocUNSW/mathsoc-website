@@ -61,7 +61,7 @@ const ContactUs: React.FC = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0"
       >
-        <Wave containerId="holder1" rotation={45} />
+        <Wave rotation={45} />
       </motion.div>
 
       {/* Heading Animation */}

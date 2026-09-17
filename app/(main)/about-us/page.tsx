@@ -216,7 +216,7 @@ const About: React.FC = () => {
       </motion.div>
 
       <div className="relative">
-        <Wave containerId="about-wave" rotation={0} />
+        <Wave rotation={0} />
 
         <motion.section
         initial={{ opacity: 0, y: 50 }}

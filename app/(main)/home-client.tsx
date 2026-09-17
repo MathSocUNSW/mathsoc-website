@@ -87,7 +87,7 @@ export default function HomeClient({ events }: { events: EventDetails[] }) {
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0"
         >
-          <Wave containerId="holder1" rotation={140} />
+          <Wave rotation={140} />
         </motion.div>
 
         {/* Hero Content */}
@@ -180,7 +180,7 @@ export default function HomeClient({ events }: { events: EventDetails[] }) {
         className="relative w-full min-h-[500px] py-16 sm:py-20 flex flex-col items-center px-6 sm:px-12 lg:px-16"
       >
         <h2 className="text-4xl font-bold text-center mt-16 mb-8 z-10">Upcoming Events</h2>
-        <Wave containerId="holder2" rotation={135} />
+        <Wave rotation={135} />
         <EventCarousel events={events} />
       </motion.section>
 
@@ -305,7 +305,7 @@ export default function HomeClient({ events }: { events: EventDetails[] }) {
         viewport={{ once: true }}
         className="relative w-full min-h-[400px] flex flex-col items-center justify-center px-6 sm:px-12 lg:px-16 py-20"
       >
-        <Wave containerId="holder3" />
+        <Wave />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

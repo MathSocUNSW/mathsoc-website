@@ -5,31 +5,19 @@ import React, { useEffect, useRef } from "react";
 const pi2 = 2 * Math.PI;
 
 interface WavesOptions {
-  resize: boolean;
   rotation: number;
   waves: number;
   width: number;
-  hue: [number, number];
   amplitude: number;
-  background: boolean;
-  preload: boolean;
   speed: [number, number];
-  debug: boolean;
-  fps: boolean;
 }
 
 const defaultWavesOptions: WavesOptions = {
-  resize: true,
   rotation: 45,
   waves: 5,
   width: 100,
-  hue: [14, 14],
   amplitude: 0.5,
-  background: false,
-  preload: true,
   speed: [0.005, 0.012],
-  debug: false,
-  fps: false,
 };
 
 function rnd(min: number, max?: number): number {
@@ -105,28 +93,23 @@ class WavesClass {
   public centerY = 0;
   public color = "rgba(0, 0, 255, 0.27)";
   private frameId: number | null = null;
-  private observer: IntersectionObserver;
-  private onResize = () => this.resize();
+  private resizeObserver = new ResizeObserver(() => this.resize());
+  // Only animate while the waves are on screen
+  private visibilityObserver = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) this.start();
+    else this.stop();
+  });
 
-  constructor(holder: string, userOptions: Partial<WavesOptions>) {
+  constructor(holder: HTMLElement, userOptions: Partial<WavesOptions>) {
     this.options = { ...defaultWavesOptions, ...userOptions };
-    const element = document.querySelector(holder);
-    if (!element) throw new Error(`Element '${holder}' not found.`);
-    this.holder = element as HTMLElement;
+    this.holder = holder;
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d")!;
     this.holder.appendChild(this.canvas);
-    this.resize();
     this.init();
-    if (this.options.resize) {
-      window.addEventListener("resize", this.onResize);
-    }
-    // Only animate while the waves are on screen
-    this.observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) this.start();
-      else this.stop();
-    });
-    this.observer.observe(this.holder);
+    // Fires once on observe, which sets the initial canvas size
+    this.resizeObserver.observe(this.holder);
+    this.visibilityObserver.observe(this.holder);
   }
 
   public init() {
@@ -151,8 +134,8 @@ class WavesClass {
 
   public destroy() {
     this.stop();
-    this.observer.disconnect();
-    window.removeEventListener("resize", this.onResize);
+    this.resizeObserver.disconnect();
+    this.visibilityObserver.disconnect();
     this.canvas.remove();
   }
 
@@ -175,25 +158,15 @@ class WavesClass {
   }
 }
 
-const Wave: React.FC<{ containerId?: string; rotation?: number }> = ({ containerId = "wave-holder", rotation = 45 }) => {
-  const wavesInstance = useRef<WavesClass | null>(null);
+const Wave: React.FC<{ rotation?: number }> = ({ rotation = 45 }) => {
+  const holderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const timeout = setTimeout(() => {
-      if (!wavesInstance.current) {
-        wavesInstance.current = new WavesClass(`#${containerId}`, { rotation });
-      }
-    }, 100);
+    const waves = new WavesClass(holderRef.current!, { rotation });
+    return () => waves.destroy();
+  }, [rotation]);
 
-    return () => {
-      clearTimeout(timeout);
-      wavesInstance.current?.destroy();
-      wavesInstance.current = null;
-    };
-  }, [containerId, rotation]);
-
-  return <div id={containerId} style={{ position: "absolute", width: "100%", height: "100%", overflow: "hidden", background: "transparent" }} />;
+  return <div ref={holderRef} style={{ position: "absolute", width: "100%", height: "100%", overflow: "hidden", background: "transparent" }} />;
 };
 
 export default Wave;
