@@ -1,49 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { EventDetails } from "../(data)/evenData"; // Adjust path if needed
-import { fetchEvents } from "../../../lib/api";   // Adjust path to your API fetch
+import React from "react";
+import { EventDetails, formatEventTime } from "../(data)/evenData"; // Adjust path if needed
 import Image from "next/image";
 
-// Skeleton loader for event cards
-const SkeletonCard = () => (
-  <div className="w-full max-w-md h-full rounded-lg shadow-lg bg-gray-700 opacity-90 ite overflow-hidden animate-pulse flex flex-col">
-    <div className="w-full h-48 bg-gray-300"></div>
-    <div className="p-6 flex-grow space-y-4">
-      <div className="h-4 bg-gray-300 rounded w-3/4"></div>
-      <div className="h-3 bg-gray-300 rounded w-1/2"></div>
-      <div className="h-3 bg-gray-300 rounded w-1/3"></div>
-    </div>
-  </div>
-);
-
-export default function PastEventsGrid() {
-  const [events, setEvents] = useState<EventDetails[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const data = await fetchEvents();
-        setEvents(data);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    })();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-6">
-        {Array.from({ length: 6 }).map((_, index) => (
-          <SkeletonCard key={index} />
-        ))}
-      </div>
-    );
-  }
-
+export default function PastEventsGrid({ events }: { events: EventDetails[] }) {
   const pastEvents = events.filter(
     (event) => new Date(event.startTime).getTime() < Date.now()
   );
@@ -71,9 +32,9 @@ export default function PastEventsGrid() {
             <Image
               src={event.eventImage}
               alt={event.imageDescription}
-              layout="fill"
-              objectFit="cover"
-              className="absolute inset-0"
+              fill
+              sizes="(max-width: 768px) 100vw, 448px"
+              className="object-cover"
             />
           </div>
           <div className="p-6 flex-grow flex flex-col">
@@ -84,7 +45,7 @@ export default function PastEventsGrid() {
               {event.locationLabel || "Location not specified"}
             </p>
             <p className="text-sm text-white">
-              {new Date(event.startTime).toLocaleString()}
+              {formatEventTime(event.startTime)}
             </p>
           </div>
         </a>

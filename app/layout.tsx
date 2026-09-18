@@ -7,6 +7,12 @@ const inter = Inter({ subsets: ["latin" ]});
 export const metadata: Metadata = {
     title: "UNSW MathSoc | Advancing Mathematics and Careers",
     description: "The UNSW Mathematics Society",
+    icons: {
+        icon: [
+            { url: "/icon-light.png", type: "image/png", sizes: "256x256", media: "(prefers-color-scheme: light)" },
+            { url: "/icon-dark.png", type: "image/png", sizes: "256x256", media: "(prefers-color-scheme: dark)" },
+        ],
+    },
 };
 
 export default function RootLayout({

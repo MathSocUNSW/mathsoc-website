@@ -11,10 +11,12 @@ interface FBEvent {
   end_time?: string;
 }
 
+// How often Facebook events are re-fetched; pages using them regenerate on the same interval
+const EVENTS_REVALIDATE_SECONDS = 300;
+
+// Server-only: import from server components so the token never reaches the browser
 const fetchFBEventData = async (): Promise<FBEvent[]> => {
-  // Check the token
   const token = process.env.NEXT_PUBLIC_FB_API_TOKEN;  
-  console.log("Facebook API Token:", token);
 
   if (!token) {
     console.error("No token found. Make sure NEXT_PUBLIC_FB_API_TOKEN is set in .env!");
@@ -24,7 +26,7 @@ const fetchFBEventData = async (): Promise<FBEvent[]> => {
   const url = `https://graph.facebook.com/v16.0/unswmathsoc/events?fields=name,id,description,cover,place,start_time,end_time&access_token=${token}`;
   
   try {
-    const res = await fetch(url, { method: "GET" });
+    const res = await fetch(url, { method: "GET", next: { revalidate: EVENTS_REVALIDATE_SECONDS } });
     if (!res.ok) {
       console.error("Facebook API HTTP error:", res.status, res.statusText);
       return [];
@@ -35,8 +37,6 @@ const fetchFBEventData = async (): Promise<FBEvent[]> => {
       console.error("Error fetching data from Facebook API:", resJSON.error);
       return [];
     }
-
-    console.log("Fetched data:", resJSON);
     return resJSON.data as FBEvent[]; // Explicitly cast response data to `FBEvent[]`
   } catch (err) {
     console.error("Error during API call:", err);
@@ -50,7 +50,7 @@ export const fetchEvents = async (): Promise<EventDetails[]> => {
     eventName: item.name,
     eventLink: `https://www.facebook.com/events/${item.id}`,
     eventDescription: item.description || "No description available.",
-    eventImage: item.cover?.source || "/images/default-event-image.jpg",
+    eventImage: item.cover?.source || "/images/placeholder.png",
     imageDescription: `${item.name} Promotional Image`,
     locationLabel: item.place?.name || "Location not specified",
     startTime: item.start_time,

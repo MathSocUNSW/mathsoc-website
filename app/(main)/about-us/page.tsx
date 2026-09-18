@@ -45,7 +45,6 @@ const TeamMemberCard: React.FC<{ member: Member }> = ({ member }) => {
               width={128}
               height={128}
               className="w-32 h-32 object-cover rounded-full"
-              unoptimized // If the images are from an unsupported domain
               onError={() => setImageSrc("/images/placeholder.png")} // Fallback if image fails
             />
           </div>
@@ -208,6 +207,8 @@ const About: React.FC = () => {
           className="w-full h-full object-cover"
           width={5181}
           height={3454}
+          sizes="100vw"
+          priority
          />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <motion.h1 className="text-4xl font-bold text-white" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>About Us</motion.h1>
@@ -215,7 +216,7 @@ const About: React.FC = () => {
       </motion.div>
 
       <div className="relative">
-        <Wave containerId="about-wave" rotation={0} />
+        <Wave rotation={0} />
 
         <motion.section
         initial={{ opacity: 0, y: 50 }}

@@ -378,6 +378,8 @@ const Resources: React.FC = () => {
             className="w-full h-full object-cover"
             width={5181}
             height={3454}
+            sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <motion.h1
@@ -467,6 +469,8 @@ const Resources: React.FC = () => {
             className="w-full h-full object-cover"
             width={5181}
             height={3454}
+            sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <motion.h1
@@ -546,6 +550,8 @@ const Resources: React.FC = () => {
           className="w-full h-full object-cover"
           width={5181}
           height={3454}
+          sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <motion.h1
@@ -560,7 +566,7 @@ const Resources: React.FC = () => {
       </motion.div>
 
       <div className="relative">
-        <Wave containerId="about-wave" rotation={0} />
+        <Wave rotation={0} />
 
         <motion.section
           initial={{ opacity: 0, y: 50 }}

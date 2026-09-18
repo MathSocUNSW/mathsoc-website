@@ -16,9 +16,7 @@ interface EventsClientProps {
   events: EventDetails[];
 }
 
-const EventsClient: React.FC<EventsClientProps> = () => {
-  // Prevent re-renders by memoizing the event data
-
+const EventsClient: React.FC<EventsClientProps> = ({ events }) => {
   return (
     <motion.section initial="hidden" animate="visible" variants={fadeInVariant}>
       {/* Hero Section */}
@@ -34,6 +32,8 @@ const EventsClient: React.FC<EventsClientProps> = () => {
           className="w-full h-full object-cover"
           width={5181}
           height={3454}
+          sizes="100vw"
+          priority
         />
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <h1 className="text-4xl font-bold text-white">See What&apos;s On</h1>
@@ -42,7 +42,7 @@ const EventsClient: React.FC<EventsClientProps> = () => {
 
       {/* Background Wave Effect */}
       <div className="relative">
-        <Wave containerId="events-wave" rotation={135} />
+        <Wave rotation={135} />
 
         {/* Upcoming Events Section */}
         <motion.div 
@@ -56,7 +56,7 @@ const EventsClient: React.FC<EventsClientProps> = () => {
           <p className="text-xl mt-2">Stay updated with the latest happenings!</p>
         </motion.div>
 
-        <EventCarousel />
+        <EventCarousel events={events} />
 
         {/* Past Events Section */}
         <motion.div 
@@ -70,7 +70,7 @@ const EventsClient: React.FC<EventsClientProps> = () => {
           <p className="text-xl mt-2">Revisiting some of our best moments</p>
         </motion.div>
 
-        <PastEventsGrid />
+        <PastEventsGrid events={events} />
       </div>
     </motion.section>
   );
