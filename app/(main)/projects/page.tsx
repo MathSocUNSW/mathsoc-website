@@ -21,7 +21,7 @@ const projects: Project[] = [
   {
     title: "MathSoc Weekly Puzzles",
     description: "Sharpen your problem-solving with a fresh maths puzzle every week, hosted on the MathSoc Academics Portal.",
-    href: "https://academics.unswmathsoc.org/",
+    // href: "https://academics.unswmathsoc.org/",
     icon: Puzzle,
   },
   {
